@@ -24,3 +24,14 @@ C:\Users\Tyler\Source\Repos\TimerPlusPlus\obj\Debug\Timer++.vbprojResolveAssembl
 C:\Users\Tyler\Source\Repos\TimerPlusPlus\obj\Debug\Timer__.frmMain.resources
 C:\Users\Tyler\Source\Repos\TimerPlusPlus\obj\Debug\Timer__.Resources.resources
 C:\Users\Tyler\Source\Repos\TimerPlusPlus\obj\Debug\Timer++.vbproj.GenerateResource.Cache
+C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\bin\Debug\Timer++.exe.config
+C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\obj\Debug\Timer++.exe
+C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\obj\Debug\Timer++.xml
+C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\obj\Debug\Timer++.pdb
+C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\bin\Debug\Timer++.exe
+C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\bin\Debug\Timer++.pdb
+C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\bin\Debug\Timer++.xml
+C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\obj\Debug\Timer++.vbprojResolveAssemblyReference.cache
+C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\obj\Debug\Timer__.frmMain.resources
+C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\obj\Debug\Timer__.Resources.resources
+C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\obj\Debug\Timer++.vbproj.GenerateResource.Cache

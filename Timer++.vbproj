@@ -181,8 +181,6 @@
     <None Include="SplitsDataSet.xss">
       <DependentUpon>SplitsDataSet.xsd</DependentUpon>
     </None>
-    <None Include="stopwatchnewpaused.ico" />
-    <None Include="stopwatchnew.ico" />
     <None Include="stopwatchPaused.ico" />
     <None Include="Resources\stopwatchpaused.ico" />
     <Content Include="stopwatch.ico" />
