@@ -35,6 +35,14 @@ Partial Class frmMain
         Me.btnMinusTime = New System.Windows.Forms.Button()
         Me.btnAddTime = New System.Windows.Forms.Button()
         Me.SplitsDataTableDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewIDColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewDescriptionColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewStartTimeColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewStopTimeColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTimeWorkedColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewRecordedColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.SplitsDataTableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.SplitsDataSet = New Timer__.SplitsDataSet()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -44,18 +52,10 @@ Partial Class frmMain
         Me.ImportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReviewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ClearSplitsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DataGridViewIDColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewDescriptionColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewStartTimeColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewStopTimeColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTimeWorkedColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewRecordedColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.SplitsDataTableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.SplitsDataSet = New Timer__.SplitsDataSet()
         CType(Me.SplitsDataTableDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.MenuStrip1.SuspendLayout()
         CType(Me.SplitsDataTableBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SplitsDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'lbltimertext
@@ -76,9 +76,9 @@ Partial Class frmMain
         '
         Me.btnpause.Enabled = False
         Me.btnpause.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnpause.Location = New System.Drawing.Point(470, 311)
+        Me.btnpause.Location = New System.Drawing.Point(359, 311)
         Me.btnpause.Name = "btnpause"
-        Me.btnpause.Size = New System.Drawing.Size(275, 48)
+        Me.btnpause.Size = New System.Drawing.Size(335, 48)
         Me.btnpause.TabIndex = 2
         Me.btnpause.Text = "Pause"
         Me.btnpause.UseVisualStyleBackColor = True
@@ -88,7 +88,7 @@ Partial Class frmMain
         Me.btnSplit.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSplit.Location = New System.Drawing.Point(10, 311)
         Me.btnSplit.Name = "btnSplit"
-        Me.btnSplit.Size = New System.Drawing.Size(275, 48)
+        Me.btnSplit.Size = New System.Drawing.Size(335, 48)
         Me.btnSplit.TabIndex = 7
         Me.btnSplit.Text = "Split"
         Me.btnSplit.UseVisualStyleBackColor = True
@@ -104,7 +104,7 @@ Partial Class frmMain
         '
         Me.lbltime.AutoSize = True
         Me.lbltime.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbltime.Location = New System.Drawing.Point(612, 21)
+        Me.lbltime.Location = New System.Drawing.Point(589, 21)
         Me.lbltime.Name = "lbltime"
         Me.lbltime.Size = New System.Drawing.Size(63, 30)
         Me.lbltime.TabIndex = 9
@@ -114,7 +114,7 @@ Partial Class frmMain
         '
         Me.lblwktm.AutoSize = True
         Me.lblwktm.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblwktm.Location = New System.Drawing.Point(606, 46)
+        Me.lblwktm.Location = New System.Drawing.Point(579, 46)
         Me.lblwktm.Name = "lblwktm"
         Me.lblwktm.Size = New System.Drawing.Size(89, 30)
         Me.lblwktm.TabIndex = 10
@@ -134,7 +134,7 @@ Partial Class frmMain
         'btnMinusTime
         '
         Me.btnMinusTime.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnMinusTime.Location = New System.Drawing.Point(557, 25)
+        Me.btnMinusTime.Location = New System.Drawing.Point(552, 25)
         Me.btnMinusTime.Name = "btnMinusTime"
         Me.btnMinusTime.Size = New System.Drawing.Size(26, 54)
         Me.btnMinusTime.TabIndex = 14
@@ -144,7 +144,7 @@ Partial Class frmMain
         'btnAddTime
         '
         Me.btnAddTime.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAddTime.Location = New System.Drawing.Point(719, 25)
+        Me.btnAddTime.Location = New System.Drawing.Point(668, 25)
         Me.btnAddTime.Name = "btnAddTime"
         Me.btnAddTime.Size = New System.Drawing.Size(26, 54)
         Me.btnAddTime.TabIndex = 15
@@ -162,68 +162,8 @@ Partial Class frmMain
         Me.SplitsDataTableDataGridView.Location = New System.Drawing.Point(10, 85)
         Me.SplitsDataTableDataGridView.Name = "SplitsDataTableDataGridView"
         Me.SplitsDataTableDataGridView.RowHeadersVisible = False
-        Me.SplitsDataTableDataGridView.Size = New System.Drawing.Size(735, 220)
+        Me.SplitsDataTableDataGridView.Size = New System.Drawing.Size(684, 220)
         Me.SplitsDataTableDataGridView.TabIndex = 16
-        '
-        'MenuStrip1
-        '
-        Me.MenuStrip1.BackColor = System.Drawing.SystemColors.Control
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.SplitsToolStripMenuItem})
-        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(754, 24)
-        Me.MenuStrip1.TabIndex = 17
-        Me.MenuStrip1.Text = "MenuStrip1"
-        '
-        'FileToolStripMenuItem
-        '
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ExitToolStripMenuItem, Me.AboutToolStripMenuItem})
-        Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
-        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
-        Me.FileToolStripMenuItem.Text = "File"
-        '
-        'ExitToolStripMenuItem
-        '
-        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
-        Me.ExitToolStripMenuItem.Text = "Exit"
-        '
-        'AboutToolStripMenuItem
-        '
-        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
-        Me.AboutToolStripMenuItem.Text = "About"
-        '
-        'SplitsToolStripMenuItem
-        '
-        Me.SplitsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SaveToolStripMenuItem, Me.ImportToolStripMenuItem, Me.ReviewToolStripMenuItem, Me.ClearSplitsToolStripMenuItem})
-        Me.SplitsToolStripMenuItem.Name = "SplitsToolStripMenuItem"
-        Me.SplitsToolStripMenuItem.Size = New System.Drawing.Size(47, 20)
-        Me.SplitsToolStripMenuItem.Text = "Splits"
-        '
-        'SaveToolStripMenuItem
-        '
-        Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
-        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.SaveToolStripMenuItem.Text = "Save"
-        '
-        'ImportToolStripMenuItem
-        '
-        Me.ImportToolStripMenuItem.Name = "ImportToolStripMenuItem"
-        Me.ImportToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.ImportToolStripMenuItem.Text = "Import"
-        '
-        'ReviewToolStripMenuItem
-        '
-        Me.ReviewToolStripMenuItem.Name = "ReviewToolStripMenuItem"
-        Me.ReviewToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.ReviewToolStripMenuItem.Text = "Review"
-        '
-        'ClearSplitsToolStripMenuItem
-        '
-        Me.ClearSplitsToolStripMenuItem.Name = "ClearSplitsToolStripMenuItem"
-        Me.ClearSplitsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.ClearSplitsToolStripMenuItem.Text = "Clear Splits"
         '
         'DataGridViewIDColumn
         '
@@ -285,11 +225,71 @@ Partial Class frmMain
         Me.SplitsDataSet.DataSetName = "SplitsDataSet"
         Me.SplitsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.BackColor = System.Drawing.SystemColors.Control
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.SplitsToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(704, 24)
+        Me.MenuStrip1.TabIndex = 17
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'FileToolStripMenuItem
+        '
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ExitToolStripMenuItem, Me.AboutToolStripMenuItem})
+        Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
+        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
+        Me.FileToolStripMenuItem.Text = "File"
+        '
+        'ExitToolStripMenuItem
+        '
+        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
+        Me.ExitToolStripMenuItem.Text = "Exit"
+        '
+        'AboutToolStripMenuItem
+        '
+        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
+        Me.AboutToolStripMenuItem.Text = "About"
+        '
+        'SplitsToolStripMenuItem
+        '
+        Me.SplitsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SaveToolStripMenuItem, Me.ImportToolStripMenuItem, Me.ReviewToolStripMenuItem, Me.ClearSplitsToolStripMenuItem})
+        Me.SplitsToolStripMenuItem.Name = "SplitsToolStripMenuItem"
+        Me.SplitsToolStripMenuItem.Size = New System.Drawing.Size(47, 20)
+        Me.SplitsToolStripMenuItem.Text = "Splits"
+        '
+        'SaveToolStripMenuItem
+        '
+        Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
+        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SaveToolStripMenuItem.Text = "Save"
+        '
+        'ImportToolStripMenuItem
+        '
+        Me.ImportToolStripMenuItem.Name = "ImportToolStripMenuItem"
+        Me.ImportToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ImportToolStripMenuItem.Text = "Import"
+        '
+        'ReviewToolStripMenuItem
+        '
+        Me.ReviewToolStripMenuItem.Name = "ReviewToolStripMenuItem"
+        Me.ReviewToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ReviewToolStripMenuItem.Text = "Review"
+        '
+        'ClearSplitsToolStripMenuItem
+        '
+        Me.ClearSplitsToolStripMenuItem.Name = "ClearSplitsToolStripMenuItem"
+        Me.ClearSplitsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ClearSplitsToolStripMenuItem.Text = "Clear Splits"
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(754, 368)
+        Me.ClientSize = New System.Drawing.Size(704, 368)
         Me.Controls.Add(Me.SplitsDataTableDataGridView)
         Me.Controls.Add(Me.btnAddTime)
         Me.Controls.Add(Me.btnMinusTime)
@@ -303,15 +303,15 @@ Partial Class frmMain
         Me.Controls.Add(Me.lbltimertext)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
-        Me.MaximumSize = New System.Drawing.Size(770, 408)
-        Me.MinimumSize = New System.Drawing.Size(770, 408)
+        Me.MaximumSize = New System.Drawing.Size(720, 408)
+        Me.MinimumSize = New System.Drawing.Size(720, 408)
         Me.Name = "frmMain"
         Me.Text = "Timer++"
         CType(Me.SplitsDataTableDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.MenuStrip1.ResumeLayout(False)
-        Me.MenuStrip1.PerformLayout()
         CType(Me.SplitsDataTableBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SplitsDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

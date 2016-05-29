@@ -43,25 +43,19 @@
             btnpause.Enabled = True
         Else
             SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewStopTimeColumn").Value = Now.ToShortTimeString
-            'lstvtimes.Items(splits).SubItems.Add(DateAndTime.TimeOfDay)
             Dim time = New TimeSpan(0, 0, worktime)
             SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewTimeWorkedColumn").Value = time
-            'lstvtimes.Items(splits).SubItems.Add(time)
             If chkbxrecorded.Checked = True Then
                 SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewRecordedColumn").Value = True
-                'lstvtimes.Items(splits).SubItems.Add("Yes")
                 chkbxrecorded.Checked = False
             Else
                 SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewRecordedColumn").Value = False
-                'lstvtimes.Items(splits).SubItems.Add("No")
             End If
             splits = splits + 1
             worktime = 0
-            'lstvtimes.Items.Add(txtdesc.Text)
-            'lstvtimes.Items(splits).SubItems.Add(DateAndTime.TimeOfDay)
             SplitsDataSet.SplitsDataTable.Rows.Add(splits, txtdesc.Text, Now.ToShortTimeString)
-            'lstvtimes.Items(splits).EnsureVisible()
             txtdesc.Clear()
+            Me.SplitsDataSet.WriteXml("Days\" & filename)
         End If
     End Sub
 
@@ -137,16 +131,32 @@
     End Sub
 
     Private Sub ImportToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportToolStripMenuItem.Click
-        Me.SplitsDataSet.ReadXml("Days\" & filename)
-        Try
-            splits = SplitsDataSet.SplitsDataTable.Rows(SplitsDataSet.SplitsDataTable.Rows.Count - 1).Item("ID") + 1
-        Catch
+
+        Dim importresult As Integer = MessageBox.Show("Importing Splits will delete the current set!", "Overwrite current splits?", MessageBoxButtons.OKCancel)
+        If importresult = DialogResult.OK Then
+            SplitsDataSet.Clear()
+            Me.SplitsDataSet.ReadXml("Days\" & filename)
+            Try
+                splits = SplitsDataSet.SplitsDataTable.Rows(SplitsDataSet.SplitsDataTable.Rows.Count - 1).Item("ID") + 1
+            Catch
+                Exit Sub
+            End Try
+        Else
             Exit Sub
-        End Try
+        End If
     End Sub
 
     Private Sub ClearSplitsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClearSplitsToolStripMenuItem.Click
-        SplitsDataSet.Clear()
+        Dim clearresult As Integer = MessageBox.Show("Clearing Splits will delete the current set!", "Delete current splits?", MessageBoxButtons.OKCancel)
+        If clearresult = DialogResult.OK Then
+            SplitsDataSet.Clear()
+            splits = 0
+            tmMain.Enabled = False
+            worktime = 0
+            lblwktm.Text = "00:00:00"
+        Else
+            Exit Sub
+        End If
     End Sub
 
     Private Sub ReviewToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReviewToolStripMenuItem.Click
