@@ -22,6 +22,11 @@
                 Me.SplitsDataSet.WriteXml("Days\" & filename)
             Else
                 Me.SplitsDataSet.ReadXml("Days\" & filename)
+                Try
+                    splits = SplitsDataSet.SplitsDataTable.Rows(SplitsDataSet.SplitsDataTable.Rows.Count - 1).Item("ID") + 1
+                Catch
+                    Exit Sub
+                End Try
                 Exit Sub
             End If
         Else
@@ -133,6 +138,11 @@
 
     Private Sub ImportToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportToolStripMenuItem.Click
         Me.SplitsDataSet.ReadXml("Days\" & filename)
+        Try
+            splits = SplitsDataSet.SplitsDataTable.Rows(SplitsDataSet.SplitsDataTable.Rows.Count - 1).Item("ID") + 1
+        Catch
+            Exit Sub
+        End Try
     End Sub
 
     Private Sub ClearSplitsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClearSplitsToolStripMenuItem.Click

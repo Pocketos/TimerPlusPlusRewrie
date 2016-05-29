@@ -35,4 +35,17 @@
     <Description>splits</Description>
     <StartTime>9:06 AM</StartTime>
   </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>5</ID>
+    <Description>another one</Description>
+    <StartTime>9:10 AM</StartTime>
+    <StopTime>9:11 AM</StopTime>
+    <TimeWorked>PT1M19S</TimeWorked>
+    <Recorded>true</Recorded>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>6</ID>
+    <Description>new thing</Description>
+    <StartTime>9:11 AM</StartTime>
+  </SplitsDataTable>
 </SplitsDataSet>
