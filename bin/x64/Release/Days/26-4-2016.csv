@@ -1,0 +1,9 @@
+26-4-2016.csv
+Description,Start Time,Stop Time,Work Time,Recorded?
+test,12:20:16 AM,12:20:23 AM,00:00:07,Yes
+new split,12:20:49 AM,12:20:54 AM,00:00:04,Yes
+next,12:20:54 AM,12:20:58 AM,00:00:05,No
+not recorded,12:20:58 AM,12:21:05 AM,00:00:06,No
+recorded,12:21:05 AM,12:21:09 AM,00:00:05,Yes
+call,12:21:09 AM,12:21:31 AM,00:00:21,No
+filled in,12:21:31 AM,12:21:40 AM,00:00:09,Yes
