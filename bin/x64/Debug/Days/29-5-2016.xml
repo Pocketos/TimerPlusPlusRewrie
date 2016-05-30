@@ -129,4 +129,9 @@
     <Description>eod</Description>
     <StartTime>2:50 PM</StartTime>
   </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>18</ID>
+    <Description>pause test</Description>
+    <StartTime>3:51 PM</StartTime>
+  </SplitsDataTable>
 </SplitsDataSet>

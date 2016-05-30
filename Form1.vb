@@ -1,6 +1,8 @@
 ﻿Public Class frmMain
 
     Private Declare Function GetAsyncKeyState Lib "user32" (ByVal vKey As Integer) As Short
+    Private Declare Function FlashWindow Lib "user32" Alias "FlashWindow" (ByVal wHandle As Long, ByVal invertStates As Boolean) As Long
+
 
     Public splits As Integer = 0
     Public worktime As Integer = 0
@@ -78,12 +80,14 @@
             txtdesc.Enabled = False
             btnSplit.Enabled = False
             Me.Icon = My.Resources.stopwatchpaused
+            tmPaused.Enabled = True
         Else
             tmMain.Enabled = True
             txtdesc.Enabled = True
             btnSplit.Enabled = True
             btnpause.Text = "Pause"
             Me.Icon = My.Resources.stopwatch
+            tmPaused.Enabled = False
         End If
     End Sub
 
@@ -161,5 +165,9 @@
 
     Private Sub ReviewToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReviewToolStripMenuItem.Click
         System.Diagnostics.Process.Start(My.Computer.FileSystem.CurrentDirectory & "\Days\" & filename)
+    End Sub
+
+    Private Sub tmPaused_Tick(sender As Object, e As EventArgs) Handles tmPaused.Tick
+        FlashWindow(Me.Handle, 1)
     End Sub
 End Class

@@ -85,7 +85,7 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>stopwatch.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\stopwatch.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
@@ -181,9 +181,8 @@
     <None Include="SplitsDataSet.xss">
       <DependentUpon>SplitsDataSet.xsd</DependentUpon>
     </None>
-    <None Include="stopwatchPaused.ico" />
-    <None Include="Resources\stopwatchpaused.ico" />
-    <Content Include="stopwatch.ico" />
+    <None Include="Resources\stopwatchPaused.ico" />
+    <Content Include="Resources\stopwatch.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
@@ -197,6 +196,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
