@@ -156,11 +156,14 @@ Partial Class frmMain
         '
         Me.SplitsDataTableDataGridView.AllowUserToAddRows = False
         Me.SplitsDataTableDataGridView.AllowUserToDeleteRows = False
+        Me.SplitsDataTableDataGridView.AllowUserToResizeColumns = False
+        Me.SplitsDataTableDataGridView.AllowUserToResizeRows = False
         Me.SplitsDataTableDataGridView.AutoGenerateColumns = False
         Me.SplitsDataTableDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.SplitsDataTableDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewIDColumn, Me.DataGridViewDescriptionColumn, Me.DataGridViewStartTimeColumn, Me.DataGridViewStopTimeColumn, Me.DataGridViewTimeWorkedColumn, Me.DataGridViewRecordedColumn})
         Me.SplitsDataTableDataGridView.DataSource = Me.SplitsDataTableBindingSource
         Me.SplitsDataTableDataGridView.Location = New System.Drawing.Point(10, 85)
+        Me.SplitsDataTableDataGridView.MultiSelect = False
         Me.SplitsDataTableDataGridView.Name = "SplitsDataTableDataGridView"
         Me.SplitsDataTableDataGridView.RowHeadersVisible = False
         Me.SplitsDataTableDataGridView.Size = New System.Drawing.Size(684, 220)
