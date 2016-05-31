@@ -2,136 +2,23 @@
 <SplitsDataSet xmlns="http://tempuri.org/SplitsDataSet.xsd">
   <SplitsDataTable>
     <ID>0</ID>
-    <Description>split</Description>
-    <StartTime>9:05 AM</StartTime>
-    <StopTime>9:05 AM</StopTime>
-    <TimeWorked>PT6S</TimeWorked>
-    <Recorded>true</Recorded>
+    <Description>nest</Description>
+    <StartTime>11:18 PM</StartTime>
+    <StopTime>11:18 PM</StopTime>
+    <TimeWorked>PT8S</TimeWorked>
+    <Recorded>false</Recorded>
   </SplitsDataTable>
   <SplitsDataTable>
     <ID>1</ID>
-    <Description>a new entry</Description>
-    <StartTime>9:05 AM</StartTime>
-    <StopTime>9:05 AM</StopTime>
-    <TimeWorked>PT4M7S</TimeWorked>
-    <Recorded>false</Recorded>
+    <Description>nest</Description>
+    <StartTime>11:18 PM</StartTime>
+    <StopTime>11:18 PM</StopTime>
+    <TimeWorked>PT12S</TimeWorked>
+    <Recorded>true</Recorded>
   </SplitsDataTable>
   <SplitsDataTable>
     <ID>2</ID>
-    <Description>another one</Description>
-    <StartTime>9:05 AM</StartTime>
-    <TimeWorked>PT3M</TimeWorked>
-    <Recorded>true</Recorded>
-  </SplitsDataTable>
-  <SplitsDataTable>
-    <ID>3</ID>
-    <Description>continue test</Description>
-    <StartTime>9:06 AM</StartTime>
-    <StopTime>9:06 AM</StopTime>
-    <TimeWorked>PT14S</TimeWorked>
-    <Recorded>true</Recorded>
-  </SplitsDataTable>
-  <SplitsDataTable>
-    <ID>4</ID>
-    <Description>splits</Description>
-    <StartTime>9:06 AM</StartTime>
-    <TimeWorked>PT15M15S</TimeWorked>
-  </SplitsDataTable>
-  <SplitsDataTable>
-    <ID>5</ID>
-    <Description>another one</Description>
-    <StartTime>9:10 AM</StartTime>
-    <StopTime>9:11 AM</StopTime>
-    <TimeWorked>PT1M19S</TimeWorked>
-    <Recorded>true</Recorded>
-  </SplitsDataTable>
-  <SplitsDataTable>
-    <ID>6</ID>
-    <Description>new thing</Description>
-    <StartTime>9:11 AM</StartTime>
-  </SplitsDataTable>
-  <SplitsDataTable>
-    <ID>7</ID>
-    <Description>test</Description>
-    <StartTime>12:00 PM</StartTime>
-    <StopTime>12:01 PM</StopTime>
-    <TimeWorked>PT4S</TimeWorked>
-    <Recorded>true</Recorded>
-  </SplitsDataTable>
-  <SplitsDataTable>
-    <ID>8</ID>
-    <Description>changed item</Description>
-    <StartTime>12:01 PM</StartTime>
-  </SplitsDataTable>
-  <SplitsDataTable>
-    <ID>9</ID>
-    <Description>new split</Description>
-    <StartTime>2:06 PM</StartTime>
-    <StopTime>2:08 PM</StopTime>
-    <TimeWorked>PT2M26S</TimeWorked>
-    <Recorded>false</Recorded>
-  </SplitsDataTable>
-  <SplitsDataTable>
-    <ID>10</ID>
-    <Description>another thing</Description>
-    <StartTime>2:08 PM</StartTime>
-    <StopTime>2:09 PM</StopTime>
-    <TimeWorked>PT13M24S</TimeWorked>
-    <Recorded>false</Recorded>
-  </SplitsDataTable>
-  <SplitsDataTable>
-    <ID>11</ID>
-    <Description>call from person</Description>
-    <StartTime>2:09 PM</StartTime>
-    <StopTime>2:11 PM</StopTime>
-    <TimeWorked>PT1M6S</TimeWorked>
-    <Recorded>true</Recorded>
-  </SplitsDataTable>
-  <SplitsDataTable>
-    <ID>12</ID>
-    <Description>project work</Description>
-    <StartTime>2:11 PM</StartTime>
-    <StopTime>2:20 PM</StopTime>
-    <TimeWorked>PT9M26S</TimeWorked>
-    <Recorded>true</Recorded>
-  </SplitsDataTable>
-  <SplitsDataTable>
-    <ID>13</ID>
-    <Description>split</Description>
-    <StartTime>2:20 PM</StartTime>
-  </SplitsDataTable>
-  <SplitsDataTable>
-    <ID>14</ID>
-    <Description>new split</Description>
-    <StartTime>2:44 PM</StartTime>
-    <StopTime>2:44 PM</StopTime>
-    <TimeWorked>PT37S</TimeWorked>
-    <Recorded>true</Recorded>
-  </SplitsDataTable>
-  <SplitsDataTable>
-    <ID>15</ID>
-    <Description>another one</Description>
-    <StartTime>2:44 PM</StartTime>
-    <StopTime>2:49 PM</StopTime>
-    <TimeWorked>PT4M23S</TimeWorked>
-    <Recorded>false</Recorded>
-  </SplitsDataTable>
-  <SplitsDataTable>
-    <ID>16</ID>
-    <Description>call</Description>
-    <StartTime>2:49 PM</StartTime>
-    <StopTime>2:50 PM</StopTime>
-    <TimeWorked>PT1M26S</TimeWorked>
-    <Recorded>false</Recorded>
-  </SplitsDataTable>
-  <SplitsDataTable>
-    <ID>17</ID>
-    <Description>eod</Description>
-    <StartTime>2:50 PM</StartTime>
-  </SplitsDataTable>
-  <SplitsDataTable>
-    <ID>18</ID>
-    <Description>pause test</Description>
-    <StartTime>3:51 PM</StartTime>
+    <Description>dsdfadsa</Description>
+    <StartTime>11:18 PM</StartTime>
   </SplitsDataTable>
 </SplitsDataSet>

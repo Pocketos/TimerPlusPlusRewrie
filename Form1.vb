@@ -138,7 +138,15 @@
 
         Dim importresult As Integer = MessageBox.Show("Importing Splits will delete the current set!", "Overwrite current splits?", MessageBoxButtons.OKCancel)
         If importresult = DialogResult.OK Then
+            tmMain.Enabled = False
+            worktime = 0
             SplitsDataSet.Clear()
+            txtdesc.Enabled = True
+            btnSplit.Enabled = True
+            btnpause.Text = "Pause"
+            Me.Icon = My.Resources.stopwatch
+            btnpause.Enabled = False
+            tmPaused.Enabled = False
             Me.SplitsDataSet.ReadXml("Days\" & filename)
             Try
                 splits = SplitsDataSet.SplitsDataTable.Rows(SplitsDataSet.SplitsDataTable.Rows.Count - 1).Item("ID") + 1
@@ -153,11 +161,17 @@
     Private Sub ClearSplitsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClearSplitsToolStripMenuItem.Click
         Dim clearresult As Integer = MessageBox.Show("Clearing Splits will delete the current set!", "Delete current splits?", MessageBoxButtons.OKCancel)
         If clearresult = DialogResult.OK Then
-            SplitsDataSet.Clear()
-            splits = 0
             tmMain.Enabled = False
             worktime = 0
+            splits = 0
+            SplitsDataSet.Clear()
+            txtdesc.Enabled = True
+            btnSplit.Enabled = True
+            btnpause.Text = "Pause"
+            Me.Icon = My.Resources.stopwatch
+            tmPaused.Enabled = False
             lblwktm.Text = "00:00:00"
+            btnpause.Enabled = False
         Else
             Exit Sub
         End If
