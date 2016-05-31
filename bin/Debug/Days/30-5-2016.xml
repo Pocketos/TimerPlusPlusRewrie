@@ -6,7 +6,7 @@
     <StartTime>10:21 PM</StartTime>
     <StopTime>10:21 PM</StopTime>
     <TimeWorked>PT1S</TimeWorked>
-    <Recorded>false</Recorded>
+    <Recorded>true</Recorded>
   </SplitsDataTable>
   <SplitsDataTable>
     <ID>1</ID>
@@ -18,7 +18,8 @@
   </SplitsDataTable>
   <SplitsDataTable>
     <ID>2</ID>
-    <Description>another one</Description>
+    <Description>nesxt</Description>
     <StartTime>10:21 PM</StartTime>
+    <Recorded>true</Recorded>
   </SplitsDataTable>
 </SplitsDataSet>

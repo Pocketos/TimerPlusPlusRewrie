@@ -123,6 +123,7 @@
     End Sub
 
     Private Sub SaveToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaveToolStripMenuItem.Click
+        SplitsDataTableDataGridView.CurrentCell = Nothing
         Me.SplitsDataSet.WriteXml("Days\" & filename)
     End Sub
 
