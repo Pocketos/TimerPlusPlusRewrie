@@ -1,0 +1,25 @@
+<?xml version="1.0" standalone="yes"?>
+<SplitsDataSet xmlns="http://tempuri.org/SplitsDataSet.xsd">
+  <SplitsDataTable>
+    <ID>0</ID>
+    <Description>test</Description>
+    <StartTime>12:29 AM</StartTime>
+    <StopTime>12:29 AM</StopTime>
+    <TimeWorked>PT5M4S</TimeWorked>
+    <Recorded>true</Recorded>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>1</ID>
+    <Description>done</Description>
+    <StartTime>12:29 AM</StartTime>
+    <StopTime>12:29 AM</StopTime>
+    <TimeWorked>PT7S</TimeWorked>
+    <Recorded>false</Recorded>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>2</ID>
+    <Description>next thing</Description>
+    <StartTime>12:29 AM</StartTime>
+    <Recorded>true</Recorded>
+  </SplitsDataTable>
+</SplitsDataSet>

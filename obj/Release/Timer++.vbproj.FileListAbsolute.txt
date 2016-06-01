@@ -9,3 +9,4 @@ C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\obj\Release\Timer++.vbproj.Gene
 C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\obj\Release\Timer++.exe
 C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\obj\Release\Timer++.xml
 C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\obj\Release\Timer++.pdb
+C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\obj\Release\Timer++.vbprojResolveAssemblyReference.cache

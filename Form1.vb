@@ -47,13 +47,8 @@
             SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewStopTimeColumn").Value = Now.ToShortTimeString
             Dim time = New TimeSpan(0, 0, worktime)
             SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewTimeWorkedColumn").Value = time
-            If chkbxrecorded.Checked = True Then
-                SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewRecordedColumn").Value = True
-                chkbxrecorded.Checked = False
-            Else
-                SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewRecordedColumn").Value = False
-            End If
-            splits = splits + 1
+            SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewRecordedColumn").Value = False
+                splits = splits + 1
             worktime = 0
             SplitsDataSet.SplitsDataTable.Rows.Add(splits, txtdesc.Text, Now.ToShortTimeString)
             txtdesc.Clear()
@@ -131,10 +126,6 @@
         Close()
     End Sub
 
-    Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
-        MsgBox("Version " & My.Application.Info.Version.ToString())
-    End Sub
-
     Private Sub ImportToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportToolStripMenuItem.Click
 
         Dim importresult As Integer = MessageBox.Show("Importing Splits will delete the current set!", "Overwrite current splits?", MessageBoxButtons.OKCancel)
@@ -184,5 +175,9 @@
 
     Private Sub tmPaused_Tick(sender As Object, e As EventArgs) Handles tmPaused.Tick
         FlashWindow(Me.Handle, 1)
+    End Sub
+
+    Private Sub AboutToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem1.Click
+        MsgBox("Version " & My.Application.Info.Version.ToString())
     End Sub
 End Class

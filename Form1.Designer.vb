@@ -31,7 +31,6 @@ Partial Class frmMain
         Me.txtdesc = New System.Windows.Forms.TextBox()
         Me.lbltime = New System.Windows.Forms.Label()
         Me.lblwktm = New System.Windows.Forms.Label()
-        Me.chkbxrecorded = New System.Windows.Forms.CheckBox()
         Me.btnMinusTime = New System.Windows.Forms.Button()
         Me.btnAddTime = New System.Windows.Forms.Button()
         Me.SplitsDataTableDataGridView = New System.Windows.Forms.DataGridView()
@@ -46,13 +45,16 @@ Partial Class frmMain
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SplitsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReviewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ClearSplitsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AboutToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.tmPaused = New System.Windows.Forms.Timer(Me.components)
+        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripSeparator()
         CType(Me.SplitsDataTableDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SplitsDataTableBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SplitsDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -75,6 +77,7 @@ Partial Class frmMain
         '
         'btnpause
         '
+        Me.btnpause.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnpause.Enabled = False
         Me.btnpause.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnpause.Location = New System.Drawing.Point(359, 311)
@@ -86,6 +89,7 @@ Partial Class frmMain
         '
         'btnSplit
         '
+        Me.btnSplit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.btnSplit.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSplit.Location = New System.Drawing.Point(10, 311)
         Me.btnSplit.Name = "btnSplit"
@@ -98,44 +102,33 @@ Partial Class frmMain
         '
         Me.txtdesc.Location = New System.Drawing.Point(10, 59)
         Me.txtdesc.Name = "txtdesc"
-        Me.txtdesc.Size = New System.Drawing.Size(536, 20)
+        Me.txtdesc.Size = New System.Drawing.Size(509, 20)
         Me.txtdesc.TabIndex = 8
         '
         'lbltime
         '
         Me.lbltime.AutoSize = True
         Me.lbltime.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbltime.Location = New System.Drawing.Point(589, 21)
+        Me.lbltime.Location = New System.Drawing.Point(555, 21)
         Me.lbltime.Name = "lbltime"
-        Me.lbltime.Size = New System.Drawing.Size(63, 30)
+        Me.lbltime.Size = New System.Drawing.Size(112, 30)
         Me.lbltime.TabIndex = 9
-        Me.lbltime.Text = "Time:"
+        Me.lbltime.Text = "Work Time"
         '
         'lblwktm
         '
         Me.lblwktm.AutoSize = True
         Me.lblwktm.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblwktm.Location = New System.Drawing.Point(579, 46)
+        Me.lblwktm.Location = New System.Drawing.Point(565, 46)
         Me.lblwktm.Name = "lblwktm"
         Me.lblwktm.Size = New System.Drawing.Size(89, 30)
         Me.lblwktm.TabIndex = 10
         Me.lblwktm.Text = "00:00:00"
         '
-        'chkbxrecorded
-        '
-        Me.chkbxrecorded.AutoSize = True
-        Me.chkbxrecorded.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkbxrecorded.Location = New System.Drawing.Point(324, 28)
-        Me.chkbxrecorded.Name = "chkbxrecorded"
-        Me.chkbxrecorded.Size = New System.Drawing.Size(227, 29)
-        Me.chkbxrecorded.TabIndex = 13
-        Me.chkbxrecorded.Text = "Mark split as recorded?"
-        Me.chkbxrecorded.UseVisualStyleBackColor = True
-        '
         'btnMinusTime
         '
         Me.btnMinusTime.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnMinusTime.Location = New System.Drawing.Point(552, 25)
+        Me.btnMinusTime.Location = New System.Drawing.Point(528, 25)
         Me.btnMinusTime.Name = "btnMinusTime"
         Me.btnMinusTime.Size = New System.Drawing.Size(26, 54)
         Me.btnMinusTime.TabIndex = 14
@@ -235,7 +228,7 @@ Partial Class frmMain
         'MenuStrip1
         '
         Me.MenuStrip1.BackColor = System.Drawing.SystemColors.Control
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.SplitsToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.SplitsToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(704, 24)
@@ -244,7 +237,7 @@ Partial Class frmMain
         '
         'FileToolStripMenuItem
         '
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ExitToolStripMenuItem, Me.AboutToolStripMenuItem})
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ExitToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
         Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
         Me.FileToolStripMenuItem.Text = "File"
@@ -252,18 +245,12 @@ Partial Class frmMain
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
-        '
-        'AboutToolStripMenuItem
-        '
-        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
-        Me.AboutToolStripMenuItem.Text = "About"
         '
         'SplitsToolStripMenuItem
         '
-        Me.SplitsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SaveToolStripMenuItem, Me.ImportToolStripMenuItem, Me.ReviewToolStripMenuItem, Me.ClearSplitsToolStripMenuItem})
+        Me.SplitsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SaveToolStripMenuItem, Me.ToolStripMenuItem1, Me.ImportToolStripMenuItem, Me.ClearSplitsToolStripMenuItem, Me.ToolStripMenuItem2, Me.ReviewToolStripMenuItem})
         Me.SplitsToolStripMenuItem.Name = "SplitsToolStripMenuItem"
         Me.SplitsToolStripMenuItem.Size = New System.Drawing.Size(47, 20)
         Me.SplitsToolStripMenuItem.Text = "Splits"
@@ -271,30 +258,53 @@ Partial Class frmMain
         'SaveToolStripMenuItem
         '
         Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
-        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
+        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.SaveToolStripMenuItem.Text = "Save"
         '
         'ImportToolStripMenuItem
         '
         Me.ImportToolStripMenuItem.Name = "ImportToolStripMenuItem"
-        Me.ImportToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
+        Me.ImportToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ImportToolStripMenuItem.Text = "Import"
         '
         'ReviewToolStripMenuItem
         '
         Me.ReviewToolStripMenuItem.Name = "ReviewToolStripMenuItem"
-        Me.ReviewToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
+        Me.ReviewToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ReviewToolStripMenuItem.Text = "Review"
         '
         'ClearSplitsToolStripMenuItem
         '
         Me.ClearSplitsToolStripMenuItem.Name = "ClearSplitsToolStripMenuItem"
-        Me.ClearSplitsToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
+        Me.ClearSplitsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ClearSplitsToolStripMenuItem.Text = "Clear Splits"
+        '
+        'HelpToolStripMenuItem
+        '
+        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem1})
+        Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
+        Me.HelpToolStripMenuItem.Text = "Help"
+        '
+        'AboutToolStripMenuItem1
+        '
+        Me.AboutToolStripMenuItem1.Name = "AboutToolStripMenuItem1"
+        Me.AboutToolStripMenuItem1.Size = New System.Drawing.Size(107, 22)
+        Me.AboutToolStripMenuItem1.Text = "About"
         '
         'tmPaused
         '
         Me.tmPaused.Interval = 750
+        '
+        'ToolStripMenuItem1
+        '
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(149, 6)
+        '
+        'ToolStripMenuItem2
+        '
+        Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(149, 6)
         '
         'frmMain
         '
@@ -304,7 +314,6 @@ Partial Class frmMain
         Me.Controls.Add(Me.SplitsDataTableDataGridView)
         Me.Controls.Add(Me.btnAddTime)
         Me.Controls.Add(Me.btnMinusTime)
-        Me.Controls.Add(Me.chkbxrecorded)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.lblwktm)
         Me.Controls.Add(Me.lbltime)
@@ -314,7 +323,7 @@ Partial Class frmMain
         Me.Controls.Add(Me.lbltimertext)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
-        Me.MaximumSize = New System.Drawing.Size(720, 408)
+        Me.MaximumSize = New System.Drawing.Size(720, 750)
         Me.MinimumSize = New System.Drawing.Size(720, 408)
         Me.Name = "frmMain"
         Me.Text = "Timer++"
@@ -335,7 +344,6 @@ Partial Class frmMain
     Friend WithEvents txtdesc As TextBox
     Friend WithEvents lbltime As Label
     Friend WithEvents lblwktm As Label
-    Friend WithEvents chkbxrecorded As CheckBox
     Friend WithEvents btnMinusTime As Button
     Friend WithEvents btnAddTime As Button
     Friend WithEvents SplitsDataSet As SplitsDataSet
@@ -344,7 +352,6 @@ Partial Class frmMain
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents FileToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SplitsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SaveToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ImportToolStripMenuItem As ToolStripMenuItem
@@ -357,4 +364,8 @@ Partial Class frmMain
     Friend WithEvents DataGridViewStopTimeColumn As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTimeWorkedColumn As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewRecordedColumn As DataGridViewCheckBoxColumn
+    Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AboutToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem1 As ToolStripSeparator
+    Friend WithEvents ToolStripMenuItem2 As ToolStripSeparator
 End Class
