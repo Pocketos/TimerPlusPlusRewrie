@@ -34,6 +34,19 @@ Partial Class frmMain
         Me.btnMinusTime = New System.Windows.Forms.Button()
         Me.btnAddTime = New System.Windows.Forms.Button()
         Me.SplitsDataTableDataGridView = New System.Windows.Forms.DataGridView()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SplitsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SaveToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ImportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ClearSplitsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ReviewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AboutToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tmPaused = New System.Windows.Forms.Timer(Me.components)
         Me.DataGridViewIDColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewDescriptionColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewStartTimeColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -42,23 +55,11 @@ Partial Class frmMain
         Me.DataGridViewRecordedColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.SplitsDataTableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.SplitsDataSet = New Timer__.SplitsDataSet()
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SplitsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SaveToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ImportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ReviewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ClearSplitsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AboutToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.tmPaused = New System.Windows.Forms.Timer(Me.components)
-        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ImportFromFileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.SplitsDataTableDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.MenuStrip1.SuspendLayout()
         CType(Me.SplitsDataTableBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SplitsDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'lbltimertext
@@ -80,7 +81,7 @@ Partial Class frmMain
         Me.btnpause.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnpause.Enabled = False
         Me.btnpause.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnpause.Location = New System.Drawing.Point(359, 311)
+        Me.btnpause.Location = New System.Drawing.Point(359, 314)
         Me.btnpause.Name = "btnpause"
         Me.btnpause.Size = New System.Drawing.Size(335, 48)
         Me.btnpause.TabIndex = 2
@@ -91,7 +92,7 @@ Partial Class frmMain
         '
         Me.btnSplit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.btnSplit.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSplit.Location = New System.Drawing.Point(10, 311)
+        Me.btnSplit.Location = New System.Drawing.Point(10, 314)
         Me.btnSplit.Name = "btnSplit"
         Me.btnSplit.Size = New System.Drawing.Size(335, 48)
         Me.btnSplit.TabIndex = 7
@@ -151,79 +152,18 @@ Partial Class frmMain
         Me.SplitsDataTableDataGridView.AllowUserToDeleteRows = False
         Me.SplitsDataTableDataGridView.AllowUserToResizeColumns = False
         Me.SplitsDataTableDataGridView.AllowUserToResizeRows = False
+        Me.SplitsDataTableDataGridView.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
         Me.SplitsDataTableDataGridView.AutoGenerateColumns = False
+        Me.SplitsDataTableDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.SplitsDataTableDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.SplitsDataTableDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewIDColumn, Me.DataGridViewDescriptionColumn, Me.DataGridViewStartTimeColumn, Me.DataGridViewStopTimeColumn, Me.DataGridViewTimeWorkedColumn, Me.DataGridViewRecordedColumn})
         Me.SplitsDataTableDataGridView.DataSource = Me.SplitsDataTableBindingSource
-        Me.SplitsDataTableDataGridView.Location = New System.Drawing.Point(10, 85)
+        Me.SplitsDataTableDataGridView.Location = New System.Drawing.Point(10, 86)
         Me.SplitsDataTableDataGridView.MultiSelect = False
         Me.SplitsDataTableDataGridView.Name = "SplitsDataTableDataGridView"
         Me.SplitsDataTableDataGridView.RowHeadersVisible = False
         Me.SplitsDataTableDataGridView.Size = New System.Drawing.Size(684, 220)
         Me.SplitsDataTableDataGridView.TabIndex = 16
-        '
-        'DataGridViewIDColumn
-        '
-        Me.DataGridViewIDColumn.DataPropertyName = "ID"
-        Me.DataGridViewIDColumn.HeaderText = "ID"
-        Me.DataGridViewIDColumn.MinimumWidth = 30
-        Me.DataGridViewIDColumn.Name = "DataGridViewIDColumn"
-        Me.DataGridViewIDColumn.ReadOnly = True
-        Me.DataGridViewIDColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewIDColumn.Width = 30
-        '
-        'DataGridViewDescriptionColumn
-        '
-        Me.DataGridViewDescriptionColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewDescriptionColumn.DataPropertyName = "Description"
-        Me.DataGridViewDescriptionColumn.HeaderText = "Description"
-        Me.DataGridViewDescriptionColumn.Name = "DataGridViewDescriptionColumn"
-        Me.DataGridViewDescriptionColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        '
-        'DataGridViewStartTimeColumn
-        '
-        Me.DataGridViewStartTimeColumn.DataPropertyName = "StartTime"
-        Me.DataGridViewStartTimeColumn.HeaderText = "StartTime"
-        Me.DataGridViewStartTimeColumn.Name = "DataGridViewStartTimeColumn"
-        Me.DataGridViewStartTimeColumn.ReadOnly = True
-        Me.DataGridViewStartTimeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewStartTimeColumn.Width = 75
-        '
-        'DataGridViewStopTimeColumn
-        '
-        Me.DataGridViewStopTimeColumn.DataPropertyName = "StopTime"
-        Me.DataGridViewStopTimeColumn.HeaderText = "StopTime"
-        Me.DataGridViewStopTimeColumn.Name = "DataGridViewStopTimeColumn"
-        Me.DataGridViewStopTimeColumn.ReadOnly = True
-        Me.DataGridViewStopTimeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewStopTimeColumn.Width = 75
-        '
-        'DataGridViewTimeWorkedColumn
-        '
-        Me.DataGridViewTimeWorkedColumn.DataPropertyName = "TimeWorked"
-        Me.DataGridViewTimeWorkedColumn.HeaderText = "TimeWorked"
-        Me.DataGridViewTimeWorkedColumn.Name = "DataGridViewTimeWorkedColumn"
-        Me.DataGridViewTimeWorkedColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewTimeWorkedColumn.Width = 75
-        '
-        'DataGridViewRecordedColumn
-        '
-        Me.DataGridViewRecordedColumn.DataPropertyName = "Recorded"
-        Me.DataGridViewRecordedColumn.HeaderText = "Recorded"
-        Me.DataGridViewRecordedColumn.MinimumWidth = 75
-        Me.DataGridViewRecordedColumn.Name = "DataGridViewRecordedColumn"
-        Me.DataGridViewRecordedColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewRecordedColumn.Width = 75
-        '
-        'SplitsDataTableBindingSource
-        '
-        Me.SplitsDataTableBindingSource.DataMember = "SplitsDataTable"
-        Me.SplitsDataTableBindingSource.DataSource = Me.SplitsDataSet
-        '
-        'SplitsDataSet
-        '
-        Me.SplitsDataSet.DataSetName = "SplitsDataSet"
-        Me.SplitsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'MenuStrip1
         '
@@ -245,12 +185,12 @@ Partial Class frmMain
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(92, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'SplitsToolStripMenuItem
         '
-        Me.SplitsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SaveToolStripMenuItem, Me.ToolStripMenuItem1, Me.ImportToolStripMenuItem, Me.ClearSplitsToolStripMenuItem, Me.ToolStripMenuItem2, Me.ReviewToolStripMenuItem})
+        Me.SplitsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SaveToolStripMenuItem, Me.ToolStripMenuItem1, Me.ImportToolStripMenuItem, Me.ImportFromFileToolStripMenuItem, Me.ClearSplitsToolStripMenuItem, Me.ToolStripMenuItem2, Me.ReviewToolStripMenuItem})
         Me.SplitsToolStripMenuItem.Name = "SplitsToolStripMenuItem"
         Me.SplitsToolStripMenuItem.Size = New System.Drawing.Size(47, 20)
         Me.SplitsToolStripMenuItem.Text = "Splits"
@@ -258,26 +198,36 @@ Partial Class frmMain
         'SaveToolStripMenuItem
         '
         Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
-        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
         Me.SaveToolStripMenuItem.Text = "Save"
+        '
+        'ToolStripMenuItem1
+        '
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(171, 6)
         '
         'ImportToolStripMenuItem
         '
         Me.ImportToolStripMenuItem.Name = "ImportToolStripMenuItem"
-        Me.ImportToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.ImportToolStripMenuItem.Text = "Import"
-        '
-        'ReviewToolStripMenuItem
-        '
-        Me.ReviewToolStripMenuItem.Name = "ReviewToolStripMenuItem"
-        Me.ReviewToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.ReviewToolStripMenuItem.Text = "Review"
+        Me.ImportToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
+        Me.ImportToolStripMenuItem.Text = "Import from Today"
         '
         'ClearSplitsToolStripMenuItem
         '
         Me.ClearSplitsToolStripMenuItem.Name = "ClearSplitsToolStripMenuItem"
-        Me.ClearSplitsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ClearSplitsToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
         Me.ClearSplitsToolStripMenuItem.Text = "Clear Splits"
+        '
+        'ToolStripMenuItem2
+        '
+        Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(171, 6)
+        '
+        'ReviewToolStripMenuItem
+        '
+        Me.ReviewToolStripMenuItem.Name = "ReviewToolStripMenuItem"
+        Me.ReviewToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
+        Me.ReviewToolStripMenuItem.Text = "Review"
         '
         'HelpToolStripMenuItem
         '
@@ -296,15 +246,69 @@ Partial Class frmMain
         '
         Me.tmPaused.Interval = 750
         '
-        'ToolStripMenuItem1
+        'DataGridViewIDColumn
         '
-        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(149, 6)
+        Me.DataGridViewIDColumn.DataPropertyName = "ID"
+        Me.DataGridViewIDColumn.HeaderText = "ID"
+        Me.DataGridViewIDColumn.MinimumWidth = 30
+        Me.DataGridViewIDColumn.Name = "DataGridViewIDColumn"
+        Me.DataGridViewIDColumn.ReadOnly = True
+        Me.DataGridViewIDColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         '
-        'ToolStripMenuItem2
+        'DataGridViewDescriptionColumn
         '
-        Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(149, 6)
+        Me.DataGridViewDescriptionColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewDescriptionColumn.DataPropertyName = "Description"
+        Me.DataGridViewDescriptionColumn.HeaderText = "Description"
+        Me.DataGridViewDescriptionColumn.Name = "DataGridViewDescriptionColumn"
+        Me.DataGridViewDescriptionColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        '
+        'DataGridViewStartTimeColumn
+        '
+        Me.DataGridViewStartTimeColumn.DataPropertyName = "StartTime"
+        Me.DataGridViewStartTimeColumn.HeaderText = "StartTime"
+        Me.DataGridViewStartTimeColumn.Name = "DataGridViewStartTimeColumn"
+        Me.DataGridViewStartTimeColumn.ReadOnly = True
+        Me.DataGridViewStartTimeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        '
+        'DataGridViewStopTimeColumn
+        '
+        Me.DataGridViewStopTimeColumn.DataPropertyName = "StopTime"
+        Me.DataGridViewStopTimeColumn.HeaderText = "StopTime"
+        Me.DataGridViewStopTimeColumn.Name = "DataGridViewStopTimeColumn"
+        Me.DataGridViewStopTimeColumn.ReadOnly = True
+        Me.DataGridViewStopTimeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        '
+        'DataGridViewTimeWorkedColumn
+        '
+        Me.DataGridViewTimeWorkedColumn.DataPropertyName = "TimeWorked"
+        Me.DataGridViewTimeWorkedColumn.HeaderText = "TimeWorked"
+        Me.DataGridViewTimeWorkedColumn.Name = "DataGridViewTimeWorkedColumn"
+        Me.DataGridViewTimeWorkedColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        '
+        'DataGridViewRecordedColumn
+        '
+        Me.DataGridViewRecordedColumn.DataPropertyName = "Recorded"
+        Me.DataGridViewRecordedColumn.HeaderText = "Recorded"
+        Me.DataGridViewRecordedColumn.MinimumWidth = 75
+        Me.DataGridViewRecordedColumn.Name = "DataGridViewRecordedColumn"
+        Me.DataGridViewRecordedColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        '
+        'SplitsDataTableBindingSource
+        '
+        Me.SplitsDataTableBindingSource.DataMember = "SplitsDataTable"
+        Me.SplitsDataTableBindingSource.DataSource = Me.SplitsDataSet
+        '
+        'SplitsDataSet
+        '
+        Me.SplitsDataSet.DataSetName = "SplitsDataSet"
+        Me.SplitsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'ImportFromFileToolStripMenuItem
+        '
+        Me.ImportFromFileToolStripMenuItem.Name = "ImportFromFileToolStripMenuItem"
+        Me.ImportFromFileToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
+        Me.ImportFromFileToolStripMenuItem.Text = "Import from File..."
         '
         'frmMain
         '
@@ -328,10 +332,10 @@ Partial Class frmMain
         Me.Name = "frmMain"
         Me.Text = "Timer++"
         CType(Me.SplitsDataTableDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SplitsDataTableBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SplitsDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        CType(Me.SplitsDataTableBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SplitsDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -368,4 +372,5 @@ Partial Class frmMain
     Friend WithEvents AboutToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem1 As ToolStripSeparator
     Friend WithEvents ToolStripMenuItem2 As ToolStripSeparator
+    Friend WithEvents ImportFromFileToolStripMenuItem As ToolStripMenuItem
 End Class

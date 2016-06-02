@@ -40,6 +40,7 @@
     Public Sub Split()
         If tmMain.Enabled = False Then
             SplitsDataSet.SplitsDataTable.Rows.Add(splits, txtdesc.Text, Now.ToShortTimeString)
+            SplitsDataTableDataGridView.CurrentCell = Me.SplitsDataTableDataGridView(0, splits)
             txtdesc.Clear()
             tmMain.Enabled = True
             btnpause.Enabled = True
@@ -53,6 +54,25 @@
             SplitsDataSet.SplitsDataTable.Rows.Add(splits, txtdesc.Text, Now.ToShortTimeString)
             txtdesc.Clear()
             Me.SplitsDataSet.WriteXml("Days\" & filename)
+        End If
+    End Sub
+
+    Private Sub OpenFile()
+        Dim fd As OpenFileDialog = New OpenFileDialog()
+
+        fd.Title = "Choose splits file"
+        fd.InitialDirectory = My.Computer.FileSystem.CurrentDirectory & "\Days"
+        fd.Filter = "XML Files (*.xml)|*.xml"
+        fd.FilterIndex = 1
+        fd.RestoreDirectory = True
+
+        If fd.ShowDialog() = DialogResult.OK Then
+            Me.SplitsDataSet.ReadXml(fd.FileName)
+            Try
+                splits = SplitsDataSet.SplitsDataTable.Rows(SplitsDataSet.SplitsDataTable.Rows.Count - 1).Item("ID") + 1
+            Catch
+                SplitsDataSet.Clear()
+            End Try
         End If
     End Sub
 
@@ -178,6 +198,10 @@
     End Sub
 
     Private Sub AboutToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem1.Click
-        MsgBox("Version " & My.Application.Info.Version.ToString())
+        MsgBox("Version " & My.Application.Info.Version.ToString() & Environment.NewLine & "A robust timing applicaion")
+    End Sub
+
+    Private Sub ImportFromFileToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportFromFileToolStripMenuItem.Click
+        OpenFile()
     End Sub
 End Class
