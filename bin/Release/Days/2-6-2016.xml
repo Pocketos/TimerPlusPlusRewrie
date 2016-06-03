@@ -1,2 +1,27 @@
 <?xml version="1.0" standalone="yes"?>
-<SplitsDataSet xmlns="http://tempuri.org/SplitsDataSet.xsd" />
+<SplitsDataSet xmlns="http://tempuri.org/SplitsDataSet.xsd">
+  <SplitsDataTable>
+    <ID>0</ID>
+    <Description>thing</Description>
+    <StartTime>8:37 PM</StartTime>
+    <StopTime>8:37 PM</StopTime>
+    <TimeWorked>PT2S</TimeWorked>
+    <Recorded>false</Recorded>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>1</ID>
+    <Description>other thing</Description>
+    <StartTime>8:37 PM</StartTime>
+    <StopTime>8:37 PM</StopTime>
+    <TimeWorked>PT2S</TimeWorked>
+    <Recorded>false</Recorded>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>2</ID>
+    <Description>new thing</Description>
+    <StartTime>8:37 PM</StartTime>
+    <StopTime>8:37 PM</StopTime>
+    <TimeWorked>PT5S</TimeWorked>
+    <Recorded>false</Recorded>
+  </SplitsDataTable>
+</SplitsDataSet>

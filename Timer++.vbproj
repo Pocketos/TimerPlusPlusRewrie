@@ -182,6 +182,8 @@
       <DependentUpon>SplitsDataSet.xsd</DependentUpon>
     </None>
     <None Include="Resources\stopwatchPaused.ico" />
+    <Content Include="Resources\save.png" />
+    <None Include="Resources\save_bw.png" />
     <Content Include="Resources\stopwatch.ico" />
   </ItemGroup>
   <ItemGroup>

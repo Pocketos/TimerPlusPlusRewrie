@@ -1,8 +1,6 @@
 ﻿Public Class frmMain
 
     Private Declare Function GetAsyncKeyState Lib "user32" (ByVal vKey As Integer) As Short
-    Private Declare Function FlashWindow Lib "user32" Alias "FlashWindow" (ByVal wHandle As Long, ByVal invertStates As Boolean) As Long
-
 
     Public splits As Integer = 0
     Public worktime As Integer = 0
@@ -48,10 +46,11 @@
             SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewStopTimeColumn").Value = Now.ToShortTimeString
             Dim time = New TimeSpan(0, 0, worktime)
             SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewTimeWorkedColumn").Value = time
-            SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewRecordedColumn").Value = False
-                splits = splits + 1
+            SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewRecordedColumn").Value = SplitsDataTableDataGridView(5, splits).Value
+            splits = splits + 1
             worktime = 0
             SplitsDataSet.SplitsDataTable.Rows.Add(splits, txtdesc.Text, Now.ToShortTimeString)
+            SplitsDataTableDataGridView.CurrentCell = Me.SplitsDataTableDataGridView(0, splits)
             txtdesc.Clear()
             Me.SplitsDataSet.WriteXml("Days\" & filename)
         End If
@@ -76,6 +75,11 @@
         End If
     End Sub
 
+    Private Sub SaveSplits()
+        SplitsDataTableDataGridView.CurrentCell = Nothing
+        Me.SplitsDataSet.WriteXml("Days\" & filename)
+    End Sub
+
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         datecheck()
     End Sub
@@ -95,14 +99,12 @@
             txtdesc.Enabled = False
             btnSplit.Enabled = False
             Me.Icon = My.Resources.stopwatchpaused
-            tmPaused.Enabled = True
         Else
             tmMain.Enabled = True
             txtdesc.Enabled = True
             btnSplit.Enabled = True
             btnpause.Text = "Pause"
             Me.Icon = My.Resources.stopwatch
-            tmPaused.Enabled = False
         End If
     End Sub
 
@@ -138,8 +140,7 @@
     End Sub
 
     Private Sub SaveToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaveToolStripMenuItem.Click
-        SplitsDataTableDataGridView.CurrentCell = Nothing
-        Me.SplitsDataSet.WriteXml("Days\" & filename)
+        SaveSplits()
     End Sub
 
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
@@ -158,7 +159,6 @@
             btnpause.Text = "Pause"
             Me.Icon = My.Resources.stopwatch
             btnpause.Enabled = False
-            tmPaused.Enabled = False
             Me.SplitsDataSet.ReadXml("Days\" & filename)
             Try
                 splits = SplitsDataSet.SplitsDataTable.Rows(SplitsDataSet.SplitsDataTable.Rows.Count - 1).Item("ID") + 1
@@ -181,7 +181,6 @@
             btnSplit.Enabled = True
             btnpause.Text = "Pause"
             Me.Icon = My.Resources.stopwatch
-            tmPaused.Enabled = False
             lblwktm.Text = "00:00:00"
             btnpause.Enabled = False
         Else
@@ -193,15 +192,24 @@
         System.Diagnostics.Process.Start(My.Computer.FileSystem.CurrentDirectory & "\Days\" & filename)
     End Sub
 
-    Private Sub tmPaused_Tick(sender As Object, e As EventArgs) Handles tmPaused.Tick
-        FlashWindow(Me.Handle, 1)
-    End Sub
-
     Private Sub AboutToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem1.Click
-        MsgBox("Version " & My.Application.Info.Version.ToString() & Environment.NewLine & "A robust timing applicaion")
+        MsgBox("Version " & My.Application.Info.Version.ToString() & Environment.NewLine & "Early Alpha")
     End Sub
 
     Private Sub ImportFromFileToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportFromFileToolStripMenuItem.Click
         OpenFile()
+    End Sub
+
+    Private Sub DeleteLastSplitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteLastSplitToolStripMenuItem.Click
+        Try
+            SplitsDataSet.SplitsDataTable.Rows(splits - 1).Delete()
+            splits = SplitsDataSet.SplitsDataTable.Rows(SplitsDataSet.SplitsDataTable.Rows.Count - 1).Item("ID") + 1
+        Catch
+            MsgBox("Error removing row" & splits)
+        End Try
+    End Sub
+
+    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+        SaveSplits()
     End Sub
 End Class
