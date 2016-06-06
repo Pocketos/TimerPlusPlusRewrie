@@ -1,0 +1,9 @@
+<?xml version="1.0" standalone="yes"?>
+<SplitsDataSet xmlns="http://tempuri.org/SplitsDataSet.xsd">
+  <SplitsDataTable>
+    <ID>0</ID>
+    <Description>split for surrent day's file</Description>
+    <StartTime>9:16 PM</StartTime>
+    <Recorded>true</Recorded>
+  </SplitsDataTable>
+</SplitsDataSet>

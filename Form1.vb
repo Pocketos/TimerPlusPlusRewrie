@@ -2,11 +2,12 @@
 
     Private Declare Function GetAsyncKeyState Lib "user32" (ByVal vKey As Integer) As Short
 
-    Public splits As Integer = 0
-    Public worktime As Integer = 0
-    Public filename As String
+    Private splits As Integer = 0
+    Private worktime As Integer = 0
+    Private filename As String
 
-    Public Sub datecheck()
+
+    Private Sub datecheck()
         Dim currentdate As Date = Today
         Dim currentmonth As String
         Dim currentday As String
@@ -16,6 +17,7 @@
         currentyear = Year(currentdate)
 
         filename = currentday & "-" & currentmonth & "-" & currentyear & ".xml"
+        tsslFilePath.Text = My.Computer.FileSystem.CurrentDirectory & "\Days" & filename
 
         If My.Computer.FileSystem.DirectoryExists(My.Computer.FileSystem.CurrentDirectory & "\Days") Then
             If My.Computer.FileSystem.FileExists(My.Computer.FileSystem.CurrentDirectory & "\Days\" & filename) = False Then
@@ -35,7 +37,7 @@
         End If
     End Sub
 
-    Public Sub Split()
+    Private Sub Split()
         If tmMain.Enabled = False Then
             SplitsDataSet.SplitsDataTable.Rows.Add(splits, txtdesc.Text, Now.ToShortTimeString)
             SplitsDataTableDataGridView.CurrentCell = Me.SplitsDataTableDataGridView(0, splits)
@@ -47,12 +49,37 @@
             Dim time = New TimeSpan(0, 0, worktime)
             SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewTimeWorkedColumn").Value = time
             SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewRecordedColumn").Value = SplitsDataTableDataGridView(5, splits).Value
+            SaveSplits()
             splits = splits + 1
             worktime = 0
             SplitsDataSet.SplitsDataTable.Rows.Add(splits, txtdesc.Text, Now.ToShortTimeString)
             SplitsDataTableDataGridView.CurrentCell = Me.SplitsDataTableDataGridView(0, splits)
             txtdesc.Clear()
             Me.SplitsDataSet.WriteXml("Days\" & filename)
+        End If
+    End Sub
+
+    Private Sub ImportSplits()
+        Dim importresult As Integer = MessageBox.Show("Importing Splits will delete the current set!", "Overwrite current splits?", MessageBoxButtons.OKCancel)
+        If importresult = DialogResult.OK Then
+            SplitsDataSet.Clear()
+            datecheck()
+            tmMain.Enabled = False
+            worktime = 0
+            txtdesc.Enabled = True
+            btnSplit.Enabled = True
+            btnpause.Text = "Pause"
+            Me.Icon = My.Resources.stopwatch
+            btnpause.Enabled = False
+            tsslLastSaved.Text = "File not yet saved"
+            'Me.SplitsDataSet.ReadXml("Days\" & filename)
+            Try
+                splits = SplitsDataSet.SplitsDataTable.Rows(SplitsDataSet.SplitsDataTable.Rows.Count - 1).Item("ID") + 1
+            Catch
+                Exit Sub
+            End Try
+        Else
+            Exit Sub
         End If
     End Sub
 
@@ -66,7 +93,10 @@
         fd.RestoreDirectory = True
 
         If fd.ShowDialog() = DialogResult.OK Then
+            filename = fd.SafeFileName
+            Clear()
             Me.SplitsDataSet.ReadXml(fd.FileName)
+            tsslFilePath.Text = My.Computer.FileSystem.CurrentDirectory & "\Days\" & filename
             Try
                 splits = SplitsDataSet.SplitsDataTable.Rows(SplitsDataSet.SplitsDataTable.Rows.Count - 1).Item("ID") + 1
             Catch
@@ -78,6 +108,27 @@
     Private Sub SaveSplits()
         SplitsDataTableDataGridView.CurrentCell = Nothing
         Me.SplitsDataSet.WriteXml("Days\" & filename)
+        tsslLastSaved.Text = "Last saved: " & Now.ToShortTimeString
+    End Sub
+
+    Private Sub Clear()
+        Dim clearresult As Integer = MessageBox.Show("Clearing Splits will delete the current set!", "Delete current splits?", MessageBoxButtons.OKCancel)
+        If clearresult = DialogResult.OK Then
+            tmMain.Enabled = False
+            worktime = 0
+            splits = 0
+            SplitsDataSet.Clear()
+            txtdesc.Enabled = True
+            btnSplit.Enabled = True
+            btnpause.Text = "Pause"
+            Me.Icon = My.Resources.stopwatch
+            lblwktm.Text = "00:00:00"
+            btnpause.Enabled = False
+            tsslFilePath.Text = My.Computer.FileSystem.CurrentDirectory & "\Days" & filename
+            tsslLastSaved.Text = "File not yet saved"
+        Else
+            Exit Sub
+        End If
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -148,44 +199,11 @@
     End Sub
 
     Private Sub ImportToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportToolStripMenuItem.Click
-
-        Dim importresult As Integer = MessageBox.Show("Importing Splits will delete the current set!", "Overwrite current splits?", MessageBoxButtons.OKCancel)
-        If importresult = DialogResult.OK Then
-            tmMain.Enabled = False
-            worktime = 0
-            SplitsDataSet.Clear()
-            txtdesc.Enabled = True
-            btnSplit.Enabled = True
-            btnpause.Text = "Pause"
-            Me.Icon = My.Resources.stopwatch
-            btnpause.Enabled = False
-            Me.SplitsDataSet.ReadXml("Days\" & filename)
-            Try
-                splits = SplitsDataSet.SplitsDataTable.Rows(SplitsDataSet.SplitsDataTable.Rows.Count - 1).Item("ID") + 1
-            Catch
-                Exit Sub
-            End Try
-        Else
-            Exit Sub
-        End If
+        ImportSplits()
     End Sub
 
     Private Sub ClearSplitsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClearSplitsToolStripMenuItem.Click
-        Dim clearresult As Integer = MessageBox.Show("Clearing Splits will delete the current set!", "Delete current splits?", MessageBoxButtons.OKCancel)
-        If clearresult = DialogResult.OK Then
-            tmMain.Enabled = False
-            worktime = 0
-            splits = 0
-            SplitsDataSet.Clear()
-            txtdesc.Enabled = True
-            btnSplit.Enabled = True
-            btnpause.Text = "Pause"
-            Me.Icon = My.Resources.stopwatch
-            lblwktm.Text = "00:00:00"
-            btnpause.Enabled = False
-        Else
-            Exit Sub
-        End If
+        Clear()
     End Sub
 
     Private Sub ReviewToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReviewToolStripMenuItem.Click
@@ -193,7 +211,7 @@
     End Sub
 
     Private Sub AboutToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem1.Click
-        MsgBox("Version " & My.Application.Info.Version.ToString() & Environment.NewLine & "Early Alpha")
+        MsgBox("Version " & My.Application.Info.Version.ToString() & Environment.NewLine & "Early Alpha" & Environment.NewLine & "Copyright Korkscrewgaming 2016")
     End Sub
 
     Private Sub ImportFromFileToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportFromFileToolStripMenuItem.Click

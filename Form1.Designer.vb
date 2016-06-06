@@ -57,10 +57,14 @@ Partial Class frmMain
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnSave = New System.Windows.Forms.Button()
+        Me.ssBottomMain = New System.Windows.Forms.StatusStrip()
+        Me.tsslFilePath = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.tsslLastSaved = New System.Windows.Forms.ToolStripStatusLabel()
         CType(Me.SplitsDataTableDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SplitsDataTableBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SplitsDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
+        Me.ssBottomMain.SuspendLayout()
         Me.SuspendLayout()
         '
         'lbltimertext
@@ -75,14 +79,13 @@ Partial Class frmMain
         '
         'tmMain
         '
-        Me.tmMain.Interval = 1000
         '
         'btnpause
         '
         Me.btnpause.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnpause.Enabled = False
-        Me.btnpause.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnpause.Location = New System.Drawing.Point(359, 314)
+        Me.btnpause.Font = New System.Drawing.Font("Segoe UI", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnpause.Location = New System.Drawing.Point(359, 368)
         Me.btnpause.Name = "btnpause"
         Me.btnpause.Size = New System.Drawing.Size(335, 48)
         Me.btnpause.TabIndex = 2
@@ -92,8 +95,8 @@ Partial Class frmMain
         'btnSplit
         '
         Me.btnSplit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnSplit.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSplit.Location = New System.Drawing.Point(10, 314)
+        Me.btnSplit.Font = New System.Drawing.Font("Segoe UI", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSplit.Location = New System.Drawing.Point(10, 368)
         Me.btnSplit.Name = "btnSplit"
         Me.btnSplit.Size = New System.Drawing.Size(335, 48)
         Me.btnSplit.TabIndex = 7
@@ -162,7 +165,7 @@ Partial Class frmMain
         Me.SplitsDataTableDataGridView.MultiSelect = False
         Me.SplitsDataTableDataGridView.Name = "SplitsDataTableDataGridView"
         Me.SplitsDataTableDataGridView.RowHeadersVisible = False
-        Me.SplitsDataTableDataGridView.Size = New System.Drawing.Size(684, 220)
+        Me.SplitsDataTableDataGridView.Size = New System.Drawing.Size(684, 276)
         Me.SplitsDataTableDataGridView.TabIndex = 16
         '
         'DataGridViewIDColumn
@@ -335,11 +338,35 @@ Partial Class frmMain
         Me.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnSave.UseVisualStyleBackColor = False
         '
+        'ssBottomMain
+        '
+        Me.ssBottomMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsslFilePath, Me.tsslLastSaved})
+        Me.ssBottomMain.Location = New System.Drawing.Point(0, 419)
+        Me.ssBottomMain.Name = "ssBottomMain"
+        Me.ssBottomMain.Size = New System.Drawing.Size(704, 22)
+        Me.ssBottomMain.TabIndex = 19
+        Me.ssBottomMain.Text = "ssBottom"
+        '
+        'tsslFilePath
+        '
+        Me.tsslFilePath.Name = "tsslFilePath"
+        Me.tsslFilePath.Size = New System.Drawing.Size(109, 17)
+        Me.tsslFilePath.Text = "File Path Goes Here"
+        '
+        'tsslLastSaved
+        '
+        Me.tsslLastSaved.Name = "tsslLastSaved"
+        Me.tsslLastSaved.Size = New System.Drawing.Size(580, 17)
+        Me.tsslLastSaved.Spring = True
+        Me.tsslLastSaved.Text = "File not yet saved"
+        Me.tsslLastSaved.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(704, 369)
+        Me.ClientSize = New System.Drawing.Size(704, 441)
+        Me.Controls.Add(Me.ssBottomMain)
         Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.SplitsDataTableDataGridView)
         Me.Controls.Add(Me.btnAddTime)
@@ -354,7 +381,7 @@ Partial Class frmMain
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.MaximumSize = New System.Drawing.Size(720, 750)
-        Me.MinimumSize = New System.Drawing.Size(720, 408)
+        Me.MinimumSize = New System.Drawing.Size(720, 480)
         Me.Name = "frmMain"
         Me.Text = "Timer++"
         CType(Me.SplitsDataTableDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
@@ -362,6 +389,8 @@ Partial Class frmMain
         CType(Me.SplitsDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        Me.ssBottomMain.ResumeLayout(False)
+        Me.ssBottomMain.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -400,4 +429,7 @@ Partial Class frmMain
     Friend WithEvents DataGridViewRecordedColumn As DataGridViewCheckBoxColumn
     Friend WithEvents DeleteLastSplitToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents btnSave As Button
+    Friend WithEvents ssBottomMain As StatusStrip
+    Friend WithEvents tsslFilePath As ToolStripStatusLabel
+    Friend WithEvents tsslLastSaved As ToolStripStatusLabel
 End Class

@@ -1,0 +1,52 @@
+<?xml version="1.0" standalone="yes"?>
+<SplitsDataSet xmlns="http://tempuri.org/SplitsDataSet.xsd">
+  <SplitsDataTable>
+    <ID>0</ID>
+    <Description>test for 6-5-2016</Description>
+    <StartTime>10:35 AM</StartTime>
+    <StopTime>10:35 AM</StopTime>
+    <TimeWorked>PT10S</TimeWorked>
+    <Recorded>true</Recorded>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>1</ID>
+    <Description>test</Description>
+    <StartTime>10:35 AM</StartTime>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>2</ID>
+    <Description>test</Description>
+    <StartTime>10:07 PM</StartTime>
+    <StopTime>10:07 PM</StopTime>
+    <TimeWorked>PT0S</TimeWorked>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>3</ID>
+    <Description>split</Description>
+    <StartTime>10:07 PM</StartTime>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>4</ID>
+    <Description>test</Description>
+    <StartTime>10:08 PM</StartTime>
+    <StopTime>10:09 PM</StopTime>
+    <TimeWorked>PT0S</TimeWorked>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>5</ID>
+    <Description>split</Description>
+    <StartTime>10:09 PM</StartTime>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>6</ID>
+    <Description>test</Description>
+    <StartTime>10:22 PM</StartTime>
+    <StopTime>10:22 PM</StopTime>
+    <TimeWorked>PT7M43S</TimeWorked>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>7</ID>
+    <Description>new thing</Description>
+    <StartTime>10:22 PM</StartTime>
+  </SplitsDataTable>
+</SplitsDataSet>

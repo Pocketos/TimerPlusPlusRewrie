@@ -135,18 +135,14 @@
   </SplitsDataTable>
   <SplitsDataTable>
     <ID>17</ID>
-    <Description>next</Description>
-    <StartTime>9:19 PM</StartTime>
-    <StopTime>9:19 PM</StopTime>
-    <TimeWorked>PT0S</TimeWorked>
-    <Recorded>false</Recorded>
+    <Description>new plsit</Description>
+    <StartTime>10:19 AM</StartTime>
+    <StopTime>10:19 AM</StopTime>
+    <TimeWorked>PT4S</TimeWorked>
   </SplitsDataTable>
   <SplitsDataTable>
     <ID>18</ID>
-    <Description>new split</Description>
-    <StartTime>9:22 PM</StartTime>
-    <StopTime>9:22 PM</StopTime>
-    <TimeWorked>PT8M7S</TimeWorked>
-    <Recorded>true</Recorded>
+    <Description>plit</Description>
+    <StartTime>10:19 AM</StartTime>
   </SplitsDataTable>
 </SplitsDataSet>

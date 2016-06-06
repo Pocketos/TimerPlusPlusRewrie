@@ -22,4 +22,17 @@
     <StartTime>10:21 PM</StartTime>
     <Recorded>true</Recorded>
   </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>3</ID>
+    <Description>new line</Description>
+    <StartTime>9:14 PM</StartTime>
+    <StopTime>9:14 PM</StopTime>
+    <TimeWorked>PT8S</TimeWorked>
+    <Recorded>true</Recorded>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>4</ID>
+    <Description>split</Description>
+    <StartTime>9:14 PM</StartTime>
+  </SplitsDataTable>
 </SplitsDataSet>
