@@ -10,3 +10,14 @@ C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\obj\Release\Timer++.exe
 C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\obj\Release\Timer++.xml
 C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\obj\Release\Timer++.pdb
 C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\obj\Release\Timer++.vbprojResolveAssemblyReference.cache
+C:\Users\tylerm\Source\Repos\TimerPlusPlusRewrite\bin\Release\Timer++.exe.config
+C:\Users\tylerm\Source\Repos\TimerPlusPlusRewrite\obj\Release\Timer++.exe
+C:\Users\tylerm\Source\Repos\TimerPlusPlusRewrite\obj\Release\Timer++.xml
+C:\Users\tylerm\Source\Repos\TimerPlusPlusRewrite\obj\Release\Timer++.pdb
+C:\Users\tylerm\Source\Repos\TimerPlusPlusRewrite\bin\Release\Timer++.exe
+C:\Users\tylerm\Source\Repos\TimerPlusPlusRewrite\bin\Release\Timer++.pdb
+C:\Users\tylerm\Source\Repos\TimerPlusPlusRewrite\bin\Release\Timer++.xml
+C:\Users\tylerm\Source\Repos\TimerPlusPlusRewrite\obj\Release\Timer++.vbprojResolveAssemblyReference.cache
+C:\Users\tylerm\Source\Repos\TimerPlusPlusRewrite\obj\Release\Timer__.frmMain.resources
+C:\Users\tylerm\Source\Repos\TimerPlusPlusRewrite\obj\Release\Timer__.Resources.resources
+C:\Users\tylerm\Source\Repos\TimerPlusPlusRewrite\obj\Release\Timer++.vbproj.GenerateResource.Cache

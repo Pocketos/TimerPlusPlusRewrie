@@ -73,12 +73,13 @@ Partial Class frmMain
         Me.lbltimertext.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbltimertext.Location = New System.Drawing.Point(5, 25)
         Me.lbltimertext.Name = "lbltimertext"
-        Me.lbltimertext.Size = New System.Drawing.Size(119, 30)
+        Me.lbltimertext.Size = New System.Drawing.Size(120, 30)
         Me.lbltimertext.TabIndex = 0
         Me.lbltimertext.Text = "Not Started"
         '
         'tmMain
         '
+        Me.tmMain.Interval = 1000
         '
         'btnpause
         '
@@ -116,7 +117,7 @@ Partial Class frmMain
         Me.lbltime.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbltime.Location = New System.Drawing.Point(555, 21)
         Me.lbltime.Name = "lbltime"
-        Me.lbltime.Size = New System.Drawing.Size(112, 30)
+        Me.lbltime.Size = New System.Drawing.Size(113, 30)
         Me.lbltime.TabIndex = 9
         Me.lbltime.Text = "Work Time"
         '
@@ -268,47 +269,47 @@ Partial Class frmMain
         'SaveToolStripMenuItem
         '
         Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
-        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
+        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
         Me.SaveToolStripMenuItem.Text = "Save"
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(171, 6)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(172, 6)
         '
         'ImportToolStripMenuItem
         '
         Me.ImportToolStripMenuItem.Name = "ImportToolStripMenuItem"
-        Me.ImportToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
+        Me.ImportToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
         Me.ImportToolStripMenuItem.Text = "Import from Today"
         '
         'ImportFromFileToolStripMenuItem
         '
         Me.ImportFromFileToolStripMenuItem.Name = "ImportFromFileToolStripMenuItem"
-        Me.ImportFromFileToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
+        Me.ImportFromFileToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
         Me.ImportFromFileToolStripMenuItem.Text = "Import from File..."
         '
         'DeleteLastSplitToolStripMenuItem
         '
         Me.DeleteLastSplitToolStripMenuItem.Name = "DeleteLastSplitToolStripMenuItem"
-        Me.DeleteLastSplitToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
+        Me.DeleteLastSplitToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
         Me.DeleteLastSplitToolStripMenuItem.Text = "Delete last Row"
         '
         'ClearSplitsToolStripMenuItem
         '
         Me.ClearSplitsToolStripMenuItem.Name = "ClearSplitsToolStripMenuItem"
-        Me.ClearSplitsToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
+        Me.ClearSplitsToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
         Me.ClearSplitsToolStripMenuItem.Text = "Clear Splits"
         '
         'ToolStripMenuItem2
         '
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(171, 6)
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(172, 6)
         '
         'ReviewToolStripMenuItem
         '
         Me.ReviewToolStripMenuItem.Name = "ReviewToolStripMenuItem"
-        Me.ReviewToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
+        Me.ReviewToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
         Me.ReviewToolStripMenuItem.Text = "Review"
         '
         'HelpToolStripMenuItem
