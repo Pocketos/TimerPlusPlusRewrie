@@ -131,6 +131,14 @@
         End If
     End Sub
 
+    Private Sub Highlight(color As Color)
+        If SplitsDataTableDataGridView.CurrentCell Is Nothing Then
+            MsgBox("No row selected!")
+        Else
+            SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor = color
+        End If
+    End Sub
+
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         datecheck()
     End Sub
@@ -229,5 +237,21 @@
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         SaveSplits()
+    End Sub
+
+    Private Sub btnCellBGYellow_Click(sender As Object, e As EventArgs) Handles btnRowBGYellow.Click
+        Highlight(Color.PaleGoldenrod)
+    End Sub
+
+    Private Sub btnRowBGRed_Click(sender As Object, e As EventArgs) Handles btnRowBGRed.Click
+        Highlight(Color.PaleVioletRed)
+    End Sub
+
+    Private Sub btnRowBGGreen_Click(sender As Object, e As EventArgs) Handles btnRowBGGreen.Click
+        Highlight(Color.PaleGreen)
+    End Sub
+
+    Private Sub btnRowBGWhite_Click(sender As Object, e As EventArgs) Handles btnRowBGWhite.Click
+        Highlight(Color.White)
     End Sub
 End Class
