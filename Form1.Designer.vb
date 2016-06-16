@@ -23,7 +23,7 @@ Partial Class frmMain
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
         Me.lbltimertext = New System.Windows.Forms.Label()
         Me.tmMain = New System.Windows.Forms.Timer(Me.components)
@@ -35,6 +35,10 @@ Partial Class frmMain
         Me.btnMinusTime = New System.Windows.Forms.Button()
         Me.btnAddTime = New System.Windows.Forms.Button()
         Me.SplitsDataTableDataGridView = New System.Windows.Forms.DataGridView()
+        Me.cmsSplitsGridView = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ContextMenuItemHighlight = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HighlighColorBox = New System.Windows.Forms.ToolStripComboBox()
+        Me.RemoveHighlightToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -49,11 +53,14 @@ Partial Class frmMain
         Me.ReviewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DisableToolTipsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EnableToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DisableToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnSave = New System.Windows.Forms.Button()
         Me.ssBottomMain = New System.Windows.Forms.StatusStrip()
         Me.tsslFilePath = New System.Windows.Forms.ToolStripStatusLabel()
         Me.tsslLastSaved = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.btnRowBGYellow = New System.Windows.Forms.Button()
+        Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.DataGridViewIDColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewDescriptionColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewStartTimeColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -62,10 +69,8 @@ Partial Class frmMain
         Me.DataGridViewRecordedColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.SplitsDataTableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.SplitsDataSet = New Timer__.SplitsDataSet()
-        Me.btnRowBGRed = New System.Windows.Forms.Button()
-        Me.btnRowBGGreen = New System.Windows.Forms.Button()
-        Me.btnRowBGWhite = New System.Windows.Forms.Button()
         CType(Me.SplitsDataTableDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.cmsSplitsGridView.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.ssBottomMain.SuspendLayout()
         CType(Me.SplitsDataTableBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -81,6 +86,7 @@ Partial Class frmMain
         Me.lbltimertext.Size = New System.Drawing.Size(119, 30)
         Me.lbltimertext.TabIndex = 0
         Me.lbltimertext.Text = "Not Started"
+        Me.ToolTip.SetToolTip(Me.lbltimertext, "Current system time and date.")
         '
         'tmMain
         '
@@ -96,6 +102,7 @@ Partial Class frmMain
         Me.btnpause.Size = New System.Drawing.Size(335, 48)
         Me.btnpause.TabIndex = 2
         Me.btnpause.Text = "Pause"
+        Me.ToolTip.SetToolTip(Me.btnpause, "Pause the Work Time counter.")
         Me.btnpause.UseVisualStyleBackColor = True
         '
         'btnSplit
@@ -107,20 +114,22 @@ Partial Class frmMain
         Me.btnSplit.Size = New System.Drawing.Size(335, 48)
         Me.btnSplit.TabIndex = 7
         Me.btnSplit.Text = "Split"
+        Me.ToolTip.SetToolTip(Me.btnSplit, "Mark the current time in the split.")
         Me.btnSplit.UseVisualStyleBackColor = True
         '
         'txtdesc
         '
         Me.txtdesc.Location = New System.Drawing.Point(10, 59)
         Me.txtdesc.Name = "txtdesc"
-        Me.txtdesc.Size = New System.Drawing.Size(420, 20)
+        Me.txtdesc.Size = New System.Drawing.Size(516, 20)
         Me.txtdesc.TabIndex = 8
+        Me.ToolTip.SetToolTip(Me.txtdesc, "A description for the next split.")
         '
         'lbltime
         '
         Me.lbltime.AutoSize = True
         Me.lbltime.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbltime.Location = New System.Drawing.Point(559, 21)
+        Me.lbltime.Location = New System.Drawing.Point(557, 25)
         Me.lbltime.Name = "lbltime"
         Me.lbltime.Size = New System.Drawing.Size(112, 30)
         Me.lbltime.TabIndex = 9
@@ -130,7 +139,7 @@ Partial Class frmMain
         '
         Me.lblwktm.AutoSize = True
         Me.lblwktm.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblwktm.Location = New System.Drawing.Point(569, 46)
+        Me.lblwktm.Location = New System.Drawing.Point(569, 50)
         Me.lblwktm.Name = "lblwktm"
         Me.lblwktm.Size = New System.Drawing.Size(89, 30)
         Me.lblwktm.TabIndex = 10
@@ -144,6 +153,7 @@ Partial Class frmMain
         Me.btnMinusTime.Size = New System.Drawing.Size(26, 54)
         Me.btnMinusTime.TabIndex = 14
         Me.btnMinusTime.Text = "-"
+        Me.ToolTip.SetToolTip(Me.btnMinusTime, "Subtracts one minute from the Work Time timer.")
         Me.btnMinusTime.UseVisualStyleBackColor = True
         '
         'btnAddTime
@@ -154,6 +164,7 @@ Partial Class frmMain
         Me.btnAddTime.Size = New System.Drawing.Size(26, 54)
         Me.btnAddTime.TabIndex = 15
         Me.btnAddTime.Text = "+"
+        Me.ToolTip.SetToolTip(Me.btnAddTime, "Adds one minute to the Work Time timer.")
         Me.btnAddTime.UseVisualStyleBackColor = True
         '
         'SplitsDataTableDataGridView
@@ -166,22 +177,48 @@ Partial Class frmMain
         Me.SplitsDataTableDataGridView.AutoGenerateColumns = False
         Me.SplitsDataTableDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.SplitsDataTableDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewIDColumn, Me.DataGridViewDescriptionColumn, Me.DataGridViewStartTimeColumn, Me.DataGridViewStopTimeColumn, Me.DataGridViewTimeWorkedColumn, Me.DataGridViewRecordedColumn})
+        Me.SplitsDataTableDataGridView.ContextMenuStrip = Me.cmsSplitsGridView
         Me.SplitsDataTableDataGridView.DataSource = Me.SplitsDataTableBindingSource
         Me.SplitsDataTableDataGridView.Location = New System.Drawing.Point(10, 86)
         Me.SplitsDataTableDataGridView.MultiSelect = False
         Me.SplitsDataTableDataGridView.Name = "SplitsDataTableDataGridView"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.SplitsDataTableDataGridView.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.SplitsDataTableDataGridView.RowHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.SplitsDataTableDataGridView.RowHeadersVisible = False
         Me.SplitsDataTableDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
         Me.SplitsDataTableDataGridView.Size = New System.Drawing.Size(684, 276)
         Me.SplitsDataTableDataGridView.TabIndex = 16
+        '
+        'cmsSplitsGridView
+        '
+        Me.cmsSplitsGridView.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ContextMenuItemHighlight, Me.HighlighColorBox, Me.RemoveHighlightToolStripMenuItem})
+        Me.cmsSplitsGridView.Name = "cmsSplitsGridView"
+        Me.cmsSplitsGridView.Size = New System.Drawing.Size(182, 75)
+        '
+        'ContextMenuItemHighlight
+        '
+        Me.ContextMenuItemHighlight.Name = "ContextMenuItemHighlight"
+        Me.ContextMenuItemHighlight.Size = New System.Drawing.Size(181, 22)
+        Me.ContextMenuItemHighlight.Text = "Highlight"
+        '
+        'HighlighColorBox
+        '
+        Me.HighlighColorBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.HighlighColorBox.Items.AddRange(New Object() {"Azure", "Cornsilk", "LightCyan", "LightGreen", "LightSkyBlue", "Thistle"})
+        Me.HighlighColorBox.Name = "HighlighColorBox"
+        Me.HighlighColorBox.Size = New System.Drawing.Size(121, 23)
+        '
+        'RemoveHighlightToolStripMenuItem
+        '
+        Me.RemoveHighlightToolStripMenuItem.Name = "RemoveHighlightToolStripMenuItem"
+        Me.RemoveHighlightToolStripMenuItem.Size = New System.Drawing.Size(181, 22)
+        Me.RemoveHighlightToolStripMenuItem.Text = "Remove Highlight"
         '
         'MenuStrip1
         '
@@ -261,7 +298,7 @@ Partial Class frmMain
         '
         'HelpToolStripMenuItem
         '
-        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem1})
+        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DisableToolTipsToolStripMenuItem, Me.AboutToolStripMenuItem1})
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
         Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
         Me.HelpToolStripMenuItem.Text = "Help"
@@ -272,18 +309,41 @@ Partial Class frmMain
         Me.AboutToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
         Me.AboutToolStripMenuItem1.Text = "About"
         '
+        'DisableToolTipsToolStripMenuItem
+        '
+        Me.DisableToolTipsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EnableToolStripMenuItem, Me.DisableToolStripMenuItem})
+        Me.DisableToolTipsToolStripMenuItem.Name = "DisableToolTipsToolStripMenuItem"
+        Me.DisableToolTipsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.DisableToolTipsToolStripMenuItem.Text = "Tool Tips"
+        '
+        'EnableToolStripMenuItem
+        '
+        Me.EnableToolStripMenuItem.Enabled = False
+        Me.EnableToolStripMenuItem.Name = "EnableToolStripMenuItem"
+        Me.EnableToolStripMenuItem.Size = New System.Drawing.Size(112, 22)
+        Me.EnableToolStripMenuItem.Text = "Enable"
+        Me.EnableToolStripMenuItem.ToolTipText = "Enables the showing of Tool Tips on controls in the form."
+        '
+        'DisableToolStripMenuItem
+        '
+        Me.DisableToolStripMenuItem.Name = "DisableToolStripMenuItem"
+        Me.DisableToolStripMenuItem.Size = New System.Drawing.Size(112, 22)
+        Me.DisableToolStripMenuItem.Text = "Disable"
+        Me.DisableToolStripMenuItem.ToolTipText = "Disables the showing of Tool Tips on controls in the form."
+        '
         'btnSave
         '
         Me.btnSave.BackColor = System.Drawing.Color.Transparent
         Me.btnSave.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSave.Image = Global.Timer__.My.Resources.Resources.save_bw
         Me.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnSave.Location = New System.Drawing.Point(356, 27)
+        Me.btnSave.Location = New System.Drawing.Point(452, 27)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(74, 30)
         Me.btnSave.TabIndex = 18
         Me.btnSave.Text = "Save"
         Me.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.ToolTip.SetToolTip(Me.btnSave, "Save the current set of splits to file.")
         Me.btnSave.UseVisualStyleBackColor = False
         '
         'ssBottomMain
@@ -294,6 +354,7 @@ Partial Class frmMain
         Me.ssBottomMain.Size = New System.Drawing.Size(704, 22)
         Me.ssBottomMain.TabIndex = 19
         Me.ssBottomMain.Text = "ssBottom"
+        Me.ToolTip.SetToolTip(Me.ssBottomMain, "File location and last saved time.")
         '
         'tsslFilePath
         '
@@ -308,15 +369,6 @@ Partial Class frmMain
         Me.tsslLastSaved.Spring = True
         Me.tsslLastSaved.Text = "File not yet saved"
         Me.tsslLastSaved.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'btnRowBGYellow
-        '
-        Me.btnRowBGYellow.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.btnRowBGYellow.Location = New System.Drawing.Point(505, 25)
-        Me.btnRowBGYellow.Name = "btnRowBGYellow"
-        Me.btnRowBGYellow.Size = New System.Drawing.Size(17, 54)
-        Me.btnRowBGYellow.TabIndex = 20
-        Me.btnRowBGYellow.UseVisualStyleBackColor = False
         '
         'DataGridViewIDColumn
         '
@@ -385,42 +437,11 @@ Partial Class frmMain
         Me.SplitsDataSet.DataSetName = "SplitsDataSet"
         Me.SplitsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'btnRowBGRed
-        '
-        Me.btnRowBGRed.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btnRowBGRed.Location = New System.Drawing.Point(482, 25)
-        Me.btnRowBGRed.Name = "btnRowBGRed"
-        Me.btnRowBGRed.Size = New System.Drawing.Size(17, 54)
-        Me.btnRowBGRed.TabIndex = 21
-        Me.btnRowBGRed.UseVisualStyleBackColor = False
-        '
-        'btnRowBGGreen
-        '
-        Me.btnRowBGGreen.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btnRowBGGreen.Location = New System.Drawing.Point(459, 25)
-        Me.btnRowBGGreen.Name = "btnRowBGGreen"
-        Me.btnRowBGGreen.Size = New System.Drawing.Size(17, 54)
-        Me.btnRowBGGreen.TabIndex = 22
-        Me.btnRowBGGreen.UseVisualStyleBackColor = False
-        '
-        'btnRowBGWhite
-        '
-        Me.btnRowBGWhite.BackColor = System.Drawing.Color.White
-        Me.btnRowBGWhite.Location = New System.Drawing.Point(436, 25)
-        Me.btnRowBGWhite.Name = "btnRowBGWhite"
-        Me.btnRowBGWhite.Size = New System.Drawing.Size(17, 54)
-        Me.btnRowBGWhite.TabIndex = 23
-        Me.btnRowBGWhite.UseVisualStyleBackColor = False
-        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(704, 441)
-        Me.Controls.Add(Me.btnRowBGWhite)
-        Me.Controls.Add(Me.btnRowBGGreen)
-        Me.Controls.Add(Me.btnRowBGRed)
-        Me.Controls.Add(Me.btnRowBGYellow)
         Me.Controls.Add(Me.ssBottomMain)
         Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.SplitsDataTableDataGridView)
@@ -440,6 +461,7 @@ Partial Class frmMain
         Me.Name = "frmMain"
         Me.Text = "Timer++"
         CType(Me.SplitsDataTableDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.cmsSplitsGridView.ResumeLayout(False)
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.ssBottomMain.ResumeLayout(False)
@@ -487,8 +509,12 @@ Partial Class frmMain
     Friend WithEvents ssBottomMain As StatusStrip
     Friend WithEvents tsslFilePath As ToolStripStatusLabel
     Friend WithEvents tsslLastSaved As ToolStripStatusLabel
-    Friend WithEvents btnRowBGYellow As Button
-    Friend WithEvents btnRowBGRed As Button
-    Friend WithEvents btnRowBGGreen As Button
-    Friend WithEvents btnRowBGWhite As Button
+    Friend WithEvents cmsSplitsGridView As ContextMenuStrip
+    Friend WithEvents ContextMenuItemHighlight As ToolStripMenuItem
+    Friend WithEvents HighlighColorBox As ToolStripComboBox
+    Friend WithEvents RemoveHighlightToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolTip As ToolTip
+    Friend WithEvents DisableToolTipsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents EnableToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DisableToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -141,6 +141,7 @@
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         datecheck()
+        HighlighColorBox.Text = "Azure"
     End Sub
 
     Private Sub tmMain_Tick(sender As Object, e As EventArgs) Handles tmMain.Tick
@@ -239,19 +240,31 @@
         SaveSplits()
     End Sub
 
-    Private Sub btnCellBGYellow_Click(sender As Object, e As EventArgs) Handles btnRowBGYellow.Click
-        Highlight(Color.PaleGoldenrod)
+    Private Sub ContextMenuItemHighlight_Click(sender As Object, e As EventArgs) Handles ContextMenuItemHighlight.Click
+        Try
+            Highlight(Color.FromName(HighlighColorBox.Text))
+        Catch
+            MsgBox("!!!")
+        End Try
     End Sub
 
-    Private Sub btnRowBGRed_Click(sender As Object, e As EventArgs) Handles btnRowBGRed.Click
-        Highlight(Color.PaleVioletRed)
-    End Sub
-
-    Private Sub btnRowBGGreen_Click(sender As Object, e As EventArgs) Handles btnRowBGGreen.Click
-        Highlight(Color.PaleGreen)
-    End Sub
-
-    Private Sub btnRowBGWhite_Click(sender As Object, e As EventArgs) Handles btnRowBGWhite.Click
+    Private Sub RemoveHighlightToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RemoveHighlightToolStripMenuItem.Click
         Highlight(Color.White)
+    End Sub
+
+    Private Sub SplitsDataTableDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles SplitsDataTableDataGridView.CellContentClick
+        SplitsDataTableDataGridView.CurrentCell = Nothing
+    End Sub
+
+    Private Sub EnableToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnableToolStripMenuItem.Click
+        ToolTip.Active = True
+        DisableToolStripMenuItem.Enabled = True
+        EnableToolStripMenuItem.Enabled = False
+    End Sub
+
+    Private Sub DisableToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DisableToolStripMenuItem.Click
+        ToolTip.Active = False
+        DisableToolStripMenuItem.Enabled = False
+        EnableToolStripMenuItem.Enabled = True
     End Sub
 End Class
