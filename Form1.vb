@@ -141,7 +141,7 @@
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         datecheck()
-        HighlighColorBox.Text = "Azure"
+        HighlighColorBox.Text = "Yellow"
     End Sub
 
     Private Sub tmMain_Tick(sender As Object, e As EventArgs) Handles tmMain.Tick
@@ -250,10 +250,6 @@
 
     Private Sub RemoveHighlightToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RemoveHighlightToolStripMenuItem.Click
         Highlight(Color.White)
-    End Sub
-
-    Private Sub SplitsDataTableDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles SplitsDataTableDataGridView.CellContentClick
-        SplitsDataTableDataGridView.CurrentCell = Nothing
     End Sub
 
     Private Sub EnableToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnableToolStripMenuItem.Click
