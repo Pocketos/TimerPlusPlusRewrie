@@ -6,7 +6,7 @@
     <StartTime>12:00 AM</StartTime>
     <StopTime>12:00 AM</StopTime>
     <TimeWorked>PT2S</TimeWorked>
-    <Color>Yellow</Color>
+    <Color>LightGreen</Color>
   </SplitsDataTable>
   <SplitsDataTable>
     <ID>1</ID>
@@ -43,5 +43,25 @@
     <Description>Blue</Description>
     <StartTime>12:00 AM</StartTime>
     <Color>LightSkyBlue</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>6</ID>
+    <Description>test</Description>
+    <StartTime>8:24 AM</StartTime>
+    <StopTime>8:24 AM</StopTime>
+    <TimeWorked>PT4S</TimeWorked>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>7</ID>
+    <Description>another one</Description>
+    <StartTime>8:24 AM</StartTime>
+    <StopTime>8:24 AM</StopTime>
+    <TimeWorked>PT7S</TimeWorked>
+    <Color>Yellow</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>8</ID>
+    <Description>lee</Description>
+    <StartTime>8:24 AM</StartTime>
   </SplitsDataTable>
 </SplitsDataSet>

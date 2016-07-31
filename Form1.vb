@@ -1,12 +1,13 @@
 ﻿Public Class frmMain
-
+    'Gets the keystate library for splitting with the ENETER key.
     Private Declare Function GetAsyncKeyState Lib "user32" (ByVal vKey As Integer) As Short
 
+    'Declare the muber of splits, recorded worktime, and the file name.
     Private splits As Integer = 0
     Private worktime As Integer = 0
     Private filename As String
 
-
+    'Sets the date and file name.  Loaded with the main form.
     Private Sub datecheck()
         Dim currentdate As Date = Today
         Dim currentmonth As String
@@ -24,6 +25,7 @@
                 Me.SplitsDataSet.WriteXml("Days\" & filename)
             Else
                 Me.SplitsDataSet.ReadXml("Days\" & filename)
+                updatehighlight()
                 Try
                     splits = SplitsDataSet.SplitsDataTable.Rows(SplitsDataSet.SplitsDataTable.Rows.Count - 1).Item("ID") + 1
                 Catch
@@ -35,15 +37,6 @@
             System.IO.Directory.CreateDirectory(My.Computer.FileSystem.CurrentDirectory & "\Days")
             datecheck()
         End If
-    End Sub
-
-    Private Sub updatehighlight()
-        For Each DataRow In SplitsDataTableDataGridView.Rows
-            If Not IsDBNull(DataRow.Cells("DataGridViewColorColumn").Value) Then
-                Dim rowcolor As Color = Color.FromName(DataRow.Cells("DataGridViewColorColumn").Value)
-                DataRow.DefaultCellStyle.BackColor = rowcolor
-            End If
-        Next
     End Sub
 
     Private Sub Split()
@@ -81,7 +74,6 @@
             Me.Icon = My.Resources.stopwatch
             btnpause.Enabled = False
             tsslLastSaved.Text = "File not yet saved"
-            'Me.SplitsDataSet.ReadXml("Days\" & filename)
             Try
                 splits = SplitsDataSet.SplitsDataTable.Rows(SplitsDataSet.SplitsDataTable.Rows.Count - 1).Item("ID") + 1
             Catch
@@ -105,6 +97,7 @@
             filename = fd.SafeFileName
             Clear()
             Me.SplitsDataSet.ReadXml(fd.FileName)
+            updatehighlight()
             tsslFilePath.Text = My.Computer.FileSystem.CurrentDirectory & "\Days\" & filename
             Try
                 splits = SplitsDataSet.SplitsDataTable.Rows(SplitsDataSet.SplitsDataTable.Rows.Count - 1).Item("ID") + 1
@@ -147,6 +140,15 @@
             SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor = color
             SplitsDataTableDataGridView.CurrentRow.Cells("DataGridViewColorColumn").Value = SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor
         End If
+    End Sub
+
+    Private Sub updatehighlight()
+        For Each DataRow In SplitsDataTableDataGridView.Rows
+            If Not IsDBNull(DataRow.Cells("DataGridViewColorColumn").Value) Then
+                Dim rowcolor As Color = Color.FromName(DataRow.Cells("DataGridViewColorColumn").Value)
+                DataRow.DefaultCellStyle.BackColor = rowcolor
+            End If
+        Next
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -272,9 +274,5 @@
         ToolTip.Active = False
         DisableToolStripMenuItem.Enabled = False
         EnableToolStripMenuItem.Enabled = True
-    End Sub
-
-    Private Sub UpdateHighlightsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UpdateHighlightsToolStripMenuItem.Click
-        updatehighlight()
     End Sub
 End Class

@@ -7,6 +7,7 @@
     <StopTime>11:09 AM</StopTime>
     <TimeWorked>PT1M25S</TimeWorked>
     <Recorded>true</Recorded>
+    <Color>LightSkyBlue</Color>
   </SplitsDataTable>
   <SplitsDataTable>
     <ID>1</ID>
@@ -15,6 +16,7 @@
     <StopTime>11:11 AM</StopTime>
     <TimeWorked>PT2M26S</TimeWorked>
     <Recorded>true</Recorded>
+    <Color>LightSkyBlue</Color>
   </SplitsDataTable>
   <SplitsDataTable>
     <ID>2</ID>
@@ -29,6 +31,7 @@
     <Description>eod</Description>
     <StartTime>11:17 AM</StartTime>
     <Recorded>false</Recorded>
+    <Color>Yellow</Color>
   </SplitsDataTable>
   <SplitsDataTable>
     <ID>4</ID>
@@ -50,6 +53,7 @@
     <StopTime>11:37 AM</StopTime>
     <TimeWorked>PT6M6S</TimeWorked>
     <Recorded>true</Recorded>
+    <Color>Yellow</Color>
   </SplitsDataTable>
   <SplitsDataTable>
     <ID>7</ID>
@@ -63,6 +67,7 @@
     <StopTime>9:46 PM</StopTime>
     <TimeWorked>PT3S</TimeWorked>
     <Recorded>true</Recorded>
+    <Color>LightCoral</Color>
   </SplitsDataTable>
   <SplitsDataTable>
     <ID>9</ID>
