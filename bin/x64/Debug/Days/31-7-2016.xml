@@ -1,0 +1,47 @@
+<?xml version="1.0" standalone="yes"?>
+<SplitsDataSet xmlns="http://tempuri.org/SplitsDataSet.xsd">
+  <SplitsDataTable>
+    <ID>0</ID>
+    <Description>test</Description>
+    <StartTime>12:00 AM</StartTime>
+    <StopTime>12:00 AM</StopTime>
+    <TimeWorked>PT2S</TimeWorked>
+    <Color>Yellow</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>1</ID>
+    <Description>anothe one</Description>
+    <StartTime>12:00 AM</StartTime>
+    <StopTime>12:00 AM</StopTime>
+    <TimeWorked>PT2S</TimeWorked>
+    <Color>LightSkyBlue</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>2</ID>
+    <Description>antnother</Description>
+    <StartTime>12:00 AM</StartTime>
+    <StopTime>12:00 AM</StopTime>
+    <TimeWorked>PT4S</TimeWorked>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>3</ID>
+    <Description>next p[z</Description>
+    <StartTime>12:00 AM</StartTime>
+    <StopTime>12:00 AM</StopTime>
+    <TimeWorked>PT2S</TimeWorked>
+    <Color>Thistle</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>4</ID>
+    <Description>test2</Description>
+    <StartTime>12:00 AM</StartTime>
+    <StopTime>12:00 AM</StopTime>
+    <TimeWorked>PT2S</TimeWorked>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>5</ID>
+    <Description>Blue</Description>
+    <StartTime>12:00 AM</StartTime>
+    <Color>LightSkyBlue</Color>
+  </SplitsDataTable>
+</SplitsDataSet>

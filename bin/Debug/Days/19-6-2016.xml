@@ -1,0 +1,33 @@
+<?xml version="1.0" standalone="yes"?>
+<SplitsDataSet xmlns="http://tempuri.org/SplitsDataSet.xsd">
+  <SplitsDataTable>
+    <ID>0</ID>
+    <Description>color test</Description>
+    <StartTime>10:34 PM</StartTime>
+    <StopTime>10:34 PM</StopTime>
+    <TimeWorked>PT4S</TimeWorked>
+    <Color>Color [Empty]</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>1</ID>
+    <Description>anoter on</Description>
+    <StartTime>10:34 PM</StartTime>
+    <StopTime>10:34 PM</StopTime>
+    <TimeWorked>PT3S</TimeWorked>
+    <Color>Color [Empty]</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>2</ID>
+    <Description>oanotert one</Description>
+    <StartTime>10:34 PM</StartTime>
+    <StopTime>10:34 PM</StopTime>
+    <TimeWorked>PT1S</TimeWorked>
+    <Color>Color [Empty]</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>3</ID>
+    <Description>teast2</Description>
+    <StartTime>10:34 PM</StartTime>
+    <Color>LightGreen</Color>
+  </SplitsDataTable>
+</SplitsDataSet>

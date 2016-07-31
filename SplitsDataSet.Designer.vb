@@ -295,6 +295,8 @@ Partial Public Class SplitsDataSet
         
         Private columnRecorded As Global.System.Data.DataColumn
         
+        Private columnColor As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -379,6 +381,14 @@ Partial Public Class SplitsDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property ColorColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnColor
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -415,9 +425,9 @@ Partial Public Class SplitsDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddSplitsDataTableRow(ByVal Description As String, ByVal StartTime As String, ByVal StopTime As String, ByVal TimeWorked As System.TimeSpan, ByVal Recorded As Boolean) As SplitsDataTableRow
+        Public Overloads Function AddSplitsDataTableRow(ByVal Description As String, ByVal StartTime As String, ByVal StopTime As String, ByVal TimeWorked As System.TimeSpan, ByVal Recorded As Boolean, ByVal Color As String) As SplitsDataTableRow
             Dim rowSplitsDataTableRow As SplitsDataTableRow = CType(Me.NewRow,SplitsDataTableRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Description, StartTime, StopTime, TimeWorked, Recorded}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Description, StartTime, StopTime, TimeWorked, Recorded, Color}
             rowSplitsDataTableRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowSplitsDataTableRow)
             Return rowSplitsDataTableRow
@@ -452,6 +462,7 @@ Partial Public Class SplitsDataSet
             Me.columnStopTime = MyBase.Columns("StopTime")
             Me.columnTimeWorked = MyBase.Columns("TimeWorked")
             Me.columnRecorded = MyBase.Columns("Recorded")
+            Me.columnColor = MyBase.Columns("Color")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -469,6 +480,8 @@ Partial Public Class SplitsDataSet
             MyBase.Columns.Add(Me.columnTimeWorked)
             Me.columnRecorded = New Global.System.Data.DataColumn("Recorded", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnRecorded)
+            Me.columnColor = New Global.System.Data.DataColumn("Color", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnColor)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID}, true))
             Me.columnID.AutoIncrement = true
             Me.columnID.AllowDBNull = false
@@ -707,6 +720,21 @@ Partial Public Class SplitsDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Color() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableSplitsDataTable.ColorColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Color' in table 'SplitsDataTable' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableSplitsDataTable.ColorColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsDescriptionNull() As Boolean
             Return Me.IsNull(Me.tableSplitsDataTable.DescriptionColumn)
         End Function
@@ -763,6 +791,18 @@ Partial Public Class SplitsDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetRecordedNull()
             Me(Me.tableSplitsDataTable.RecordedColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsColorNull() As Boolean
+            Return Me.IsNull(Me.tableSplitsDataTable.ColorColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetColorNull()
+            Me(Me.tableSplitsDataTable.ColorColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

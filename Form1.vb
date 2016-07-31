@@ -37,6 +37,15 @@
         End If
     End Sub
 
+    Private Sub updatehighlight()
+        For Each DataRow In SplitsDataTableDataGridView.Rows
+            If Not IsDBNull(DataRow.Cells("DataGridViewColorColumn").Value) Then
+                Dim rowcolor As Color = Color.FromName(DataRow.Cells("DataGridViewColorColumn").Value)
+                DataRow.DefaultCellStyle.BackColor = rowcolor
+            End If
+        Next
+    End Sub
+
     Private Sub Split()
         If tmMain.Enabled = False Then
             SplitsDataSet.SplitsDataTable.Rows.Add(splits, txtdesc.Text, Now.ToShortTimeString)
@@ -136,6 +145,7 @@
             MsgBox("No row selected!")
         Else
             SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor = color
+            SplitsDataTableDataGridView.CurrentRow.Cells("DataGridViewColorColumn").Value = SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor
         End If
     End Sub
 
@@ -262,5 +272,9 @@
         ToolTip.Active = False
         DisableToolStripMenuItem.Enabled = False
         EnableToolStripMenuItem.Enabled = True
+    End Sub
+
+    Private Sub UpdateHighlightsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UpdateHighlightsToolStripMenuItem.Click
+        updatehighlight()
     End Sub
 End Class
