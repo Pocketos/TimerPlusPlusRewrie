@@ -232,7 +232,7 @@
     End Sub
 
     Private Sub AboutToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem1.Click
-        MsgBox("Version " & My.Application.Info.Version.ToString() & Environment.NewLine & "Early Alpha" & Environment.NewLine & "Copyright Korkscrewgaming 2016")
+        MsgBox("Version " & My.Application.Info.Version.ToString() & Environment.NewLine & "Early Alpha" & Environment.NewLine & "Copyright Korkscrewgaming 2016", , My.Application.Info.AssemblyName.ToString)
     End Sub
 
     Private Sub ImportFromFileToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportFromFileToolStripMenuItem.Click
