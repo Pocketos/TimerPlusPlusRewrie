@@ -470,7 +470,7 @@ Partial Class frmMain
         Me.Controls.Add(Me.lbltimertext)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
-        Me.MaximumSize = New System.Drawing.Size(720, 750)
+        Me.MaximumSize = New System.Drawing.Size(720, 950)
         Me.MinimumSize = New System.Drawing.Size(720, 480)
         Me.Name = "frmMain"
         Me.Text = "Timer++"
