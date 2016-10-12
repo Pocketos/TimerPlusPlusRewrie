@@ -1,0 +1,17 @@
+<?xml version="1.0" standalone="yes"?>
+<SplitsDataSet xmlns="http://tempuri.org/SplitsDataSet.xsd">
+  <SplitsDataTable>
+    <ID>0</ID>
+    <Description>test</Description>
+    <StartTime>12:19 AM</StartTime>
+    <StopTime>12:19 AM</StopTime>
+    <TimeWorked>PT1S</TimeWorked>
+    <Color>LightSkyBlue</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>1</ID>
+    <Description>teste</Description>
+    <StartTime>12:19 AM</StartTime>
+    <Color>SteelBlue</Color>
+  </SplitsDataTable>
+</SplitsDataSet>

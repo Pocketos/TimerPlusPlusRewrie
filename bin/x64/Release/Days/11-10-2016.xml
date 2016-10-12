@@ -1,0 +1,39 @@
+<?xml version="1.0" standalone="yes"?>
+<SplitsDataSet xmlns="http://tempuri.org/SplitsDataSet.xsd">
+  <SplitsDataTable>
+    <ID>0</ID>
+    <Description>new split</Description>
+    <StartTime>11:49 PM</StartTime>
+    <StopTime>11:49 PM</StopTime>
+    <TimeWorked>PT4M4S</TimeWorked>
+    <Recorded>true</Recorded>
+    <Color>SteelBlue</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>1</ID>
+    <Description>next one</Description>
+    <StartTime>11:49 PM</StartTime>
+    <Color>White</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>2</ID>
+    <Description>new split</Description>
+    <StartTime>11:52 PM</StartTime>
+    <StopTime>11:53 PM</StopTime>
+    <TimeWorked>PT3M33S</TimeWorked>
+    <Recorded>true</Recorded>
+    <Color>LimeGreen</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>3</ID>
+    <Description>anotha one</Description>
+    <StartTime>11:53 PM</StartTime>
+    <StopTime>11:53 PM</StopTime>
+    <TimeWorked>PT17M9S</TimeWorked>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>4</ID>
+    <Description />
+    <StartTime>11:53 PM</StartTime>
+  </SplitsDataTable>
+</SplitsDataSet>

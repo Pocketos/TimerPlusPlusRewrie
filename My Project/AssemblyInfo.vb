@@ -9,7 +9,7 @@ Imports System.Runtime.InteropServices
 ' Review the values of the assembly attributes
 
 <Assembly: AssemblyTitle("Timer++")>
-<Assembly: AssemblyDescription("A robust timing applicaion")>
+<Assembly: AssemblyDescription("Building a better timer")>
 <Assembly: AssemblyCompany("KorkscrewGaming")>
 <Assembly: AssemblyProduct("Timer++")>
 <Assembly: AssemblyCopyright("Copyright ©  2016")>
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("0.2.5.2")>
-<Assembly: AssemblyFileVersion("0.2.5.2")>
+<Assembly: AssemblyVersion("0.2.6.0")>
+<Assembly: AssemblyFileVersion("0.2.6.0")>

@@ -7,6 +7,9 @@
     Private worktime As Integer = 0
     Private filename As String
 
+    'Settings
+    Private EnablePause As Integer = 0
+
     'Sets the date and file name.  Loaded with the main form.
     Private Sub datecheck()
         Dim currentdate As Date = Today
@@ -45,7 +48,6 @@
             SplitsDataTableDataGridView.CurrentCell = Me.SplitsDataTableDataGridView(0, splits)
             txtdesc.Clear()
             tmMain.Enabled = True
-            btnpause.Enabled = True
         Else
             SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewStopTimeColumn").Value = Now.ToShortTimeString
             Dim time = New TimeSpan(0, 0, worktime)
@@ -58,6 +60,9 @@
             SplitsDataTableDataGridView.CurrentCell = Me.SplitsDataTableDataGridView(0, splits)
             txtdesc.Clear()
             Me.SplitsDataSet.WriteXml("Days\" & filename)
+            If EnablePause = 1 Then
+                btnpause.Enabled = True
+            End If
         End If
     End Sub
 
@@ -125,11 +130,9 @@
             btnpause.Text = "Pause"
             Me.Icon = My.Resources.stopwatch
             lblwktm.Text = "00:00:00"
-            btnpause.Enabled = False
             tsslFilePath.Text = My.Computer.FileSystem.CurrentDirectory & "\Days" & filename
             tsslLastSaved.Text = "File not yet saved"
-        Else
-            Exit Sub
+            btnpause.Enabled = False
         End If
     End Sub
 
@@ -170,13 +173,17 @@
             btnpause.Text = "Resume"
             txtdesc.Enabled = False
             btnSplit.Enabled = False
-            Me.Icon = My.Resources.stopwatchpaused
+            NotifyIcon.Icon = My.Resources.stopwatchpaused
+            NotifyIcon.BalloonTipText = "Timer Paused"
+            NotifyIcon.ShowBalloonTip(1000)
         Else
             tmMain.Enabled = True
             txtdesc.Enabled = True
             btnSplit.Enabled = True
             btnpause.Text = "Pause"
-            Me.Icon = My.Resources.stopwatch
+            NotifyIcon.Icon = My.Resources.stopwatch
+            NotifyIcon.BalloonTipText = "Timer Running"
+            NotifyIcon.ShowBalloonTip(1000)
         End If
     End Sub
 
@@ -232,7 +239,7 @@
     End Sub
 
     Private Sub AboutToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem1.Click
-        MsgBox("Version " & My.Application.Info.Version.ToString() & Environment.NewLine & "Early Alpha" & Environment.NewLine & "Copyright Korkscrewgaming 2016", , My.Application.Info.AssemblyName.ToString)
+        MsgBox("Version " & My.Application.Info.Version.ToString() & Environment.NewLine & "Early Beta - Expect bugs!" & Environment.NewLine & "Copyright Korkscrewgaming 2016", , My.Application.Info.AssemblyName.ToString)
     End Sub
 
     Private Sub ImportFromFileToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportFromFileToolStripMenuItem.Click
@@ -244,7 +251,7 @@
             SplitsDataSet.SplitsDataTable.Rows(splits - 1).Delete()
             splits = SplitsDataSet.SplitsDataTable.Rows(SplitsDataSet.SplitsDataTable.Rows.Count - 1).Item("ID") + 1
         Catch
-            MsgBox("Error removing row" & splits)
+            MsgBox("Error removing row" & splits, , My.Application.Info.AssemblyName.ToString)
         End Try
     End Sub
 
@@ -256,7 +263,7 @@
         Try
             Highlight(Color.FromName(HighlighColorBox.Text))
         Catch
-            MsgBox("!!!")
+            MsgBox("!!!", , My.Application.Info.AssemblyName.ToString)
         End Try
     End Sub
 
@@ -274,5 +281,34 @@
         ToolTip.Active = False
         DisableToolStripMenuItem.Enabled = False
         EnableToolStripMenuItem.Enabled = True
+    End Sub
+
+    Private Sub NotifyIcon_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles NotifyIcon.MouseDoubleClick
+        Me.Activate()
+        Me.WindowState = FormWindowState.Normal
+    End Sub
+
+    Private Sub EnablePauseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnablePauseToolStripMenuItem.Click
+        If EnablePause = 0 Then
+            EnablePauseToolStripMenuItem.Text = "Disable Pause"
+            EnablePause = 1
+            btnpause.Enabled = True
+        Else
+            If btnpause.Text = "Pause" Then
+                EnablePauseToolStripMenuItem.Text = "Enable Pause"
+                EnablePause = 0
+                btnpause.Enabled = False
+            Else
+                MsgBox("Please resume the timer before disabling it.", , My.Application.Info.AssemblyName.ToString)
+            End If
+        End If
+    End Sub
+
+    Private Sub OpenSplitLocationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpenSplitLocationToolStripMenuItem.Click
+        Try
+            Process.Start(My.Computer.FileSystem.CurrentDirectory & "\Days")
+        Catch
+            MsgBox("Could not open the file path", , My.Application.Info.AssemblyName.ToString)
+        End Try
     End Sub
 End Class
