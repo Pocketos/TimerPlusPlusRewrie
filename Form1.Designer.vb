@@ -23,7 +23,7 @@ Partial Class frmMain
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
         Me.lbltimertext = New System.Windows.Forms.Label()
         Me.tmMain = New System.Windows.Forms.Timer(Me.components)
@@ -60,20 +60,18 @@ Partial Class frmMain
         Me.ClearSplitsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripSeparator()
         Me.ReviewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OpenSplitLocationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DisableToolTipsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EnableToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DisableToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EnablePauseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BillComplianceToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolTipsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnSave = New System.Windows.Forms.Button()
         Me.ssBottomMain = New System.Windows.Forms.StatusStrip()
         Me.tsslFilePath = New System.Windows.Forms.ToolStripStatusLabel()
         Me.tsslLastSaved = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.NotifyIcon = New System.Windows.Forms.NotifyIcon(Me.components)
-        Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EnablePauseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.OpenSplitLocationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.SplitsDataTableDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.cmsSplitsGridView.SuspendLayout()
         CType(Me.SplitsDataTableBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -187,14 +185,14 @@ Partial Class frmMain
         Me.SplitsDataTableDataGridView.Location = New System.Drawing.Point(10, 86)
         Me.SplitsDataTableDataGridView.MultiSelect = False
         Me.SplitsDataTableDataGridView.Name = "SplitsDataTableDataGridView"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.SplitsDataTableDataGridView.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.SplitsDataTableDataGridView.RowHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.SplitsDataTableDataGridView.RowHeadersVisible = False
         Me.SplitsDataTableDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
         Me.SplitsDataTableDataGridView.Size = New System.Drawing.Size(684, 276)
@@ -338,77 +336,88 @@ Partial Class frmMain
         'SaveToolStripMenuItem
         '
         Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
-        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
+        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
         Me.SaveToolStripMenuItem.Text = "Save"
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(171, 6)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(175, 6)
         '
         'ImportToolStripMenuItem
         '
         Me.ImportToolStripMenuItem.Name = "ImportToolStripMenuItem"
-        Me.ImportToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
+        Me.ImportToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
         Me.ImportToolStripMenuItem.Text = "Import from Today"
         '
         'ImportFromFileToolStripMenuItem
         '
         Me.ImportFromFileToolStripMenuItem.Name = "ImportFromFileToolStripMenuItem"
-        Me.ImportFromFileToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
+        Me.ImportFromFileToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
         Me.ImportFromFileToolStripMenuItem.Text = "Import from File..."
         '
         'DeleteLastSplitToolStripMenuItem
         '
         Me.DeleteLastSplitToolStripMenuItem.Name = "DeleteLastSplitToolStripMenuItem"
-        Me.DeleteLastSplitToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
+        Me.DeleteLastSplitToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
         Me.DeleteLastSplitToolStripMenuItem.Text = "Delete last Row"
         '
         'ClearSplitsToolStripMenuItem
         '
         Me.ClearSplitsToolStripMenuItem.Name = "ClearSplitsToolStripMenuItem"
-        Me.ClearSplitsToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
+        Me.ClearSplitsToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
         Me.ClearSplitsToolStripMenuItem.Text = "Clear Splits"
         '
         'ToolStripMenuItem2
         '
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(171, 6)
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(175, 6)
         '
         'ReviewToolStripMenuItem
         '
         Me.ReviewToolStripMenuItem.Name = "ReviewToolStripMenuItem"
-        Me.ReviewToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
+        Me.ReviewToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
         Me.ReviewToolStripMenuItem.Text = "Review"
+        '
+        'OpenSplitLocationToolStripMenuItem
+        '
+        Me.OpenSplitLocationToolStripMenuItem.Name = "OpenSplitLocationToolStripMenuItem"
+        Me.OpenSplitLocationToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
+        Me.OpenSplitLocationToolStripMenuItem.Text = "Open Split Location"
         '
         'HelpToolStripMenuItem
         '
-        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DisableToolTipsToolStripMenuItem, Me.SettingsToolStripMenuItem, Me.AboutToolStripMenuItem1})
+        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SettingsToolStripMenuItem, Me.AboutToolStripMenuItem1})
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
         Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
         Me.HelpToolStripMenuItem.Text = "Help"
         '
-        'DisableToolTipsToolStripMenuItem
+        'SettingsToolStripMenuItem
         '
-        Me.DisableToolTipsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EnableToolStripMenuItem, Me.DisableToolStripMenuItem})
-        Me.DisableToolTipsToolStripMenuItem.Name = "DisableToolTipsToolStripMenuItem"
-        Me.DisableToolTipsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.DisableToolTipsToolStripMenuItem.Text = "Tool Tips"
+        Me.SettingsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EnablePauseToolStripMenuItem, Me.BillComplianceToolStripMenuItem, Me.ToolTipsToolStripMenuItem})
+        Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
+        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SettingsToolStripMenuItem.Text = "Settings"
         '
-        'EnableToolStripMenuItem
+        'EnablePauseToolStripMenuItem
         '
-        Me.EnableToolStripMenuItem.Enabled = False
-        Me.EnableToolStripMenuItem.Name = "EnableToolStripMenuItem"
-        Me.EnableToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.EnableToolStripMenuItem.Text = "Enable"
-        Me.EnableToolStripMenuItem.ToolTipText = "Enables the showing of Tool Tips on controls in the form."
+        Me.EnablePauseToolStripMenuItem.Name = "EnablePauseToolStripMenuItem"
+        Me.EnablePauseToolStripMenuItem.Size = New System.Drawing.Size(157, 22)
+        Me.EnablePauseToolStripMenuItem.Text = "Pause Button"
         '
-        'DisableToolStripMenuItem
+        'BillComplianceToolStripMenuItem
         '
-        Me.DisableToolStripMenuItem.Name = "DisableToolStripMenuItem"
-        Me.DisableToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.DisableToolStripMenuItem.Text = "Disable"
-        Me.DisableToolStripMenuItem.ToolTipText = "Disables the showing of Tool Tips on controls in the form."
+        Me.BillComplianceToolStripMenuItem.Name = "BillComplianceToolStripMenuItem"
+        Me.BillComplianceToolStripMenuItem.Size = New System.Drawing.Size(157, 22)
+        Me.BillComplianceToolStripMenuItem.Text = "Bill Compliance"
+        '
+        'ToolTipsToolStripMenuItem
+        '
+        Me.ToolTipsToolStripMenuItem.Checked = True
+        Me.ToolTipsToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.ToolTipsToolStripMenuItem.Name = "ToolTipsToolStripMenuItem"
+        Me.ToolTipsToolStripMenuItem.Size = New System.Drawing.Size(157, 22)
+        Me.ToolTipsToolStripMenuItem.Text = "Tool Tips"
         '
         'AboutToolStripMenuItem1
         '
@@ -454,31 +463,6 @@ Partial Class frmMain
         Me.tsslLastSaved.Spring = True
         Me.tsslLastSaved.Text = "File not yet saved"
         Me.tsslLastSaved.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'NotifyIcon
-        '
-        Me.NotifyIcon.Icon = CType(resources.GetObject("NotifyIcon.Icon"), System.Drawing.Icon)
-        Me.NotifyIcon.Text = "Timer++ "
-        Me.NotifyIcon.Visible = True
-        '
-        'SettingsToolStripMenuItem
-        '
-        Me.SettingsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EnablePauseToolStripMenuItem})
-        Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
-        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.SettingsToolStripMenuItem.Text = "Settings"
-        '
-        'EnablePauseToolStripMenuItem
-        '
-        Me.EnablePauseToolStripMenuItem.Name = "EnablePauseToolStripMenuItem"
-        Me.EnablePauseToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.EnablePauseToolStripMenuItem.Text = "Enable Pause"
-        '
-        'OpenSplitLocationToolStripMenuItem
-        '
-        Me.OpenSplitLocationToolStripMenuItem.Name = "OpenSplitLocationToolStripMenuItem"
-        Me.OpenSplitLocationToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
-        Me.OpenSplitLocationToolStripMenuItem.Text = "Open Split Location"
         '
         'frmMain
         '
@@ -551,9 +535,6 @@ Partial Class frmMain
     Friend WithEvents HighlighColorBox As ToolStripComboBox
     Friend WithEvents RemoveHighlightToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolTip As ToolTip
-    Friend WithEvents DisableToolTipsToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents EnableToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents DisableToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DataGridViewIDColumn As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewDescriptionColumn As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewStartTimeColumn As DataGridViewTextBoxColumn
@@ -561,8 +542,9 @@ Partial Class frmMain
     Friend WithEvents DataGridViewTimeWorkedColumn As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewRecordedColumn As DataGridViewCheckBoxColumn
     Friend WithEvents DataGridViewColorColumn As DataGridViewTextBoxColumn
-    Friend WithEvents NotifyIcon As NotifyIcon
     Friend WithEvents SettingsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EnablePauseToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents OpenSplitLocationToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BillComplianceToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolTipsToolStripMenuItem As ToolStripMenuItem
 End Class

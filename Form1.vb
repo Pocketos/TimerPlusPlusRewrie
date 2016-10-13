@@ -9,6 +9,7 @@
 
     'Settings
     Private EnablePause As Integer = 0
+    Private EnableToolips As Integer = 1
 
     'Sets the date and file name.  Loaded with the main form.
     Private Sub datecheck()
@@ -173,17 +174,11 @@
             btnpause.Text = "Resume"
             txtdesc.Enabled = False
             btnSplit.Enabled = False
-            NotifyIcon.Icon = My.Resources.stopwatchpaused
-            NotifyIcon.BalloonTipText = "Timer Paused"
-            NotifyIcon.ShowBalloonTip(1000)
         Else
             tmMain.Enabled = True
             txtdesc.Enabled = True
             btnSplit.Enabled = True
             btnpause.Text = "Pause"
-            NotifyIcon.Icon = My.Resources.stopwatch
-            NotifyIcon.BalloonTipText = "Timer Running"
-            NotifyIcon.ShowBalloonTip(1000)
         End If
     End Sub
 
@@ -271,31 +266,14 @@
         Highlight(Color.White)
     End Sub
 
-    Private Sub EnableToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnableToolStripMenuItem.Click
-        ToolTip.Active = True
-        DisableToolStripMenuItem.Enabled = True
-        EnableToolStripMenuItem.Enabled = False
-    End Sub
-
-    Private Sub DisableToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DisableToolStripMenuItem.Click
-        ToolTip.Active = False
-        DisableToolStripMenuItem.Enabled = False
-        EnableToolStripMenuItem.Enabled = True
-    End Sub
-
-    Private Sub NotifyIcon_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles NotifyIcon.MouseDoubleClick
-        Me.Activate()
-        Me.WindowState = FormWindowState.Normal
-    End Sub
-
     Private Sub EnablePauseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnablePauseToolStripMenuItem.Click
         If EnablePause = 0 Then
-            EnablePauseToolStripMenuItem.Text = "Disable Pause"
+            EnablePauseToolStripMenuItem.Checked = True
             EnablePause = 1
             btnpause.Enabled = True
         Else
             If btnpause.Text = "Pause" Then
-                EnablePauseToolStripMenuItem.Text = "Enable Pause"
+                EnablePauseToolStripMenuItem.Checked = False
                 EnablePause = 0
                 btnpause.Enabled = False
             Else
@@ -310,5 +288,17 @@
         Catch
             MsgBox("Could not open the file path", , My.Application.Info.AssemblyName.ToString)
         End Try
+    End Sub
+
+    Private Sub ToolTipsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ToolTipsToolStripMenuItem.Click
+        If EnableToolips = 1 Then
+            ToolTip.Active = False
+            ToolTipsToolStripMenuItem.Checked = False
+            EnableToolips = 0
+        Else
+            ToolTip.Active = True
+            ToolTipsToolStripMenuItem.Checked = True
+            EnableToolips = 1
+        End If
     End Sub
 End Class
