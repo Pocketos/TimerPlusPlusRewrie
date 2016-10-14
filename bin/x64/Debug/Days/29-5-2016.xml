@@ -21,4 +21,17 @@
     <Description>dsdfadsa</Description>
     <StartTime>11:18 PM</StartTime>
   </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>3</ID>
+    <Description>next</Description>
+    <StartTime>11:05 PM</StartTime>
+    <StopTime>11:05 PM</StopTime>
+    <TimeWorked>PT8S</TimeWorked>
+    <Recorded>true</Recorded>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>4</ID>
+    <Description>new</Description>
+    <StartTime>11:05 PM</StartTime>
+  </SplitsDataTable>
 </SplitsDataSet>

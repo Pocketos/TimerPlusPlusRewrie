@@ -12,8 +12,8 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("Building a better timer")>
 <Assembly: AssemblyCompany("KorkscrewGaming")>
 <Assembly: AssemblyProduct("Timer++")>
-<Assembly: AssemblyCopyright("Copyright ©  2016")>
-<Assembly: AssemblyTrademark("")>
+<Assembly: AssemblyCopyright("Copyright © 2016")>
+<Assembly: AssemblyTrademark("KorkscrewGaming")>
 
 <Assembly: ComVisible(False)>
 
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("0.2.6.3")>
-<Assembly: AssemblyFileVersion("0.2.6.3")>
+<Assembly: AssemblyVersion("0.2.6.7")>
+<Assembly: AssemblyFileVersion("0.2.6.7")>

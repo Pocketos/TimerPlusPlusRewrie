@@ -21,6 +21,7 @@
     <StartTime>8:40 AM</StartTime>
     <StopTime>8:40 AM</StopTime>
     <TimeWorked>PT3S</TimeWorked>
+    <Recorded>true</Recorded>
   </SplitsDataTable>
   <SplitsDataTable>
     <ID>3</ID>
@@ -33,6 +34,12 @@
     <ID>4</ID>
     <Description>more text</Description>
     <StartTime>8:40 AM</StartTime>
+    <Recorded>true</Recorded>
     <Color>Thistle</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>5</ID>
+    <Description>new</Description>
+    <StartTime>11:41 PM</StartTime>
   </SplitsDataTable>
 </SplitsDataSet>

@@ -36,4 +36,9 @@
     <Description />
     <StartTime>11:53 PM</StartTime>
   </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>5</ID>
+    <Description>new split</Description>
+    <StartTime>11:43 PM</StartTime>
+  </SplitsDataTable>
 </SplitsDataSet>

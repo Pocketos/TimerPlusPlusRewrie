@@ -20,3 +20,5 @@ C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\obj\x64\Release\Timer++.vbprojR
 C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\obj\x64\Release\Timer__.frmMain.resources
 C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\obj\x64\Release\Timer__.Resources.resources
 C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\obj\x64\Release\Timer++.vbproj.GenerateResource.Cache
+C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\bin\x64\Release\Timer++.exe.CodeAnalysisLog.xml
+C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\bin\x64\Release\Timer++.exe.lastcodeanalysissucceeded
