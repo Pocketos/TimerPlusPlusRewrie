@@ -19,3 +19,4 @@ C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\bin\x64\Debug\Timer++.xml
 C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\obj\x64\Debug\Timer__.frmMain.resources
 C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\obj\x64\Debug\Timer__.Resources.resources
 C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\obj\x64\Debug\Timer++.vbproj.GenerateResource.Cache
+C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\obj\x64\Debug\Timer++.vbprojResolveAssemblyReference.cache

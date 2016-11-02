@@ -1,0 +1,76 @@
+<?xml version="1.0" standalone="yes"?>
+<SplitsDataSet xmlns="http://tempuri.org/SplitsDataSet.xsd">
+  <SplitsDataTable>
+    <ID>0</ID>
+    <Description>ttest</Description>
+    <StartTime>12:02 AM</StartTime>
+    <StopTime>12:02 AM</StopTime>
+    <TimeWorked>PT9M7S</TimeWorked>
+    <Recorded>true</Recorded>
+    <Color>LawnGreen</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>1</ID>
+    <Description>another one</Description>
+    <StartTime>12:02 AM</StartTime>
+    <StopTime>12:02 AM</StopTime>
+    <TimeWorked>PT19M6S</TimeWorked>
+    <Recorded>false</Recorded>
+    <Color>DimGray</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>2</ID>
+    <Description>test 2</Description>
+    <StartTime>12:02 AM</StartTime>
+    <StopTime>12:02 AM</StopTime>
+    <TimeWorked>PT2M5S</TimeWorked>
+    <Recorded>true</Recorded>
+    <Color>Yellow</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>3</ID>
+    <Description>test 3</Description>
+    <StartTime>12:02 AM</StartTime>
+    <Color>Thistle</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>4</ID>
+    <Description>new test split</Description>
+    <StartTime>12:08 AM</StartTime>
+    <StopTime>12:08 AM</StopTime>
+    <TimeWorked>PT4S</TimeWorked>
+    <Recorded>true</Recorded>
+    <Color>LawnGreen</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>5</ID>
+    <Description>another color test</Description>
+    <StartTime>12:08 AM</StartTime>
+    <StopTime>12:08 AM</StopTime>
+    <TimeWorked>PT5S</TimeWorked>
+    <Recorded>true</Recorded>
+    <Color>LightCoral</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>6</ID>
+    <Description>color test</Description>
+    <StartTime>12:08 AM</StartTime>
+    <Recorded>true</Recorded>
+    <Color>LawnGreen</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>7</ID>
+    <Description>lunch</Description>
+    <StartTime>12:11 AM</StartTime>
+    <StopTime>12:11 AM</StopTime>
+    <TimeWorked>PT59M4S</TimeWorked>
+    <Color>DimGray</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>8</ID>
+    <Description>im back</Description>
+    <StartTime>12:11 AM</StartTime>
+    <Recorded>true</Recorded>
+    <Color>Thistle</Color>
+  </SplitsDataTable>
+</SplitsDataSet>

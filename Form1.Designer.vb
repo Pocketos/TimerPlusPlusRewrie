@@ -43,8 +43,12 @@ Partial Class frmMain
         Me.DataGridViewRecordedColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.DataGridViewColorColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cmsSplitsGridView = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ContextMenuItemHighlight = New System.Windows.Forms.ToolStripMenuItem()
-        Me.HighlighColorBox = New System.Windows.Forms.ToolStripComboBox()
+        Me.highlight_red = New System.Windows.Forms.ToolStripMenuItem()
+        Me.highlight_cyan = New System.Windows.Forms.ToolStripMenuItem()
+        Me.highlight_green = New System.Windows.Forms.ToolStripMenuItem()
+        Me.highlight_purple = New System.Windows.Forms.ToolStripMenuItem()
+        Me.highlight_yellow = New System.Windows.Forms.ToolStripMenuItem()
+        Me.highlight_blue = New System.Windows.Forms.ToolStripMenuItem()
         Me.RemoveHighlightToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SplitsDataTableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.SplitsDataSet = New Timer__.SplitsDataSet()
@@ -70,6 +74,8 @@ Partial Class frmMain
         Me.tsslFilePath = New System.Windows.Forms.ToolStripStatusLabel()
         Me.tsslLastSaved = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.highlight_tan = New System.Windows.Forms.ToolStripMenuItem()
+        Me.highlight_voidout = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.SplitsDataTableDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.cmsSplitsGridView.SuspendLayout()
         CType(Me.SplitsDataTableBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -268,27 +274,56 @@ Partial Class frmMain
         '
         'cmsSplitsGridView
         '
-        Me.cmsSplitsGridView.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ContextMenuItemHighlight, Me.HighlighColorBox, Me.RemoveHighlightToolStripMenuItem})
+        Me.cmsSplitsGridView.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.highlight_blue, Me.highlight_cyan, Me.highlight_green, Me.highlight_purple, Me.highlight_red, Me.highlight_tan, Me.highlight_yellow, Me.RemoveHighlightToolStripMenuItem, Me.highlight_voidout})
         Me.cmsSplitsGridView.Name = "cmsSplitsGridView"
-        Me.cmsSplitsGridView.Size = New System.Drawing.Size(182, 75)
+        Me.cmsSplitsGridView.Size = New System.Drawing.Size(171, 224)
         '
-        'ContextMenuItemHighlight
+        'highlight_red
         '
-        Me.ContextMenuItemHighlight.Name = "ContextMenuItemHighlight"
-        Me.ContextMenuItemHighlight.Size = New System.Drawing.Size(181, 22)
-        Me.ContextMenuItemHighlight.Text = "Highlight"
+        Me.highlight_red.BackColor = System.Drawing.Color.LightCoral
+        Me.highlight_red.Name = "highlight_red"
+        Me.highlight_red.Size = New System.Drawing.Size(170, 22)
+        Me.highlight_red.Text = "Red"
         '
-        'HighlighColorBox
+        'highlight_cyan
         '
-        Me.HighlighColorBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.HighlighColorBox.Items.AddRange(New Object() {"Beige", "CadetBlue", "Coral", "Cyan", "DarkGray", "DarkSeaGreen", "ForestGreen", "LightCoral", "LightGreen", "LightSkyBlue", "LimeGreen", "SteelBlue", "Thistle", "Yellow", "WhiteSmoke"})
-        Me.HighlighColorBox.Name = "HighlighColorBox"
-        Me.HighlighColorBox.Size = New System.Drawing.Size(121, 23)
+        Me.highlight_cyan.BackColor = System.Drawing.Color.Cyan
+        Me.highlight_cyan.Name = "highlight_cyan"
+        Me.highlight_cyan.Size = New System.Drawing.Size(170, 22)
+        Me.highlight_cyan.Text = "Cyan"
+        '
+        'highlight_green
+        '
+        Me.highlight_green.BackColor = System.Drawing.Color.LawnGreen
+        Me.highlight_green.Name = "highlight_green"
+        Me.highlight_green.Size = New System.Drawing.Size(170, 22)
+        Me.highlight_green.Text = "Green"
+        '
+        'highlight_purple
+        '
+        Me.highlight_purple.BackColor = System.Drawing.Color.Thistle
+        Me.highlight_purple.Name = "highlight_purple"
+        Me.highlight_purple.Size = New System.Drawing.Size(170, 22)
+        Me.highlight_purple.Text = "Purple"
+        '
+        'highlight_yellow
+        '
+        Me.highlight_yellow.BackColor = System.Drawing.Color.Yellow
+        Me.highlight_yellow.Name = "highlight_yellow"
+        Me.highlight_yellow.Size = New System.Drawing.Size(170, 22)
+        Me.highlight_yellow.Text = "Yellow"
+        '
+        'highlight_blue
+        '
+        Me.highlight_blue.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.highlight_blue.Name = "highlight_blue"
+        Me.highlight_blue.Size = New System.Drawing.Size(170, 22)
+        Me.highlight_blue.Text = "Blue"
         '
         'RemoveHighlightToolStripMenuItem
         '
         Me.RemoveHighlightToolStripMenuItem.Name = "RemoveHighlightToolStripMenuItem"
-        Me.RemoveHighlightToolStripMenuItem.Size = New System.Drawing.Size(181, 22)
+        Me.RemoveHighlightToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
         Me.RemoveHighlightToolStripMenuItem.Text = "Remove Highlight"
         '
         'SplitsDataTableBindingSource
@@ -321,20 +356,20 @@ Partial Class frmMain
         'AboutToolStripMenuItem1
         '
         Me.AboutToolStripMenuItem1.Name = "AboutToolStripMenuItem1"
-        Me.AboutToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.AboutToolStripMenuItem1.Size = New System.Drawing.Size(116, 22)
         Me.AboutToolStripMenuItem1.Text = "About"
         '
         'ToolStripMenuItem3
         '
         Me.ToolStripMenuItem3.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EnablePauseToolStripMenuItem, Me.ToolTipsToolStripMenuItem})
         Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
-        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(152, 22)
+        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(116, 22)
         Me.ToolStripMenuItem3.Text = "Settings"
         '
         'EnablePauseToolStripMenuItem
         '
         Me.EnablePauseToolStripMenuItem.Name = "EnablePauseToolStripMenuItem"
-        Me.EnablePauseToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.EnablePauseToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
         Me.EnablePauseToolStripMenuItem.Text = "Pause Button"
         '
         'ToolTipsToolStripMenuItem
@@ -342,13 +377,13 @@ Partial Class frmMain
         Me.ToolTipsToolStripMenuItem.Checked = True
         Me.ToolTipsToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.ToolTipsToolStripMenuItem.Name = "ToolTipsToolStripMenuItem"
-        Me.ToolTipsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ToolTipsToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
         Me.ToolTipsToolStripMenuItem.Text = "Tool Tips"
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'SplitsToolStripMenuItem
@@ -449,6 +484,20 @@ Partial Class frmMain
         Me.tsslLastSaved.Text = "File not yet saved"
         Me.tsslLastSaved.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
+        'highlight_tan
+        '
+        Me.highlight_tan.BackColor = System.Drawing.Color.NavajoWhite
+        Me.highlight_tan.Name = "highlight_tan"
+        Me.highlight_tan.Size = New System.Drawing.Size(170, 22)
+        Me.highlight_tan.Text = "Tan"
+        '
+        'highlight_voidout
+        '
+        Me.highlight_voidout.BackColor = System.Drawing.Color.DimGray
+        Me.highlight_voidout.Name = "highlight_voidout"
+        Me.highlight_voidout.Size = New System.Drawing.Size(170, 22)
+        Me.highlight_voidout.Text = "Void Out"
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -468,7 +517,7 @@ Partial Class frmMain
         Me.Controls.Add(Me.lbltimertext)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
-        Me.MaximumSize = New System.Drawing.Size(645, 720)
+        Me.MaximumSize = New System.Drawing.Size(645, 920)
         Me.MinimumSize = New System.Drawing.Size(645, 480)
         Me.Name = "frmMain"
         Me.Text = "Timer++"
@@ -514,8 +563,6 @@ Partial Class frmMain
     Friend WithEvents tsslFilePath As ToolStripStatusLabel
     Friend WithEvents tsslLastSaved As ToolStripStatusLabel
     Friend WithEvents cmsSplitsGridView As ContextMenuStrip
-    Friend WithEvents ContextMenuItemHighlight As ToolStripMenuItem
-    Friend WithEvents HighlighColorBox As ToolStripComboBox
     Friend WithEvents RemoveHighlightToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolTip As ToolTip
     Friend WithEvents DataGridViewIDColumn As DataGridViewTextBoxColumn
@@ -530,4 +577,12 @@ Partial Class frmMain
     Friend WithEvents EnablePauseToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolTipsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AboutToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents highlight_red As ToolStripMenuItem
+    Friend WithEvents highlight_cyan As ToolStripMenuItem
+    Friend WithEvents highlight_green As ToolStripMenuItem
+    Friend WithEvents highlight_purple As ToolStripMenuItem
+    Friend WithEvents highlight_yellow As ToolStripMenuItem
+    Friend WithEvents highlight_blue As ToolStripMenuItem
+    Friend WithEvents highlight_tan As ToolStripMenuItem
+    Friend WithEvents highlight_voidout As ToolStripMenuItem
 End Class

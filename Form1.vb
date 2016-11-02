@@ -76,17 +76,23 @@
             worktime = 0
             txtdesc.Enabled = True
             btnSplit.Enabled = True
-            btnpause.Text = "Pause"
+            lblwktm.Text = "00:00:00"
+            If EnablePause = 1 Then
+                btnpause.Text = "Pause"
+                btnpause.Enabled = True
+                EnablePauseToolStripMenuItem.Checked = True
+            End If
             Me.Icon = My.Resources.stopwatch
             btnpause.Enabled = False
+            EnablePauseToolStripMenuItem.Checked = False
             tsslLastSaved.Text = "File not yet saved"
             Try
-                splits = SplitsDataSet.SplitsDataTable.Rows(SplitsDataSet.SplitsDataTable.Rows.Count - 1).Item("ID") + 1
-            Catch
+                    splits = SplitsDataSet.SplitsDataTable.Rows(SplitsDataSet.SplitsDataTable.Rows.Count - 1).Item("ID") + 1
+                Catch
+                    Exit Sub
+                End Try
+            Else
                 Exit Sub
-            End Try
-        Else
-            Exit Sub
         End If
     End Sub
 
@@ -137,15 +143,6 @@
         End If
     End Sub
 
-    Private Sub Highlight(color As Color)
-        If SplitsDataTableDataGridView.CurrentCell Is Nothing Then
-            MsgBox("No row selected!")
-        Else
-            SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor = color
-            SplitsDataTableDataGridView.CurrentRow.Cells("DataGridViewColorColumn").Value = SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor
-        End If
-    End Sub
-
     Private Sub updatehighlight()
         For Each DataRow In SplitsDataTableDataGridView.Rows
             If Not IsDBNull(DataRow.Cells("DataGridViewColorColumn").Value) Then
@@ -157,7 +154,6 @@
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         datecheck()
-        HighlighColorBox.Text = "Yellow"
     End Sub
 
     Private Sub tmMain_Tick(sender As Object, e As EventArgs) Handles tmMain.Tick
@@ -234,7 +230,7 @@
     End Sub
 
     Private Sub AboutToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem1.Click
-        MsgBox("Version " & My.Application.Info.Version.ToString() & Environment.NewLine & "Early Beta - Expect bugs!" & Environment.NewLine & My.Application.Info.Trademark.ToString & Environment.NewLine & My.Application.Info.Copyright.ToString, , My.Application.Info.AssemblyName.ToString)
+        MsgBox(My.Application.Info.Description.ToString() & Environment.NewLine & "Version " & My.Application.Info.Version.ToString() & Environment.NewLine & "Early Beta - Expect bugs!" & Environment.NewLine & My.Application.Info.Trademark.ToString & Environment.NewLine & My.Application.Info.Copyright.ToString, , My.Application.Info.AssemblyName.ToString)
     End Sub
 
     Private Sub ImportFromFileToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportFromFileToolStripMenuItem.Click
@@ -242,21 +238,95 @@
     End Sub
 
     Private Sub DeleteLastSplitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteLastSplitToolStripMenuItem.Click
-        Try
-            SplitsDataSet.SplitsDataTable.Rows(splits - 1).Delete()
-            splits = SplitsDataSet.SplitsDataTable.Rows(SplitsDataSet.SplitsDataTable.Rows.Count - 1).Item("ID") + 1
-        Catch
-            MsgBox("Error removing row" & splits, , My.Application.Info.AssemblyName.ToString)
-        End Try
+        If tmMain.Enabled = False And worktime <= 0 Then
+            Try
+                SplitsDataSet.SplitsDataTable.Rows(splits - 1).Delete()
+                splits = SplitsDataSet.SplitsDataTable.Rows(SplitsDataSet.SplitsDataTable.Rows.Count - 1).Item("ID") + 1
+                tmMain.Enabled = False
+                worktime = 0
+                lblwktm.Text = "00:00:00"
+            Catch
+                MsgBox("Error removing row" & splits, , My.Application.Info.AssemblyName.ToString)
+            End Try
+        Else
+            MsgBox("Cannot repair the file while the imter is running.  Please close and open the file without starting the timer.", , My.Application.Info.AssemblyName.ToString)
+        End If
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         SaveSplits()
     End Sub
 
-    Private Sub ContextMenuItemHighlight_Click(sender As Object, e As EventArgs) Handles ContextMenuItemHighlight.Click
+    'Logic for highlighing the currenetly selected cell
+
+    Private Sub Highlight(color As Color)
+        If SplitsDataTableDataGridView.CurrentCell Is Nothing Then
+            MsgBox("No row selected!")
+        Else
+            SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor = color
+            SplitsDataTableDataGridView.CurrentRow.Cells("DataGridViewColorColumn").Value = SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor
+        End If
+    End Sub
+
+    Private Sub highlight_red_Click(sender As Object, e As EventArgs) Handles highlight_red.Click
         Try
-            Highlight(Color.FromName(HighlighColorBox.Text))
+            Highlight(Color.LightCoral)
+        Catch
+            MsgBox("!!!", , My.Application.Info.AssemblyName.ToString)
+        End Try
+    End Sub
+
+    Private Sub highlight_cyan_Click(sender As Object, e As EventArgs) Handles highlight_cyan.Click
+        Try
+            Highlight(Color.Cyan)
+        Catch
+            MsgBox("!!!", , My.Application.Info.AssemblyName.ToString)
+        End Try
+    End Sub
+
+    Private Sub highlight_green_Click(sender As Object, e As EventArgs) Handles highlight_green.Click
+        Try
+            Highlight(Color.LawnGreen)
+        Catch
+            MsgBox("!!!", , My.Application.Info.AssemblyName.ToString)
+        End Try
+    End Sub
+
+    Private Sub highlight_purple_Click(sender As Object, e As EventArgs) Handles highlight_purple.Click
+        Try
+            Highlight(Color.Thistle)
+        Catch
+            MsgBox("!!!", , My.Application.Info.AssemblyName.ToString)
+        End Try
+    End Sub
+
+    Private Sub highlight_yellow_Click(sender As Object, e As EventArgs) Handles highlight_yellow.Click
+        Try
+            Highlight(Color.Yellow)
+        Catch
+            MsgBox("!!!", , My.Application.Info.AssemblyName.ToString)
+        End Try
+    End Sub
+
+    Private Sub highlight_blue_Click(sender As Object, e As EventArgs) Handles highlight_blue.Click
+        Try
+            Highlight(Color.LightSteelBlue)
+        Catch
+            MsgBox("!!!", , My.Application.Info.AssemblyName.ToString)
+        End Try
+    End Sub
+
+    Private Sub highlight_tan_Click(sender As Object, e As EventArgs) Handles highlight_tan.Click
+        Try
+            Highlight(Color.Tan)
+        Catch
+            MsgBox("!!!", , My.Application.Info.AssemblyName.ToString)
+        End Try
+    End Sub
+
+    Private Sub highlight_voidout_Click(sender As Object, e As EventArgs) Handles highlight_voidout.Click
+        Try
+            Highlight(Color.DimGray)
         Catch
             MsgBox("!!!", , My.Application.Info.AssemblyName.ToString)
         End Try
@@ -267,18 +337,22 @@
     End Sub
 
     Private Sub EnablePauseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnablePauseToolStripMenuItem.Click
-        If EnablePause = 0 Then
-            EnablePauseToolStripMenuItem.Checked = True
-            EnablePause = 1
-            btnpause.Enabled = True
-        Else
-            If btnpause.Text = "Pause" Then
-                EnablePauseToolStripMenuItem.Checked = False
-                EnablePause = 0
-                btnpause.Enabled = False
+        If tmMain.Enabled = True Then
+            If EnablePause = 0 Then
+                EnablePauseToolStripMenuItem.Checked = True
+                EnablePause = 1
+                btnpause.Enabled = True
             Else
-                MsgBox("Please resume the timer before disabling it.", , My.Application.Info.AssemblyName.ToString)
+                If btnpause.Text = "Pause" Then
+                    EnablePauseToolStripMenuItem.Checked = False
+                    EnablePause = 0
+                    btnpause.Enabled = False
+                Else
+                    MsgBox("The pause button cannot be disabled while the timer is inactive.", , My.Application.Info.AssemblyName.ToString)
+                End If
             End If
+        Else
+            MsgBox("The pause button cannot be disabled while the timer is inactive.", , My.Application.Info.AssemblyName.ToString)
         End If
     End Sub
 

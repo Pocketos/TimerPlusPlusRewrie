@@ -7,7 +7,7 @@
     <StopTime>11:09 AM</StopTime>
     <TimeWorked>PT1M25S</TimeWorked>
     <Recorded>true</Recorded>
-    <Color>LightSkyBlue</Color>
+    <Color>White</Color>
   </SplitsDataTable>
   <SplitsDataTable>
     <ID>1</ID>
@@ -31,7 +31,7 @@
     <Description>eod</Description>
     <StartTime>11:17 AM</StartTime>
     <Recorded>false</Recorded>
-    <Color>Yellow</Color>
+    <Color>White</Color>
   </SplitsDataTable>
   <SplitsDataTable>
     <ID>4</ID>
