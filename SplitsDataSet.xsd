@@ -12,7 +12,7 @@
   <xs:element name="SplitsDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="SplitsDataSet" msprop:Generator_UserDSName="SplitsDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="SplitsDataTable" msprop:Generator_TableClassName="SplitsDataTableDataTable" msprop:Generator_TableVarName="tableSplitsDataTable" msprop:Generator_TablePropName="SplitsDataTable" msprop:Generator_RowDeletingName="SplitsDataTableRowDeleting" msprop:Generator_RowChangingName="SplitsDataTableRowChanging" msprop:Generator_RowEvHandlerName="SplitsDataTableRowChangeEventHandler" msprop:Generator_RowDeletedName="SplitsDataTableRowDeleted" msprop:Generator_UserTableName="SplitsDataTable" msprop:Generator_RowChangedName="SplitsDataTableRowChanged" msprop:Generator_RowEvArgName="SplitsDataTableRowChangeEvent" msprop:Generator_RowClassName="SplitsDataTableRow">
+        <xs:element name="SplitsDataTable" msprop:Generator_TableClassName="SplitsDataTableDataTable" msprop:Generator_TableVarName="tableSplitsDataTable" msprop:Generator_RowChangedName="SplitsDataTableRowChanged" msprop:Generator_TablePropName="SplitsDataTable" msprop:Generator_RowDeletingName="SplitsDataTableRowDeleting" msprop:Generator_RowChangingName="SplitsDataTableRowChanging" msprop:Generator_RowEvHandlerName="SplitsDataTableRowChangeEventHandler" msprop:Generator_RowDeletedName="SplitsDataTableRowDeleted" msprop:Generator_RowClassName="SplitsDataTableRow" msprop:Generator_UserTableName="SplitsDataTable" msprop:Generator_RowEvArgName="SplitsDataTableRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -22,6 +22,7 @@
               <xs:element name="TimeWorked" msprop:Generator_ColumnVarNameInTable="columnTimeWorked" msprop:Generator_ColumnPropNameInRow="TimeWorked" msprop:Generator_ColumnPropNameInTable="TimeWorkedColumn" msprop:Generator_UserColumnName="TimeWorked" type="xs:duration" minOccurs="0" />
               <xs:element name="Recorded" msprop:Generator_ColumnVarNameInTable="columnRecorded" msprop:Generator_ColumnPropNameInRow="Recorded" msprop:Generator_ColumnPropNameInTable="RecordedColumn" msprop:Generator_UserColumnName="Recorded" type="xs:boolean" minOccurs="0" />
               <xs:element name="Color" msprop:Generator_ColumnVarNameInTable="columnColor" msprop:Generator_ColumnPropNameInRow="Color" msprop:Generator_ColumnPropNameInTable="ColorColumn" msprop:Generator_UserColumnName="Color" type="xs:string" minOccurs="0" />
+              <xs:element name="TimeInSeconds" msprop:Generator_ColumnVarNameInTable="columnTimeINSeconds" msprop:Generator_ColumnPropNameInRow="TimeINSeconds" msprop:Generator_ColumnPropNameInTable="TimeINSecondsColumn" msprop:Generator_UserColumnName="TimeInSeconds" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

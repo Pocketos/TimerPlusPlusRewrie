@@ -51,8 +51,8 @@
             tmMain.Enabled = True
         Else
             SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewStopTimeColumn").Value = Now.ToShortTimeString
-            Dim time = New TimeSpan(0, 0, worktime)
-            SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewTimeWorkedColumn").Value = time
+            SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewTimeInSecondsColumn").Value = worktime
+            SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewTimeWorkedColumn").Value = SecondsToTime(worktime)
             SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewRecordedColumn").Value = SplitsDataTableDataGridView(5, splits).Value
             SaveSplits()
             splits = splits + 1
@@ -119,6 +119,11 @@
         End If
     End Sub
 
+    Private Function SecondsToTime(worktime As Integer)
+        Dim worktime_span As TimeSpan = TimeSpan.FromSeconds(Convert.ToDouble(worktime))
+        Return worktime_span
+    End Function
+
     Private Sub SaveSplits()
         SplitsDataTableDataGridView.CurrentCell = Nothing
         Me.SplitsDataSet.WriteXml("Days\" & filename)
@@ -142,6 +147,22 @@
             btnpause.Enabled = False
         End If
     End Sub
+
+    Private Function addtime(SearchColor As String)
+        Dim combinedtime As Integer
+        For Each DataRow In SplitsDataTableDataGridView.Rows
+            If Not IsDBNull(DataRow.Cells("DataGridViewColorColumn").Value) Then
+                If (DataRow.Cells("DataGridViewColorColumn").Value) = SearchColor Then
+                    Try
+                        combinedtime = combinedtime + DataRow.Cells("DataGridViewTimeInSecondsColumn").Value
+                        DataRow.Cells("DataGridViewRecordedColumn").Value = 1
+                    Catch
+                        MsgBox("Split contains no work time.", 16, "Data not Found")
+                    End Try
+                End If
+            End If
+        Next
+    End Function
 
     Private Sub updatehighlight()
         For Each DataRow In SplitsDataTableDataGridView.Rows
@@ -249,7 +270,7 @@
                 MsgBox("Error removing row" & splits, , My.Application.Info.AssemblyName.ToString)
             End Try
         Else
-            MsgBox("Cannot repair the file while the imter is running.  Please close and open the file without starting the timer.", , My.Application.Info.AssemblyName.ToString)
+            MsgBox("Cannot repair the file while the timer is running.  Please close and open the file without starting the timer.", , My.Application.Info.AssemblyName.ToString)
         End If
     End Sub
 
@@ -318,7 +339,7 @@
 
     Private Sub highlight_tan_Click(sender As Object, e As EventArgs) Handles highlight_tan.Click
         Try
-            Highlight(Color.Tan)
+            Highlight(Color.NavajoWhite)
         Catch
             MsgBox("!!!", , My.Application.Info.AssemblyName.ToString)
         End Try
@@ -374,5 +395,12 @@
             ToolTipsToolStripMenuItem.Checked = True
             EnableToolips = 1
         End If
+    End Sub
+
+    Private Sub ShowCombinedToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ShowCombinedToolStripMenuItem.Click
+        ' If (addtime(SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor.ToKnownColor.ToString)) > 0 Then
+        MsgBox(SecondsToTime(addtime(SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor.ToKnownColor.ToString)).ToString, 64, "Total of Color " & SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor.ToKnownColor.ToString)
+        ' Else
+        ' End If
     End Sub
 End Class

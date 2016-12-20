@@ -297,6 +297,8 @@ Partial Public Class SplitsDataSet
         
         Private columnColor As Global.System.Data.DataColumn
         
+        Private columnTimeINSeconds As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -389,6 +391,14 @@ Partial Public Class SplitsDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property TimeINSecondsColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTimeINSeconds
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -425,9 +435,9 @@ Partial Public Class SplitsDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddSplitsDataTableRow(ByVal Description As String, ByVal StartTime As String, ByVal StopTime As String, ByVal TimeWorked As System.TimeSpan, ByVal Recorded As Boolean, ByVal Color As String) As SplitsDataTableRow
+        Public Overloads Function AddSplitsDataTableRow(ByVal Description As String, ByVal StartTime As String, ByVal StopTime As String, ByVal TimeWorked As System.TimeSpan, ByVal Recorded As Boolean, ByVal Color As String, ByVal TimeINSeconds As String) As SplitsDataTableRow
             Dim rowSplitsDataTableRow As SplitsDataTableRow = CType(Me.NewRow,SplitsDataTableRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Description, StartTime, StopTime, TimeWorked, Recorded, Color}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Description, StartTime, StopTime, TimeWorked, Recorded, Color, TimeINSeconds}
             rowSplitsDataTableRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowSplitsDataTableRow)
             Return rowSplitsDataTableRow
@@ -463,6 +473,7 @@ Partial Public Class SplitsDataSet
             Me.columnTimeWorked = MyBase.Columns("TimeWorked")
             Me.columnRecorded = MyBase.Columns("Recorded")
             Me.columnColor = MyBase.Columns("Color")
+            Me.columnTimeINSeconds = MyBase.Columns("TimeInSeconds")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -482,6 +493,12 @@ Partial Public Class SplitsDataSet
             MyBase.Columns.Add(Me.columnRecorded)
             Me.columnColor = New Global.System.Data.DataColumn("Color", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnColor)
+            Me.columnTimeINSeconds = New Global.System.Data.DataColumn("TimeInSeconds", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnTimeINSeconds.ExtendedProperties.Add("Generator_ColumnPropNameInRow", "TimeINSeconds")
+            Me.columnTimeINSeconds.ExtendedProperties.Add("Generator_ColumnPropNameInTable", "TimeINSecondsColumn")
+            Me.columnTimeINSeconds.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "columnTimeINSeconds")
+            Me.columnTimeINSeconds.ExtendedProperties.Add("Generator_UserColumnName", "TimeInSeconds")
+            MyBase.Columns.Add(Me.columnTimeINSeconds)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID}, true))
             Me.columnID.AutoIncrement = true
             Me.columnID.AllowDBNull = false
@@ -735,6 +752,21 @@ Partial Public Class SplitsDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property TimeINSeconds() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableSplitsDataTable.TimeINSecondsColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'TimeInSeconds' in table 'SplitsDataTable' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableSplitsDataTable.TimeINSecondsColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsDescriptionNull() As Boolean
             Return Me.IsNull(Me.tableSplitsDataTable.DescriptionColumn)
         End Function
@@ -803,6 +835,18 @@ Partial Public Class SplitsDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetColorNull()
             Me(Me.tableSplitsDataTable.ColorColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsTimeINSecondsNull() As Boolean
+            Return Me.IsNull(Me.tableSplitsDataTable.TimeINSecondsColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetTimeINSecondsNull()
+            Me(Me.tableSplitsDataTable.TimeINSecondsColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

@@ -1,0 +1,60 @@
+<?xml version="1.0" standalone="yes"?>
+<SplitsDataSet xmlns="http://tempuri.org/SplitsDataSet.xsd">
+  <SplitsDataTable>
+    <ID>0</ID>
+    <Description>test 1</Description>
+    <StartTime>10:20 PM</StartTime>
+    <StopTime>10:20 PM</StopTime>
+    <TimeWorked>PT6M5S</TimeWorked>
+    <Recorded>false</Recorded>
+    <Color>Thistle</Color>
+    <TimeInSeconds>365</TimeInSeconds>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>1</ID>
+    <Description>test 2</Description>
+    <StartTime>10:20 PM</StartTime>
+    <StopTime>10:21 PM</StopTime>
+    <TimeWorked>PT14M12S</TimeWorked>
+    <Recorded>false</Recorded>
+    <Color>LawnGreen</Color>
+    <TimeInSeconds>852</TimeInSeconds>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>2</ID>
+    <Description>test 3</Description>
+    <StartTime>10:21 PM</StartTime>
+    <StopTime>10:21 PM</StopTime>
+    <TimeWorked>PT17S</TimeWorked>
+    <Recorded>false</Recorded>
+    <Color>LightCoral</Color>
+    <TimeInSeconds>17</TimeInSeconds>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>3</ID>
+    <Description>test 4</Description>
+    <StartTime>12:24 AM</StartTime>
+    <StopTime>12:24 AM</StopTime>
+    <TimeWorked>PT21M6S</TimeWorked>
+    <TimeInSeconds>1266</TimeInSeconds>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>4</ID>
+    <Description>test 5</Description>
+    <StartTime>12:24 AM</StartTime>
+    <StopTime>12:24 AM</StopTime>
+    <TimeWorked>PT3M4S</TimeWorked>
+    <Color>LightCoral</Color>
+    <TimeInSeconds>184</TimeInSeconds>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>5</ID>
+    <Description>test 6</Description>
+    <StartTime>12:24 AM</StartTime>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>6</ID>
+    <Description />
+    <StartTime>12:27 AM</StartTime>
+  </SplitsDataTable>
+</SplitsDataSet>
