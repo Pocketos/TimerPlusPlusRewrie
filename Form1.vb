@@ -151,15 +151,17 @@
     Private Function addtime(SearchColor As String)
         Dim combinedtime As Integer = 0
         For Each DataRow In SplitsDataTableDataGridView.Rows
-            If DataRow.Cells("DataGridViewColorColumn").Value IsNot Nothing And DataRow.Cells("DataGridViewColorColumn").Value IsNot "White" Then
-                If DataRow.Cells("DataGridViewTimeInSecondsColumn").Value IsNot Nothing Then
-                    If (DataRow.Cells("DataGridViewColorColumn").Value) = SearchColor Then
-                        Try
-                            combinedtime = combinedtime + DataRow.Cells("DataGridViewTimeInSecondsColumn").Value
-                            DataRow.Cells("DataGridViewRecordedColumn").Value = 1
-                        Catch
-                            MsgBox("Split contains no work time.", 16, "Data not Found")
-                        End Try
+            If Not IsDBNull(DataRow.Cells("DataGridViewColorColumn").Value) Then
+                If Not DataRow.Cells("DataGridViewColorColumn").Value = "White" Then
+                    If Not IsDBNull(DataRow.Cells("DataGridViewTimeInSecondsColumn").Value) Then
+                        If (DataRow.Cells("DataGridViewColorColumn").Value) = SearchColor Then
+                            Try
+                                combinedtime = combinedtime + DataRow.Cells("DataGridViewTimeInSecondsColumn").Value
+                                DataRow.Cells("DataGridViewRecordedColumn").Value = 1
+                            Catch
+                                MsgBox("Split contains no work time.", 16, "Data not Found")
+                            End Try
+                        End If
                     End If
                 End If
             End If
