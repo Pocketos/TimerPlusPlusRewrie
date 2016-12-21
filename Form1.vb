@@ -149,19 +149,22 @@
     End Sub
 
     Private Function addtime(SearchColor As String)
-        Dim combinedtime As Integer
+        Dim combinedtime As Integer = 0
         For Each DataRow In SplitsDataTableDataGridView.Rows
-            If Not IsDBNull(DataRow.Cells("DataGridViewColorColumn").Value) Then
-                If (DataRow.Cells("DataGridViewColorColumn").Value) = SearchColor Then
-                    Try
-                        combinedtime = combinedtime + DataRow.Cells("DataGridViewTimeInSecondsColumn").Value
-                        DataRow.Cells("DataGridViewRecordedColumn").Value = 1
-                    Catch
-                        MsgBox("Split contains no work time.", 16, "Data not Found")
-                    End Try
+            If DataRow.Cells("DataGridViewColorColumn").Value IsNot Nothing And DataRow.Cells("DataGridViewColorColumn").Value IsNot "White" Then
+                If DataRow.Cells("DataGridViewTimeInSecondsColumn").Value IsNot Nothing Then
+                    If (DataRow.Cells("DataGridViewColorColumn").Value) = SearchColor Then
+                        Try
+                            combinedtime = combinedtime + DataRow.Cells("DataGridViewTimeInSecondsColumn").Value
+                            DataRow.Cells("DataGridViewRecordedColumn").Value = 1
+                        Catch
+                            MsgBox("Split contains no work time.", 16, "Data not Found")
+                        End Try
+                    End If
                 End If
             End If
         Next
+        Return combinedtime
     End Function
 
     Private Sub updatehighlight()
@@ -235,6 +238,7 @@
     End Sub
 
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
+        MsgBox("Exit?", 64, My.Application.Info.AssemblyName.ToString)
         Close()
     End Sub
 
@@ -381,7 +385,7 @@
         Try
             Process.Start(My.Computer.FileSystem.CurrentDirectory & "\Days")
         Catch
-            MsgBox("Could not open the file path", , My.Application.Info.AssemblyName.ToString)
+            MsgBox("Could not open the file path", 16, My.Application.Info.AssemblyName.ToString)
         End Try
     End Sub
 
@@ -398,9 +402,10 @@
     End Sub
 
     Private Sub ShowCombinedToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ShowCombinedToolStripMenuItem.Click
-        ' If (addtime(SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor.ToKnownColor.ToString)) > 0 Then
-        MsgBox(SecondsToTime(addtime(SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor.ToKnownColor.ToString)).ToString, 64, "Total of Color " & SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor.ToKnownColor.ToString)
-        ' Else
-        ' End If
+        If (addtime(SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor.ToKnownColor.ToString)) > 0 Then
+            MsgBox(SecondsToTime(addtime(SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor.ToKnownColor.ToString)).ToString, 64, "Total of Color " & SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor.ToKnownColor.ToString)
+        Else
+            MessageBox.Show("Could not find a value to parse", My.Application.Info.AssemblyName.ToString, MessageBoxButtons.YesNo)
+        End If
     End Sub
 End Class
