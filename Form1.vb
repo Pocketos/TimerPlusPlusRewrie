@@ -240,7 +240,6 @@
     End Sub
 
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
-        MsgBox("Exit?", 64, My.Application.Info.AssemblyName.ToString)
         Close()
     End Sub
 
