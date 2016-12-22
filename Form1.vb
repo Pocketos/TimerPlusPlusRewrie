@@ -148,6 +148,20 @@
         End If
     End Sub
 
+    Private Function addalltime()
+        Dim combinedtime As Integer = 0
+        For Each DataRow In SplitsDataTableDataGridView.Rows
+            If Not IsDBNull(DataRow.Cells("DataGridViewTimeInSecondsColumn").Value) Then
+                Try
+                    combinedtime = combinedtime + DataRow.Cells("DataGridViewTimeInSecondsColumn").Value
+                Catch
+                    MsgBox("Split contains no work time.", 16, "Data not Found")
+                End Try
+            End If
+        Next
+        Return combinedtime
+    End Function
+
     Private Function addtime(SearchColor As String)
         Dim combinedtime As Integer = 0
         For Each DataRow In SplitsDataTableDataGridView.Rows
@@ -233,10 +247,6 @@
             lblwktm.Text = time
         Else
         End If
-    End Sub
-
-    Private Sub SaveToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaveToolStripMenuItem.Click
-        SaveSplits()
     End Sub
 
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
@@ -403,8 +413,20 @@
     End Sub
 
     Private Sub ShowCombinedToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ShowCombinedToolStripMenuItem.Click
-        If (addtime(SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor.ToKnownColor.ToString)) > 0 Then
-            MsgBox(SecondsToTime(addtime(SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor.ToKnownColor.ToString)).ToString, 64, "Total of Color " & SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor.ToKnownColor.ToString)
+        If SplitsDataTableDataGridView.SelectedCells.Count > 0 Then
+            If (addtime(SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor.ToKnownColor.ToString)) > 0 Then
+                MsgBox(SecondsToTime(addtime(SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor.ToKnownColor.ToString)).ToString, 64, "Total of Color " & SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor.ToKnownColor.ToString)
+            Else
+                MessageBox.Show("Could not find a value to parse", My.Application.Info.AssemblyName.ToString, MessageBoxButtons.YesNo)
+            End If
+        Else
+            MessageBox.Show("No selected row", My.Application.Info.AssemblyName.ToString, MessageBoxButtons.YesNo)
+        End If
+    End Sub
+
+    Private Sub TotalWorkTimeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TotalWorkTimeToolStripMenuItem.Click
+        If addalltime() > 0 Then
+            MsgBox(SecondsToTime(addalltime()).ToString, 64, "Total Work Time")
         Else
             MessageBox.Show("Could not find a value to parse", My.Application.Info.AssemblyName.ToString, MessageBoxButtons.YesNo)
         End If

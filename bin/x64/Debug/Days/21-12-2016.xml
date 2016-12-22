@@ -6,7 +6,7 @@
     <StartTime>8:57 PM</StartTime>
     <StopTime>8:57 PM</StopTime>
     <TimeWorked>PT2S</TimeWorked>
-    <Recorded>true</Recorded>
+    <Recorded>false</Recorded>
     <Color>LawnGreen</Color>
     <TimeInSeconds>2</TimeInSeconds>
   </SplitsDataTable>
@@ -44,7 +44,7 @@
     <StartTime>8:57 PM</StartTime>
     <StopTime>8:57 PM</StopTime>
     <TimeWorked>PT13S</TimeWorked>
-    <Recorded>true</Recorded>
+    <Recorded>false</Recorded>
     <Color>LawnGreen</Color>
     <TimeInSeconds>13</TimeInSeconds>
   </SplitsDataTable>
@@ -74,7 +74,7 @@
     <StartTime>11:35 PM</StartTime>
     <StopTime>11:36 PM</StopTime>
     <TimeWorked>PT2M9S</TimeWorked>
-    <Recorded>true</Recorded>
+    <Recorded>false</Recorded>
     <Color>LawnGreen</Color>
     <TimeInSeconds>129</TimeInSeconds>
   </SplitsDataTable>
