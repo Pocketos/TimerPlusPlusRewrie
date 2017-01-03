@@ -1,0 +1,68 @@
+<?xml version="1.0" standalone="yes"?>
+<SplitsDataSet xmlns="http://tempuri.org/SplitsDataSet.xsd">
+  <SplitsDataTable>
+    <ID>0</ID>
+    <Description>test</Description>
+    <StartTime>7:09 PM</StartTime>
+    <StopTime>7:09 PM</StopTime>
+    <TimeWorked>PT0S</TimeWorked>
+    <Recorded>true</Recorded>
+    <Color>LawnGreen</Color>
+    <TimeInSeconds>0</TimeInSeconds>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>1</ID>
+    <Description>test</Description>
+    <StartTime>7:09 PM</StartTime>
+    <StopTime>7:09 PM</StopTime>
+    <TimeWorked>PT1S</TimeWorked>
+    <Recorded>false</Recorded>
+    <Color>White</Color>
+    <TimeInSeconds>1</TimeInSeconds>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>2</ID>
+    <Description>test</Description>
+    <StartTime>7:09 PM</StartTime>
+    <StopTime>7:09 PM</StopTime>
+    <TimeWorked>PT1S</TimeWorked>
+    <Recorded>true</Recorded>
+    <Color>White</Color>
+    <TimeInSeconds>1</TimeInSeconds>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>3</ID>
+    <Description>tes</Description>
+    <StartTime>7:09 PM</StartTime>
+    <StopTime>7:09 PM</StopTime>
+    <TimeWorked>PT4M4S</TimeWorked>
+    <Recorded>false</Recorded>
+    <Color>LightCoral</Color>
+    <TimeInSeconds>244</TimeInSeconds>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>4</ID>
+    <Description>ttest</Description>
+    <StartTime>7:09 PM</StartTime>
+    <StopTime>7:09 PM</StopTime>
+    <TimeWorked>PT5M3S</TimeWorked>
+    <Recorded>false</Recorded>
+    <Color>DimGray</Color>
+    <TimeInSeconds>303</TimeInSeconds>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>5</ID>
+    <Description>fsdf</Description>
+    <StartTime>7:09 PM</StartTime>
+    <StopTime>7:09 PM</StopTime>
+    <TimeWorked>PT3M2S</TimeWorked>
+    <Recorded>false</Recorded>
+    <Color>LightCoral</Color>
+    <TimeInSeconds>182</TimeInSeconds>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>6</ID>
+    <Description>dasds</Description>
+    <StartTime>7:09 PM</StartTime>
+  </SplitsDataTable>
+</SplitsDataSet>

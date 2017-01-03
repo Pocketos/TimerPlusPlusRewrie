@@ -125,6 +125,18 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frm_aboutbox.Designer.vb">
+      <DependentUpon>frm_aboutbox.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_aboutbox.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_help.Designer.vb">
+      <DependentUpon>frm_help.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_help.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -149,6 +161,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_aboutbox.resx">
+      <DependentUpon>frm_aboutbox.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_help.resx">
+      <DependentUpon>frm_help.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -183,6 +201,7 @@
       <DependentUpon>SplitsDataSet.xsd</DependentUpon>
     </None>
     <None Include="Resources\stopwatchPaused.ico" />
+    <None Include="Resources\Korkscrew_logo.png" />
     <Content Include="Resources\save.png" />
     <None Include="Resources\save_bw.png" />
     <Content Include="Resources\stopwatch.ico" />

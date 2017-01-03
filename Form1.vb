@@ -1,16 +1,24 @@
 ﻿Public Class frmMain
+    '///LIBRARIES
     'Gets the keystate library for splitting with the ENETER key.
     Private Declare Function GetAsyncKeyState Lib "user32" (ByVal vKey As Integer) As Short
 
+    '///VARIABLES
     'Declare the muber of splits, recorded worktime, and the file name.
     Private splits As Integer = 0
     Private worktime As Integer = 0
     Private filename As String
 
-    'Settings
+    '///SETTIGS
     Private EnablePause As Integer = 0
     Private EnableToolips As Integer = 1
 
+    '///FORM LOAD
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        datecheck()
+    End Sub
+
+    '///SUBS
     'Sets the date and file name.  Loaded with the main form.
     Private Sub datecheck()
         Dim currentdate As Date = Today
@@ -87,12 +95,12 @@
             EnablePauseToolStripMenuItem.Checked = False
             tsslLastSaved.Text = "File not yet saved"
             Try
-                    splits = SplitsDataSet.SplitsDataTable.Rows(SplitsDataSet.SplitsDataTable.Rows.Count - 1).Item("ID") + 1
-                Catch
-                    Exit Sub
-                End Try
-            Else
+                splits = SplitsDataSet.SplitsDataTable.Rows(SplitsDataSet.SplitsDataTable.Rows.Count - 1).Item("ID") + 1
+            Catch
                 Exit Sub
+            End Try
+        Else
+            Exit Sub
         End If
     End Sub
 
@@ -119,11 +127,6 @@
         End If
     End Sub
 
-    Private Function SecondsToTime(worktime As Integer)
-        Dim worktime_span As TimeSpan = TimeSpan.FromSeconds(Convert.ToDouble(worktime))
-        Return worktime_span
-    End Function
-
     Private Sub SaveSplits()
         SplitsDataTableDataGridView.CurrentCell = Nothing
         Me.SplitsDataSet.WriteXml("Days\" & filename)
@@ -148,41 +151,6 @@
         End If
     End Sub
 
-    Private Function addalltime()
-        Dim combinedtime As Integer = 0
-        For Each DataRow In SplitsDataTableDataGridView.Rows
-            If Not IsDBNull(DataRow.Cells("DataGridViewTimeInSecondsColumn").Value) Then
-                Try
-                    combinedtime = combinedtime + DataRow.Cells("DataGridViewTimeInSecondsColumn").Value
-                Catch
-                    MsgBox("Split contains no work time.", 16, "Data not Found")
-                End Try
-            End If
-        Next
-        Return combinedtime
-    End Function
-
-    Private Function addtime(SearchColor As String)
-        Dim combinedtime As Integer = 0
-        For Each DataRow In SplitsDataTableDataGridView.Rows
-            If Not IsDBNull(DataRow.Cells("DataGridViewColorColumn").Value) Then
-                If Not DataRow.Cells("DataGridViewColorColumn").Value = "White" Then
-                    If Not IsDBNull(DataRow.Cells("DataGridViewTimeInSecondsColumn").Value) Then
-                        If (DataRow.Cells("DataGridViewColorColumn").Value) = SearchColor Then
-                            Try
-                                combinedtime = combinedtime + DataRow.Cells("DataGridViewTimeInSecondsColumn").Value
-                                DataRow.Cells("DataGridViewRecordedColumn").Value = 1
-                            Catch
-                                MsgBox("Split contains no work time.", 16, "Data not Found")
-                            End Try
-                        End If
-                    End If
-                End If
-            End If
-        Next
-        Return combinedtime
-    End Function
-
     Private Sub updatehighlight()
         For Each DataRow In SplitsDataTableDataGridView.Rows
             If Not IsDBNull(DataRow.Cells("DataGridViewColorColumn").Value) Then
@@ -192,16 +160,74 @@
         Next
     End Sub
 
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        datecheck()
-    End Sub
-
     Private Sub tmMain_Tick(sender As Object, e As EventArgs) Handles tmMain.Tick
         lbltimertext.Text = DateAndTime.Now
         worktime = worktime + 1
         Dim time = New TimeSpan(0, 0, worktime).ToString("c")
         lblwktm.Text = time
     End Sub
+
+    'Logic for highlighing the currenetly selected cell
+    Private Sub Highlight(color As Color)
+        If SplitsDataTableDataGridView.CurrentCell Is Nothing Then
+            MsgBox("No row selected!")
+        Else
+            SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor = color
+            SplitsDataTableDataGridView.CurrentRow.Cells("DataGridViewColorColumn").Value = SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor
+        End If
+    End Sub
+
+    '///FUNCTIONS
+
+    Private Function SecondsToTime(worktime As Integer)
+        Dim worktime_span As TimeSpan = TimeSpan.FromSeconds(Convert.ToDouble(worktime))
+        Return worktime_span
+    End Function
+
+    Private Function addalltime()
+        Dim combinedtime As Integer = 0
+        For Each DataRow In SplitsDataTableDataGridView.Rows
+            If Not IsDBNull(DataRow.Cells("DataGridViewColorColumn").Value) Then
+                Select Case DataRow.Cells("DataGridViewColorColumn").Value
+                    Case Is = "DimGray"
+                    Case Else
+                        Try
+                            combinedtime = combinedtime + DataRow.Cells("DataGridViewTimeInSecondsColumn").Value
+                        Catch
+                            MsgBox("Error", 16, "Data not Found")
+                        End Try
+                End Select
+            End If
+        Next
+        Return combinedtime
+    End Function
+
+    Private Function addtime(SearchColor As String)
+        Dim combinedtime As Integer = 0
+        For Each DataRow In SplitsDataTableDataGridView.Rows
+            If Not IsDBNull(DataRow.Cells("DataGridViewColorColumn").Value) Then
+                Select Case DataRow.Cells("DataGridViewColorColumn").Value
+                    Case Is = "White"
+                    Case Is = "DimGray"
+                    Case Is = SearchColor
+                        Try
+                            combinedtime = combinedtime + DataRow.Cells("DataGridViewTimeInSecondsColumn").Value
+                            DataRow.Cells("DataGridViewRecordedColumn").Value = 1
+                        Catch
+                            MsgBox("Split contains no work time.", 16, "Data not Found")
+                        End Try
+                    Case Else
+                End Select
+            End If
+        Next
+        Return combinedtime
+    End Function
+
+    Private Function IsNumeric(keyChar As Object) As Boolean
+        Throw New NotImplementedException()
+    End Function
+
+    '///CONTROLS
 
     Private Sub btnpause_Click(sender As Object, e As EventArgs) Handles btnpause.Click
         If tmMain.Enabled = True Then
@@ -229,10 +255,6 @@
         Else
         End If
     End Sub
-
-    Private Function IsNumeric(keyChar As Object) As Boolean
-        Throw New NotImplementedException()
-    End Function
 
     Private Sub btnAddTime_Click(sender As Object, e As EventArgs) Handles btnAddTime.Click
         worktime = worktime + 60
@@ -266,7 +288,7 @@
     End Sub
 
     Private Sub AboutToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem1.Click
-        MsgBox(My.Application.Info.Description.ToString() & Environment.NewLine & "Version " & My.Application.Info.Version.ToString() & Environment.NewLine & "Early Beta - Expect bugs!" & Environment.NewLine & My.Application.Info.Trademark.ToString & Environment.NewLine & My.Application.Info.Copyright.ToString, , My.Application.Info.AssemblyName.ToString)
+        frm_aboutbox.ShowDialog()
     End Sub
 
     Private Sub ImportFromFileToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportFromFileToolStripMenuItem.Click
@@ -291,17 +313,6 @@
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         SaveSplits()
-    End Sub
-
-    'Logic for highlighing the currenetly selected cell
-
-    Private Sub Highlight(color As Color)
-        If SplitsDataTableDataGridView.CurrentCell Is Nothing Then
-            MsgBox("No row selected!")
-        Else
-            SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor = color
-            SplitsDataTableDataGridView.CurrentRow.Cells("DataGridViewColorColumn").Value = SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor
-        End If
     End Sub
 
     Private Sub highlight_red_Click(sender As Object, e As EventArgs) Handles highlight_red.Click
@@ -430,5 +441,9 @@
         Else
             MessageBox.Show("Could not find a value to parse", My.Application.Info.AssemblyName.ToString, MessageBoxButtons.YesNo)
         End If
+    End Sub
+
+    Private Sub HelpToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HelpToolStripMenuItem.Click
+        frm_help.ShowDialog()
     End Sub
 End Class

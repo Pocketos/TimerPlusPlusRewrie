@@ -117,17 +117,42 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="stopwatchpaused" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\stopwatchpaused.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="tab_help_main_tab1_txt.Text" xml:space="preserve">
+    <value>What is a Split?
+A 'Split' is defined as an entry in a list which contains a strt and stop time.  In this case, a split represents
+the start time of an activity and the time in which you stopped working on that particular activity.</value>
   </data>
-  <data name="stopwatch" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\stopwatch.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="tab_help_main_tab2_txt.Text" xml:space="preserve">
+    <value>Individual splits can be grouped by color.  These groups can then be used to reference total time.
+handy for when you are working on a project and need to frequency change gears to attend to somthing else.</value>
   </data>
-  <data name="save_bw" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\save_bw.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Korkscrew_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Korkscrew_logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="tab_help_main_tab3_txt.Text" xml:space="preserve">
+    <value>On ocation, it may be handy to know how to make changes or fix an entry in the list should it need to be changed.
+Splits &gt; edit DB file will open the currently loaded XML file that contains all the infomration for the day's splits.
+Useing a basic understanding of XML, you can make changes or even additons to the file.  Then, simply save and reload
+the file in Timer ++ to see the modified entries.
+
+For Example, say you wanted to remove an incomplete split from your file as referneced below:
+
+&lt;SplitsDataTable&gt;
+    &lt;ID&gt;2&lt;/ID&gt;
+    &lt;Description&gt;Task2&lt;/Description&gt;
+    &lt;StartTime&gt;10:19 AM&lt;/StartTime&gt;
+  &lt;/SplitsDataTable&gt;
+
+Note how there is no "StopTime" value which would be present in a nomral split like this one:
+
+&lt;SplitsDataTable&gt;
+    &lt;ID&gt;1&lt;/ID&gt;
+    &lt;Description&gt;Task1&lt;/Description&gt;
+    &lt;StartTime&gt;9:10 PM&lt;/StartTime&gt;
+    &lt;StopTime&gt;9:19 PM&lt;/StopTime&gt;
+    &lt;TimeWorked&gt;PT8M37S&lt;/TimeWorked&gt;
+    &lt;Recorded&gt;false&lt;/Recorded&gt;
+  &lt;/SplitsDataTable&gt;
+
+You can delete the entry from and including "&lt;SplitsDataTable&gt;" to "&lt;/SplitsDataTable&gt;".  The next time the file is loaded,
+Timer ++ will start the next split on the deleted entry allowing you to make a complete split.
+</value>
   </data>
 </root>
