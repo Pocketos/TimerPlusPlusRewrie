@@ -60,7 +60,6 @@ Partial Class frmMain
         Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
         Me.EnablePauseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolTipsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AboutToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SplitsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -73,12 +72,15 @@ Partial Class frmMain
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ReviewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpenSplitLocationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HelpToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AboutToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnSave = New System.Windows.Forms.Button()
         Me.ssBottomMain = New System.Windows.Forms.StatusStrip()
         Me.tsslFilePath = New System.Windows.Forms.ToolStripStatusLabel()
         Me.tsslLastSaved = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MarkRecordedToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.SplitsDataTableDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.cmsSplitsGridView.SuspendLayout()
         CType(Me.SplitsDataTableBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -365,7 +367,7 @@ Partial Class frmMain
         'MenuStrip1
         '
         Me.MenuStrip1.BackColor = System.Drawing.SystemColors.Control
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.SplitsToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.SplitsToolStripMenuItem, Me.HelpToolStripMenuItem1})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(629, 24)
@@ -374,14 +376,14 @@ Partial Class frmMain
         '
         'FileToolStripMenuItem
         '
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem3, Me.AboutToolStripMenuItem1, Me.HelpToolStripMenuItem, Me.ExitToolStripMenuItem})
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem3, Me.ExitToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
         Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
         Me.FileToolStripMenuItem.Text = "File"
         '
         'ToolStripMenuItem3
         '
-        Me.ToolStripMenuItem3.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EnablePauseToolStripMenuItem, Me.ToolTipsToolStripMenuItem})
+        Me.ToolStripMenuItem3.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EnablePauseToolStripMenuItem, Me.ToolTipsToolStripMenuItem, Me.MarkRecordedToolStripMenuItem})
         Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
         Me.ToolStripMenuItem3.Size = New System.Drawing.Size(152, 22)
         Me.ToolStripMenuItem3.Text = "Settings"
@@ -389,7 +391,7 @@ Partial Class frmMain
         'EnablePauseToolStripMenuItem
         '
         Me.EnablePauseToolStripMenuItem.Name = "EnablePauseToolStripMenuItem"
-        Me.EnablePauseToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
+        Me.EnablePauseToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
         Me.EnablePauseToolStripMenuItem.Text = "Pause Button"
         '
         'ToolTipsToolStripMenuItem
@@ -397,14 +399,8 @@ Partial Class frmMain
         Me.ToolTipsToolStripMenuItem.Checked = True
         Me.ToolTipsToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.ToolTipsToolStripMenuItem.Name = "ToolTipsToolStripMenuItem"
-        Me.ToolTipsToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
+        Me.ToolTipsToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
         Me.ToolTipsToolStripMenuItem.Text = "Tool Tips"
-        '
-        'AboutToolStripMenuItem1
-        '
-        Me.AboutToolStripMenuItem1.Name = "AboutToolStripMenuItem1"
-        Me.AboutToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
-        Me.AboutToolStripMenuItem1.Text = "About"
         '
         'ExitToolStripMenuItem
         '
@@ -477,6 +473,25 @@ Partial Class frmMain
         Me.OpenSplitLocationToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
         Me.OpenSplitLocationToolStripMenuItem.Text = "Open Split Location"
         '
+        'HelpToolStripMenuItem1
+        '
+        Me.HelpToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HelpToolStripMenuItem, Me.AboutToolStripMenuItem1})
+        Me.HelpToolStripMenuItem1.Name = "HelpToolStripMenuItem1"
+        Me.HelpToolStripMenuItem1.Size = New System.Drawing.Size(44, 20)
+        Me.HelpToolStripMenuItem1.Text = "Help"
+        '
+        'HelpToolStripMenuItem
+        '
+        Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.HelpToolStripMenuItem.Text = "Help"
+        '
+        'AboutToolStripMenuItem1
+        '
+        Me.AboutToolStripMenuItem1.Name = "AboutToolStripMenuItem1"
+        Me.AboutToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.AboutToolStripMenuItem1.Text = "About"
+        '
         'btnSave
         '
         Me.btnSave.BackColor = System.Drawing.Color.Transparent
@@ -516,11 +531,13 @@ Partial Class frmMain
         Me.tsslLastSaved.Text = "File not yet saved"
         Me.tsslLastSaved.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'HelpToolStripMenuItem
+        'MarkRecordedToolStripMenuItem
         '
-        Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
-        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.HelpToolStripMenuItem.Text = "Help"
+        Me.MarkRecordedToolStripMenuItem.Checked = True
+        Me.MarkRecordedToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.MarkRecordedToolStripMenuItem.Name = "MarkRecordedToolStripMenuItem"
+        Me.MarkRecordedToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
+        Me.MarkRecordedToolStripMenuItem.Text = "Mark Recorded"
         '
         'frmMain
         '
@@ -591,7 +608,6 @@ Partial Class frmMain
     Friend WithEvents ToolStripMenuItem3 As ToolStripMenuItem
     Friend WithEvents EnablePauseToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolTipsToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents AboutToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents highlight_red As ToolStripMenuItem
     Friend WithEvents highlight_cyan As ToolStripMenuItem
     Friend WithEvents highlight_green As ToolStripMenuItem
@@ -611,5 +627,8 @@ Partial Class frmMain
     Friend WithEvents DataGridViewTimeInSecondsColumn As DataGridViewTextBoxColumn
     Friend WithEvents TotalWorkTimeToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
+    Friend WithEvents HelpToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AboutToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents MarkRecordedToolStripMenuItem As ToolStripMenuItem
 End Class

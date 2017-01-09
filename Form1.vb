@@ -12,6 +12,7 @@
     '///SETTIGS
     Private EnablePause As Integer = 0
     Private EnableToolips As Integer = 1
+    Private EnablemarkRecordedOnGroupTime As Integer = 1
 
     '///FORM LOAD
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -52,27 +53,32 @@
     End Sub
 
     Private Sub Split()
-        If tmMain.Enabled = False Then
-            SplitsDataSet.SplitsDataTable.Rows.Add(splits, txtdesc.Text, Now.ToShortTimeString)
-            SplitsDataTableDataGridView.CurrentCell = Me.SplitsDataTableDataGridView(0, splits)
-            txtdesc.Clear()
-            tmMain.Enabled = True
-        Else
-            SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewStopTimeColumn").Value = Now.ToShortTimeString
-            SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewTimeInSecondsColumn").Value = worktime
-            SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewTimeWorkedColumn").Value = SecondsToTime(worktime)
-            SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewRecordedColumn").Value = SplitsDataTableDataGridView(5, splits).Value
-            SaveSplits()
-            splits = splits + 1
-            worktime = 0
-            SplitsDataSet.SplitsDataTable.Rows.Add(splits, txtdesc.Text, Now.ToShortTimeString)
-            SplitsDataTableDataGridView.CurrentCell = Me.SplitsDataTableDataGridView(0, splits)
-            txtdesc.Clear()
-            Me.SplitsDataSet.WriteXml("Days\" & filename)
-            If EnablePause = 1 Then
-                btnpause.Enabled = True
+        Try
+            If tmMain.Enabled = False Then
+                SplitsDataSet.SplitsDataTable.Rows.Add(splits, txtdesc.Text, Now.ToShortTimeString)
+                SplitsDataTableDataGridView.CurrentCell = Me.SplitsDataTableDataGridView(0, splits)
+                txtdesc.Clear()
+                tmMain.Enabled = True
+            Else
+                SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewStopTimeColumn").Value = Now.ToShortTimeString
+                SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewTimeInSecondsColumn").Value = worktime
+                SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewTimeWorkedColumn").Value = SecondsToTime(worktime)
+                SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewRecordedColumn").Value = SplitsDataTableDataGridView(5, splits).Value
+                SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewColorColumn").Value = "White"
+                SaveSplits()
+                splits = splits + 1
+                worktime = 0
+                SplitsDataSet.SplitsDataTable.Rows.Add(splits, txtdesc.Text, Now.ToShortTimeString)
+                SplitsDataTableDataGridView.CurrentCell = Me.SplitsDataTableDataGridView(0, splits)
+                txtdesc.Clear()
+                Me.SplitsDataSet.WriteXml("Days\" & filename)
+                If EnablePause = 1 Then
+                    btnpause.Enabled = True
+                End If
             End If
-        End If
+        Catch
+            MsgBox("Exception generated why creating split.  Split not Found", 16, My.Application.Info.AssemblyName.ToString)
+        End Try
     End Sub
 
     Private Sub ImportSplits()
@@ -170,7 +176,7 @@
     'Logic for highlighing the currenetly selected cell
     Private Sub Highlight(color As Color)
         If SplitsDataTableDataGridView.CurrentCell Is Nothing Then
-            MsgBox("No row selected!")
+            MsgBox("No row selected!", 16, My.Application.Info.AssemblyName.ToString)
         Else
             SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor = color
             SplitsDataTableDataGridView.CurrentRow.Cells("DataGridViewColorColumn").Value = SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor
@@ -183,7 +189,7 @@
         Dim worktime_span As TimeSpan = TimeSpan.FromSeconds(Convert.ToDouble(worktime))
         Return worktime_span
     End Function
-
+    'adds total time minus void out color (DimGrey)
     Private Function addalltime()
         Dim combinedtime As Integer = 0
         For Each DataRow In SplitsDataTableDataGridView.Rows
@@ -201,7 +207,7 @@
         Next
         Return combinedtime
     End Function
-
+    'adds group time
     Private Function addtime(SearchColor As String)
         Dim combinedtime As Integer = 0
         For Each DataRow In SplitsDataTableDataGridView.Rows
@@ -212,7 +218,9 @@
                     Case Is = SearchColor
                         Try
                             combinedtime = combinedtime + DataRow.Cells("DataGridViewTimeInSecondsColumn").Value
-                            DataRow.Cells("DataGridViewRecordedColumn").Value = 1
+                            If EnablemarkRecordedOnGroupTime = 1 Then
+                                DataRow.Cells("DataGridViewRecordedColumn").Value = 1
+                            End If
                         Catch
                             MsgBox("Split contains no work time.", 16, "Data not Found")
                         End Try
@@ -428,10 +436,10 @@
             If (addtime(SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor.ToKnownColor.ToString)) > 0 Then
                 MsgBox(SecondsToTime(addtime(SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor.ToKnownColor.ToString)).ToString, 64, "Total of Color " & SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor.ToKnownColor.ToString)
             Else
-                MessageBox.Show("Could not find a value to parse", My.Application.Info.AssemblyName.ToString, MessageBoxButtons.YesNo)
+                MsgBox("Could not find a value to parse", 16, My.Application.Info.AssemblyName.ToString)
             End If
         Else
-            MessageBox.Show("No selected row", My.Application.Info.AssemblyName.ToString, MessageBoxButtons.YesNo)
+            MsgBox("No selected row", 16, My.Application.Info.AssemblyName.ToString)
         End If
     End Sub
 
@@ -439,11 +447,21 @@
         If addalltime() > 0 Then
             MsgBox(SecondsToTime(addalltime()).ToString, 64, "Total Work Time")
         Else
-            MessageBox.Show("Could not find a value to parse", My.Application.Info.AssemblyName.ToString, MessageBoxButtons.YesNo)
+            MsgBox("Could not find a value to parse", 16, My.Application.Info.AssemblyName.ToString)
         End If
     End Sub
 
     Private Sub HelpToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HelpToolStripMenuItem.Click
         frm_help.ShowDialog()
+    End Sub
+
+    Private Sub MarkRecordedToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MarkRecordedToolStripMenuItem.Click
+        If EnablemarkRecordedOnGroupTime = 1 Then
+            MarkRecordedToolStripMenuItem.Checked = False
+            EnablemarkRecordedOnGroupTime = 0
+        Else
+            MarkRecordedToolStripMenuItem.Checked = True
+            EnablemarkRecordedOnGroupTime = 1
+        End If
     End Sub
 End Class

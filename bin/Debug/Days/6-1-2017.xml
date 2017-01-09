@@ -1,0 +1,275 @@
+<?xml version="1.0" standalone="yes"?>
+<SplitsDataSet xmlns="http://tempuri.org/SplitsDataSet.xsd">
+  <SplitsDataTable>
+    <ID>0</ID>
+    <Description>greg scott term</Description>
+    <StartTime>8:30 AM</StartTime>
+    <StopTime>8:36 AM</StopTime>
+    <TimeWorked>PT6M24S</TimeWorked>
+    <Recorded>true</Recorded>
+    <Color>Cyan</Color>
+    <TimeInSeconds>384</TimeInSeconds>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>1</ID>
+    <Description>todd vpn</Description>
+    <StartTime>8:36 AM</StartTime>
+    <StopTime>8:41 AM</StopTime>
+    <TimeWorked>PT5M6S</TimeWorked>
+    <Recorded>true</Recorded>
+    <Color>Thistle</Color>
+    <TimeInSeconds>306</TimeInSeconds>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>2</ID>
+    <Description>yumi VPN</Description>
+    <StartTime>8:41 AM</StartTime>
+    <StopTime>8:54 AM</StopTime>
+    <TimeWorked>PT12M21S</TimeWorked>
+    <Recorded>true</Recorded>
+	<Color>White</Color>
+    <TimeInSeconds>741</TimeInSeconds>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>3</ID>
+    <Description>bagel time!</Description>
+    <StartTime>8:54 AM</StartTime>
+    <StopTime>9:09 AM</StopTime>
+    <TimeWorked>PT15M3S</TimeWorked>
+    <Color>DimGray</Color>
+    <TimeInSeconds>903</TimeInSeconds>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>4</ID>
+    <Description>greg scott term</Description>
+    <StartTime>9:09 AM</StartTime>
+    <StopTime>9:29 AM</StopTime>
+    <TimeWorked>PT20M30S</TimeWorked>
+    <Recorded>true</Recorded>
+    <Color>Cyan</Color>
+    <TimeInSeconds>1230</TimeInSeconds>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>5</ID>
+    <Description>John S term</Description>
+    <StartTime>9:29 AM</StartTime>
+    <StopTime>9:35 AM</StopTime>
+    <TimeWorked>PT6M4S</TimeWorked>
+    <Recorded>true</Recorded>
+	<Color>White</Color>
+    <TimeInSeconds>364</TimeInSeconds>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>6</ID>
+    <Description>Allison vpn</Description>
+    <StartTime>9:35 AM</StartTime>
+    <StopTime>9:45 AM</StopTime>
+    <TimeWorked>PT9M14S</TimeWorked>
+    <Recorded>true</Recorded>
+    <Color>LightCoral</Color>
+    <TimeInSeconds>554</TimeInSeconds>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>7</ID>
+    <Description>shannon s webex</Description>
+    <StartTime>9:45 AM</StartTime>
+    <StopTime>9:49 AM</StopTime>
+    <TimeWorked>PT4M17S</TimeWorked>
+	<Color>White</Color>
+    <TimeInSeconds>257</TimeInSeconds>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>8</ID>
+    <Description>Allison vpn</Description>
+    <StartTime>9:49 AM</StartTime>
+    <StopTime>10:40 AM</StopTime>
+    <TimeWorked>PT50M51S</TimeWorked>
+    <Recorded>true</Recorded>
+    <Color>LightCoral</Color>
+    <TimeInSeconds>3051</TimeInSeconds>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>9</ID>
+    <Description>greg scott term - cube space</Description>
+    <StartTime>10:40 AM</StartTime>
+    <StopTime>10:47 AM</StopTime>
+    <TimeWorked>PT6M49S</TimeWorked>
+    <Recorded>true</Recorded>
+    <Color>Cyan</Color>
+    <TimeInSeconds>409</TimeInSeconds>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>10</ID>
+    <Description>Ainsley Adobe</Description>
+    <StartTime>10:47 AM</StartTime>
+    <StopTime>10:54 AM</StopTime>
+    <TimeWorked>PT7M7S</TimeWorked>
+    <Recorded>true</Recorded>
+    <Color>Yellow</Color>
+    <TimeInSeconds>427</TimeInSeconds>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>11</ID>
+    <Description>deb citrix loss runs</Description>
+    <StartTime>10:54 AM</StartTime>
+    <StopTime>11:04 AM</StopTime>
+    <TimeWorked>PT10M25S</TimeWorked>
+    <Recorded>true</Recorded>
+	<Color>White</Color>
+    <TimeInSeconds>625</TimeInSeconds>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>12</ID>
+    <Description>Ainsley Adobe</Description>
+    <StartTime>11:04 AM</StartTime>
+    <StopTime>11:33 AM</StopTime>
+    <TimeWorked>PT14M58S</TimeWorked>
+    <Recorded>true</Recorded>
+    <Color>Yellow</Color>
+    <TimeInSeconds>898</TimeInSeconds>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>13</ID>
+    <Description>todd account lockout</Description>
+    <StartTime>11:33 AM</StartTime>
+    <StopTime>1:26 PM</StopTime>
+    <TimeWorked>PT2H6M32S</TimeWorked>
+    <Recorded>true</Recorded>
+    <Color>Thistle</Color>
+    <TimeInSeconds>7592</TimeInSeconds>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>14</ID>
+    <Description>Lunch</Description>
+    <StartTime>1:26 PM</StartTime>
+    <StopTime>2:26 PM</StopTime>
+    <TimeWorked>PT1H44S</TimeWorked>
+    <Color>DimGray</Color>
+    <TimeInSeconds>3644</TimeInSeconds>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>15</ID>
+    <Description>Ainsley Adobe</Description>
+    <StartTime>2:26 PM</StartTime>
+    <StopTime>2:33 PM</StopTime>
+    <TimeWorked>PT6M46S</TimeWorked>
+    <Recorded>true</Recorded>
+    <Color>Yellow</Color>
+    <TimeInSeconds>406</TimeInSeconds>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>16</ID>
+    <Description>chris pesce surface .net upgrade</Description>
+    <StartTime>2:33 PM</StartTime>
+    <StopTime>3:16 PM</StopTime>
+    <TimeWorked>PT43M12S</TimeWorked>
+    <Recorded>true</Recorded>
+    <Color>White</Color>
+    <TimeInSeconds>2592</TimeInSeconds>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>17</ID>
+    <Description>greg scott term - cube space</Description>
+    <StartTime>3:16 PM</StartTime>
+    <StopTime>3:23 PM</StopTime>
+    <TimeWorked>PT6M44S</TimeWorked>
+    <Recorded>true</Recorded>
+    <Color>Cyan</Color>
+    <TimeInSeconds>404</TimeInSeconds>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>18</ID>
+    <Description>john s term - accounts</Description>
+    <StartTime>3:23 PM</StartTime>
+    <StopTime>3:33 PM</StopTime>
+    <TimeWorked>PT9M55S</TimeWorked>
+    <Recorded>true</Recorded>
+	<Color>White</Color>
+    <TimeInSeconds>595</TimeInSeconds>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>19</ID>
+    <Description>greg scott term</Description>
+    <StartTime>3:33 PM</StartTime>
+    <StopTime>3:35 PM</StopTime>
+    <TimeWorked>PT1M52S</TimeWorked>
+    <Recorded>true</Recorded>
+    <Color>Cyan</Color>
+    <TimeInSeconds>112</TimeInSeconds>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>20</ID>
+    <Description>greg scott term</Description>
+    <StartTime>3:35 PM</StartTime>
+    <StopTime>3:42 PM</StopTime>
+    <TimeWorked>PT6M47S</TimeWorked>
+    <Recorded>true</Recorded>
+    <Color>Cyan</Color>
+    <TimeInSeconds>407</TimeInSeconds>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>21</ID>
+    <Description>Brian b macro settings GPO</Description>
+    <StartTime>3:42 PM</StartTime>
+    <StopTime>3:59 PM</StopTime>
+    <TimeWorked>PT17M53S</TimeWorked>
+    <Recorded>true</Recorded>
+	<Color>White</Color>
+    <TimeInSeconds>1073</TimeInSeconds>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>22</ID>
+    <Description>Mail</Description>
+    <StartTime>3:59 PM</StartTime>
+    <StopTime>4:15 PM</StopTime>
+    <TimeWorked>PT15M53S</TimeWorked>
+    <Recorded>true</Recorded>
+	<Color>White</Color>
+    <TimeInSeconds>953</TimeInSeconds>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>23</ID>
+    <Description>mary W mailbox check</Description>
+    <StartTime>4:15 PM</StartTime>
+    <StopTime>4:21 PM</StopTime>
+    <TimeWorked>PT5M53S</TimeWorked>
+    <Recorded>true</Recorded>
+    <Color>LawnGreen</Color>
+    <TimeInSeconds>353</TimeInSeconds>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>24</ID>
+    <Description>michelle g printer?</Description>
+    <StartTime>4:21 PM</StartTime>
+    <StopTime>4:31 PM</StopTime>
+    <TimeWorked>PT9M19S</TimeWorked>
+    <Recorded>true</Recorded>
+	<Color>White</Color>
+    <TimeInSeconds>559</TimeInSeconds>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>25</ID>
+    <Description>mary W mailbox check</Description>
+    <StartTime>4:31 PM</StartTime>
+    <StopTime>4:32 PM</StopTime>
+    <TimeWorked>PT1M8S</TimeWorked>
+    <Recorded>true</Recorded>
+    <Color>LawnGreen</Color>
+    <TimeInSeconds>68</TimeInSeconds>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>26</ID>
+    <Description>EOD time tracking</Description>
+    <StartTime>4:32 PM</StartTime>
+    <StopTime>5:03 PM</StopTime>
+    <TimeWorked>PT15M19S</TimeWorked>
+    <Recorded>true</Recorded>
+	<Color>White</Color>
+    <TimeInSeconds>919</TimeInSeconds>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>27</ID>
+    <Description />
+    <StartTime>5:03 PM</StartTime>
+  </SplitsDataTable>
+</SplitsDataSet>

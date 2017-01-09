@@ -117,6 +117,7 @@ Partial Class frm_help
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(616, 362)
         Me.Controls.Add(Me.tab_help_main)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximumSize = New System.Drawing.Size(632, 401)
         Me.MinimumSize = New System.Drawing.Size(632, 401)
         Me.Name = "frm_help"
