@@ -64,7 +64,7 @@
                 SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewTimeInSecondsColumn").Value = worktime
                 SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewTimeWorkedColumn").Value = SecondsToTime(worktime)
                 SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewRecordedColumn").Value = SplitsDataTableDataGridView(5, splits).Value
-                SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewColorColumn").Value = "White"
+                SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewColorColumn").Value = SplitsDataTableDataGridView(6, splits).Value.ToString
                 SaveSplits()
                 splits = splits + 1
                 worktime = 0

@@ -119,7 +119,7 @@
   </resheader>
   <data name="tab_help_main_tab1_txt.Text" xml:space="preserve">
     <value>What is a Split?
-A 'Split' is defined as an entry in a list which contains a strt and stop time.  In this case, a split represents
+A 'Split' is defined as an entry in a list which contains a start and stop time.  In this case, a split represents
 the start time of an activity and the time in which you stopped working on that particular activity.</value>
   </data>
   <data name="tab_help_main_tab2_txt.Text" xml:space="preserve">
