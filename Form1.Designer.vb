@@ -60,6 +60,7 @@ Partial Class frmMain
         Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
         Me.EnablePauseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolTipsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MarkRecordedToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SplitsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -80,7 +81,8 @@ Partial Class frmMain
         Me.tsslFilePath = New System.Windows.Forms.ToolStripStatusLabel()
         Me.tsslLastSaved = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.MarkRecordedToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btn_addtime10 = New System.Windows.Forms.Button()
+        Me.btn_zerotime = New System.Windows.Forms.Button()
         CType(Me.SplitsDataTableDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.cmsSplitsGridView.SuspendLayout()
         CType(Me.SplitsDataTableBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -141,7 +143,7 @@ Partial Class frmMain
         '
         Me.lbltime.AutoSize = True
         Me.lbltime.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbltime.Location = New System.Drawing.Point(465, 25)
+        Me.lbltime.Location = New System.Drawing.Point(466, 25)
         Me.lbltime.Name = "lbltime"
         Me.lbltime.Size = New System.Drawing.Size(112, 30)
         Me.lbltime.TabIndex = 9
@@ -151,7 +153,7 @@ Partial Class frmMain
         '
         Me.lblwktm.AutoSize = True
         Me.lblwktm.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblwktm.Location = New System.Drawing.Point(474, 50)
+        Me.lblwktm.Location = New System.Drawing.Point(475, 50)
         Me.lblwktm.Name = "lblwktm"
         Me.lblwktm.Size = New System.Drawing.Size(89, 30)
         Me.lblwktm.TabIndex = 10
@@ -160,9 +162,9 @@ Partial Class frmMain
         'btnMinusTime
         '
         Me.btnMinusTime.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnMinusTime.Location = New System.Drawing.Point(424, 27)
+        Me.btnMinusTime.Location = New System.Drawing.Point(578, 54)
         Me.btnMinusTime.Name = "btnMinusTime"
-        Me.btnMinusTime.Size = New System.Drawing.Size(40, 52)
+        Me.btnMinusTime.Size = New System.Drawing.Size(40, 28)
         Me.btnMinusTime.TabIndex = 14
         Me.btnMinusTime.Text = "-"
         Me.ToolTip.SetToolTip(Me.btnMinusTime, "Subtracts one minute from the Work Time timer.")
@@ -173,7 +175,7 @@ Partial Class frmMain
         Me.btnAddTime.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAddTime.Location = New System.Drawing.Point(578, 27)
         Me.btnAddTime.Name = "btnAddTime"
-        Me.btnAddTime.Size = New System.Drawing.Size(40, 52)
+        Me.btnAddTime.Size = New System.Drawing.Size(40, 28)
         Me.btnAddTime.TabIndex = 15
         Me.btnAddTime.Text = "+"
         Me.ToolTip.SetToolTip(Me.btnAddTime, "Adds one minute to the Work Time timer.")
@@ -385,7 +387,7 @@ Partial Class frmMain
         '
         Me.ToolStripMenuItem3.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EnablePauseToolStripMenuItem, Me.ToolTipsToolStripMenuItem, Me.MarkRecordedToolStripMenuItem})
         Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
-        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(152, 22)
+        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(116, 22)
         Me.ToolStripMenuItem3.Text = "Settings"
         '
         'EnablePauseToolStripMenuItem
@@ -402,10 +404,18 @@ Partial Class frmMain
         Me.ToolTipsToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
         Me.ToolTipsToolStripMenuItem.Text = "Tool Tips"
         '
+        'MarkRecordedToolStripMenuItem
+        '
+        Me.MarkRecordedToolStripMenuItem.Checked = True
+        Me.MarkRecordedToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.MarkRecordedToolStripMenuItem.Name = "MarkRecordedToolStripMenuItem"
+        Me.MarkRecordedToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
+        Me.MarkRecordedToolStripMenuItem.Text = "Mark Recorded"
+        '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'SplitsToolStripMenuItem
@@ -483,13 +493,13 @@ Partial Class frmMain
         'HelpToolStripMenuItem
         '
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
-        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
         Me.HelpToolStripMenuItem.Text = "Help"
         '
         'AboutToolStripMenuItem1
         '
         Me.AboutToolStripMenuItem1.Name = "AboutToolStripMenuItem1"
-        Me.AboutToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.AboutToolStripMenuItem1.Size = New System.Drawing.Size(107, 22)
         Me.AboutToolStripMenuItem1.Text = "About"
         '
         'btnSave
@@ -531,19 +541,35 @@ Partial Class frmMain
         Me.tsslLastSaved.Text = "File not yet saved"
         Me.tsslLastSaved.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'MarkRecordedToolStripMenuItem
+        'btn_addtime10
         '
-        Me.MarkRecordedToolStripMenuItem.Checked = True
-        Me.MarkRecordedToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.MarkRecordedToolStripMenuItem.Name = "MarkRecordedToolStripMenuItem"
-        Me.MarkRecordedToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
-        Me.MarkRecordedToolStripMenuItem.Text = "Mark Recorded"
+        Me.btn_addtime10.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_addtime10.Location = New System.Drawing.Point(426, 27)
+        Me.btn_addtime10.Name = "btn_addtime10"
+        Me.btn_addtime10.Size = New System.Drawing.Size(40, 28)
+        Me.btn_addtime10.TabIndex = 20
+        Me.btn_addtime10.Text = "10"
+        Me.ToolTip.SetToolTip(Me.btn_addtime10, "Adds one minute to the Work Time timer.")
+        Me.btn_addtime10.UseVisualStyleBackColor = True
+        '
+        'btn_zerotime
+        '
+        Me.btn_zerotime.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_zerotime.Location = New System.Drawing.Point(426, 54)
+        Me.btn_zerotime.Name = "btn_zerotime"
+        Me.btn_zerotime.Size = New System.Drawing.Size(40, 28)
+        Me.btn_zerotime.TabIndex = 21
+        Me.btn_zerotime.Text = "0"
+        Me.ToolTip.SetToolTip(Me.btn_zerotime, "Adds one minute to the Work Time timer.")
+        Me.btn_zerotime.UseVisualStyleBackColor = True
         '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(629, 441)
+        Me.Controls.Add(Me.btn_zerotime)
+        Me.Controls.Add(Me.btn_addtime10)
         Me.Controls.Add(Me.ssBottomMain)
         Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.SplitsDataTableDataGridView)
@@ -631,4 +657,6 @@ Partial Class frmMain
     Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AboutToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents MarkRecordedToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents btn_addtime10 As Button
+    Friend WithEvents btn_zerotime As Button
 End Class

@@ -279,6 +279,18 @@
         End If
     End Sub
 
+    Private Sub btn_addtime10_Click(sender As Object, e As EventArgs) Handles btn_addtime10.Click
+        worktime = worktime + 600
+        Dim time = New TimeSpan(0, 0, worktime).ToString("c")
+        lblwktm.Text = time
+    End Sub
+
+    Private Sub btn_zerotime_Click(sender As Object, e As EventArgs) Handles btn_zerotime.Click
+        worktime = 0
+        Dim time = New TimeSpan(0, 0, worktime).ToString("c")
+        lblwktm.Text = time
+    End Sub
+
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
         Close()
     End Sub
