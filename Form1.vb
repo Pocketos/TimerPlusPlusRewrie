@@ -443,7 +443,7 @@
         End If
     End Sub
 
-    Private Sub ShowCombinedToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ShowCombinedToolStripMenuItem.Click
+    Private Sub TotalGroupTimeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TotalGroupTimeToolStripMenuItem.Click
         If SplitsDataTableDataGridView.SelectedCells.Count > 0 Then
             If (addtime(SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor.ToKnownColor.ToString)) > 0 Then
                 MsgBox(SecondsToTime(addtime(SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor.ToKnownColor.ToString)).ToString, 64, "Total of Color " & SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor.ToKnownColor.ToString)

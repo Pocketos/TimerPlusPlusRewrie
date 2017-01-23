@@ -53,6 +53,8 @@ Partial Class frmMain
         Me.highlight_yellow = New System.Windows.Forms.ToolStripMenuItem()
         Me.RemoveHighlightToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.highlight_voidout = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.TotalGroupTimeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SplitsDataTableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.SplitsDataSet = New Timer__.SplitsDataSet()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
@@ -69,7 +71,6 @@ Partial Class frmMain
         Me.ClearSplitsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripSeparator()
         Me.TotalWorkTimeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ShowCombinedToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ReviewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpenSplitLocationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -290,9 +291,9 @@ Partial Class frmMain
         '
         'cmsSplitsGridView
         '
-        Me.cmsSplitsGridView.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.highlight_blue, Me.highlight_cyan, Me.highlight_green, Me.highlight_purple, Me.highlight_red, Me.highlight_tan, Me.highlight_yellow, Me.RemoveHighlightToolStripMenuItem, Me.highlight_voidout})
+        Me.cmsSplitsGridView.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.highlight_blue, Me.highlight_cyan, Me.highlight_green, Me.highlight_purple, Me.highlight_red, Me.highlight_tan, Me.highlight_yellow, Me.RemoveHighlightToolStripMenuItem, Me.highlight_voidout, Me.ToolStripSeparator2, Me.TotalGroupTimeToolStripMenuItem})
         Me.cmsSplitsGridView.Name = "cmsSplitsGridView"
-        Me.cmsSplitsGridView.Size = New System.Drawing.Size(171, 202)
+        Me.cmsSplitsGridView.Size = New System.Drawing.Size(171, 230)
         '
         'highlight_blue
         '
@@ -355,6 +356,17 @@ Partial Class frmMain
         Me.highlight_voidout.Name = "highlight_voidout"
         Me.highlight_voidout.Size = New System.Drawing.Size(170, 22)
         Me.highlight_voidout.Text = "Void Out"
+        '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(167, 6)
+        '
+        'TotalGroupTimeToolStripMenuItem
+        '
+        Me.TotalGroupTimeToolStripMenuItem.Name = "TotalGroupTimeToolStripMenuItem"
+        Me.TotalGroupTimeToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
+        Me.TotalGroupTimeToolStripMenuItem.Text = "Total Group Time"
         '
         'SplitsDataTableBindingSource
         '
@@ -420,7 +432,7 @@ Partial Class frmMain
         '
         'SplitsToolStripMenuItem
         '
-        Me.SplitsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImportToolStripMenuItem, Me.ImportFromFileToolStripMenuItem, Me.DeleteLastSplitToolStripMenuItem, Me.ClearSplitsToolStripMenuItem, Me.ToolStripMenuItem2, Me.TotalWorkTimeToolStripMenuItem, Me.ShowCombinedToolStripMenuItem, Me.ToolStripSeparator1, Me.ReviewToolStripMenuItem, Me.OpenSplitLocationToolStripMenuItem})
+        Me.SplitsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImportToolStripMenuItem, Me.ImportFromFileToolStripMenuItem, Me.DeleteLastSplitToolStripMenuItem, Me.ClearSplitsToolStripMenuItem, Me.ToolStripMenuItem2, Me.TotalWorkTimeToolStripMenuItem, Me.ToolStripSeparator1, Me.ReviewToolStripMenuItem, Me.OpenSplitLocationToolStripMenuItem})
         Me.SplitsToolStripMenuItem.Name = "SplitsToolStripMenuItem"
         Me.SplitsToolStripMenuItem.Size = New System.Drawing.Size(47, 20)
         Me.SplitsToolStripMenuItem.Text = "Splits"
@@ -460,12 +472,6 @@ Partial Class frmMain
         Me.TotalWorkTimeToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
         Me.TotalWorkTimeToolStripMenuItem.Text = "Total Work Time"
         '
-        'ShowCombinedToolStripMenuItem
-        '
-        Me.ShowCombinedToolStripMenuItem.Name = "ShowCombinedToolStripMenuItem"
-        Me.ShowCombinedToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
-        Me.ShowCombinedToolStripMenuItem.Text = "Total Group Time"
-        '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
@@ -494,7 +500,7 @@ Partial Class frmMain
         '
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
         Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
-        Me.HelpToolStripMenuItem.Text = "Help"
+        Me.HelpToolStripMenuItem.Text = "Guide"
         '
         'AboutToolStripMenuItem1
         '
@@ -642,7 +648,6 @@ Partial Class frmMain
     Friend WithEvents highlight_blue As ToolStripMenuItem
     Friend WithEvents highlight_tan As ToolStripMenuItem
     Friend WithEvents highlight_voidout As ToolStripMenuItem
-    Friend WithEvents ShowCombinedToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DataGridViewIDColumn As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewDescriptionColumn As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewStartTimeColumn As DataGridViewTextBoxColumn
@@ -659,4 +664,6 @@ Partial Class frmMain
     Friend WithEvents MarkRecordedToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents btn_addtime10 As Button
     Friend WithEvents btn_zerotime As Button
+    Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
+    Friend WithEvents TotalGroupTimeToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -40,11 +40,13 @@
     <StopTime>11:37 AM</StopTime>
     <TimeWorked>PT5M14S</TimeWorked>
     <Recorded>true</Recorded>
+    <Color>LightCoral</Color>
   </SplitsDataTable>
   <SplitsDataTable>
     <ID>5</ID>
     <Description>new split</Description>
     <StartTime>11:37 AM</StartTime>
+    <Color>White</Color>
   </SplitsDataTable>
   <SplitsDataTable>
     <ID>6</ID>
@@ -73,5 +75,28 @@
     <ID>9</ID>
     <Description>close</Description>
     <StartTime>9:46 PM</StartTime>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>10</ID>
+    <Description>test</Description>
+    <StartTime>8:01 PM</StartTime>
+    <StopTime>8:01 PM</StopTime>
+    <TimeWorked>PT0S</TimeWorked>
+    <Color />
+    <TimeInSeconds>0</TimeInSeconds>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>11</ID>
+    <Description>testste</Description>
+    <StartTime>8:01 PM</StartTime>
+    <StopTime>8:01 PM</StopTime>
+    <TimeWorked>PT1S</TimeWorked>
+    <Color />
+    <TimeInSeconds>1</TimeInSeconds>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>12</ID>
+    <Description>test</Description>
+    <StartTime>8:01 PM</StartTime>
   </SplitsDataTable>
 </SplitsDataSet>

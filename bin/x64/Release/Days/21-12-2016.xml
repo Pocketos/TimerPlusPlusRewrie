@@ -33,6 +33,7 @@
     <StartTime>8:05 PM</StartTime>
     <StopTime>8:05 PM</StopTime>
     <TimeWorked>PT1S</TimeWorked>
+    <Color>Thistle</Color>
     <TimeInSeconds>1</TimeInSeconds>
   </SplitsDataTable>
   <SplitsDataTable>
@@ -48,5 +49,10 @@
     <ID>5</ID>
     <Description>test 6</Description>
     <StartTime>8:05 PM</StartTime>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>6</ID>
+    <Description>test</Description>
+    <StartTime>9:13 PM</StartTime>
   </SplitsDataTable>
 </SplitsDataSet>
