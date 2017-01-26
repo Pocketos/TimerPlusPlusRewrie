@@ -19,7 +19,7 @@
         Me.TextBoxDescription.Text = My.Application.Info.Description
     End Sub
 
-    Private Sub OKButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OKButton.Click
+    Private Sub OKButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) 
         Me.Close()
     End Sub
 

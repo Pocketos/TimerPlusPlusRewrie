@@ -57,6 +57,7 @@
             If tmMain.Enabled = False Then
                 SplitsDataSet.SplitsDataTable.Rows.Add(splits, txtdesc.Text, Now.ToShortTimeString)
                 SplitsDataTableDataGridView.CurrentCell = Me.SplitsDataTableDataGridView(0, splits)
+                SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewColorColumn").Value = "White"
                 txtdesc.Clear()
                 tmMain.Enabled = True
             Else
@@ -71,13 +72,14 @@
                 SplitsDataSet.SplitsDataTable.Rows.Add(splits, txtdesc.Text, Now.ToShortTimeString)
                 SplitsDataTableDataGridView.CurrentCell = Me.SplitsDataTableDataGridView(0, splits)
                 txtdesc.Clear()
+                SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewColorColumn").Value = "White"
                 Me.SplitsDataSet.WriteXml("Days\" & filename)
                 If EnablePause = 1 Then
                     btnpause.Enabled = True
                 End If
             End If
         Catch
-            MsgBox("Exception generated why creating split.  Split not Found", 16, My.Application.Info.AssemblyName.ToString)
+            MsgBox("Exception generated why creating split", 16, My.Application.Info.AssemblyName.ToString)
         End Try
     End Sub
 
@@ -158,12 +160,11 @@
     End Sub
 
     Private Sub updatehighlight()
-        For Each DataRow In SplitsDataTableDataGridView.Rows
-            If Not IsDBNull(DataRow.Cells("DataGridViewColorColumn").Value) Then
-                Dim rowcolor As Color = Color.FromName(DataRow.Cells("DataGridViewColorColumn").Value)
-                DataRow.DefaultCellStyle.BackColor = rowcolor
+        For Each row As DataGridViewRow In SplitsDataTableDataGridView.Rows
+            If Not IsDBNull(row.Cells("DataGridViewColorColumn").Value) Then
+                row.DefaultCellStyle.BackColor = Color.FromName(row.Cells("DataGridViewColorColumn").Value)
             End If
-        Next
+        Next row
     End Sub
 
     Private Sub tmMain_Tick(sender As Object, e As EventArgs) Handles tmMain.Tick
@@ -193,7 +194,7 @@
     Private Function addalltime()
         Dim combinedtime As Integer = 0
         For Each DataRow In SplitsDataTableDataGridView.Rows
-            If Not IsDBNull(DataRow.Cells("DataGridViewColorColumn").Value) Then
+            If Not IsDBNull(DataRow.Cells("DataGridViewTimeInSecondsColumn").Value) Then
                 Select Case DataRow.Cells("DataGridViewColorColumn").Value
                     Case Is = "DimGray"
                     Case Else
@@ -211,7 +212,7 @@
     Private Function addtime(SearchColor As String)
         Dim combinedtime As Integer = 0
         For Each DataRow In SplitsDataTableDataGridView.Rows
-            If Not IsDBNull(DataRow.Cells("DataGridViewColorColumn").Value) Then
+            If Not IsDBNull(DataRow.Cells("DataGridViewTimeInSecondsColumn").Value) Then
                 Select Case DataRow.Cells("DataGridViewColorColumn").Value
                     Case Is = "White"
                     Case Is = "DimGray"
@@ -222,7 +223,7 @@
                                 DataRow.Cells("DataGridViewRecordedColumn").Value = 1
                             End If
                         Catch
-                            MsgBox("Split contains no work time.", 16, "Data not Found")
+                            MsgBox("Split contains no work time", 16, "Data not Found")
                         End Try
                     Case Else
                 End Select
@@ -235,7 +236,7 @@
         Throw New NotImplementedException()
     End Function
 
-    '///CONTROLS
+    '///FORM CONTROLS
 
     Private Sub btnpause_Click(sender As Object, e As EventArgs) Handles btnpause.Click
         If tmMain.Enabled = True Then
@@ -415,11 +416,11 @@
                     EnablePause = 0
                     btnpause.Enabled = False
                 Else
-                    MsgBox("The pause button cannot be disabled while the timer is inactive.", , My.Application.Info.AssemblyName.ToString)
+                    MsgBox("The pause button cannot be disabled while the timer is inactive", , My.Application.Info.AssemblyName.ToString)
                 End If
             End If
         Else
-            MsgBox("The pause button cannot be disabled while the timer is inactive.", , My.Application.Info.AssemblyName.ToString)
+            MsgBox("The pause button state cannot be changed while the timer is inactive", , My.Application.Info.AssemblyName.ToString)
         End If
     End Sub
 
@@ -448,7 +449,7 @@
             If (addtime(SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor.ToKnownColor.ToString)) > 0 Then
                 MsgBox(SecondsToTime(addtime(SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor.ToKnownColor.ToString)).ToString, 64, "Total of Color " & SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor.ToKnownColor.ToString)
             Else
-                MsgBox("Could not find a value to parse", 16, My.Application.Info.AssemblyName.ToString)
+                MsgBox("Could not find a WorkTime value", 16, My.Application.Info.AssemblyName.ToString)
             End If
         Else
             MsgBox("No selected row", 16, My.Application.Info.AssemblyName.ToString)
@@ -459,7 +460,7 @@
         If addalltime() > 0 Then
             MsgBox(SecondsToTime(addalltime()).ToString, 64, "Total Work Time")
         Else
-            MsgBox("Could not find a value to parse", 16, My.Application.Info.AssemblyName.ToString)
+            MsgBox("No Time Worked exists in current set!", 16, My.Application.Info.AssemblyName.ToString)
         End If
     End Sub
 
