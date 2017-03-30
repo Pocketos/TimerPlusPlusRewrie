@@ -1,7 +1,11 @@
-﻿Public Class frmMain
+﻿Imports System.ComponentModel
+Imports System.Windows.Shell
+
+Public Class frmMain
     '///LIBRARIES
     'Gets the keystate library for splitting with the ENETER key.
     Private Declare Function GetAsyncKeyState Lib "user32" (ByVal vKey As Integer) As Short
+    Public Property TaskbarItemInfo As TaskbarItemInfo
 
     '///VARIABLES
     'Declare the muber of splits, recorded worktime, and the file name.
@@ -31,7 +35,7 @@
         currentyear = Year(currentdate)
 
         filename = currentday & "-" & currentmonth & "-" & currentyear & ".xml"
-        tsslFilePath.Text = My.Computer.FileSystem.CurrentDirectory & "\Days" & filename
+        tsslFilePath.Text = My.Computer.FileSystem.CurrentDirectory & "\Days\" & filename
 
         If My.Computer.FileSystem.DirectoryExists(My.Computer.FileSystem.CurrentDirectory & "\Days") Then
             If My.Computer.FileSystem.FileExists(My.Computer.FileSystem.CurrentDirectory & "\Days\" & filename) = False Then

@@ -14,14 +14,6 @@ Partial Class frm_aboutbox
         End Try
     End Sub
 
-    Friend WithEvents TableLayoutPanel As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents LogoPictureBox As System.Windows.Forms.PictureBox
-    Friend WithEvents LabelProductName As System.Windows.Forms.Label
-    Friend WithEvents LabelVersion As System.Windows.Forms.Label
-    Friend WithEvents LabelCompanyName As System.Windows.Forms.Label
-    Friend WithEvents TextBoxDescription As System.Windows.Forms.TextBox
-    Friend WithEvents LabelCopyright As System.Windows.Forms.Label
-
     'Required by the Windows Form Designer
     Private components As System.ComponentModel.IContainer
 
@@ -31,121 +23,96 @@ Partial Class frm_aboutbox
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frm_aboutbox))
-        Me.TableLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
-        Me.LogoPictureBox = New System.Windows.Forms.PictureBox()
-        Me.LabelProductName = New System.Windows.Forms.Label()
-        Me.LabelVersion = New System.Windows.Forms.Label()
-        Me.LabelCopyright = New System.Windows.Forms.Label()
-        Me.LabelCompanyName = New System.Windows.Forms.Label()
-        Me.TextBoxDescription = New System.Windows.Forms.TextBox()
-        Me.TableLayoutPanel.SuspendLayout()
-        CType(Me.LogoPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.lblProductName = New System.Windows.Forms.Label()
+        Me.lblVersion = New System.Windows.Forms.Label()
+        Me.lblCompanyName = New System.Windows.Forms.Label()
+        Me.lblCopyright = New System.Windows.Forms.Label()
+        Me.panel_about_info = New System.Windows.Forms.Panel()
+        Me.RichTextBox_GNU = New System.Windows.Forms.RichTextBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.panel_about_info.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'TableLayoutPanel
+        'lblProductName
         '
-        Me.TableLayoutPanel.ColumnCount = 2
-        Me.TableLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.0!))
-        Me.TableLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.0!))
-        Me.TableLayoutPanel.Controls.Add(Me.LogoPictureBox, 0, 0)
-        Me.TableLayoutPanel.Controls.Add(Me.LabelProductName, 1, 0)
-        Me.TableLayoutPanel.Controls.Add(Me.LabelVersion, 1, 1)
-        Me.TableLayoutPanel.Controls.Add(Me.LabelCopyright, 1, 2)
-        Me.TableLayoutPanel.Controls.Add(Me.LabelCompanyName, 1, 3)
-        Me.TableLayoutPanel.Controls.Add(Me.TextBoxDescription, 1, 4)
-        Me.TableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel.Location = New System.Drawing.Point(9, 9)
-        Me.TableLayoutPanel.Name = "TableLayoutPanel"
-        Me.TableLayoutPanel.RowCount = 6
-        Me.TableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.TableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.TableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.TableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.TableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.TableLayoutPanel.Size = New System.Drawing.Size(303, 136)
-        Me.TableLayoutPanel.TabIndex = 0
+        Me.lblProductName.AutoSize = True
+        Me.lblProductName.Location = New System.Drawing.Point(3, 0)
+        Me.lblProductName.Name = "lblProductName"
+        Me.lblProductName.Size = New System.Drawing.Size(72, 13)
+        Me.lblProductName.TabIndex = 0
+        Me.lblProductName.Text = "ProductName"
         '
-        'LogoPictureBox
+        'lblVersion
         '
-        Me.LogoPictureBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LogoPictureBox.Image = Global.Timer__.My.Resources.Resources.Korkscrew_logo
-        Me.LogoPictureBox.Location = New System.Drawing.Point(3, 3)
-        Me.LogoPictureBox.Name = "LogoPictureBox"
-        Me.TableLayoutPanel.SetRowSpan(Me.LogoPictureBox, 6)
-        Me.LogoPictureBox.Size = New System.Drawing.Size(93, 130)
-        Me.LogoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.LogoPictureBox.TabIndex = 0
-        Me.LogoPictureBox.TabStop = False
+        Me.lblVersion.AutoSize = True
+        Me.lblVersion.Location = New System.Drawing.Point(3, 13)
+        Me.lblVersion.Name = "lblVersion"
+        Me.lblVersion.Size = New System.Drawing.Size(42, 13)
+        Me.lblVersion.TabIndex = 1
+        Me.lblVersion.Text = "Version"
         '
-        'LabelProductName
+        'lblCompanyName
         '
-        Me.LabelProductName.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LabelProductName.Location = New System.Drawing.Point(105, 0)
-        Me.LabelProductName.Margin = New System.Windows.Forms.Padding(6, 0, 3, 0)
-        Me.LabelProductName.MaximumSize = New System.Drawing.Size(0, 17)
-        Me.LabelProductName.Name = "LabelProductName"
-        Me.LabelProductName.Size = New System.Drawing.Size(195, 13)
-        Me.LabelProductName.TabIndex = 0
-        Me.LabelProductName.Text = "ProductName"
-        Me.LabelProductName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lblCompanyName.AutoSize = True
+        Me.lblCompanyName.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lblCompanyName.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCompanyName.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.lblCompanyName.Location = New System.Drawing.Point(3, 39)
+        Me.lblCompanyName.Name = "lblCompanyName"
+        Me.lblCompanyName.Size = New System.Drawing.Size(79, 13)
+        Me.lblCompanyName.TabIndex = 2
+        Me.lblCompanyName.Text = "CompanyName"
         '
-        'LabelVersion
+        'lblCopyright
         '
-        Me.LabelVersion.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LabelVersion.Location = New System.Drawing.Point(105, 13)
-        Me.LabelVersion.Margin = New System.Windows.Forms.Padding(6, 0, 3, 0)
-        Me.LabelVersion.MaximumSize = New System.Drawing.Size(0, 17)
-        Me.LabelVersion.Name = "LabelVersion"
-        Me.LabelVersion.Size = New System.Drawing.Size(195, 13)
-        Me.LabelVersion.TabIndex = 0
-        Me.LabelVersion.Text = "Version"
-        Me.LabelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lblCopyright.AutoSize = True
+        Me.lblCopyright.Location = New System.Drawing.Point(3, 26)
+        Me.lblCopyright.Name = "lblCopyright"
+        Me.lblCopyright.Size = New System.Drawing.Size(51, 13)
+        Me.lblCopyright.TabIndex = 3
+        Me.lblCopyright.Text = "Copyright"
         '
-        'LabelCopyright
+        'panel_about_info
         '
-        Me.LabelCopyright.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LabelCopyright.Location = New System.Drawing.Point(105, 26)
-        Me.LabelCopyright.Margin = New System.Windows.Forms.Padding(6, 0, 3, 0)
-        Me.LabelCopyright.MaximumSize = New System.Drawing.Size(0, 17)
-        Me.LabelCopyright.Name = "LabelCopyright"
-        Me.LabelCopyright.Size = New System.Drawing.Size(195, 13)
-        Me.LabelCopyright.TabIndex = 0
-        Me.LabelCopyright.Text = "Copyright"
-        Me.LabelCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.panel_about_info.Controls.Add(Me.lblProductName)
+        Me.panel_about_info.Controls.Add(Me.lblCompanyName)
+        Me.panel_about_info.Controls.Add(Me.lblCopyright)
+        Me.panel_about_info.Controls.Add(Me.lblVersion)
+        Me.panel_about_info.Location = New System.Drawing.Point(70, 6)
+        Me.panel_about_info.Name = "panel_about_info"
+        Me.panel_about_info.Size = New System.Drawing.Size(165, 56)
+        Me.panel_about_info.TabIndex = 4
         '
-        'LabelCompanyName
+        'RichTextBox_GNU
         '
-        Me.LabelCompanyName.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LabelCompanyName.Location = New System.Drawing.Point(105, 39)
-        Me.LabelCompanyName.Margin = New System.Windows.Forms.Padding(6, 0, 3, 0)
-        Me.LabelCompanyName.MaximumSize = New System.Drawing.Size(0, 17)
-        Me.LabelCompanyName.Name = "LabelCompanyName"
-        Me.LabelCompanyName.Size = New System.Drawing.Size(195, 13)
-        Me.LabelCompanyName.TabIndex = 0
-        Me.LabelCompanyName.Text = "Company Name"
-        Me.LabelCompanyName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.RichTextBox_GNU.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.RichTextBox_GNU.Location = New System.Drawing.Point(9, 68)
+        Me.RichTextBox_GNU.MaxLength = 0
+        Me.RichTextBox_GNU.Name = "RichTextBox_GNU"
+        Me.RichTextBox_GNU.ReadOnly = True
+        Me.RichTextBox_GNU.Size = New System.Drawing.Size(281, 103)
+        Me.RichTextBox_GNU.TabIndex = 5
+        Me.RichTextBox_GNU.Text = resources.GetString("RichTextBox_GNU.Text")
         '
-        'TextBoxDescription
+        'PictureBox1
         '
-        Me.TextBoxDescription.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TextBoxDescription.Location = New System.Drawing.Point(105, 55)
-        Me.TextBoxDescription.Margin = New System.Windows.Forms.Padding(6, 3, 3, 3)
-        Me.TextBoxDescription.Multiline = True
-        Me.TextBoxDescription.Name = "TextBoxDescription"
-        Me.TextBoxDescription.ReadOnly = True
-        Me.TextBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.TextBoxDescription.Size = New System.Drawing.Size(195, 62)
-        Me.TextBoxDescription.TabIndex = 0
-        Me.TextBoxDescription.TabStop = False
-        Me.TextBoxDescription.Text = resources.GetString("TextBoxDescription.Text")
+        Me.PictureBox1.Image = Global.Timer__.My.Resources.Resources.Korkscrew_logo
+        Me.PictureBox1.Location = New System.Drawing.Point(9, 6)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(55, 56)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 6
+        Me.PictureBox1.TabStop = False
         '
         'frm_aboutbox
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(321, 154)
-        Me.Controls.Add(Me.TableLayoutPanel)
+        Me.ClientSize = New System.Drawing.Size(299, 180)
+        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.RichTextBox_GNU)
+        Me.Controls.Add(Me.panel_about_info)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
         Me.MinimizeBox = False
@@ -154,11 +121,18 @@ Partial Class frm_aboutbox
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "frm_aboutbox"
-        Me.TableLayoutPanel.ResumeLayout(False)
-        Me.TableLayoutPanel.PerformLayout()
-        CType(Me.LogoPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.panel_about_info.ResumeLayout(False)
+        Me.panel_about_info.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
+    Friend WithEvents lblProductName As Label
+    Friend WithEvents lblVersion As Label
+    Friend WithEvents lblCompanyName As Label
+    Friend WithEvents lblCopyright As Label
+    Friend WithEvents panel_about_info As Panel
+    Friend WithEvents RichTextBox_GNU As RichTextBox
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

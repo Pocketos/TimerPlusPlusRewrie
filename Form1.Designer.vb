@@ -36,6 +36,12 @@ Partial Class frmMain
         Me.btnMinusTime = New System.Windows.Forms.Button()
         Me.btnAddTime = New System.Windows.Forms.Button()
         Me.SplitsDataTableDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewIDColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewDescriptionColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewStartTimeColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewStopTimeColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTimeWorkedColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewRecordedColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.DataGridViewColorColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTimeInSecondsColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cmsSplitsGridView = New System.Windows.Forms.ContextMenuStrip(Me.components)
@@ -50,6 +56,8 @@ Partial Class frmMain
         Me.highlight_voidout = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.TotalGroupTimeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SplitsDataTableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.SplitsDataSet = New Timer__.SplitsDataSet()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
@@ -77,20 +85,12 @@ Partial Class frmMain
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.btn_addtime10 = New System.Windows.Forms.Button()
         Me.btn_zerotime = New System.Windows.Forms.Button()
-        Me.DataGridViewIDColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewDescriptionColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewStartTimeColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewStopTimeColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTimeWorkedColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewRecordedColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.SplitsDataTableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.SplitsDataSet = New Timer__.SplitsDataSet()
         CType(Me.SplitsDataTableDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.cmsSplitsGridView.SuspendLayout()
-        Me.MenuStrip1.SuspendLayout()
-        Me.ssBottomMain.SuspendLayout()
         CType(Me.SplitsDataTableBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SplitsDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.MenuStrip1.SuspendLayout()
+        Me.ssBottomMain.SuspendLayout()
         Me.SuspendLayout()
         '
         'lbltimertext
@@ -219,6 +219,69 @@ Partial Class frmMain
         Me.SplitsDataTableDataGridView.Size = New System.Drawing.Size(608, 276)
         Me.SplitsDataTableDataGridView.TabIndex = 16
         '
+        'DataGridViewIDColumn
+        '
+        Me.DataGridViewIDColumn.DataPropertyName = "ID"
+        Me.DataGridViewIDColumn.HeaderText = "ID"
+        Me.DataGridViewIDColumn.MinimumWidth = 30
+        Me.DataGridViewIDColumn.Name = "DataGridViewIDColumn"
+        Me.DataGridViewIDColumn.ReadOnly = True
+        Me.DataGridViewIDColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewIDColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.DataGridViewIDColumn.Width = 30
+        '
+        'DataGridViewDescriptionColumn
+        '
+        Me.DataGridViewDescriptionColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewDescriptionColumn.DataPropertyName = "Description"
+        Me.DataGridViewDescriptionColumn.FillWeight = 98.68021!
+        Me.DataGridViewDescriptionColumn.HeaderText = "Description"
+        Me.DataGridViewDescriptionColumn.Name = "DataGridViewDescriptionColumn"
+        Me.DataGridViewDescriptionColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewDescriptionColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        '
+        'DataGridViewStartTimeColumn
+        '
+        Me.DataGridViewStartTimeColumn.DataPropertyName = "StartTime"
+        Me.DataGridViewStartTimeColumn.HeaderText = "StartTime"
+        Me.DataGridViewStartTimeColumn.MinimumWidth = 70
+        Me.DataGridViewStartTimeColumn.Name = "DataGridViewStartTimeColumn"
+        Me.DataGridViewStartTimeColumn.ReadOnly = True
+        Me.DataGridViewStartTimeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewStartTimeColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.DataGridViewStartTimeColumn.Width = 70
+        '
+        'DataGridViewStopTimeColumn
+        '
+        Me.DataGridViewStopTimeColumn.DataPropertyName = "StopTime"
+        Me.DataGridViewStopTimeColumn.HeaderText = "StopTime"
+        Me.DataGridViewStopTimeColumn.MinimumWidth = 70
+        Me.DataGridViewStopTimeColumn.Name = "DataGridViewStopTimeColumn"
+        Me.DataGridViewStopTimeColumn.ReadOnly = True
+        Me.DataGridViewStopTimeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewStopTimeColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.DataGridViewStopTimeColumn.Width = 70
+        '
+        'DataGridViewTimeWorkedColumn
+        '
+        Me.DataGridViewTimeWorkedColumn.DataPropertyName = "TimeWorked"
+        Me.DataGridViewTimeWorkedColumn.HeaderText = "TimeWorked"
+        Me.DataGridViewTimeWorkedColumn.MinimumWidth = 75
+        Me.DataGridViewTimeWorkedColumn.Name = "DataGridViewTimeWorkedColumn"
+        Me.DataGridViewTimeWorkedColumn.ReadOnly = True
+        Me.DataGridViewTimeWorkedColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewTimeWorkedColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.DataGridViewTimeWorkedColumn.Width = 75
+        '
+        'DataGridViewRecordedColumn
+        '
+        Me.DataGridViewRecordedColumn.DataPropertyName = "Recorded"
+        Me.DataGridViewRecordedColumn.HeaderText = "Recorded"
+        Me.DataGridViewRecordedColumn.MinimumWidth = 60
+        Me.DataGridViewRecordedColumn.Name = "DataGridViewRecordedColumn"
+        Me.DataGridViewRecordedColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewRecordedColumn.Width = 60
+        '
         'DataGridViewColorColumn
         '
         Me.DataGridViewColorColumn.DataPropertyName = "Color"
@@ -313,6 +376,16 @@ Partial Class frmMain
         Me.TotalGroupTimeToolStripMenuItem.Name = "TotalGroupTimeToolStripMenuItem"
         Me.TotalGroupTimeToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
         Me.TotalGroupTimeToolStripMenuItem.Text = "Total Group Time"
+        '
+        'SplitsDataTableBindingSource
+        '
+        Me.SplitsDataTableBindingSource.DataMember = "SplitsDataTable"
+        Me.SplitsDataTableBindingSource.DataSource = Me.SplitsDataSet
+        '
+        'SplitsDataSet
+        '
+        Me.SplitsDataSet.DataSetName = "SplitsDataSet"
+        Me.SplitsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'MenuStrip1
         '
@@ -505,79 +578,6 @@ Partial Class frmMain
         Me.ToolTip.SetToolTip(Me.btn_zerotime, "Adds one minute to the Work Time timer.")
         Me.btn_zerotime.UseVisualStyleBackColor = True
         '
-        'DataGridViewIDColumn
-        '
-        Me.DataGridViewIDColumn.DataPropertyName = "ID"
-        Me.DataGridViewIDColumn.HeaderText = "ID"
-        Me.DataGridViewIDColumn.MinimumWidth = 30
-        Me.DataGridViewIDColumn.Name = "DataGridViewIDColumn"
-        Me.DataGridViewIDColumn.ReadOnly = True
-        Me.DataGridViewIDColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewIDColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.DataGridViewIDColumn.Width = 30
-        '
-        'DataGridViewDescriptionColumn
-        '
-        Me.DataGridViewDescriptionColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewDescriptionColumn.DataPropertyName = "Description"
-        Me.DataGridViewDescriptionColumn.FillWeight = 98.68021!
-        Me.DataGridViewDescriptionColumn.HeaderText = "Description"
-        Me.DataGridViewDescriptionColumn.Name = "DataGridViewDescriptionColumn"
-        Me.DataGridViewDescriptionColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewDescriptionColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        '
-        'DataGridViewStartTimeColumn
-        '
-        Me.DataGridViewStartTimeColumn.DataPropertyName = "StartTime"
-        Me.DataGridViewStartTimeColumn.HeaderText = "StartTime"
-        Me.DataGridViewStartTimeColumn.MinimumWidth = 70
-        Me.DataGridViewStartTimeColumn.Name = "DataGridViewStartTimeColumn"
-        Me.DataGridViewStartTimeColumn.ReadOnly = True
-        Me.DataGridViewStartTimeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewStartTimeColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.DataGridViewStartTimeColumn.Width = 70
-        '
-        'DataGridViewStopTimeColumn
-        '
-        Me.DataGridViewStopTimeColumn.DataPropertyName = "StopTime"
-        Me.DataGridViewStopTimeColumn.HeaderText = "StopTime"
-        Me.DataGridViewStopTimeColumn.MinimumWidth = 70
-        Me.DataGridViewStopTimeColumn.Name = "DataGridViewStopTimeColumn"
-        Me.DataGridViewStopTimeColumn.ReadOnly = True
-        Me.DataGridViewStopTimeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewStopTimeColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.DataGridViewStopTimeColumn.Width = 70
-        '
-        'DataGridViewTimeWorkedColumn
-        '
-        Me.DataGridViewTimeWorkedColumn.DataPropertyName = "TimeWorked"
-        Me.DataGridViewTimeWorkedColumn.HeaderText = "TimeWorked"
-        Me.DataGridViewTimeWorkedColumn.MinimumWidth = 75
-        Me.DataGridViewTimeWorkedColumn.Name = "DataGridViewTimeWorkedColumn"
-        Me.DataGridViewTimeWorkedColumn.ReadOnly = True
-        Me.DataGridViewTimeWorkedColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewTimeWorkedColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.DataGridViewTimeWorkedColumn.Width = 75
-        '
-        'DataGridViewRecordedColumn
-        '
-        Me.DataGridViewRecordedColumn.DataPropertyName = "Recorded"
-        Me.DataGridViewRecordedColumn.HeaderText = "Recorded"
-        Me.DataGridViewRecordedColumn.MinimumWidth = 60
-        Me.DataGridViewRecordedColumn.Name = "DataGridViewRecordedColumn"
-        Me.DataGridViewRecordedColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewRecordedColumn.Width = 60
-        '
-        'SplitsDataTableBindingSource
-        '
-        Me.SplitsDataTableBindingSource.DataMember = "SplitsDataTable"
-        Me.SplitsDataTableBindingSource.DataSource = Me.SplitsDataSet
-        '
-        'SplitsDataSet
-        '
-        Me.SplitsDataSet.DataSetName = "SplitsDataSet"
-        Me.SplitsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -605,12 +605,12 @@ Partial Class frmMain
         Me.Text = "Timer++"
         CType(Me.SplitsDataTableDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.cmsSplitsGridView.ResumeLayout(False)
+        CType(Me.SplitsDataTableBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SplitsDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.ssBottomMain.ResumeLayout(False)
         Me.ssBottomMain.PerformLayout()
-        CType(Me.SplitsDataTableBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SplitsDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
