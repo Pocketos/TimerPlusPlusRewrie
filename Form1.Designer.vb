@@ -64,6 +64,7 @@ Partial Class frmMain
         Me.EnablePauseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolTipsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MarkRecordedToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SplitWarningToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SplitsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -406,7 +407,7 @@ Partial Class frmMain
         '
         'ToolStripMenuItem3
         '
-        Me.ToolStripMenuItem3.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EnablePauseToolStripMenuItem, Me.ToolTipsToolStripMenuItem, Me.MarkRecordedToolStripMenuItem})
+        Me.ToolStripMenuItem3.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EnablePauseToolStripMenuItem, Me.ToolTipsToolStripMenuItem, Me.MarkRecordedToolStripMenuItem, Me.SplitWarningToolStripMenuItem})
         Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
         Me.ToolStripMenuItem3.Size = New System.Drawing.Size(116, 22)
         Me.ToolStripMenuItem3.Text = "Settings"
@@ -432,6 +433,12 @@ Partial Class frmMain
         Me.MarkRecordedToolStripMenuItem.Name = "MarkRecordedToolStripMenuItem"
         Me.MarkRecordedToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
         Me.MarkRecordedToolStripMenuItem.Text = "Mark Recorded"
+        '
+        'SplitWarningToolStripMenuItem
+        '
+        Me.SplitWarningToolStripMenuItem.Name = "SplitWarningToolStripMenuItem"
+        Me.SplitWarningToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
+        Me.SplitWarningToolStripMenuItem.Text = "Split Warning"
         '
         'ExitToolStripMenuItem
         '
@@ -537,21 +544,24 @@ Partial Class frmMain
         Me.ssBottomMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsslFilePath, Me.tsslLastSaved})
         Me.ssBottomMain.Location = New System.Drawing.Point(0, 419)
         Me.ssBottomMain.Name = "ssBottomMain"
+        Me.ssBottomMain.ShowItemToolTips = True
         Me.ssBottomMain.Size = New System.Drawing.Size(629, 22)
         Me.ssBottomMain.TabIndex = 19
         Me.ssBottomMain.Text = "ssBottom"
-        Me.ToolTip.SetToolTip(Me.ssBottomMain, "File location and last saved time.")
         '
         'tsslFilePath
         '
+        Me.tsslFilePath.AutoSize = False
         Me.tsslFilePath.Name = "tsslFilePath"
-        Me.tsslFilePath.Size = New System.Drawing.Size(109, 17)
+        Me.tsslFilePath.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.tsslFilePath.Size = New System.Drawing.Size(450, 17)
         Me.tsslFilePath.Text = "File Path Goes Here"
+        Me.tsslFilePath.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'tsslLastSaved
         '
         Me.tsslLastSaved.Name = "tsslLastSaved"
-        Me.tsslLastSaved.Size = New System.Drawing.Size(505, 17)
+        Me.tsslLastSaved.Size = New System.Drawing.Size(133, 17)
         Me.tsslLastSaved.Spring = True
         Me.tsslLastSaved.Text = "File not yet saved"
         Me.tsslLastSaved.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -675,4 +685,5 @@ Partial Class frmMain
     Friend WithEvents btn_zerotime As Button
     Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
     Friend WithEvents TotalGroupTimeToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SplitWarningToolStripMenuItem As ToolStripMenuItem
 End Class

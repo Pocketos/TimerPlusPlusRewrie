@@ -18,9 +18,14 @@ Public Class frmMain
     Private EnableToolips As Integer = 1
     Private EnablemarkRecordedOnGroupTime As Integer = 1
 
+    Private splitwarningtime As Integer = 60
+
     '///FORM LOAD
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         datecheck()
+
+        '////LOAD SETTINGS
+        SplitWarningToolStripMenuItem.ToolTipText = splitwarningtime & " Minutes"
     End Sub
 
     '///SUBS
@@ -36,6 +41,7 @@ Public Class frmMain
 
         filename = currentday & "-" & currentmonth & "-" & currentyear & ".xml"
         tsslFilePath.Text = My.Computer.FileSystem.CurrentDirectory & "\Days\" & filename
+        tsslFilePath.ToolTipText = My.Computer.FileSystem.CurrentDirectory & "\Days\" & filename
 
         If My.Computer.FileSystem.DirectoryExists(My.Computer.FileSystem.CurrentDirectory & "\Days") Then
             If My.Computer.FileSystem.FileExists(My.Computer.FileSystem.CurrentDirectory & "\Days\" & filename) = False Then
@@ -81,9 +87,10 @@ Public Class frmMain
                 If EnablePause = 1 Then
                     btnpause.Enabled = True
                 End If
+                lblwktm.BackColor = Control.DefaultBackColor
             End If
-        Catch
-            MsgBox("Exception generated why creating split", 16, My.Application.Info.AssemblyName.ToString)
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, My.Application.Info.AssemblyName.ToString)
         End Try
     End Sub
 
@@ -176,6 +183,21 @@ Public Class frmMain
         worktime = worktime + 1
         Dim time = New TimeSpan(0, 0, worktime).ToString("c")
         lblwktm.Text = time
+
+        'Check if the timer has been running an exact multiple of 60 minutes.  If it has, create a message box to split now or continue.
+        If worktime Mod (splitwarningtime * 60) = 0 Then
+            Me.Activate()
+            lblwktm.BackColor = Color.Red
+            tmMain.Stop()
+            Dim tmalertboxresult As Integer = MessageBox.Show("Create a new split?", "Work time exceeds 1 hour!", MessageBoxButtons.YesNo)
+            If tmalertboxresult = DialogResult.Yes Then
+                tmMain.Start()
+                Split()
+                lblwktm.BackColor = Control.DefaultBackColor
+            Else
+                tmMain.Start()
+            End If
+        End If
     End Sub
 
     'Logic for highlighing the currenetly selected cell
@@ -280,7 +302,6 @@ Public Class frmMain
             worktime = worktime - 60
             Dim time = New TimeSpan(0, 0, worktime).ToString("c")
             lblwktm.Text = time
-        Else
         End If
     End Sub
 
@@ -479,6 +500,22 @@ Public Class frmMain
         Else
             MarkRecordedToolStripMenuItem.Checked = True
             EnablemarkRecordedOnGroupTime = 1
+        End If
+    End Sub
+
+    Private Sub SplitWarningToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SplitWarningToolStripMenuItem.Click
+        Dim inputresult As Object
+        inputresult = InputBox("Please input a time in Minutes", "Running Split Warning", splitwarningtime)
+        If inputresult Is "" Then
+            splitwarningtime = 60
+        Else
+            If inputresult = 1 Then
+                splitwarningtime = inputresult
+                SplitWarningToolStripMenuItem.ToolTipText = splitwarningtime & " Minute"
+            Else
+                splitwarningtime = inputresult
+                SplitWarningToolStripMenuItem.ToolTipText = splitwarningtime & " Minutes"
+            End If
         End If
     End Sub
 End Class
