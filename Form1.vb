@@ -77,7 +77,7 @@ Public Class frmMain
                 SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewRecordedColumn").Value = SplitsDataTableDataGridView(5, splits).Value
                 SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewColorColumn").Value = SplitsDataTableDataGridView(6, splits).Value.ToString
                 SaveSplits()
-                splits = splits + 1
+                splits += 1
                 worktime = 0
                 SplitsDataSet.SplitsDataTable.Rows.Add(splits, txtdesc.Text, Now.ToShortTimeString)
                 SplitsDataTableDataGridView.CurrentCell = Me.SplitsDataTableDataGridView(0, splits)
@@ -88,6 +88,33 @@ Public Class frmMain
                     btnpause.Enabled = True
                 End If
                 lblwktm.BackColor = Control.DefaultBackColor
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message, 16, My.Application.Info.AssemblyName.ToString)
+        End Try
+    End Sub
+
+    Private Sub EndSplit()
+        Try
+            If tmMain.Enabled = True Then
+                SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewStopTimeColumn").Value = Now.ToShortTimeString
+                SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewTimeInSecondsColumn").Value = worktime
+                SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewTimeWorkedColumn").Value = SecondsToTime(worktime)
+                SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewRecordedColumn").Value = SplitsDataTableDataGridView(5, splits).Value
+                SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewColorColumn").Value = SplitsDataTableDataGridView(6, splits).Value.ToString
+                SaveSplits()
+                txtdesc.Clear()
+                splits += 1
+                worktime = 0
+                lblwktm.Text = "00:00:00"
+                tmMain.Stop()
+                Me.SplitsDataSet.WriteXml("Days\" & filename)
+                If EnablePause = 1 Then
+                    btnpause.Enabled = True
+                End If
+                lblwktm.BackColor = Control.DefaultBackColor
+            Else
+                Return
             End If
         Catch ex As Exception
             MsgBox(ex.Message, 16, My.Application.Info.AssemblyName.ToString)
@@ -208,6 +235,10 @@ Public Class frmMain
             SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor = color
             SplitsDataTableDataGridView.CurrentRow.Cells("DataGridViewColorColumn").Value = SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor
         End If
+    End Sub
+
+    Private Sub frmmain_Closing(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles MyBase.Closing
+        EndSplit()
     End Sub
 
     '///FUNCTIONS
@@ -516,6 +547,14 @@ Public Class frmMain
                 splitwarningtime = inputresult
                 SplitWarningToolStripMenuItem.ToolTipText = splitwarningtime & " Minutes"
             End If
+        End If
+    End Sub
+
+    Private Sub EndSplitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EndSplitToolStripMenuItem.Click
+        If tmMain.Enabled = True Then
+            EndSplit()
+        Else
+            MsgBox("No Running Splits!")
         End If
     End Sub
 End Class
