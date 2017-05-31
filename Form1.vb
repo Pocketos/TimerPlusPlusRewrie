@@ -215,16 +215,25 @@ Public Class frmMain
         If worktime Mod (splitwarningtime * 60) = 0 Then
             Me.Activate()
             lblwktm.BackColor = Color.Red
-            tmMain.Stop()
             Dim tmalertboxresult As Integer = MessageBox.Show("Create a new split?", "Work time exceeds 1 hour!", MessageBoxButtons.YesNo)
             If tmalertboxresult = DialogResult.Yes Then
-                tmMain.Start()
                 Split()
                 lblwktm.BackColor = Control.DefaultBackColor
-            Else
-                tmMain.Start()
             End If
         End If
+    End Sub
+
+    'Refreshes each time worked value on edit
+    Private Sub SplitsDataTableDataGridView_CellMouseClick(ByVal Sender As Object, ByVal e As EventArgs) Handles SplitsDataTableDataGridView.CellMouseClick
+        Try
+            If SplitsDataTableDataGridView.CurrentCell.ColumnIndex = 4 Then
+                Dim newtime As String = "0"
+                newtime = InputBox("Input a new time in seconds", "Override Work Time", SplitsDataTableDataGridView.CurrentCell.Value.ToString)
+                SplitsDataTableDataGridView.Rows(SplitsDataTableDataGridView.CurrentCell.RowIndex).Cells("DataGridViewTimeInSecondsColumn").Value = TimeToSeconds(newtime)
+                SplitsDataTableDataGridView.Rows(SplitsDataTableDataGridView.CurrentCell.RowIndex).Cells("DataGridViewTimeWorkedColumn").Value = newtime
+            End If
+        Catch
+        End Try
     End Sub
 
     'Logic for highlighing the currenetly selected cell
@@ -237,16 +246,32 @@ Public Class frmMain
         End If
     End Sub
 
+    Private Sub checksplitwarning()
+        If splitwarningtime * 60 < worktime Then
+            lblwktm.BackColor = Color.Red
+        Else
+            lblwktm.BackColor = Control.DefaultBackColor
+        End If
+    End Sub
+
     Private Sub frmmain_Closing(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles MyBase.Closing
         EndSplit()
     End Sub
 
     '///FUNCTIONS
 
+    'converts seconds to minutes
     Private Function SecondsToTime(worktime As Integer)
         Dim worktime_span As TimeSpan = TimeSpan.FromSeconds(Convert.ToDouble(worktime))
         Return worktime_span
     End Function
+
+    'converts a formated time string (00:00:00) to seconds
+    Private Function TimeToSeconds(newworktime As String)
+        Dim seconds As TimeSpan = TimeSpan.Parse(newworktime)
+        Return seconds.TotalSeconds.ToString
+    End Function
+
     'adds total time minus void out color (DimGrey)
     Private Function addalltime()
         Dim combinedtime As Integer = 0
@@ -265,6 +290,7 @@ Public Class frmMain
         Next
         Return combinedtime
     End Function
+
     'adds group time
     Private Function addtime(SearchColor As String)
         Dim combinedtime As Integer = 0
@@ -539,13 +565,16 @@ Public Class frmMain
         inputresult = InputBox("Please input a time in Minutes", "Running Split Warning", splitwarningtime)
         If inputresult Is "" Then
             splitwarningtime = 60
+            checksplitwarning()
         Else
             If inputresult = 1 Then
                 splitwarningtime = inputresult
                 SplitWarningToolStripMenuItem.ToolTipText = splitwarningtime & " Minute"
+                checksplitwarning()
             Else
                 splitwarningtime = inputresult
                 SplitWarningToolStripMenuItem.ToolTipText = splitwarningtime & " Minutes"
+                checksplitwarning()
             End If
         End If
     End Sub
