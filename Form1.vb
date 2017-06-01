@@ -72,7 +72,6 @@ Public Class frmMain
                 tmMain.Enabled = True
             Else
                 SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewStopTimeColumn").Value = Now.ToShortTimeString
-                SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewTimeInSecondsColumn").Value = worktime
                 SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewTimeWorkedColumn").Value = SecondsToTime(worktime)
                 SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewRecordedColumn").Value = SplitsDataTableDataGridView(5, splits).Value
                 SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewColorColumn").Value = SplitsDataTableDataGridView(6, splits).Value.ToString
@@ -98,7 +97,6 @@ Public Class frmMain
         Try
             If tmMain.Enabled = True Then
                 SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewStopTimeColumn").Value = Now.ToShortTimeString
-                SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewTimeInSecondsColumn").Value = worktime
                 SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewTimeWorkedColumn").Value = SecondsToTime(worktime)
                 SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewRecordedColumn").Value = SplitsDataTableDataGridView(5, splits).Value
                 SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewColorColumn").Value = SplitsDataTableDataGridView(6, splits).Value.ToString
@@ -223,19 +221,6 @@ Public Class frmMain
         End If
     End Sub
 
-    'Refreshes each time worked value on edit
-    Private Sub SplitsDataTableDataGridView_CellMouseClick(ByVal Sender As Object, ByVal e As EventArgs) Handles SplitsDataTableDataGridView.CellMouseClick
-        Try
-            If SplitsDataTableDataGridView.CurrentCell.ColumnIndex = 4 Then
-                Dim newtime As String = "0"
-                newtime = InputBox("Input a new time in seconds", "Override Work Time", SplitsDataTableDataGridView.CurrentCell.Value.ToString)
-                SplitsDataTableDataGridView.Rows(SplitsDataTableDataGridView.CurrentCell.RowIndex).Cells("DataGridViewTimeInSecondsColumn").Value = TimeToSeconds(newtime)
-                SplitsDataTableDataGridView.Rows(SplitsDataTableDataGridView.CurrentCell.RowIndex).Cells("DataGridViewTimeWorkedColumn").Value = newtime
-            End If
-        Catch
-        End Try
-    End Sub
-
     'Logic for highlighing the currenetly selected cell
     Private Sub Highlight(color As Color)
         If SplitsDataTableDataGridView.CurrentCell Is Nothing Then
@@ -268,20 +253,23 @@ Public Class frmMain
 
     'converts a formated time string (00:00:00) to seconds
     Private Function TimeToSeconds(newworktime As String)
-        Dim seconds As TimeSpan = TimeSpan.Parse(newworktime)
-        Return seconds.TotalSeconds.ToString
+        Try
+            Dim seconds As TimeSpan = TimeSpan.Parse(newworktime)
+            Return seconds.TotalSeconds.ToString
+        Catch
+        End Try
     End Function
 
     'adds total time minus void out color (DimGrey)
     Private Function addalltime()
         Dim combinedtime As Integer = 0
         For Each DataRow In SplitsDataTableDataGridView.Rows
-            If Not IsDBNull(DataRow.Cells("DataGridViewTimeInSecondsColumn").Value) Then
+            If Not IsDBNull(TimeToSeconds(DataRow.Cells("DataGridViewTimeWorkedColumn").Value.ToString)) Then
                 Select Case DataRow.Cells("DataGridViewColorColumn").Value
                     Case Is = "DimGray"
                     Case Else
                         Try
-                            combinedtime = combinedtime + DataRow.Cells("DataGridViewTimeInSecondsColumn").Value
+                            combinedtime = combinedtime + TimeToSeconds(DataRow.Cells("DataGridViewTimeworkedColumn").Value.ToString)
                         Catch
                             MsgBox("Error", 16, "Data not Found")
                         End Try
@@ -295,13 +283,13 @@ Public Class frmMain
     Private Function addtime(SearchColor As String)
         Dim combinedtime As Integer = 0
         For Each DataRow In SplitsDataTableDataGridView.Rows
-            If Not IsDBNull(DataRow.Cells("DataGridViewTimeInSecondsColumn").Value) Then
+            If Not IsDBNull(TimeToSeconds(DataRow.Cells("DataGridViewTimeWorkedColumn").Value.ToString)) Then
                 Select Case DataRow.Cells("DataGridViewColorColumn").Value
                     Case Is = "White"
                     Case Is = "DimGray"
                     Case Is = SearchColor
                         Try
-                            combinedtime = combinedtime + DataRow.Cells("DataGridViewTimeInSecondsColumn").Value
+                            combinedtime = combinedtime + TimeToSeconds(DataRow.Cells("DataGridViewTimeWorkedColumn").Value.ToString)
                             If EnablemarkRecordedOnGroupTime = 1 Then
                                 DataRow.Cells("DataGridViewRecordedColumn").Value = 1
                             End If
@@ -530,6 +518,7 @@ Public Class frmMain
         If SplitsDataTableDataGridView.SelectedCells.Count > 0 Then
             If (addtime(SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor.ToKnownColor.ToString)) > 0 Then
                 MsgBox(SecondsToTime(addtime(SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor.ToKnownColor.ToString)).ToString, 64, "Total of Color " & SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor.ToKnownColor.ToString)
+                tsslactionstatus.Text = SecondsToTime(addtime(SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor.ToKnownColor.ToString)).ToString & " - " & SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor.ToKnownColor.ToString
             Else
                 MsgBox("Could not find a WorkTime value", 16, My.Application.Info.AssemblyName.ToString)
             End If
@@ -541,6 +530,7 @@ Public Class frmMain
     Private Sub TotalWorkTimeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TotalWorkTimeToolStripMenuItem.Click
         If addalltime() > 0 Then
             MsgBox(SecondsToTime(addalltime()).ToString, 64, "Total Work Time")
+            tsslactionstatus.Text = SecondsToTime(addalltime()).ToString & " - Total"
         Else
             MsgBox("No Time Worked exists in current set!", 16, My.Application.Info.AssemblyName.ToString)
         End If
@@ -585,5 +575,32 @@ Public Class frmMain
         Else
             MsgBox("No Running Splits!")
         End If
+    End Sub
+
+    Private Sub OverrideTimeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OverrideTimeToolStripMenuItem.Click
+        Try
+            If SplitsDataTableDataGridView.CurrentCell.ColumnIndex = 4 Then
+                Dim newtime As String = "0"
+                newtime = InputBox("Input a new time in seconds", "Override Work Time", SplitsDataTableDataGridView.CurrentCell.Value.ToString)
+                SplitsDataTableDataGridView.Rows(SplitsDataTableDataGridView.CurrentCell.RowIndex).Cells("DataGridViewTimeWorkedColumn").Value = newtime
+                OverrideTimeToolStripMenuItem.Enabled = False
+            End If
+        Catch
+        End Try
+    End Sub
+
+    Private Sub cmsSplitsGridView_Opening(sender As Object, e As CancelEventArgs) Handles cmsSplitsGridView.Opening
+        Try
+            If Not IsDBNull(SplitsDataTableDataGridView.CurrentCell.Value) Then
+                If SplitsDataTableDataGridView.CurrentCell.ColumnIndex = 4 Then
+                    OverrideTimeToolStripMenuItem.Enabled = True
+                Else
+                    OverrideTimeToolStripMenuItem.Enabled = False
+                End If
+            Else
+                OverrideTimeToolStripMenuItem.Enabled = False
+            End If
+        Catch
+        End Try
     End Sub
 End Class

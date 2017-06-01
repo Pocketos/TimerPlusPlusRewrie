@@ -1,0 +1,71 @@
+<?xml version="1.0" standalone="yes"?>
+<SplitsDataSet xmlns="http://tempuri.org/SplitsDataSet.xsd">
+  <SplitsDataTable>
+    <ID>0</ID>
+    <Description>new stplit</Description>
+    <StartTime>9:31 PM</StartTime>
+    <StopTime>9:31 PM</StopTime>
+    <TimeWorked>PT8M4S</TimeWorked>
+    <Recorded>true</Recorded>
+    <Color>LawnGreen</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>1</ID>
+    <Description>test</Description>
+    <StartTime>9:31 PM</StartTime>
+    <StopTime>9:31 PM</StopTime>
+    <TimeWorked>PT10S</TimeWorked>
+    <Color>White</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>2</ID>
+    <Description>another one</Description>
+    <StartTime>9:31 PM</StartTime>
+    <StopTime>9:32 PM</StopTime>
+    <TimeWorked>PT16M22S</TimeWorked>
+    <Recorded>true</Recorded>
+    <Color>LawnGreen</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>3</ID>
+    <Description>Lunch</Description>
+    <StartTime>9:32 PM</StartTime>
+    <StopTime>9:32 PM</StopTime>
+    <TimeWorked>PT1H3M6S</TimeWorked>
+    <Color>DimGray</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>4</ID>
+    <Description>new split test</Description>
+    <StartTime>9:33 PM</StartTime>
+    <StopTime>9:33 PM</StopTime>
+    <TimeWorked>PT10M3S</TimeWorked>
+    <Recorded>true</Recorded>
+    <Color>Yellow</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>5</ID>
+    <Description>another on</Description>
+    <StartTime>9:33 PM</StartTime>
+    <StopTime>9:33 PM</StopTime>
+    <TimeWorked>PT12M22S</TimeWorked>
+    <Color>White</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>6</ID>
+    <Description>test</Description>
+    <StartTime>10:23 PM</StartTime>
+    <StopTime>10:23 PM</StopTime>
+    <TimeWorked>PT5M8S</TimeWorked>
+    <Recorded>true</Recorded>
+    <Color>Thistle</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>7</ID>
+    <Description>new test</Description>
+    <StartTime>10:36 PM</StartTime>
+    <StopTime>10:36 PM</StopTime>
+    <TimeWorked>PT4M35S</TimeWorked>
+    <Color>Yellow</Color>
+  </SplitsDataTable>
+</SplitsDataSet>

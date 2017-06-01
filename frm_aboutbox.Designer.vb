@@ -30,6 +30,7 @@ Partial Class frm_aboutbox
         Me.panel_about_info = New System.Windows.Forms.Panel()
         Me.RichTextBox_GNU = New System.Windows.Forms.RichTextBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.lblDesc = New System.Windows.Forms.Label()
         Me.panel_about_info.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -75,23 +76,24 @@ Partial Class frm_aboutbox
         '
         'panel_about_info
         '
+        Me.panel_about_info.Controls.Add(Me.lblDesc)
         Me.panel_about_info.Controls.Add(Me.lblProductName)
         Me.panel_about_info.Controls.Add(Me.lblCompanyName)
         Me.panel_about_info.Controls.Add(Me.lblCopyright)
         Me.panel_about_info.Controls.Add(Me.lblVersion)
         Me.panel_about_info.Location = New System.Drawing.Point(70, 6)
         Me.panel_about_info.Name = "panel_about_info"
-        Me.panel_about_info.Size = New System.Drawing.Size(165, 56)
+        Me.panel_about_info.Size = New System.Drawing.Size(165, 66)
         Me.panel_about_info.TabIndex = 4
         '
         'RichTextBox_GNU
         '
         Me.RichTextBox_GNU.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.RichTextBox_GNU.Location = New System.Drawing.Point(9, 68)
+        Me.RichTextBox_GNU.Location = New System.Drawing.Point(9, 78)
         Me.RichTextBox_GNU.MaxLength = 0
         Me.RichTextBox_GNU.Name = "RichTextBox_GNU"
         Me.RichTextBox_GNU.ReadOnly = True
-        Me.RichTextBox_GNU.Size = New System.Drawing.Size(281, 103)
+        Me.RichTextBox_GNU.Size = New System.Drawing.Size(281, 93)
         Me.RichTextBox_GNU.TabIndex = 5
         Me.RichTextBox_GNU.Text = resources.GetString("RichTextBox_GNU.Text")
         '
@@ -100,10 +102,19 @@ Partial Class frm_aboutbox
         Me.PictureBox1.Image = Global.Timer__.My.Resources.Resources.Korkscrew_logo
         Me.PictureBox1.Location = New System.Drawing.Point(9, 6)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(55, 56)
+        Me.PictureBox1.Size = New System.Drawing.Size(55, 66)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 6
         Me.PictureBox1.TabStop = False
+        '
+        'lblDesc
+        '
+        Me.lblDesc.AutoSize = True
+        Me.lblDesc.Location = New System.Drawing.Point(3, 53)
+        Me.lblDesc.Name = "lblDesc"
+        Me.lblDesc.Size = New System.Drawing.Size(60, 13)
+        Me.lblDesc.TabIndex = 4
+        Me.lblDesc.Text = "Description"
         '
         'frm_aboutbox
         '
@@ -135,4 +146,5 @@ Partial Class frm_aboutbox
     Friend WithEvents panel_about_info As Panel
     Friend WithEvents RichTextBox_GNU As RichTextBox
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents lblDesc As Label
 End Class

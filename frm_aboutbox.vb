@@ -16,6 +16,7 @@
         Me.lblVersion.Text = String.Format("Version {0}", My.Application.Info.Version.ToString)
         Me.lblCopyright.Text = My.Application.Info.Copyright
         Me.lblCompanyName.Text = My.Application.Info.CompanyName
+        Me.lblDesc.Text = My.Application.Info.Description
     End Sub
 
     Private Sub OKButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)

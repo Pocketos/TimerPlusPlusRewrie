@@ -44,10 +44,11 @@ Partial Class frmMain
         Me.highlight_red = New System.Windows.Forms.ToolStripMenuItem()
         Me.highlight_tan = New System.Windows.Forms.ToolStripMenuItem()
         Me.highlight_yellow = New System.Windows.Forms.ToolStripMenuItem()
-        Me.RemoveHighlightToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.highlight_voidout = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RemoveHighlightToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.TotalGroupTimeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OverrideTimeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
@@ -77,16 +78,16 @@ Partial Class frmMain
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.btn_addtime10 = New System.Windows.Forms.Button()
         Me.btn_zerotime = New System.Windows.Forms.Button()
-        Me.SplitsDataTableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.SplitsDataSet = New Timer__.SplitsDataSet()
+        Me.DataGridViewColorColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewIDColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewDescriptionColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewStartTimeColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewStopTimeColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTimeWorkedColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTimeInSecondsColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewRecordedColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.DataGridViewColorColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SplitsDataTableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.SplitsDataSet = New Timer__.SplitsDataSet()
+        Me.tsslactionstatus = New System.Windows.Forms.ToolStripStatusLabel()
         CType(Me.SplitsDataTableDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.cmsSplitsGridView.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
@@ -194,7 +195,7 @@ Partial Class frmMain
         Me.SplitsDataTableDataGridView.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
         Me.SplitsDataTableDataGridView.AutoGenerateColumns = False
         Me.SplitsDataTableDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.SplitsDataTableDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewIDColumn, Me.DataGridViewDescriptionColumn, Me.DataGridViewStartTimeColumn, Me.DataGridViewStopTimeColumn, Me.DataGridViewTimeWorkedColumn, Me.DataGridViewTimeInSecondsColumn, Me.DataGridViewRecordedColumn, Me.DataGridViewColorColumn})
+        Me.SplitsDataTableDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewIDColumn, Me.DataGridViewDescriptionColumn, Me.DataGridViewStartTimeColumn, Me.DataGridViewStopTimeColumn, Me.DataGridViewTimeWorkedColumn, Me.DataGridViewRecordedColumn, Me.DataGridViewColorColumn})
         Me.SplitsDataTableDataGridView.ContextMenuStrip = Me.cmsSplitsGridView
         Me.SplitsDataTableDataGridView.DataSource = Me.SplitsDataTableBindingSource
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
@@ -223,9 +224,9 @@ Partial Class frmMain
         '
         'cmsSplitsGridView
         '
-        Me.cmsSplitsGridView.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.highlight_blue, Me.highlight_cyan, Me.highlight_green, Me.highlight_purple, Me.highlight_red, Me.highlight_tan, Me.highlight_yellow, Me.RemoveHighlightToolStripMenuItem, Me.highlight_voidout, Me.ToolStripSeparator2, Me.TotalGroupTimeToolStripMenuItem})
+        Me.cmsSplitsGridView.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.highlight_blue, Me.highlight_cyan, Me.highlight_green, Me.highlight_purple, Me.highlight_red, Me.highlight_tan, Me.highlight_yellow, Me.highlight_voidout, Me.RemoveHighlightToolStripMenuItem, Me.ToolStripSeparator2, Me.TotalGroupTimeToolStripMenuItem, Me.OverrideTimeToolStripMenuItem})
         Me.cmsSplitsGridView.Name = "cmsSplitsGridView"
-        Me.cmsSplitsGridView.Size = New System.Drawing.Size(171, 230)
+        Me.cmsSplitsGridView.Size = New System.Drawing.Size(171, 252)
         '
         'highlight_blue
         '
@@ -276,18 +277,18 @@ Partial Class frmMain
         Me.highlight_yellow.Size = New System.Drawing.Size(170, 22)
         Me.highlight_yellow.Text = "Yellow"
         '
-        'RemoveHighlightToolStripMenuItem
-        '
-        Me.RemoveHighlightToolStripMenuItem.Name = "RemoveHighlightToolStripMenuItem"
-        Me.RemoveHighlightToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
-        Me.RemoveHighlightToolStripMenuItem.Text = "Remove Highlight"
-        '
         'highlight_voidout
         '
         Me.highlight_voidout.BackColor = System.Drawing.Color.DimGray
         Me.highlight_voidout.Name = "highlight_voidout"
         Me.highlight_voidout.Size = New System.Drawing.Size(170, 22)
         Me.highlight_voidout.Text = "Void Out"
+        '
+        'RemoveHighlightToolStripMenuItem
+        '
+        Me.RemoveHighlightToolStripMenuItem.Name = "RemoveHighlightToolStripMenuItem"
+        Me.RemoveHighlightToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
+        Me.RemoveHighlightToolStripMenuItem.Text = "Remove Highlight"
         '
         'ToolStripSeparator2
         '
@@ -299,6 +300,13 @@ Partial Class frmMain
         Me.TotalGroupTimeToolStripMenuItem.Name = "TotalGroupTimeToolStripMenuItem"
         Me.TotalGroupTimeToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
         Me.TotalGroupTimeToolStripMenuItem.Text = "Total Group Time"
+        '
+        'OverrideTimeToolStripMenuItem
+        '
+        Me.OverrideTimeToolStripMenuItem.Enabled = False
+        Me.OverrideTimeToolStripMenuItem.Name = "OverrideTimeToolStripMenuItem"
+        Me.OverrideTimeToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
+        Me.OverrideTimeToolStripMenuItem.Text = "Override Time"
         '
         'MenuStrip1
         '
@@ -459,7 +467,7 @@ Partial Class frmMain
         '
         'ssBottomMain
         '
-        Me.ssBottomMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsslFilePath, Me.tsslLastSaved})
+        Me.ssBottomMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsslFilePath, Me.tsslactionstatus, Me.tsslLastSaved})
         Me.ssBottomMain.Location = New System.Drawing.Point(0, 419)
         Me.ssBottomMain.Name = "ssBottomMain"
         Me.ssBottomMain.ShowItemToolTips = True
@@ -472,14 +480,14 @@ Partial Class frmMain
         Me.tsslFilePath.AutoSize = False
         Me.tsslFilePath.Name = "tsslFilePath"
         Me.tsslFilePath.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.tsslFilePath.Size = New System.Drawing.Size(450, 17)
+        Me.tsslFilePath.Size = New System.Drawing.Size(375, 17)
         Me.tsslFilePath.Text = "File Path Goes Here"
         Me.tsslFilePath.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'tsslLastSaved
         '
         Me.tsslLastSaved.Name = "tsslLastSaved"
-        Me.tsslLastSaved.Size = New System.Drawing.Size(164, 17)
+        Me.tsslLastSaved.Size = New System.Drawing.Size(83, 17)
         Me.tsslLastSaved.Spring = True
         Me.tsslLastSaved.Text = "File not yet saved"
         Me.tsslLastSaved.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -506,15 +514,13 @@ Partial Class frmMain
         Me.ToolTip.SetToolTip(Me.btn_zerotime, "Adds one minute to the Work Time timer.")
         Me.btn_zerotime.UseVisualStyleBackColor = True
         '
-        'SplitsDataTableBindingSource
+        'DataGridViewColorColumn
         '
-        Me.SplitsDataTableBindingSource.DataMember = "SplitsDataTable"
-        Me.SplitsDataTableBindingSource.DataSource = Me.SplitsDataSet
-        '
-        'SplitsDataSet
-        '
-        Me.SplitsDataSet.DataSetName = "SplitsDataSet"
-        Me.SplitsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.DataGridViewColorColumn.DataPropertyName = "Color"
+        Me.DataGridViewColorColumn.HeaderText = "Color"
+        Me.DataGridViewColorColumn.Name = "DataGridViewColorColumn"
+        Me.DataGridViewColorColumn.ReadOnly = True
+        Me.DataGridViewColorColumn.Visible = False
         '
         'DataGridViewIDColumn
         '
@@ -570,12 +576,6 @@ Partial Class frmMain
         Me.DataGridViewTimeWorkedColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
         Me.DataGridViewTimeWorkedColumn.Width = 75
         '
-        'DataGridViewTimeInSecondsColumn
-        '
-        Me.DataGridViewTimeInSecondsColumn.DataPropertyName = "TimeInSeconds"
-        Me.DataGridViewTimeInSecondsColumn.HeaderText = "TimeInSeconds"
-        Me.DataGridViewTimeInSecondsColumn.Name = "DataGridViewTimeInSecondsColumn"
-        '
         'DataGridViewRecordedColumn
         '
         Me.DataGridViewRecordedColumn.DataPropertyName = "Recorded"
@@ -585,13 +585,24 @@ Partial Class frmMain
         Me.DataGridViewRecordedColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridViewRecordedColumn.Width = 60
         '
-        'DataGridViewColorColumn
+        'SplitsDataTableBindingSource
         '
-        Me.DataGridViewColorColumn.DataPropertyName = "Color"
-        Me.DataGridViewColorColumn.HeaderText = "Color"
-        Me.DataGridViewColorColumn.Name = "DataGridViewColorColumn"
-        Me.DataGridViewColorColumn.ReadOnly = True
-        Me.DataGridViewColorColumn.Visible = False
+        Me.SplitsDataTableBindingSource.DataMember = "SplitsDataTable"
+        Me.SplitsDataTableBindingSource.DataSource = Me.SplitsDataSet
+        '
+        'SplitsDataSet
+        '
+        Me.SplitsDataSet.DataSetName = "SplitsDataSet"
+        Me.SplitsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'tsslactionstatus
+        '
+        Me.tsslactionstatus.AutoSize = False
+        Me.tsslactionstatus.BorderSides = CType((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Right), System.Windows.Forms.ToolStripStatusLabelBorderSides)
+        Me.tsslactionstatus.Name = "tsslactionstatus"
+        Me.tsslactionstatus.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.tsslactionstatus.Size = New System.Drawing.Size(125, 17)
+        Me.tsslactionstatus.Text = "No Status"
         '
         'frmMain
         '
@@ -684,12 +695,13 @@ Partial Class frmMain
     Friend WithEvents TotalGroupTimeToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SplitWarningToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EndSplitToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents OverrideTimeToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DataGridViewIDColumn As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewDescriptionColumn As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewStartTimeColumn As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewStopTimeColumn As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTimeWorkedColumn As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTimeInSecondsColumn As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewRecordedColumn As DataGridViewCheckBoxColumn
     Friend WithEvents DataGridViewColorColumn As DataGridViewTextBoxColumn
+    Friend WithEvents tsslactionstatus As ToolStripStatusLabel
 End Class

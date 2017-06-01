@@ -160,6 +160,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SplitsDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="SplitsDataSet.vb">
+      <DependentUpon>SplitsDataSet.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
