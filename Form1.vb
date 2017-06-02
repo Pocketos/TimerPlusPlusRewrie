@@ -577,28 +577,12 @@ Public Class frmMain
         End If
     End Sub
 
-    Private Sub OverrideTimeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OverrideTimeToolStripMenuItem.Click
+    Private Sub SplitsDataTableDataGridView_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles SplitsDataTableDataGridView.DoubleClick
         Try
             If SplitsDataTableDataGridView.CurrentCell.ColumnIndex = 4 Then
                 Dim newtime As String = "0"
                 newtime = InputBox("Input a new time in seconds", "Override Work Time", SplitsDataTableDataGridView.CurrentCell.Value.ToString)
                 SplitsDataTableDataGridView.Rows(SplitsDataTableDataGridView.CurrentCell.RowIndex).Cells("DataGridViewTimeWorkedColumn").Value = newtime
-                OverrideTimeToolStripMenuItem.Enabled = False
-            End If
-        Catch
-        End Try
-    End Sub
-
-    Private Sub cmsSplitsGridView_Opening(sender As Object, e As CancelEventArgs) Handles cmsSplitsGridView.Opening
-        Try
-            If Not IsDBNull(SplitsDataTableDataGridView.CurrentCell.Value) Then
-                If SplitsDataTableDataGridView.CurrentCell.ColumnIndex = 4 Then
-                    OverrideTimeToolStripMenuItem.Enabled = True
-                Else
-                    OverrideTimeToolStripMenuItem.Enabled = False
-                End If
-            Else
-                OverrideTimeToolStripMenuItem.Enabled = False
             End If
         Catch
         End Try
