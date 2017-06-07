@@ -257,6 +257,7 @@ Public Class frmMain
             Dim seconds As TimeSpan = TimeSpan.Parse(newworktime)
             Return seconds.TotalSeconds.ToString
         Catch
+            Return 0
         End Try
     End Function
 
@@ -580,9 +581,7 @@ Public Class frmMain
     Private Sub SplitsDataTableDataGridView_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles SplitsDataTableDataGridView.DoubleClick
         Try
             If SplitsDataTableDataGridView.CurrentCell.ColumnIndex = 4 Then
-                Dim newtime As String = "0"
-                newtime = InputBox("Input a new time in seconds", "Override Work Time", SplitsDataTableDataGridView.CurrentCell.Value.ToString)
-                SplitsDataTableDataGridView.Rows(SplitsDataTableDataGridView.CurrentCell.RowIndex).Cells("DataGridViewTimeWorkedColumn").Value = newtime
+                frm_changetime.ShowDialog()
             End If
         Catch
         End Try

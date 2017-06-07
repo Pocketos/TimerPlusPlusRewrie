@@ -136,6 +136,12 @@
     <Compile Include="frm_aboutbox.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frm_changetime.Designer.vb">
+      <DependentUpon>frm_changetime.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_changetime.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frm_help.Designer.vb">
       <DependentUpon>frm_help.vb</DependentUpon>
     </Compile>
@@ -170,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_aboutbox.resx">
       <DependentUpon>frm_aboutbox.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_changetime.resx">
+      <DependentUpon>frm_changetime.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_help.resx">
       <DependentUpon>frm_help.vb</DependentUpon>

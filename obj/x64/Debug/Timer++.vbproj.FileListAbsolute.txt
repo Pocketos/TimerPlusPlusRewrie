@@ -43,3 +43,4 @@ C:\Users\Tyler\Source\GitHubRepo\TimerPlusPlusRewrite\obj\x64\Debug\Timer++.vbpr
 C:\Users\Tyler\Source\GitHubRepo\TimerPlusPlusRewrite\obj\x64\Debug\Timer++.exe
 C:\Users\Tyler\Source\GitHubRepo\TimerPlusPlusRewrite\obj\x64\Debug\Timer++.xml
 C:\Users\Tyler\Source\GitHubRepo\TimerPlusPlusRewrite\obj\x64\Debug\Timer++.pdb
+C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\obj\x64\Debug\Timer__.frm_changetime.resources
