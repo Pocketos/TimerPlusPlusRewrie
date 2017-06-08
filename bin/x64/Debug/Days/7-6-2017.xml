@@ -5,7 +5,8 @@
     <Description>test</Description>
     <StartTime>12:01 AM</StartTime>
     <StopTime>12:01 AM</StopTime>
-    <TimeWorked>PT56M6S</TimeWorked>
-    <Color>White</Color>
+    <TimeWorked>PT26M46S</TimeWorked>
+    <Recorded>true</Recorded>
+    <Color>LightCoral</Color>
   </SplitsDataTable>
 </SplitsDataSet>

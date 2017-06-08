@@ -47,3 +47,4 @@ C:\Users\Tyler\Source\GitHubRepo\TimerPlusPlusRewrite\obj\x64\Release\Timer++.vb
 C:\Users\Tyler\Source\GitHubRepo\TimerPlusPlusRewrite\obj\x64\Release\Timer++.exe
 C:\Users\Tyler\Source\GitHubRepo\TimerPlusPlusRewrite\obj\x64\Release\Timer++.xml
 C:\Users\Tyler\Source\GitHubRepo\TimerPlusPlusRewrite\obj\x64\Release\Timer++.pdb
+C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\obj\x64\Release\Timer__.frm_changetime.resources

@@ -55,7 +55,6 @@ Partial Class frm_changetime
         Me.Name = "frm_changetime"
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Input new time"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

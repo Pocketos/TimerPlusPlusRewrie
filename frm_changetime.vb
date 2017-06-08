@@ -9,8 +9,14 @@
     '///SUBS
     Private Sub changeworktime()
         newtime = mtb_worktime.Text.ToString
-        frmMain.SplitsDataTableDataGridView.Rows(frmMain.SplitsDataTableDataGridView.CurrentCell.RowIndex).Cells("DataGridViewTimeWorkedColumn").Value = newtime
-        Close()
+
+        If IsDate(newtime) Then
+            frmMain.SplitsDataTableDataGridView.Rows(frmMain.SplitsDataTableDataGridView.CurrentCell.RowIndex).Cells("DataGridViewTimeWorkedColumn").Value = newtime
+            Close()
+        Else
+            MsgBox(newtime & "Is an invalid Time!")
+        End If
+
     End Sub
 
     Private Sub frm_changetime_Load(sender As Object, e As EventArgs) Handles MyBase.Load
