@@ -36,21 +36,7 @@ Partial Class frmMain
         Me.btnMinusTime = New System.Windows.Forms.Button()
         Me.btnAddTime = New System.Windows.Forms.Button()
         Me.SplitsDataTableDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewIDColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewDescriptionColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewStartTimeColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewStopTimeColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTimeWorkedColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewRecordedColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.DataGridViewColorColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cmsSplitsGridView = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.highlight_blue = New System.Windows.Forms.ToolStripMenuItem()
-        Me.highlight_cyan = New System.Windows.Forms.ToolStripMenuItem()
-        Me.highlight_green = New System.Windows.Forms.ToolStripMenuItem()
-        Me.highlight_purple = New System.Windows.Forms.ToolStripMenuItem()
-        Me.highlight_red = New System.Windows.Forms.ToolStripMenuItem()
-        Me.highlight_tan = New System.Windows.Forms.ToolStripMenuItem()
-        Me.highlight_yellow = New System.Windows.Forms.ToolStripMenuItem()
         Me.highlight_voidout = New System.Windows.Forms.ToolStripMenuItem()
         Me.RemoveHighlightToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
@@ -87,6 +73,14 @@ Partial Class frmMain
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.btn_addtime10 = New System.Windows.Forms.Button()
         Me.btn_zerotime = New System.Windows.Forms.Button()
+        Me.ColorPicker = New System.Windows.Forms.ColorDialog()
+        Me.DataGridViewIDColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewDescriptionColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewStartTimeColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewStopTimeColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTimeWorkedColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewRecordedColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.DataGridViewColorColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.SplitsDataTableDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.cmsSplitsGridView.SuspendLayout()
         CType(Me.SplitsDataTableBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -104,7 +98,7 @@ Partial Class frmMain
         Me.lbltimertext.Size = New System.Drawing.Size(212, 30)
         Me.lbltimertext.TabIndex = 0
         Me.lbltimertext.Text = "Click the Split Button!"
-        Me.ToolTip.SetToolTip(Me.lbltimertext, "Current system time and date.")
+        Me.ToolTip.SetToolTip(Me.lbltimertext, "Current system time and date")
         '
         'tmMain
         '
@@ -120,7 +114,7 @@ Partial Class frmMain
         Me.btnpause.Size = New System.Drawing.Size(139, 48)
         Me.btnpause.TabIndex = 2
         Me.btnpause.Text = "Pause"
-        Me.ToolTip.SetToolTip(Me.btnpause, "Pause the Work Time counter.")
+        Me.ToolTip.SetToolTip(Me.btnpause, "Pause the Work Time counter")
         Me.btnpause.UseVisualStyleBackColor = True
         '
         'btnSplit
@@ -132,7 +126,7 @@ Partial Class frmMain
         Me.btnSplit.Size = New System.Drawing.Size(454, 48)
         Me.btnSplit.TabIndex = 7
         Me.btnSplit.Text = "Split"
-        Me.ToolTip.SetToolTip(Me.btnSplit, "Mark the current time in the split.")
+        Me.ToolTip.SetToolTip(Me.btnSplit, "Mark the current time in the split")
         Me.btnSplit.UseVisualStyleBackColor = True
         '
         'txtdesc
@@ -171,7 +165,7 @@ Partial Class frmMain
         Me.btnMinusTime.Size = New System.Drawing.Size(40, 28)
         Me.btnMinusTime.TabIndex = 14
         Me.btnMinusTime.Text = "-"
-        Me.ToolTip.SetToolTip(Me.btnMinusTime, "Subtracts one minute from the Work Time timer.")
+        Me.ToolTip.SetToolTip(Me.btnMinusTime, "Subtracts one minute from the Work Time timer")
         Me.btnMinusTime.UseVisualStyleBackColor = True
         '
         'btnAddTime
@@ -182,7 +176,7 @@ Partial Class frmMain
         Me.btnAddTime.Size = New System.Drawing.Size(40, 28)
         Me.btnAddTime.TabIndex = 15
         Me.btnAddTime.Text = "+"
-        Me.ToolTip.SetToolTip(Me.btnAddTime, "Adds one minute to the Work Time timer.")
+        Me.ToolTip.SetToolTip(Me.btnAddTime, "Adds one minute to the Work Time timer")
         Me.btnAddTime.UseVisualStyleBackColor = True
         '
         'SplitsDataTableDataGridView
@@ -221,131 +215,11 @@ Partial Class frmMain
         Me.SplitsDataTableDataGridView.Size = New System.Drawing.Size(608, 276)
         Me.SplitsDataTableDataGridView.TabIndex = 16
         '
-        'DataGridViewIDColumn
-        '
-        Me.DataGridViewIDColumn.DataPropertyName = "ID"
-        Me.DataGridViewIDColumn.HeaderText = "ID"
-        Me.DataGridViewIDColumn.MinimumWidth = 30
-        Me.DataGridViewIDColumn.Name = "DataGridViewIDColumn"
-        Me.DataGridViewIDColumn.ReadOnly = True
-        Me.DataGridViewIDColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewIDColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.DataGridViewIDColumn.Width = 30
-        '
-        'DataGridViewDescriptionColumn
-        '
-        Me.DataGridViewDescriptionColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewDescriptionColumn.DataPropertyName = "Description"
-        Me.DataGridViewDescriptionColumn.FillWeight = 98.68021!
-        Me.DataGridViewDescriptionColumn.HeaderText = "Description"
-        Me.DataGridViewDescriptionColumn.Name = "DataGridViewDescriptionColumn"
-        Me.DataGridViewDescriptionColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewDescriptionColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        '
-        'DataGridViewStartTimeColumn
-        '
-        Me.DataGridViewStartTimeColumn.DataPropertyName = "StartTime"
-        Me.DataGridViewStartTimeColumn.HeaderText = "StartTime"
-        Me.DataGridViewStartTimeColumn.MinimumWidth = 70
-        Me.DataGridViewStartTimeColumn.Name = "DataGridViewStartTimeColumn"
-        Me.DataGridViewStartTimeColumn.ReadOnly = True
-        Me.DataGridViewStartTimeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewStartTimeColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.DataGridViewStartTimeColumn.Width = 70
-        '
-        'DataGridViewStopTimeColumn
-        '
-        Me.DataGridViewStopTimeColumn.DataPropertyName = "StopTime"
-        Me.DataGridViewStopTimeColumn.HeaderText = "StopTime"
-        Me.DataGridViewStopTimeColumn.MinimumWidth = 70
-        Me.DataGridViewStopTimeColumn.Name = "DataGridViewStopTimeColumn"
-        Me.DataGridViewStopTimeColumn.ReadOnly = True
-        Me.DataGridViewStopTimeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewStopTimeColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.DataGridViewStopTimeColumn.Width = 70
-        '
-        'DataGridViewTimeWorkedColumn
-        '
-        Me.DataGridViewTimeWorkedColumn.DataPropertyName = "TimeWorked"
-        Me.DataGridViewTimeWorkedColumn.HeaderText = "TimeWorked"
-        Me.DataGridViewTimeWorkedColumn.MinimumWidth = 75
-        Me.DataGridViewTimeWorkedColumn.Name = "DataGridViewTimeWorkedColumn"
-        Me.DataGridViewTimeWorkedColumn.ReadOnly = True
-        Me.DataGridViewTimeWorkedColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewTimeWorkedColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.DataGridViewTimeWorkedColumn.Width = 75
-        '
-        'DataGridViewRecordedColumn
-        '
-        Me.DataGridViewRecordedColumn.DataPropertyName = "Recorded"
-        Me.DataGridViewRecordedColumn.HeaderText = "Recorded"
-        Me.DataGridViewRecordedColumn.MinimumWidth = 60
-        Me.DataGridViewRecordedColumn.Name = "DataGridViewRecordedColumn"
-        Me.DataGridViewRecordedColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewRecordedColumn.Width = 60
-        '
-        'DataGridViewColorColumn
-        '
-        Me.DataGridViewColorColumn.DataPropertyName = "Color"
-        Me.DataGridViewColorColumn.HeaderText = "Color"
-        Me.DataGridViewColorColumn.Name = "DataGridViewColorColumn"
-        Me.DataGridViewColorColumn.ReadOnly = True
-        Me.DataGridViewColorColumn.Visible = False
-        '
         'cmsSplitsGridView
         '
-        Me.cmsSplitsGridView.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.highlight_blue, Me.highlight_cyan, Me.highlight_green, Me.highlight_purple, Me.highlight_red, Me.highlight_tan, Me.highlight_yellow, Me.highlight_voidout, Me.RemoveHighlightToolStripMenuItem, Me.ToolStripSeparator2, Me.TotalGroupTimeToolStripMenuItem})
+        Me.cmsSplitsGridView.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.highlight_voidout, Me.RemoveHighlightToolStripMenuItem, Me.ToolStripSeparator2, Me.TotalGroupTimeToolStripMenuItem})
         Me.cmsSplitsGridView.Name = "cmsSplitsGridView"
-        Me.cmsSplitsGridView.Size = New System.Drawing.Size(171, 230)
-        '
-        'highlight_blue
-        '
-        Me.highlight_blue.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.highlight_blue.Name = "highlight_blue"
-        Me.highlight_blue.Size = New System.Drawing.Size(170, 22)
-        Me.highlight_blue.Text = "Blue"
-        '
-        'highlight_cyan
-        '
-        Me.highlight_cyan.BackColor = System.Drawing.Color.Cyan
-        Me.highlight_cyan.Name = "highlight_cyan"
-        Me.highlight_cyan.Size = New System.Drawing.Size(170, 22)
-        Me.highlight_cyan.Text = "Cyan"
-        '
-        'highlight_green
-        '
-        Me.highlight_green.BackColor = System.Drawing.Color.LawnGreen
-        Me.highlight_green.Name = "highlight_green"
-        Me.highlight_green.Size = New System.Drawing.Size(170, 22)
-        Me.highlight_green.Text = "Green"
-        '
-        'highlight_purple
-        '
-        Me.highlight_purple.BackColor = System.Drawing.Color.Thistle
-        Me.highlight_purple.Name = "highlight_purple"
-        Me.highlight_purple.Size = New System.Drawing.Size(170, 22)
-        Me.highlight_purple.Text = "Purple"
-        '
-        'highlight_red
-        '
-        Me.highlight_red.BackColor = System.Drawing.Color.LightCoral
-        Me.highlight_red.Name = "highlight_red"
-        Me.highlight_red.Size = New System.Drawing.Size(170, 22)
-        Me.highlight_red.Text = "Red"
-        '
-        'highlight_tan
-        '
-        Me.highlight_tan.BackColor = System.Drawing.Color.NavajoWhite
-        Me.highlight_tan.Name = "highlight_tan"
-        Me.highlight_tan.Size = New System.Drawing.Size(170, 22)
-        Me.highlight_tan.Text = "Tan"
-        '
-        'highlight_yellow
-        '
-        Me.highlight_yellow.BackColor = System.Drawing.Color.Yellow
-        Me.highlight_yellow.Name = "highlight_yellow"
-        Me.highlight_yellow.Size = New System.Drawing.Size(170, 22)
-        Me.highlight_yellow.Text = "Yellow"
+        Me.cmsSplitsGridView.Size = New System.Drawing.Size(171, 76)
         '
         'highlight_voidout
         '
@@ -535,7 +409,7 @@ Partial Class frmMain
         Me.btnSave.TabIndex = 18
         Me.btnSave.Text = "Save"
         Me.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ToolTip.SetToolTip(Me.btnSave, "Save the current set of splits to file.")
+        Me.ToolTip.SetToolTip(Me.btnSave, "Save the current set of splits to file")
         Me.btnSave.UseVisualStyleBackColor = False
         '
         'ssBottomMain
@@ -582,7 +456,7 @@ Partial Class frmMain
         Me.btn_addtime10.Size = New System.Drawing.Size(40, 28)
         Me.btn_addtime10.TabIndex = 20
         Me.btn_addtime10.Text = "10"
-        Me.ToolTip.SetToolTip(Me.btn_addtime10, "Adds one minute to the Work Time timer.")
+        Me.ToolTip.SetToolTip(Me.btn_addtime10, "Adds ten minutes to the Work Time timer")
         Me.btn_addtime10.UseVisualStyleBackColor = True
         '
         'btn_zerotime
@@ -593,8 +467,83 @@ Partial Class frmMain
         Me.btn_zerotime.Size = New System.Drawing.Size(40, 28)
         Me.btn_zerotime.TabIndex = 21
         Me.btn_zerotime.Text = "0"
-        Me.ToolTip.SetToolTip(Me.btn_zerotime, "Adds one minute to the Work Time timer.")
+        Me.ToolTip.SetToolTip(Me.btn_zerotime, "Resets the Work Time timer")
         Me.btn_zerotime.UseVisualStyleBackColor = True
+        '
+        'ColorPicker
+        '
+        Me.ColorPicker.SolidColorOnly = True
+        '
+        'DataGridViewIDColumn
+        '
+        Me.DataGridViewIDColumn.DataPropertyName = "ID"
+        Me.DataGridViewIDColumn.HeaderText = "ID"
+        Me.DataGridViewIDColumn.MinimumWidth = 30
+        Me.DataGridViewIDColumn.Name = "DataGridViewIDColumn"
+        Me.DataGridViewIDColumn.ReadOnly = True
+        Me.DataGridViewIDColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewIDColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.DataGridViewIDColumn.Width = 30
+        '
+        'DataGridViewDescriptionColumn
+        '
+        Me.DataGridViewDescriptionColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewDescriptionColumn.DataPropertyName = "Description"
+        Me.DataGridViewDescriptionColumn.FillWeight = 98.68021!
+        Me.DataGridViewDescriptionColumn.HeaderText = "Description"
+        Me.DataGridViewDescriptionColumn.Name = "DataGridViewDescriptionColumn"
+        Me.DataGridViewDescriptionColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewDescriptionColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        '
+        'DataGridViewStartTimeColumn
+        '
+        Me.DataGridViewStartTimeColumn.DataPropertyName = "StartTime"
+        Me.DataGridViewStartTimeColumn.HeaderText = "StartTime"
+        Me.DataGridViewStartTimeColumn.MinimumWidth = 70
+        Me.DataGridViewStartTimeColumn.Name = "DataGridViewStartTimeColumn"
+        Me.DataGridViewStartTimeColumn.ReadOnly = True
+        Me.DataGridViewStartTimeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewStartTimeColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.DataGridViewStartTimeColumn.Width = 70
+        '
+        'DataGridViewStopTimeColumn
+        '
+        Me.DataGridViewStopTimeColumn.DataPropertyName = "StopTime"
+        Me.DataGridViewStopTimeColumn.HeaderText = "StopTime"
+        Me.DataGridViewStopTimeColumn.MinimumWidth = 70
+        Me.DataGridViewStopTimeColumn.Name = "DataGridViewStopTimeColumn"
+        Me.DataGridViewStopTimeColumn.ReadOnly = True
+        Me.DataGridViewStopTimeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewStopTimeColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.DataGridViewStopTimeColumn.Width = 70
+        '
+        'DataGridViewTimeWorkedColumn
+        '
+        Me.DataGridViewTimeWorkedColumn.DataPropertyName = "TimeWorked"
+        Me.DataGridViewTimeWorkedColumn.HeaderText = "TimeWorked"
+        Me.DataGridViewTimeWorkedColumn.MinimumWidth = 75
+        Me.DataGridViewTimeWorkedColumn.Name = "DataGridViewTimeWorkedColumn"
+        Me.DataGridViewTimeWorkedColumn.ReadOnly = True
+        Me.DataGridViewTimeWorkedColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewTimeWorkedColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.DataGridViewTimeWorkedColumn.Width = 75
+        '
+        'DataGridViewRecordedColumn
+        '
+        Me.DataGridViewRecordedColumn.DataPropertyName = "Recorded"
+        Me.DataGridViewRecordedColumn.HeaderText = "Recorded"
+        Me.DataGridViewRecordedColumn.MinimumWidth = 60
+        Me.DataGridViewRecordedColumn.Name = "DataGridViewRecordedColumn"
+        Me.DataGridViewRecordedColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewRecordedColumn.Width = 60
+        '
+        'DataGridViewColorColumn
+        '
+        Me.DataGridViewColorColumn.DataPropertyName = "Color"
+        Me.DataGridViewColorColumn.HeaderText = "Color"
+        Me.DataGridViewColorColumn.Name = "DataGridViewColorColumn"
+        Me.DataGridViewColorColumn.ReadOnly = True
+        Me.DataGridViewColorColumn.Visible = False
         '
         'frmMain
         '
@@ -667,13 +616,6 @@ Partial Class frmMain
     Friend WithEvents ToolStripMenuItem3 As ToolStripMenuItem
     Friend WithEvents EnablePauseToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolTipsToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents highlight_red As ToolStripMenuItem
-    Friend WithEvents highlight_cyan As ToolStripMenuItem
-    Friend WithEvents highlight_green As ToolStripMenuItem
-    Friend WithEvents highlight_purple As ToolStripMenuItem
-    Friend WithEvents highlight_yellow As ToolStripMenuItem
-    Friend WithEvents highlight_blue As ToolStripMenuItem
-    Friend WithEvents highlight_tan As ToolStripMenuItem
     Friend WithEvents highlight_voidout As ToolStripMenuItem
     Friend WithEvents TotalWorkTimeToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
@@ -687,6 +629,8 @@ Partial Class frmMain
     Friend WithEvents TotalGroupTimeToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SplitWarningToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EndSplitToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents tsslactionstatus As ToolStripStatusLabel
+    Friend WithEvents ColorPicker As ColorDialog
     Friend WithEvents DataGridViewIDColumn As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewDescriptionColumn As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewStartTimeColumn As DataGridViewTextBoxColumn
@@ -694,5 +638,4 @@ Partial Class frmMain
     Friend WithEvents DataGridViewTimeWorkedColumn As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewRecordedColumn As DataGridViewCheckBoxColumn
     Friend WithEvents DataGridViewColorColumn As DataGridViewTextBoxColumn
-    Friend WithEvents tsslactionstatus As ToolStripStatusLabel
 End Class

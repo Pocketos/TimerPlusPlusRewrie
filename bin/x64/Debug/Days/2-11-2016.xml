@@ -7,7 +7,7 @@
     <StopTime>12:02 AM</StopTime>
     <TimeWorked>PT9M7S</TimeWorked>
     <Recorded>true</Recorded>
-    <Color>LawnGreen</Color>
+    <Color>White</Color>
   </SplitsDataTable>
   <SplitsDataTable>
     <ID>1</ID>
@@ -16,7 +16,7 @@
     <StopTime>12:02 AM</StopTime>
     <TimeWorked>PT19M6S</TimeWorked>
     <Recorded>false</Recorded>
-    <Color>DimGray</Color>
+    <Color>Lime</Color>
   </SplitsDataTable>
   <SplitsDataTable>
     <ID>2</ID>
@@ -25,13 +25,13 @@
     <StopTime>12:02 AM</StopTime>
     <TimeWorked>PT2M5S</TimeWorked>
     <Recorded>true</Recorded>
-    <Color>Yellow</Color>
+    <Color>White</Color>
   </SplitsDataTable>
   <SplitsDataTable>
     <ID>3</ID>
     <Description>test 3</Description>
     <StartTime>12:02 AM</StartTime>
-    <Color>Thistle</Color>
+    <Color>White</Color>
   </SplitsDataTable>
   <SplitsDataTable>
     <ID>4</ID>
@@ -40,7 +40,7 @@
     <StopTime>12:08 AM</StopTime>
     <TimeWorked>PT4S</TimeWorked>
     <Recorded>true</Recorded>
-    <Color>LawnGreen</Color>
+    <Color>White</Color>
   </SplitsDataTable>
   <SplitsDataTable>
     <ID>5</ID>
@@ -49,14 +49,14 @@
     <StopTime>12:08 AM</StopTime>
     <TimeWorked>PT5S</TimeWorked>
     <Recorded>true</Recorded>
-    <Color>LightCoral</Color>
+    <Color>White</Color>
   </SplitsDataTable>
   <SplitsDataTable>
     <ID>6</ID>
     <Description>color test</Description>
     <StartTime>12:08 AM</StartTime>
     <Recorded>true</Recorded>
-    <Color>LawnGreen</Color>
+    <Color>White</Color>
   </SplitsDataTable>
   <SplitsDataTable>
     <ID>7</ID>
@@ -64,13 +64,13 @@
     <StartTime>12:11 AM</StartTime>
     <StopTime>12:11 AM</StopTime>
     <TimeWorked>PT59M4S</TimeWorked>
-    <Color>DimGray</Color>
+    <Color>White</Color>
   </SplitsDataTable>
   <SplitsDataTable>
     <ID>8</ID>
     <Description>im back</Description>
     <StartTime>12:11 AM</StartTime>
     <Recorded>true</Recorded>
-    <Color>Thistle</Color>
+    <Color>White</Color>
   </SplitsDataTable>
 </SplitsDataSet>

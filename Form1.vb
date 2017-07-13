@@ -26,6 +26,11 @@ Public Class frmMain
 
         '////LOAD SETTINGS
         SplitWarningToolStripMenuItem.ToolTipText = splitwarningtime & " Minutes"
+
+        '/////Color picker custom colors. Use https://www.shodor.org/stella2java/rgbint.html as a reference
+        ColorPicker.CustomColors = New Integer() {16698816, 12645624, 13104052, 1836924,
+        3758726, 12566463, 7526079, 7405793, 6945974, 241502, 2296476, 5130294,
+        3102017, 7324121, 14993507, 11730944}
     End Sub
 
     '///SUBS
@@ -67,21 +72,20 @@ Public Class frmMain
             If tmMain.Enabled = False Then
                 SplitsDataSet.SplitsDataTable.Rows.Add(splits, txtdesc.Text, Now.ToShortTimeString)
                 SplitsDataTableDataGridView.CurrentCell = Me.SplitsDataTableDataGridView(0, splits)
-                SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewColorColumn").Value = "White"
+                WriteHighlight(255, 255, 255)
                 txtdesc.Clear()
                 tmMain.Enabled = True
             Else
                 SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewStopTimeColumn").Value = Now.ToShortTimeString
                 SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewTimeWorkedColumn").Value = SecondsToTime(worktime)
                 SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewRecordedColumn").Value = SplitsDataTableDataGridView(5, splits).Value
-                SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewColorColumn").Value = SplitsDataTableDataGridView(6, splits).Value.ToString
                 SaveSplits()
                 splits += 1
                 worktime = 0
                 SplitsDataSet.SplitsDataTable.Rows.Add(splits, txtdesc.Text, Now.ToShortTimeString)
                 SplitsDataTableDataGridView.CurrentCell = Me.SplitsDataTableDataGridView(0, splits)
                 txtdesc.Clear()
-                SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewColorColumn").Value = "White"
+                WriteHighlight(255, 255, 255)
                 Me.SplitsDataSet.WriteXml("Days\" & filename)
                 If EnablePause = 1 Then
                     btnpause.Enabled = True
@@ -195,11 +199,15 @@ Public Class frmMain
         End If
     End Sub
 
+    Private Sub WriteHighlight(r As Integer, g As Integer, b As Integer)
+        SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewColorColumn").Value = r.ToString & "," & g.ToString & "," & g.ToString
+    End Sub
+
     Private Sub updatehighlight()
         For Each row As DataGridViewRow In SplitsDataTableDataGridView.Rows
-            If Not IsDBNull(row.Cells("DataGridViewColorColumn").Value) Then
-                row.DefaultCellStyle.BackColor = Color.FromName(row.Cells("DataGridViewColorColumn").Value)
-            End If
+            Dim ColorString As String = row.Cells("DataGridViewColorColumn").Value
+            Dim ColorArray() As String = ColorString.Split(",")
+            row.DefaultCellStyle.BackColor = Color.FromArgb(ColorArray(0), ColorArray(1), ColorArray(2))
         Next row
     End Sub
 
@@ -227,7 +235,7 @@ Public Class frmMain
             MsgBox("No row selected!", 16, My.Application.Info.AssemblyName.ToString)
         Else
             SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor = color
-            SplitsDataTableDataGridView.CurrentRow.Cells("DataGridViewColorColumn").Value = SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor
+            SplitsDataTableDataGridView.CurrentRow.Cells("DataGridViewColorColumn").Value = color.R & "," & color.G & "," & color.B
         End If
     End Sub
 
@@ -267,7 +275,7 @@ Public Class frmMain
         For Each DataRow In SplitsDataTableDataGridView.Rows
             If Not IsDBNull(TimeToSeconds(DataRow.Cells("DataGridViewTimeWorkedColumn").Value.ToString)) Then
                 Select Case DataRow.Cells("DataGridViewColorColumn").Value
-                    Case Is = "DimGray"
+                    Case Is = "105,105,105"
                     Case Else
                         Try
                             combinedtime = combinedtime + TimeToSeconds(DataRow.Cells("DataGridViewTimeworkedColumn").Value.ToString)
@@ -286,8 +294,8 @@ Public Class frmMain
         For Each DataRow In SplitsDataTableDataGridView.Rows
             If Not IsDBNull(TimeToSeconds(DataRow.Cells("DataGridViewTimeWorkedColumn").Value.ToString)) Then
                 Select Case DataRow.Cells("DataGridViewColorColumn").Value
-                    Case Is = "White"
-                    Case Is = "DimGray"
+                    Case Is = "255,255,255"
+                    Case Is = "105,105,105"
                     Case Is = SearchColor
                         Try
                             combinedtime = combinedtime + TimeToSeconds(DataRow.Cells("DataGridViewTimeWorkedColumn").Value.ToString)
@@ -407,62 +415,6 @@ Public Class frmMain
         SaveSplits()
     End Sub
 
-    Private Sub highlight_red_Click(sender As Object, e As EventArgs) Handles highlight_red.Click
-        Try
-            Highlight(Color.LightCoral)
-        Catch
-            MsgBox("!!!", , My.Application.Info.AssemblyName.ToString)
-        End Try
-    End Sub
-
-    Private Sub highlight_cyan_Click(sender As Object, e As EventArgs) Handles highlight_cyan.Click
-        Try
-            Highlight(Color.Cyan)
-        Catch
-            MsgBox("!!!", , My.Application.Info.AssemblyName.ToString)
-        End Try
-    End Sub
-
-    Private Sub highlight_green_Click(sender As Object, e As EventArgs) Handles highlight_green.Click
-        Try
-            Highlight(Color.LawnGreen)
-        Catch
-            MsgBox("!!!", , My.Application.Info.AssemblyName.ToString)
-        End Try
-    End Sub
-
-    Private Sub highlight_purple_Click(sender As Object, e As EventArgs) Handles highlight_purple.Click
-        Try
-            Highlight(Color.Thistle)
-        Catch
-            MsgBox("!!!", , My.Application.Info.AssemblyName.ToString)
-        End Try
-    End Sub
-
-    Private Sub highlight_yellow_Click(sender As Object, e As EventArgs) Handles highlight_yellow.Click
-        Try
-            Highlight(Color.Yellow)
-        Catch
-            MsgBox("!!!", , My.Application.Info.AssemblyName.ToString)
-        End Try
-    End Sub
-
-    Private Sub highlight_blue_Click(sender As Object, e As EventArgs) Handles highlight_blue.Click
-        Try
-            Highlight(Color.LightSteelBlue)
-        Catch
-            MsgBox("!!!", , My.Application.Info.AssemblyName.ToString)
-        End Try
-    End Sub
-
-    Private Sub highlight_tan_Click(sender As Object, e As EventArgs) Handles highlight_tan.Click
-        Try
-            Highlight(Color.NavajoWhite)
-        Catch
-            MsgBox("!!!", , My.Application.Info.AssemblyName.ToString)
-        End Try
-    End Sub
-
     Private Sub highlight_voidout_Click(sender As Object, e As EventArgs) Handles highlight_voidout.Click
         Try
             Highlight(Color.DimGray)
@@ -517,11 +469,10 @@ Public Class frmMain
 
     Private Sub TotalGroupTimeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TotalGroupTimeToolStripMenuItem.Click
         If SplitsDataTableDataGridView.SelectedCells.Count > 0 Then
-            If (addtime(SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor.ToKnownColor.ToString)) > 0 Then
-                MsgBox(SecondsToTime(addtime(SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor.ToKnownColor.ToString)).ToString, 64, "Total of Color " & SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor.ToKnownColor.ToString)
-                tsslactionstatus.Text = SecondsToTime(addtime(SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor.ToKnownColor.ToString)).ToString & " - " & SplitsDataTableDataGridView.CurrentRow.DefaultCellStyle.BackColor.ToKnownColor.ToString
+            If (addtime(SplitsDataTableDataGridView.CurrentRow.Cells("DataGridViewColorColumn").Value)) > 0 Then
+                tsslactionstatus.Text = SecondsToTime(addtime(SplitsDataTableDataGridView.CurrentRow.Cells("DataGridViewColorColumn").Value)).ToString
             Else
-                MsgBox("Could not find a WorkTime value", 16, My.Application.Info.AssemblyName.ToString)
+                MsgBox("Row is not a supported group type!", 16, My.Application.Info.AssemblyName.ToString)
             End If
         Else
             MsgBox("No selected row", 16, My.Application.Info.AssemblyName.ToString)
@@ -580,6 +531,12 @@ Public Class frmMain
 
     Private Sub SplitsDataTableDataGridView_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles SplitsDataTableDataGridView.DoubleClick
         Try
+            If SplitsDataTableDataGridView.CurrentCell.ColumnIndex = 0 Then
+                If ColorPicker.ShowDialog() = DialogResult.OK Then
+                    Highlight(ColorPicker.Color)
+                End If
+            End If
+
             If SplitsDataTableDataGridView.CurrentCell.ColumnIndex = 4 Then
                 frm_changetime.ShowDialog()
             End If

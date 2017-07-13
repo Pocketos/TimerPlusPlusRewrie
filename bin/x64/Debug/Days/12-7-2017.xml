@@ -1,0 +1,47 @@
+<?xml version="1.0" standalone="yes"?>
+<SplitsDataSet xmlns="http://tempuri.org/SplitsDataSet.xsd">
+  <SplitsDataTable>
+    <ID>0</ID>
+    <Description>test</Description>
+    <StartTime>9:10 PM</StartTime>
+    <StopTime>9:12 PM</StopTime>
+    <TimeWorked>PT1M36S</TimeWorked>
+    <Recorded>true</Recorded>
+    <Color>182,252,105</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>1</ID>
+    <Description>anoter one</Description>
+    <StartTime>9:26 PM</StartTime>
+    <StopTime>9:26 PM</StopTime>
+    <TimeWorked>PT1M7S</TimeWorked>
+    <Recorded>true</Recorded>
+    <Color>192,205,254</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>2</ID>
+    <Description>test 1</Description>
+    <StartTime>9:26 PM</StartTime>
+    <StopTime>9:26 PM</StopTime>
+    <TimeWorked>PT6S</TimeWorked>
+    <Recorded>true</Recorded>
+    <Color>180,243,199</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>3</ID>
+    <Description>test 2</Description>
+    <StartTime>9:26 PM</StartTime>
+    <StopTime>9:26 PM</StopTime>
+    <TimeWorked>PT10S</TimeWorked>
+    <Recorded>true</Recorded>
+    <Color>0,128,128</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>4</ID>
+    <Description>anoter e rone test</Description>
+    <StartTime>10:31 PM</StartTime>
+    <StopTime>10:31 PM</StopTime>
+    <TimeWorked>PT10S</TimeWorked>
+    <Color>255,255,255</Color>
+  </SplitsDataTable>
+</SplitsDataSet>
