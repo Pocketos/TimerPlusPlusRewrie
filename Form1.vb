@@ -75,6 +75,9 @@ Public Class frmMain
                 WriteHighlight(255, 255, 255)
                 txtdesc.Clear()
                 tmMain.Enabled = True
+                If btnendsplit.Enabled = False Then
+                    btnendsplit.Enabled = True
+                End If
             Else
                 SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewStopTimeColumn").Value = Now.ToShortTimeString
                 SplitsDataTableDataGridView.Rows(splits).Cells("DataGridViewTimeWorkedColumn").Value = SecondsToTime(worktime)
@@ -373,6 +376,7 @@ Public Class frmMain
 
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
         Close()
+        EndSplit()
     End Sub
 
     Private Sub ImportToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportToolStripMenuItem.Click
@@ -542,5 +546,17 @@ Public Class frmMain
             End If
         Catch
         End Try
+    End Sub
+
+    Private Sub QuickHighlightToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QuickHighlightToolStripMenuItem.Click
+        Highlight(ColorPicker.Color)
+    End Sub
+
+    Private Sub cmsSplitsGridView_Opening(sender As Object, e As CancelEventArgs) Handles cmsSplitsGridView.Opening
+        QuickHighlightToolStripMenuItem.BackColor = ColorPicker.Color
+    End Sub
+
+    Private Sub btnendsplit_Click(sender As Object, e As EventArgs) Handles btnendsplit.Click
+        EndSplit()
     End Sub
 End Class

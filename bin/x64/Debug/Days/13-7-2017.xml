@@ -1,0 +1,67 @@
+<?xml version="1.0" standalone="yes"?>
+<SplitsDataSet xmlns="http://tempuri.org/SplitsDataSet.xsd">
+  <SplitsDataTable>
+    <ID>0</ID>
+    <Description>test</Description>
+    <StartTime>6:08 PM</StartTime>
+    <StopTime>6:08 PM</StopTime>
+    <TimeWorked>PT6M4S</TimeWorked>
+    <Color>248,244,192</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>1</ID>
+    <Description>another on</Description>
+    <StartTime>6:08 PM</StartTime>
+    <StopTime>6:08 PM</StopTime>
+    <TimeWorked>PT13M7S</TimeWorked>
+    <Color>255,255,255</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>2</ID>
+    <Description>testing</Description>
+    <StartTime>6:51 PM</StartTime>
+    <StopTime>6:51 PM</StopTime>
+    <TimeWorked>PT8S</TimeWorked>
+    <Color>192,205,254</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>3</ID>
+    <Description>anotherone</Description>
+    <StartTime>6:51 PM</StartTime>
+    <StopTime>6:51 PM</StopTime>
+    <TimeWorked>PT3M5S</TimeWorked>
+    <Color>248,244,192</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>4</ID>
+    <Description>anothe etst</Description>
+    <StartTime>6:51 PM</StartTime>
+    <StopTime>6:51 PM</StopTime>
+    <TimeWorked>PT3M3S</TimeWorked>
+    <Color>255,255,255</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>5</ID>
+    <Description>split test</Description>
+    <StartTime>6:52 PM</StartTime>
+    <StopTime>6:53 PM</StopTime>
+    <TimeWorked>PT4M5S</TimeWorked>
+    <Color>182,252,105</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>6</ID>
+    <Description>test</Description>
+    <StartTime>8:08 PM</StartTime>
+    <StopTime>8:09 PM</StopTime>
+    <TimeWorked>PT4S</TimeWorked>
+    <Color>182,252,105</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>7</ID>
+    <Description>anoter etets</Description>
+    <StartTime>8:10 PM</StartTime>
+    <StopTime>8:10 PM</StopTime>
+    <TimeWorked>PT3M7S</TimeWorked>
+    <Color>255,255,255</Color>
+  </SplitsDataTable>
+</SplitsDataSet>

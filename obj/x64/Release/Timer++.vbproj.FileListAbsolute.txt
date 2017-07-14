@@ -24,7 +24,6 @@ C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\bin\x64\Release\Timer++.exe.Cod
 C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\bin\x64\Release\Timer++.exe.lastcodeanalysissucceeded
 C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\obj\x64\Release\Timer__.frm_aboutbox.resources
 C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\obj\x64\Release\Timer__.frm_help.resources
-C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\bin\x64\Release\Microsoft.WindowsAPICodePack.Shell.dll
 C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\bin\x64\Release\Microsoft.WindowsAPICodePack.dll
 C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\bin\x64\Release\Microsoft.WindowsAPICodePack.Shell.pdb
 C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\bin\x64\Release\Microsoft.WindowsAPICodePack.pdb

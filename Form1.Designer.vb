@@ -36,13 +36,12 @@ Partial Class frmMain
         Me.btnMinusTime = New System.Windows.Forms.Button()
         Me.btnAddTime = New System.Windows.Forms.Button()
         Me.SplitsDataTableDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewColorColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cmsSplitsGridView = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.highlight_voidout = New System.Windows.Forms.ToolStripMenuItem()
         Me.RemoveHighlightToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.TotalGroupTimeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SplitsDataTableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.SplitsDataSet = New Timer__.SplitsDataSet()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
@@ -74,19 +73,22 @@ Partial Class frmMain
         Me.btn_addtime10 = New System.Windows.Forms.Button()
         Me.btn_zerotime = New System.Windows.Forms.Button()
         Me.ColorPicker = New System.Windows.Forms.ColorDialog()
+        Me.QuickHighlightToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btnendsplit = New System.Windows.Forms.Button()
         Me.DataGridViewIDColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewDescriptionColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewStartTimeColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewStopTimeColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTimeWorkedColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewRecordedColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.DataGridViewColorColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SplitsDataTableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.SplitsDataSet = New Timer__.SplitsDataSet()
         CType(Me.SplitsDataTableDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.cmsSplitsGridView.SuspendLayout()
-        CType(Me.SplitsDataTableBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SplitsDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         Me.ssBottomMain.SuspendLayout()
+        CType(Me.SplitsDataTableBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SplitsDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lbltimertext
@@ -123,7 +125,7 @@ Partial Class frmMain
         Me.btnSplit.Font = New System.Drawing.Font("Segoe UI", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSplit.Location = New System.Drawing.Point(10, 368)
         Me.btnSplit.Name = "btnSplit"
-        Me.btnSplit.Size = New System.Drawing.Size(454, 48)
+        Me.btnSplit.Size = New System.Drawing.Size(369, 48)
         Me.btnSplit.TabIndex = 7
         Me.btnSplit.Text = "Split"
         Me.ToolTip.SetToolTip(Me.btnSplit, "Mark the current time in the split")
@@ -215,11 +217,19 @@ Partial Class frmMain
         Me.SplitsDataTableDataGridView.Size = New System.Drawing.Size(608, 276)
         Me.SplitsDataTableDataGridView.TabIndex = 16
         '
+        'DataGridViewColorColumn
+        '
+        Me.DataGridViewColorColumn.DataPropertyName = "Color"
+        Me.DataGridViewColorColumn.HeaderText = "Color"
+        Me.DataGridViewColorColumn.Name = "DataGridViewColorColumn"
+        Me.DataGridViewColorColumn.ReadOnly = True
+        Me.DataGridViewColorColumn.Visible = False
+        '
         'cmsSplitsGridView
         '
-        Me.cmsSplitsGridView.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.highlight_voidout, Me.RemoveHighlightToolStripMenuItem, Me.ToolStripSeparator2, Me.TotalGroupTimeToolStripMenuItem})
+        Me.cmsSplitsGridView.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.highlight_voidout, Me.RemoveHighlightToolStripMenuItem, Me.QuickHighlightToolStripMenuItem, Me.ToolStripSeparator2, Me.TotalGroupTimeToolStripMenuItem})
         Me.cmsSplitsGridView.Name = "cmsSplitsGridView"
-        Me.cmsSplitsGridView.Size = New System.Drawing.Size(171, 76)
+        Me.cmsSplitsGridView.Size = New System.Drawing.Size(171, 98)
         '
         'highlight_voidout
         '
@@ -244,16 +254,6 @@ Partial Class frmMain
         Me.TotalGroupTimeToolStripMenuItem.Name = "TotalGroupTimeToolStripMenuItem"
         Me.TotalGroupTimeToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
         Me.TotalGroupTimeToolStripMenuItem.Text = "Total Group Time"
-        '
-        'SplitsDataTableBindingSource
-        '
-        Me.SplitsDataTableBindingSource.DataMember = "SplitsDataTable"
-        Me.SplitsDataTableBindingSource.DataSource = Me.SplitsDataSet
-        '
-        'SplitsDataSet
-        '
-        Me.SplitsDataSet.DataSetName = "SplitsDataSet"
-        Me.SplitsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'MenuStrip1
         '
@@ -472,7 +472,26 @@ Partial Class frmMain
         '
         'ColorPicker
         '
+        Me.ColorPicker.Color = System.Drawing.Color.White
         Me.ColorPicker.SolidColorOnly = True
+        '
+        'QuickHighlightToolStripMenuItem
+        '
+        Me.QuickHighlightToolStripMenuItem.Name = "QuickHighlightToolStripMenuItem"
+        Me.QuickHighlightToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
+        Me.QuickHighlightToolStripMenuItem.Text = "Quick Highlight"
+        '
+        'btnendsplit
+        '
+        Me.btnendsplit.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.btnendsplit.Enabled = False
+        Me.btnendsplit.Font = New System.Drawing.Font("Segoe UI", 21.75!)
+        Me.btnendsplit.Location = New System.Drawing.Point(385, 368)
+        Me.btnendsplit.Name = "btnendsplit"
+        Me.btnendsplit.Size = New System.Drawing.Size(81, 48)
+        Me.btnendsplit.TabIndex = 22
+        Me.btnendsplit.Text = "End"
+        Me.btnendsplit.UseVisualStyleBackColor = True
         '
         'DataGridViewIDColumn
         '
@@ -537,19 +556,22 @@ Partial Class frmMain
         Me.DataGridViewRecordedColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridViewRecordedColumn.Width = 60
         '
-        'DataGridViewColorColumn
+        'SplitsDataTableBindingSource
         '
-        Me.DataGridViewColorColumn.DataPropertyName = "Color"
-        Me.DataGridViewColorColumn.HeaderText = "Color"
-        Me.DataGridViewColorColumn.Name = "DataGridViewColorColumn"
-        Me.DataGridViewColorColumn.ReadOnly = True
-        Me.DataGridViewColorColumn.Visible = False
+        Me.SplitsDataTableBindingSource.DataMember = "SplitsDataTable"
+        Me.SplitsDataTableBindingSource.DataSource = Me.SplitsDataSet
+        '
+        'SplitsDataSet
+        '
+        Me.SplitsDataSet.DataSetName = "SplitsDataSet"
+        Me.SplitsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(629, 441)
+        Me.Controls.Add(Me.btnendsplit)
         Me.Controls.Add(Me.btn_zerotime)
         Me.Controls.Add(Me.btn_addtime10)
         Me.Controls.Add(Me.ssBottomMain)
@@ -572,12 +594,12 @@ Partial Class frmMain
         Me.Text = "Timer++"
         CType(Me.SplitsDataTableDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.cmsSplitsGridView.ResumeLayout(False)
-        CType(Me.SplitsDataTableBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SplitsDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.ssBottomMain.ResumeLayout(False)
         Me.ssBottomMain.PerformLayout()
+        CType(Me.SplitsDataTableBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SplitsDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -638,4 +660,6 @@ Partial Class frmMain
     Friend WithEvents DataGridViewTimeWorkedColumn As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewRecordedColumn As DataGridViewCheckBoxColumn
     Friend WithEvents DataGridViewColorColumn As DataGridViewTextBoxColumn
+    Friend WithEvents QuickHighlightToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents btnendsplit As Button
 End Class
