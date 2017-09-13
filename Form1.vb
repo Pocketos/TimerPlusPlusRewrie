@@ -14,18 +14,16 @@ Public Class frmMain
     Private filename As String
 
     '///SETTIGS
-    Private EnablePause As Integer = 0
     Private EnableToolips As Integer = 1
     Private EnablemarkRecordedOnGroupTime As Integer = 1
-
-    Private splitwarningtime As Integer = 60
 
     '///FORM LOAD
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         datecheck()
 
         '////LOAD SETTINGS
-        SplitWarningToolStripMenuItem.ToolTipText = splitwarningtime & " Minutes"
+        EnableToolips = My.Settings.tooltips
+        EnablemarkRecordedOnGroupTime = My.Settings.markrecorded
 
         '/////Color picker custom colors. Use https://www.shodor.org/stella2java/rgbint.html as a reference
         ColorPicker.CustomColors = New Integer() {16698816, 12645624, 13104052, 1836924,
@@ -90,7 +88,7 @@ Public Class frmMain
                 txtdesc.Clear()
                 WriteHighlight(255, 255, 255)
                 Me.SplitsDataSet.WriteXml("Days\" & filename)
-                If EnablePause = 1 Then
+                If My.Settings.pausebutton = 1 Then
                     btnpause.Enabled = True
                 End If
                 lblwktm.BackColor = Control.DefaultBackColor
@@ -114,7 +112,7 @@ Public Class frmMain
                 lblwktm.Text = "00:00:00"
                 tmMain.Stop()
                 Me.SplitsDataSet.WriteXml("Days\" & filename)
-                If EnablePause = 1 Then
+                If My.Settings.pausebutton = 1 Then
                     btnpause.Enabled = True
                 End If
                 lblwktm.BackColor = Control.DefaultBackColor
@@ -136,14 +134,12 @@ Public Class frmMain
             txtdesc.Enabled = True
             btnSplit.Enabled = True
             lblwktm.Text = "00:00:00"
-            If EnablePause = 1 Then
+            If My.Settings.pausebutton = 1 Then
                 btnpause.Text = "Pause"
                 btnpause.Enabled = True
-                EnablePauseToolStripMenuItem.Checked = True
             End If
             Me.Icon = My.Resources.stopwatch
             btnpause.Enabled = False
-            EnablePauseToolStripMenuItem.Checked = False
             tsslLastSaved.Text = "File not yet saved"
             Try
                 splits = SplitsDataSet.SplitsDataTable.Rows(SplitsDataSet.SplitsDataTable.Rows.Count - 1).Item("ID") + 1
@@ -221,7 +217,7 @@ Public Class frmMain
         lblwktm.Text = time
 
         'Check if the timer has been running an exact multiple of 60 minutes.  If it has, create a message box to split now or continue.
-        If worktime Mod (splitwarningtime * 60) = 0 Then
+        If worktime Mod (My.Settings.warntime * 60) = 0 Then
             Me.Activate()
             lblwktm.BackColor = Color.Red
             Dim tmalertboxresult As Integer = MessageBox.Show("Create a new split?", "Work time exceeds 1 hour!", MessageBoxButtons.YesNo)
@@ -243,7 +239,7 @@ Public Class frmMain
     End Sub
 
     Private Sub checksplitwarning()
-        If splitwarningtime * 60 < worktime Then
+        If My.Settings.warntime * 60 < worktime Then
             lblwktm.BackColor = Color.Red
         Else
             lblwktm.BackColor = Control.DefaultBackColor
@@ -431,26 +427,6 @@ Public Class frmMain
         Highlight(Color.White)
     End Sub
 
-    Private Sub EnablePauseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnablePauseToolStripMenuItem.Click
-        If tmMain.Enabled = True Then
-            If EnablePause = 0 Then
-                EnablePauseToolStripMenuItem.Checked = True
-                EnablePause = 1
-                btnpause.Enabled = True
-            Else
-                If btnpause.Text = "Pause" Then
-                    EnablePauseToolStripMenuItem.Checked = False
-                    EnablePause = 0
-                    btnpause.Enabled = False
-                Else
-                    MsgBox("The pause button cannot be disabled while the timer is inactive", , My.Application.Info.AssemblyName.ToString)
-                End If
-            End If
-        Else
-            MsgBox("The pause button state cannot be changed while the timer is inactive", , My.Application.Info.AssemblyName.ToString)
-        End If
-    End Sub
-
     Private Sub OpenSplitLocationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpenSplitLocationToolStripMenuItem.Click
         Try
             Process.Start(My.Computer.FileSystem.CurrentDirectory & "\Days")
@@ -506,25 +482,6 @@ Public Class frmMain
         End If
     End Sub
 
-    Private Sub SplitWarningToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SplitWarningToolStripMenuItem.Click
-        Dim inputresult As Object
-        inputresult = InputBox("Please input a time in Minutes", "Running Split Warning", splitwarningtime)
-        If inputresult Is "" Then
-            splitwarningtime = 60
-            checksplitwarning()
-        Else
-            If inputresult = 1 Then
-                splitwarningtime = inputresult
-                SplitWarningToolStripMenuItem.ToolTipText = splitwarningtime & " Minute"
-                checksplitwarning()
-            Else
-                splitwarningtime = inputresult
-                SplitWarningToolStripMenuItem.ToolTipText = splitwarningtime & " Minutes"
-                checksplitwarning()
-            End If
-        End If
-    End Sub
-
     Private Sub EndSplitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EndSplitToolStripMenuItem.Click
         If tmMain.Enabled = True Then
             EndSplit()
@@ -558,5 +515,9 @@ Public Class frmMain
 
     Private Sub btnendsplit_Click(sender As Object, e As EventArgs) Handles btnendsplit.Click
         EndSplit()
+    End Sub
+
+    Private Sub SettingsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SettingsToolStripMenuItem.Click
+        settings.ShowDialog()
     End Sub
 End Class

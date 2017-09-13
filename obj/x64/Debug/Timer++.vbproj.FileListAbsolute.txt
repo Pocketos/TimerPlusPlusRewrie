@@ -43,3 +43,5 @@ C:\Users\Tyler\Source\GitHubRepo\TimerPlusPlusRewrite\obj\x64\Debug\Timer++.exe
 C:\Users\Tyler\Source\GitHubRepo\TimerPlusPlusRewrite\obj\x64\Debug\Timer++.xml
 C:\Users\Tyler\Source\GitHubRepo\TimerPlusPlusRewrite\obj\x64\Debug\Timer++.pdb
 C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\obj\x64\Debug\Timer__.frm_changetime.resources
+C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\obj\x64\Debug\Timer++.vbproj.CoreCompileInputs.cache
+C:\Users\Tyler\Source\Repos\TimerPlusPlusRewrite\obj\x64\Debug\Timer__.settings.resources
