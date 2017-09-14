@@ -54,10 +54,8 @@ Partial Class frmMain
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolTipsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MarkRecordedToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EditDBFileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SplitsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImportFromFileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -65,9 +63,6 @@ Partial Class frmMain
         Me.ClearSplitsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripSeparator()
         Me.TotalWorkTimeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ReviewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.OpenSplitLocationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EndSplitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -82,6 +77,7 @@ Partial Class frmMain
         Me.btn_zerotime = New System.Windows.Forms.Button()
         Me.ColorPicker = New System.Windows.Forms.ColorDialog()
         Me.btnendsplit = New System.Windows.Forms.Button()
+        Me.OpenSplitLocationToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.SplitsDataTableDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.cmsSplitsGridView.SuspendLayout()
         CType(Me.SplitsDataTableBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -345,49 +341,32 @@ Partial Class frmMain
         '
         'FileToolStripMenuItem
         '
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem3, Me.ExitToolStripMenuItem})
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem3, Me.EditDBFileToolStripMenuItem, Me.OpenSplitLocationToolStripMenuItem1, Me.ExitToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
         Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
         Me.FileToolStripMenuItem.Text = "File"
         '
         'ToolStripMenuItem3
         '
-        Me.ToolStripMenuItem3.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolTipsToolStripMenuItem, Me.MarkRecordedToolStripMenuItem, Me.SettingsToolStripMenuItem})
         Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
-        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(152, 22)
+        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(178, 22)
         Me.ToolStripMenuItem3.Text = "Settings"
-        '
-        'ToolTipsToolStripMenuItem
-        '
-        Me.ToolTipsToolStripMenuItem.Checked = True
-        Me.ToolTipsToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.ToolTipsToolStripMenuItem.Name = "ToolTipsToolStripMenuItem"
-        Me.ToolTipsToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
-        Me.ToolTipsToolStripMenuItem.Text = "Tool Tips"
-        '
-        'MarkRecordedToolStripMenuItem
-        '
-        Me.MarkRecordedToolStripMenuItem.Checked = True
-        Me.MarkRecordedToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.MarkRecordedToolStripMenuItem.Name = "MarkRecordedToolStripMenuItem"
-        Me.MarkRecordedToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
-        Me.MarkRecordedToolStripMenuItem.Text = "Mark Recorded"
-        '
-        'SettingsToolStripMenuItem
-        '
-        Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
-        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
-        Me.SettingsToolStripMenuItem.Text = "Settings"
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
+        '
+        'EditDBFileToolStripMenuItem
+        '
+        Me.EditDBFileToolStripMenuItem.Name = "EditDBFileToolStripMenuItem"
+        Me.EditDBFileToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
+        Me.EditDBFileToolStripMenuItem.Text = "Edit DB File"
         '
         'SplitsToolStripMenuItem
         '
-        Me.SplitsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImportToolStripMenuItem, Me.ImportFromFileToolStripMenuItem, Me.DeleteLastSplitToolStripMenuItem, Me.ClearSplitsToolStripMenuItem, Me.ToolStripMenuItem2, Me.TotalWorkTimeToolStripMenuItem, Me.ToolStripSeparator1, Me.ReviewToolStripMenuItem, Me.OpenSplitLocationToolStripMenuItem, Me.EndSplitToolStripMenuItem})
+        Me.SplitsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImportToolStripMenuItem, Me.ImportFromFileToolStripMenuItem, Me.DeleteLastSplitToolStripMenuItem, Me.ClearSplitsToolStripMenuItem, Me.EndSplitToolStripMenuItem, Me.ToolStripMenuItem2, Me.TotalWorkTimeToolStripMenuItem})
         Me.SplitsToolStripMenuItem.Name = "SplitsToolStripMenuItem"
         Me.SplitsToolStripMenuItem.Size = New System.Drawing.Size(47, 20)
         Me.SplitsToolStripMenuItem.Text = "Splits"
@@ -395,59 +374,42 @@ Partial Class frmMain
         'ImportToolStripMenuItem
         '
         Me.ImportToolStripMenuItem.Name = "ImportToolStripMenuItem"
-        Me.ImportToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
+        Me.ImportToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
         Me.ImportToolStripMenuItem.Text = "Import from Today"
         '
         'ImportFromFileToolStripMenuItem
         '
         Me.ImportFromFileToolStripMenuItem.Name = "ImportFromFileToolStripMenuItem"
-        Me.ImportFromFileToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
+        Me.ImportFromFileToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
         Me.ImportFromFileToolStripMenuItem.Text = "Import from File..."
         '
         'DeleteLastSplitToolStripMenuItem
         '
         Me.DeleteLastSplitToolStripMenuItem.Name = "DeleteLastSplitToolStripMenuItem"
-        Me.DeleteLastSplitToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
+        Me.DeleteLastSplitToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
         Me.DeleteLastSplitToolStripMenuItem.Text = "Delete last Row"
         '
         'ClearSplitsToolStripMenuItem
         '
         Me.ClearSplitsToolStripMenuItem.Name = "ClearSplitsToolStripMenuItem"
-        Me.ClearSplitsToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
+        Me.ClearSplitsToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
         Me.ClearSplitsToolStripMenuItem.Text = "Clear Splits"
         '
         'ToolStripMenuItem2
         '
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(175, 6)
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(171, 6)
         '
         'TotalWorkTimeToolStripMenuItem
         '
         Me.TotalWorkTimeToolStripMenuItem.Name = "TotalWorkTimeToolStripMenuItem"
-        Me.TotalWorkTimeToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
+        Me.TotalWorkTimeToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
         Me.TotalWorkTimeToolStripMenuItem.Text = "Total Work Time"
-        '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(175, 6)
-        '
-        'ReviewToolStripMenuItem
-        '
-        Me.ReviewToolStripMenuItem.Name = "ReviewToolStripMenuItem"
-        Me.ReviewToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
-        Me.ReviewToolStripMenuItem.Text = "Edit DB File"
-        '
-        'OpenSplitLocationToolStripMenuItem
-        '
-        Me.OpenSplitLocationToolStripMenuItem.Name = "OpenSplitLocationToolStripMenuItem"
-        Me.OpenSplitLocationToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
-        Me.OpenSplitLocationToolStripMenuItem.Text = "Open Split Location"
         '
         'EndSplitToolStripMenuItem
         '
         Me.EndSplitToolStripMenuItem.Name = "EndSplitToolStripMenuItem"
-        Me.EndSplitToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
+        Me.EndSplitToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
         Me.EndSplitToolStripMenuItem.Text = "End Split"
         '
         'HelpToolStripMenuItem1
@@ -460,13 +422,13 @@ Partial Class frmMain
         'HelpToolStripMenuItem
         '
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
-        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.HelpToolStripMenuItem.Text = "Guide"
         '
         'AboutToolStripMenuItem1
         '
         Me.AboutToolStripMenuItem1.Name = "AboutToolStripMenuItem1"
-        Me.AboutToolStripMenuItem1.Size = New System.Drawing.Size(107, 22)
+        Me.AboutToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
         Me.AboutToolStripMenuItem1.Text = "About"
         '
         'btnSave
@@ -559,6 +521,12 @@ Partial Class frmMain
         Me.btnendsplit.Text = "End"
         Me.btnendsplit.UseVisualStyleBackColor = True
         '
+        'OpenSplitLocationToolStripMenuItem1
+        '
+        Me.OpenSplitLocationToolStripMenuItem1.Name = "OpenSplitLocationToolStripMenuItem1"
+        Me.OpenSplitLocationToolStripMenuItem1.Size = New System.Drawing.Size(178, 22)
+        Me.OpenSplitLocationToolStripMenuItem1.Text = "Open Split Location"
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -615,7 +583,6 @@ Partial Class frmMain
     Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SplitsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ImportToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ReviewToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ClearSplitsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem2 As ToolStripSeparator
     Friend WithEvents ImportFromFileToolStripMenuItem As ToolStripMenuItem
@@ -627,16 +594,12 @@ Partial Class frmMain
     Friend WithEvents cmsSplitsGridView As ContextMenuStrip
     Friend WithEvents RemoveHighlightToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolTip As ToolTip
-    Friend WithEvents OpenSplitLocationToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem3 As ToolStripMenuItem
-    Friend WithEvents ToolTipsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents highlight_voidout As ToolStripMenuItem
     Friend WithEvents TotalWorkTimeToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
     Friend WithEvents HelpToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AboutToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents MarkRecordedToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents btn_addtime10 As Button
     Friend WithEvents btn_zerotime As Button
     Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
@@ -653,5 +616,6 @@ Partial Class frmMain
     Friend WithEvents DataGridViewColorColumn As DataGridViewTextBoxColumn
     Friend WithEvents QuickHighlightToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents btnendsplit As Button
-    Friend WithEvents SettingsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents EditDBFileToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents OpenSplitLocationToolStripMenuItem1 As ToolStripMenuItem
 End Class

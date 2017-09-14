@@ -101,6 +101,18 @@ Namespace My
                 Me("warntime") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("255, 128, 128")>  _
+        Public Property defaultcolor() As Global.System.Drawing.Color
+            Get
+                Return CType(Me("defaultcolor"),Global.System.Drawing.Color)
+            End Get
+            Set
+                Me("defaultcolor") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

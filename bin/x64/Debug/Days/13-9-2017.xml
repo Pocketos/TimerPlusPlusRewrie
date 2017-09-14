@@ -6,6 +6,66 @@
     <StartTime>12:48 AM</StartTime>
     <StopTime>12:49 AM</StopTime>
     <TimeWorked>PT17S</TimeWorked>
+    <Recorded>true</Recorded>
+    <Color>255,128,0</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>1</ID>
+    <Description>another eon</Description>
+    <StartTime>8:24 PM</StartTime>
+    <StopTime>8:24 PM</StopTime>
+    <TimeWorked>PT1S</TimeWorked>
+    <Recorded>true</Recorded>
+    <Color>255,128,0</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>2</ID>
+    <Description>test 3</Description>
+    <StartTime>8:24 PM</StartTime>
+    <StopTime>8:24 PM</StopTime>
+    <TimeWorked>PT20M4S</TimeWorked>
+    <Recorded>false</Recorded>
+    <Color>255,255,0</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>3</ID>
+    <Description>tertserdfs</Description>
+    <StartTime>8:24 PM</StartTime>
+    <StopTime>8:24 PM</StopTime>
+    <TimeWorked>PT4M4S</TimeWorked>
+    <Recorded>false</Recorded>
+    <Color>192,205,254</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>4</ID>
+    <Description>gcvgfg</Description>
+    <StartTime>8:24 PM</StartTime>
+    <StopTime>8:24 PM</StopTime>
+    <TimeWorked>PT8M2S</TimeWorked>
+    <Color>192,205,254</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>5</ID>
+    <Description>test</Description>
+    <StartTime>11:33 PM</StartTime>
+    <StopTime>11:35 PM</StopTime>
+    <TimeWorked>PT1M9S</TimeWorked>
+    <Color>255,255,255</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>6</ID>
+    <Description>test</Description>
+    <StartTime>11:57 PM</StartTime>
+    <StopTime>11:58 PM</StopTime>
+    <TimeWorked>PT34S</TimeWorked>
+    <Color>255,255,255</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>7</ID>
+    <Description>test</Description>
+    <StartTime>11:58 PM</StartTime>
+    <StopTime>11:58 PM</StopTime>
+    <TimeWorked>PT6S</TimeWorked>
     <Color>255,255,255</Color>
   </SplitsDataTable>
 </SplitsDataSet>

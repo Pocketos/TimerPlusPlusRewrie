@@ -13,17 +13,14 @@ Public Class frmMain
     Private worktime As Integer = 0
     Private filename As String
 
-    '///SETTIGS
-    Private EnableToolips As Integer = 1
-    Private EnablemarkRecordedOnGroupTime As Integer = 1
-
     '///FORM LOAD
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         datecheck()
 
         '////LOAD SETTINGS
-        EnableToolips = My.Settings.tooltips
-        EnablemarkRecordedOnGroupTime = My.Settings.markrecorded
+        ToolTip.Active = My.Settings.tooltips
+        ColorPicker.Color = My.Settings.defaultcolor
+        'btnpause.Enabled = My.Settings.pausebutton
 
         '/////Color picker custom colors. Use https://www.shodor.org/stella2java/rgbint.html as a reference
         ColorPicker.CustomColors = New Integer() {16698816, 12645624, 13104052, 1836924,
@@ -298,7 +295,7 @@ Public Class frmMain
                     Case Is = SearchColor
                         Try
                             combinedtime = combinedtime + TimeToSeconds(DataRow.Cells("DataGridViewTimeWorkedColumn").Value.ToString)
-                            If EnablemarkRecordedOnGroupTime = 1 Then
+                            If My.Settings.markrecorded = True Then
                                 DataRow.Cells("DataGridViewRecordedColumn").Value = 1
                             End If
                         Catch
@@ -383,10 +380,6 @@ Public Class frmMain
         Clear()
     End Sub
 
-    Private Sub ReviewToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReviewToolStripMenuItem.Click
-        System.Diagnostics.Process.Start(My.Computer.FileSystem.CurrentDirectory & "\Days\" & filename)
-    End Sub
-
     Private Sub AboutToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem1.Click
         frm_aboutbox.ShowDialog()
     End Sub
@@ -427,26 +420,6 @@ Public Class frmMain
         Highlight(Color.White)
     End Sub
 
-    Private Sub OpenSplitLocationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpenSplitLocationToolStripMenuItem.Click
-        Try
-            Process.Start(My.Computer.FileSystem.CurrentDirectory & "\Days")
-        Catch
-            MsgBox("Could not open the file path", 16, My.Application.Info.AssemblyName.ToString)
-        End Try
-    End Sub
-
-    Private Sub ToolTipsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ToolTipsToolStripMenuItem.Click
-        If EnableToolips = 1 Then
-            ToolTip.Active = False
-            ToolTipsToolStripMenuItem.Checked = False
-            EnableToolips = 0
-        Else
-            ToolTip.Active = True
-            ToolTipsToolStripMenuItem.Checked = True
-            EnableToolips = 1
-        End If
-    End Sub
-
     Private Sub TotalGroupTimeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TotalGroupTimeToolStripMenuItem.Click
         If SplitsDataTableDataGridView.SelectedCells.Count > 0 Then
             If (addtime(SplitsDataTableDataGridView.CurrentRow.Cells("DataGridViewColorColumn").Value)) > 0 Then
@@ -470,16 +443,6 @@ Public Class frmMain
 
     Private Sub HelpToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HelpToolStripMenuItem.Click
         frm_help.ShowDialog()
-    End Sub
-
-    Private Sub MarkRecordedToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MarkRecordedToolStripMenuItem.Click
-        If EnablemarkRecordedOnGroupTime = 1 Then
-            MarkRecordedToolStripMenuItem.Checked = False
-            EnablemarkRecordedOnGroupTime = 0
-        Else
-            MarkRecordedToolStripMenuItem.Checked = True
-            EnablemarkRecordedOnGroupTime = 1
-        End If
     End Sub
 
     Private Sub EndSplitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EndSplitToolStripMenuItem.Click
@@ -517,7 +480,19 @@ Public Class frmMain
         EndSplit()
     End Sub
 
-    Private Sub SettingsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SettingsToolStripMenuItem.Click
+    Private Sub ToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem3.Click
         settings.ShowDialog()
+    End Sub
+
+    Private Sub EditDBFileToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditDBFileToolStripMenuItem.Click
+        System.Diagnostics.Process.Start(My.Computer.FileSystem.CurrentDirectory & "\Days\" & filename)
+    End Sub
+
+    Private Sub OpenSplitLocationToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles OpenSplitLocationToolStripMenuItem1.Click
+        Try
+            Process.Start(My.Computer.FileSystem.CurrentDirectory & "\Days")
+        Catch
+            MsgBox("Could not open the file path", 16, My.Application.Info.AssemblyName.ToString)
+        End Try
     End Sub
 End Class

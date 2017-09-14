@@ -14,5 +14,8 @@
     <Setting Name="warntime" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">60</Value>
     </Setting>
+    <Setting Name="defaultcolor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">255, 128, 128</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

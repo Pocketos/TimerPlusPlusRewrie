@@ -22,6 +22,7 @@ Partial Class settings
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(settings))
         Me.lbl_setting_splitwarntime = New System.Windows.Forms.Label()
         Me.splitwarn_trackbar = New System.Windows.Forms.TrackBar()
         Me.btn_settings_save = New System.Windows.Forms.Button()
@@ -30,6 +31,7 @@ Partial Class settings
         Me.ckbx_recorded = New System.Windows.Forms.CheckBox()
         Me.grp_settings_general = New System.Windows.Forms.GroupBox()
         Me.lbl_settings_warn_track = New System.Windows.Forms.Label()
+        Me.btn_settings_defcolor = New System.Windows.Forms.Button()
         CType(Me.splitwarn_trackbar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grp_settings_general.SuspendLayout()
         Me.SuspendLayout()
@@ -56,7 +58,7 @@ Partial Class settings
         'btn_settings_save
         '
         Me.btn_settings_save.Image = Global.Timer__.My.Resources.Resources.save_bw
-        Me.btn_settings_save.Location = New System.Drawing.Point(180, 29)
+        Me.btn_settings_save.Location = New System.Drawing.Point(180, 21)
         Me.btn_settings_save.Name = "btn_settings_save"
         Me.btn_settings_save.Size = New System.Drawing.Size(92, 50)
         Me.btn_settings_save.TabIndex = 3
@@ -116,18 +118,33 @@ Partial Class settings
         Me.lbl_settings_warn_track.TabIndex = 8
         Me.lbl_settings_warn_track.Text = "0"
         '
+        'btn_settings_defcolor
+        '
+        Me.btn_settings_defcolor.Location = New System.Drawing.Point(180, 79)
+        Me.btn_settings_defcolor.Name = "btn_settings_defcolor"
+        Me.btn_settings_defcolor.Size = New System.Drawing.Size(91, 24)
+        Me.btn_settings_defcolor.TabIndex = 9
+        Me.btn_settings_defcolor.Text = "Default Color"
+        Me.btn_settings_defcolor.UseVisualStyleBackColor = True
+        '
         'settings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(280, 158)
+        Me.Controls.Add(Me.btn_settings_defcolor)
         Me.Controls.Add(Me.lbl_settings_warn_track)
         Me.Controls.Add(Me.grp_settings_general)
         Me.Controls.Add(Me.btn_settings_save)
         Me.Controls.Add(Me.splitwarn_trackbar)
         Me.Controls.Add(Me.lbl_setting_splitwarntime)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximumSize = New System.Drawing.Size(296, 197)
+        Me.MinimumSize = New System.Drawing.Size(296, 197)
         Me.Name = "settings"
-        Me.Text = "Timer Plus Plus Settings"
+        Me.ShowInTaskbar = False
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        Me.Text = "Timer++ Settings"
         CType(Me.splitwarn_trackbar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grp_settings_general.ResumeLayout(False)
         Me.grp_settings_general.PerformLayout()
@@ -143,4 +160,5 @@ Partial Class settings
     Friend WithEvents ckbx_recorded As CheckBox
     Friend WithEvents grp_settings_general As GroupBox
     Friend WithEvents lbl_settings_warn_track As Label
+    Friend WithEvents btn_settings_defcolor As Button
 End Class

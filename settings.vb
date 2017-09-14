@@ -5,6 +5,7 @@
         ckbx_recorded.Checked = My.Settings.markrecorded
         splitwarn_trackbar.Value = My.Settings.warntime
         lbl_settings_warn_track.Text = splitwarn_trackbar.Value
+        btn_settings_defcolor.BackColor = My.Settings.defaultcolor
     End Sub
 
     Private Sub btn_settings_save_Click(sender As Object, e As EventArgs) Handles btn_settings_save.Click
@@ -27,18 +28,37 @@
                 MsgBox("The pause button state cannot be changed while the timer is inactive", , My.Application.Info.AssemblyName.ToString)
             End If
         Else
-            My.Settings.pausebutton = False
+            If frmMain.btnpause.Text = "Pause" Then
+                My.Settings.pausebutton = False
+                frmMain.btnpause.Enabled = False
+            Else
+                MsgBox("The pause button cannot be disabled while the timer is inactive", , My.Application.Info.AssemblyName.ToString)
+                My.Settings.pausebutton = True
+            End If
         End If
 
         '///Tooltip
-        My.Settings.tooltips = ckbx_tooltips.Checked
+        If ckbx_tooltips.Checked = True Then
+            frmMain.ToolTip.Active = True
+            My.Settings.tooltips = True
+        Else
+            frmMain.ToolTip.Active = False
+            My.Settings.tooltips = False
+        End If
 
         '///Mark splits as recorded after adding group time
-        My.Settings.markrecorded = ckbx_recorded.Checked
+        If ckbx_recorded.Checked = True Then
+            My.Settings.markrecorded = True
+        Else
+            My.Settings.markrecorded = False
+        End If
 
         '///Split warning timer
         My.Settings.warntime = splitwarn_trackbar.Value
-        frmMain.SplitWarningToolStripMenuItem.ToolTipText = My.Settings.warntime & " Minute"
+
+        '///Color
+        My.Settings.defaultcolor = btn_settings_defcolor.BackColor
+        frmMain.ColorPicker.Color = My.Settings.defaultcolor
 
         '///Close the settings window
         Close()
@@ -46,5 +66,11 @@
 
     Private Sub splitwarn_trackbar_ValueChanged(sender As Object, e As EventArgs) Handles splitwarn_trackbar.Scroll
         lbl_settings_warn_track.Text = splitwarn_trackbar.Value
+    End Sub
+
+    Private Sub btn_settings_defcolor_Click(sender As Object, e As EventArgs) Handles btn_settings_defcolor.Click
+        If frmMain.ColorPicker.ShowDialog() = DialogResult.OK Then
+            btn_settings_defcolor.BackColor = frmMain.ColorPicker.Color
+        End If
     End Sub
 End Class
