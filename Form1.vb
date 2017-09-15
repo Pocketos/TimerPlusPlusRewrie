@@ -20,7 +20,7 @@ Public Class frmMain
         '////LOAD SETTINGS
         ToolTip.Active = My.Settings.tooltips
         ColorPicker.Color = My.Settings.defaultcolor
-        'btnpause.Enabled = My.Settings.pausebutton
+        btnpause.Enabled = My.Settings.pausebutton
 
         '/////Color picker custom colors. Use https://www.shodor.org/stella2java/rgbint.html as a reference
         ColorPicker.CustomColors = New Integer() {16698816, 12645624, 13104052, 1836924,
@@ -85,7 +85,7 @@ Public Class frmMain
                 txtdesc.Clear()
                 WriteHighlight(255, 255, 255)
                 Me.SplitsDataSet.WriteXml("Days\" & filename)
-                If My.Settings.pausebutton = 1 Then
+                If My.Settings.pausebutton = True Then
                     btnpause.Enabled = True
                 End If
                 lblwktm.BackColor = Control.DefaultBackColor
@@ -109,7 +109,7 @@ Public Class frmMain
                 lblwktm.Text = "00:00:00"
                 tmMain.Stop()
                 Me.SplitsDataSet.WriteXml("Days\" & filename)
-                If My.Settings.pausebutton = 1 Then
+                If My.Settings.pausebutton = True Then
                     btnpause.Enabled = True
                 End If
                 lblwktm.BackColor = Control.DefaultBackColor
@@ -131,7 +131,7 @@ Public Class frmMain
             txtdesc.Enabled = True
             btnSplit.Enabled = True
             lblwktm.Text = "00:00:00"
-            If My.Settings.pausebutton = 1 Then
+            If My.Settings.pausebutton = True Then
                 btnpause.Text = "Pause"
                 btnpause.Enabled = True
             End If
@@ -312,9 +312,22 @@ Public Class frmMain
         Throw New NotImplementedException()
     End Function
 
+    '///Total Group Time
+    Private Sub TotalGroupTime()
+        If SplitsDataTableDataGridView.SelectedCells.Count > 0 Then
+            If (addtime(SplitsDataTableDataGridView.CurrentRow.Cells("DataGridViewColorColumn").Value)) > 0 Then
+                tsslactionstatus.Text = SecondsToTime(addtime(SplitsDataTableDataGridView.CurrentRow.Cells("DataGridViewColorColumn").Value)).ToString
+            Else
+                MsgBox("Row is not a supported group type!", 16, My.Application.Info.AssemblyName.ToString)
+            End If
+        Else
+            MsgBox("No selected row", 16, My.Application.Info.AssemblyName.ToString)
+        End If
+    End Sub
+
     '///FORM CONTROLS
 
-    Private Sub btnpause_Click(sender As Object, e As EventArgs) Handles btnpause.Click
+    Private Sub Btnpause_Click(sender As Object, e As EventArgs) Handles btnpause.Click
         If tmMain.Enabled = True Then
             tmMain.Enabled = False
             lbltimertext.Text = "PAUSED"
@@ -322,10 +335,13 @@ Public Class frmMain
             txtdesc.Enabled = False
             btnSplit.Enabled = False
         Else
-            tmMain.Enabled = True
-            txtdesc.Enabled = True
-            btnSplit.Enabled = True
-            btnpause.Text = "Pause"
+            If btnpause.Text = "Pause" Then
+            Else
+                tmMain.Enabled = True
+                txtdesc.Enabled = True
+                btnSplit.Enabled = True
+                btnpause.Text = "Pause"
+            End If
         End If
     End Sub
 
@@ -333,11 +349,15 @@ Public Class frmMain
         Split()
     End Sub
 
-    Private Sub txtdesc_KeyDown(ByVal Sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtdesc.KeyDown
-        If e.KeyValue = Keys.Enter Then
-            e.SuppressKeyPress = True
-            Split()
-        Else
+    Private Sub Txtdesc_KeyDown(ByVal Sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtdesc.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            If (e.KeyCode And Not Keys.Modifiers) = Keys.Enter AndAlso e.Modifiers = Keys.Control Then
+                e.SuppressKeyPress = True
+                EndSplit()
+            Else
+                e.SuppressKeyPress = True
+                Split()
+            End If
         End If
     End Sub
 
@@ -421,15 +441,7 @@ Public Class frmMain
     End Sub
 
     Private Sub TotalGroupTimeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TotalGroupTimeToolStripMenuItem.Click
-        If SplitsDataTableDataGridView.SelectedCells.Count > 0 Then
-            If (addtime(SplitsDataTableDataGridView.CurrentRow.Cells("DataGridViewColorColumn").Value)) > 0 Then
-                tsslactionstatus.Text = SecondsToTime(addtime(SplitsDataTableDataGridView.CurrentRow.Cells("DataGridViewColorColumn").Value)).ToString
-            Else
-                MsgBox("Row is not a supported group type!", 16, My.Application.Info.AssemblyName.ToString)
-            End If
-        Else
-            MsgBox("No selected row", 16, My.Application.Info.AssemblyName.ToString)
-        End If
+        TotalGroupTime()
     End Sub
 
     Private Sub TotalWorkTimeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TotalWorkTimeToolStripMenuItem.Click
@@ -494,5 +506,9 @@ Public Class frmMain
         Catch
             MsgBox("Could not open the file path", 16, My.Application.Info.AssemblyName.ToString)
         End Try
+    End Sub
+
+    Private Sub TotalGroupTimeToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles TotalGroupTimeToolStripMenuItem1.Click
+        TotalGroupTime()
     End Sub
 End Class

@@ -1,2 +1,126 @@
 <?xml version="1.0" standalone="yes"?>
-<SplitsDataSet xmlns="http://tempuri.org/SplitsDataSet.xsd" />
+<SplitsDataSet xmlns="http://tempuri.org/SplitsDataSet.xsd">
+  <SplitsDataTable>
+    <ID>0</ID>
+    <Description>test</Description>
+    <StartTime>11:11 PM</StartTime>
+    <StopTime>11:11 PM</StopTime>
+    <TimeWorked>PT4S</TimeWorked>
+    <Color>255,255,255</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>1</ID>
+    <Description>test</Description>
+    <StartTime>11:11 PM</StartTime>
+    <StopTime>11:11 PM</StopTime>
+    <TimeWorked>PT4S</TimeWorked>
+    <Color>255,128,128</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>2</ID>
+    <Description />
+    <StartTime>11:11 PM</StartTime>
+    <StopTime>11:12 PM</StopTime>
+    <TimeWorked>PT9S</TimeWorked>
+    <Color>255,255,255</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>3</ID>
+    <Description>test</Description>
+    <StartTime>11:12 PM</StartTime>
+    <StopTime>11:12 PM</StopTime>
+    <TimeWorked>PT11S</TimeWorked>
+    <Recorded>false</Recorded>
+    <Color>192,205,254</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>4</ID>
+    <Description>eod</Description>
+    <StartTime>11:12 PM</StartTime>
+    <StopTime>11:12 PM</StopTime>
+    <TimeWorked>PT6S</TimeWorked>
+    <Recorded>false</Recorded>
+    <Color>192,205,254</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>5</ID>
+    <Description>test</Description>
+    <StartTime>11:12 PM</StartTime>
+    <StopTime>11:13 PM</StopTime>
+    <TimeWorked>PT7S</TimeWorked>
+    <Color>255,255,255</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>6</ID>
+    <Description>test</Description>
+    <StartTime>11:13 PM</StartTime>
+    <StopTime>11:13 PM</StopTime>
+    <TimeWorked>PT1S</TimeWorked>
+    <Recorded>false</Recorded>
+    <Color>182,252,105</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>7</ID>
+    <Description>test</Description>
+    <StartTime>11:14 PM</StartTime>
+    <StopTime>11:14 PM</StopTime>
+    <TimeWorked>PT2S</TimeWorked>
+    <Color>255,255,255</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>8</ID>
+    <Description>another one</Description>
+    <StartTime>11:15 PM</StartTime>
+    <StopTime>11:15 PM</StopTime>
+    <TimeWorked>PT11S</TimeWorked>
+    <Color>105,105,105</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>9</ID>
+    <Description>test</Description>
+    <StartTime>11:17 PM</StartTime>
+    <StopTime>11:17 PM</StopTime>
+    <TimeWorked>PT6S</TimeWorked>
+    <Color>255,255,255</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>10</ID>
+    <Description>test</Description>
+    <StartTime>11:17 PM</StartTime>
+    <StopTime>11:18 PM</StopTime>
+    <TimeWorked>PT11S</TimeWorked>
+    <Color>105,105,105</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>11</ID>
+    <Description>test</Description>
+    <StartTime>11:28 PM</StartTime>
+    <StopTime>11:28 PM</StopTime>
+    <TimeWorked>PT12M15S</TimeWorked>
+    <Color>255,255,255</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>12</ID>
+    <Description>another test</Description>
+    <StartTime>11:32 PM</StartTime>
+    <StopTime>11:32 PM</StopTime>
+    <TimeWorked>PT14S</TimeWorked>
+    <Color>255,255,255</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>13</ID>
+    <Description>test</Description>
+    <StartTime>11:44 PM</StartTime>
+    <StopTime>11:45 PM</StopTime>
+    <TimeWorked>PT1M3S</TimeWorked>
+    <Color>255,255,255</Color>
+  </SplitsDataTable>
+  <SplitsDataTable>
+    <ID>14</ID>
+    <Description />
+    <StartTime>11:45 PM</StartTime>
+    <StopTime>11:46 PM</StopTime>
+    <TimeWorked>PT11S</TimeWorked>
+    <Color>255,255,255</Color>
+  </SplitsDataTable>
+</SplitsDataSet>

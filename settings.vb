@@ -11,29 +11,14 @@
     Private Sub btn_settings_save_Click(sender As Object, e As EventArgs) Handles btn_settings_save.Click
         '///Pause button
         If ckbx_pause.Checked = True Then
-            If frmMain.tmMain.Enabled = True Then
-                If My.Settings.pausebutton = False Then
-                    My.Settings.pausebutton = True
-                    frmMain.btnpause.Enabled = True
-                Else
-                    If frmMain.btnpause.Text = "Pause" Then
-                        My.Settings.pausebutton = False
-                        frmMain.btnpause.Enabled = False
-                    Else
-                        MsgBox("The pause button cannot be disabled while the timer is inactive", , My.Application.Info.AssemblyName.ToString)
-                        My.Settings.pausebutton = False
-                    End If
-                End If
-            Else
-                MsgBox("The pause button state cannot be changed while the timer is inactive", , My.Application.Info.AssemblyName.ToString)
-            End If
+            frmMain.btnpause.Enabled = True
+            My.Settings.pausebutton = True
         Else
-            If frmMain.btnpause.Text = "Pause" Then
-                My.Settings.pausebutton = False
-                frmMain.btnpause.Enabled = False
+            If frmMain.btnpause.Text = "Resume" Then
+                MsgBox("Please unpause the timer before disabling the Pausae button!", , My.Application.Info.AssemblyName.ToString)
             Else
-                MsgBox("The pause button cannot be disabled while the timer is inactive", , My.Application.Info.AssemblyName.ToString)
-                My.Settings.pausebutton = True
+                frmMain.btnpause.Enabled = False
+                My.Settings.pausebutton = False
             End If
         End If
 
