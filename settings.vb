@@ -41,6 +41,12 @@
         '///Split warning timer
         My.Settings.warntime = splitwarn_trackbar.Value
 
+        If frmMain.worktime > (My.Settings.warntime * 60) Then
+            frmMain.lblwktm.BackColor = Color.Red
+        Else
+            frmMain.lblwktm.BackColor = SystemColors.Control
+        End If
+
         '///Color
         My.Settings.defaultcolor = btn_settings_defcolor.BackColor
         frmMain.ColorPicker.Color = My.Settings.defaultcolor

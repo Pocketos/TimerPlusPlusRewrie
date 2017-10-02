@@ -10,8 +10,9 @@ Public Class frmMain
     '///VARIABLES
     'Declare the muber of splits, recorded worktime, and the file name.
     Private splits As Integer = 0
-    Private worktime As Integer = 0
+    Public worktime As Integer = 0
     Private filename As String
+    Private alertshowing As Boolean = False
 
     '///FORM LOAD
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -213,14 +214,18 @@ Public Class frmMain
         Dim time = New TimeSpan(0, 0, worktime).ToString("c")
         lblwktm.Text = time
 
-        'Check if the timer has been running an exact multiple of 60 minutes.  If it has, create a message box to split now or continue.
+        'Check if the timer has been running an exact multiple of the set time.  If it has, create a message box to split now or continue.
         If worktime Mod (My.Settings.warntime * 60) = 0 Then
             Me.Activate()
             lblwktm.BackColor = Color.Red
-            Dim tmalertboxresult As Integer = MessageBox.Show("Create a new split?", "Work time exceeds 1 hour!", MessageBoxButtons.YesNo)
-            If tmalertboxresult = DialogResult.Yes Then
-                Split()
-                lblwktm.BackColor = Control.DefaultBackColor
+            If alertshowing = False Then
+                alertshowing = True
+                Dim tmalertboxresult As Integer = MessageBox.Show("Create a new split?", "Work time exceeds threshold!", MessageBoxButtons.YesNo)
+                If tmalertboxresult = DialogResult.Yes Then
+                    Split()
+                    lblwktm.BackColor = Control.DefaultBackColor
+                End If
+                alertshowing = False
             End If
         End If
     End Sub
