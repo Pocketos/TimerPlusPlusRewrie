@@ -22,15 +22,14 @@ Partial Class frm_aboutbox
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frm_aboutbox))
         Me.lblProductName = New System.Windows.Forms.Label()
         Me.lblVersion = New System.Windows.Forms.Label()
         Me.lblCompanyName = New System.Windows.Forms.Label()
         Me.lblCopyright = New System.Windows.Forms.Label()
         Me.panel_about_info = New System.Windows.Forms.Panel()
-        Me.RichTextBox_GNU = New System.Windows.Forms.RichTextBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.lblDesc = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.lnk_gnu = New System.Windows.Forms.LinkLabel()
         Me.panel_about_info.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -83,19 +82,17 @@ Partial Class frm_aboutbox
         Me.panel_about_info.Controls.Add(Me.lblVersion)
         Me.panel_about_info.Location = New System.Drawing.Point(70, 6)
         Me.panel_about_info.Name = "panel_about_info"
-        Me.panel_about_info.Size = New System.Drawing.Size(165, 66)
+        Me.panel_about_info.Size = New System.Drawing.Size(133, 66)
         Me.panel_about_info.TabIndex = 4
         '
-        'RichTextBox_GNU
+        'lblDesc
         '
-        Me.RichTextBox_GNU.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.RichTextBox_GNU.Location = New System.Drawing.Point(9, 78)
-        Me.RichTextBox_GNU.MaxLength = 0
-        Me.RichTextBox_GNU.Name = "RichTextBox_GNU"
-        Me.RichTextBox_GNU.ReadOnly = True
-        Me.RichTextBox_GNU.Size = New System.Drawing.Size(281, 93)
-        Me.RichTextBox_GNU.TabIndex = 5
-        Me.RichTextBox_GNU.Text = resources.GetString("RichTextBox_GNU.Text")
+        Me.lblDesc.AutoSize = True
+        Me.lblDesc.Location = New System.Drawing.Point(3, 53)
+        Me.lblDesc.Name = "lblDesc"
+        Me.lblDesc.Size = New System.Drawing.Size(60, 13)
+        Me.lblDesc.TabIndex = 4
+        Me.lblDesc.Text = "Description"
         '
         'PictureBox1
         '
@@ -107,22 +104,25 @@ Partial Class frm_aboutbox
         Me.PictureBox1.TabIndex = 6
         Me.PictureBox1.TabStop = False
         '
-        'lblDesc
+        'lnk_gnu
         '
-        Me.lblDesc.AutoSize = True
-        Me.lblDesc.Location = New System.Drawing.Point(3, 53)
-        Me.lblDesc.Name = "lblDesc"
-        Me.lblDesc.Size = New System.Drawing.Size(60, 13)
-        Me.lblDesc.TabIndex = 4
-        Me.lblDesc.Text = "Description"
+        Me.lnk_gnu.AutoSize = True
+        Me.lnk_gnu.LinkBehavior = System.Windows.Forms.LinkBehavior.AlwaysUnderline
+        Me.lnk_gnu.LinkColor = System.Drawing.SystemColors.HotTrack
+        Me.lnk_gnu.Location = New System.Drawing.Point(73, 75)
+        Me.lnk_gnu.Name = "lnk_gnu"
+        Me.lnk_gnu.Size = New System.Drawing.Size(103, 13)
+        Me.lnk_gnu.TabIndex = 7
+        Me.lnk_gnu.TabStop = True
+        Me.lnk_gnu.Text = "GNU Public License"
         '
         'frm_aboutbox
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(299, 180)
+        Me.ClientSize = New System.Drawing.Size(214, 106)
+        Me.Controls.Add(Me.lnk_gnu)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.RichTextBox_GNU)
         Me.Controls.Add(Me.panel_about_info)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
@@ -136,6 +136,7 @@ Partial Class frm_aboutbox
         Me.panel_about_info.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -144,7 +145,7 @@ Partial Class frm_aboutbox
     Friend WithEvents lblCompanyName As Label
     Friend WithEvents lblCopyright As Label
     Friend WithEvents panel_about_info As Panel
-    Friend WithEvents RichTextBox_GNU As RichTextBox
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents lblDesc As Label
+    Friend WithEvents lnk_gnu As LinkLabel
 End Class

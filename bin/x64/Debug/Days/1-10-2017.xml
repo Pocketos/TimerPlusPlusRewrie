@@ -14,7 +14,7 @@
     <StartTime>9:34 PM</StartTime>
     <StopTime>9:35 PM</StopTime>
     <TimeWorked>PT1M21S</TimeWorked>
-    <Color>255,255,255</Color>
+    <Color>255,128,128</Color>
   </SplitsDataTable>
   <SplitsDataTable>
     <ID>2</ID>
@@ -22,7 +22,8 @@
     <StartTime>9:41 PM</StartTime>
     <StopTime>9:43 PM</StopTime>
     <TimeWorked>PT3M37S</TimeWorked>
-    <Color>255,255,255</Color>
+    <Recorded>true</Recorded>
+    <Color>128,255,128</Color>
   </SplitsDataTable>
   <SplitsDataTable>
     <ID>3</ID>
@@ -30,7 +31,7 @@
     <StartTime>9:43 PM</StartTime>
     <StopTime>9:43 PM</StopTime>
     <TimeWorked>PT5S</TimeWorked>
-    <Color>255,255,255</Color>
+    <Color>255,255,0</Color>
   </SplitsDataTable>
   <SplitsDataTable>
     <ID>4</ID>
@@ -54,7 +55,8 @@
     <StartTime>10:08 PM</StartTime>
     <StopTime>10:18 PM</StopTime>
     <TimeWorked>PT10M12S</TimeWorked>
-    <Color>255,255,255</Color>
+    <Recorded>true</Recorded>
+    <Color>128,255,128</Color>
   </SplitsDataTable>
   <SplitsDataTable>
     <ID>7</ID>
@@ -62,7 +64,8 @@
     <StartTime>10:20 PM</StartTime>
     <StopTime>10:20 PM</StopTime>
     <TimeWorked>PT3S</TimeWorked>
-    <Color>255,255,255</Color>
+    <Recorded>true</Recorded>
+    <Color>128,255,128</Color>
   </SplitsDataTable>
   <SplitsDataTable>
     <ID>8</ID>

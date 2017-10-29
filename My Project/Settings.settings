@@ -15,13 +15,13 @@
       <Value Profile="(Default)">60</Value>
     </Setting>
     <Setting Name="defaultcolor" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">White</Value>
+      <Value Profile="(Default)">255, 128, 128</Value>
     </Setting>
     <Setting Name="quickcolor2" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">Yellow</Value>
     </Setting>
     <Setting Name="quickcolor3" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">255, 128, 128</Value>
+      <Value Profile="(Default)">128, 255, 128</Value>
     </Setting>
   </Settings>
 </SettingsFile>

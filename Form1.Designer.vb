@@ -46,6 +46,8 @@ Partial Class frmMain
         Me.cmsSplitsGridView = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.highlight_voidout = New System.Windows.Forms.ToolStripMenuItem()
         Me.QuickHighlightToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.QuickHighlightToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.QuickHighlightToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
         Me.RemoveHighlightToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.TotalGroupTimeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -79,8 +81,6 @@ Partial Class frmMain
         Me.btn_zerotime = New System.Windows.Forms.Button()
         Me.ColorPicker = New System.Windows.Forms.ColorDialog()
         Me.btnendsplit = New System.Windows.Forms.Button()
-        Me.QuickHighlightToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.QuickHighlightToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.SplitsDataTableDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.cmsSplitsGridView.SuspendLayout()
         CType(Me.SplitsDataTableBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -287,9 +287,9 @@ Partial Class frmMain
         '
         'cmsSplitsGridView
         '
-        Me.cmsSplitsGridView.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.highlight_voidout, Me.QuickHighlightToolStripMenuItem, Me.QuickHighlightToolStripMenuItem2, Me.QuickHighlightToolStripMenuItem3, Me.RemoveHighlightToolStripMenuItem, Me.ToolStripSeparator2, Me.TotalGroupTimeToolStripMenuItem})
+        Me.cmsSplitsGridView.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.QuickHighlightToolStripMenuItem, Me.QuickHighlightToolStripMenuItem2, Me.QuickHighlightToolStripMenuItem3, Me.highlight_voidout, Me.RemoveHighlightToolStripMenuItem, Me.ToolStripSeparator2, Me.TotalGroupTimeToolStripMenuItem})
         Me.cmsSplitsGridView.Name = "cmsSplitsGridView"
-        Me.cmsSplitsGridView.Size = New System.Drawing.Size(171, 164)
+        Me.cmsSplitsGridView.Size = New System.Drawing.Size(171, 142)
         '
         'highlight_voidout
         '
@@ -303,6 +303,18 @@ Partial Class frmMain
         Me.QuickHighlightToolStripMenuItem.Name = "QuickHighlightToolStripMenuItem"
         Me.QuickHighlightToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
         Me.QuickHighlightToolStripMenuItem.Text = "Quick Highlight 1"
+        '
+        'QuickHighlightToolStripMenuItem2
+        '
+        Me.QuickHighlightToolStripMenuItem2.Name = "QuickHighlightToolStripMenuItem2"
+        Me.QuickHighlightToolStripMenuItem2.Size = New System.Drawing.Size(170, 22)
+        Me.QuickHighlightToolStripMenuItem2.Text = "Quick Highlight 2"
+        '
+        'QuickHighlightToolStripMenuItem3
+        '
+        Me.QuickHighlightToolStripMenuItem3.Name = "QuickHighlightToolStripMenuItem3"
+        Me.QuickHighlightToolStripMenuItem3.Size = New System.Drawing.Size(170, 22)
+        Me.QuickHighlightToolStripMenuItem3.Text = "Quick Highlight 3"
         '
         'RemoveHighlightToolStripMenuItem
         '
@@ -534,18 +546,6 @@ Partial Class frmMain
         Me.btnendsplit.TabIndex = 22
         Me.btnendsplit.Text = "End"
         Me.btnendsplit.UseVisualStyleBackColor = True
-        '
-        'QuickHighlightToolStripMenuItem2
-        '
-        Me.QuickHighlightToolStripMenuItem2.Name = "QuickHighlightToolStripMenuItem2"
-        Me.QuickHighlightToolStripMenuItem2.Size = New System.Drawing.Size(170, 22)
-        Me.QuickHighlightToolStripMenuItem2.Text = "Quick Highlight 2"
-        '
-        'QuickHighlightToolStripMenuItem3
-        '
-        Me.QuickHighlightToolStripMenuItem3.Name = "QuickHighlightToolStripMenuItem3"
-        Me.QuickHighlightToolStripMenuItem3.Size = New System.Drawing.Size(170, 22)
-        Me.QuickHighlightToolStripMenuItem3.Text = "Quick Highlight 3"
         '
         'frmMain
         '
