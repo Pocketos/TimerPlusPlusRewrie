@@ -6,6 +6,8 @@
         splitwarn_trackbar.Value = My.Settings.warntime
         lbl_settings_warn_track.Text = splitwarn_trackbar.Value
         btn_settings_defcolor.BackColor = My.Settings.defaultcolor
+        btn_settings_quickcolor2.BackColor = My.Settings.quickcolor2
+        btn_settings_quickcolor3.BackColor = My.Settings.quickcolor3
     End Sub
 
     Private Sub btn_settings_save_Click(sender As Object, e As EventArgs) Handles btn_settings_save.Click
@@ -47,9 +49,14 @@
             frmMain.lblwktm.BackColor = SystemColors.Control
         End If
 
-        '///Color
+        '///Color for buttons
         My.Settings.defaultcolor = btn_settings_defcolor.BackColor
         frmMain.ColorPicker.Color = My.Settings.defaultcolor
+
+        My.Settings.quickcolor2 = btn_settings_quickcolor2.BackColor
+
+        My.Settings.quickcolor3 = btn_settings_quickcolor3.BackCOlor
+
 
         '///Close the settings window
         Close()
@@ -62,6 +69,18 @@
     Private Sub btn_settings_defcolor_Click(sender As Object, e As EventArgs) Handles btn_settings_defcolor.Click
         If frmMain.ColorPicker.ShowDialog() = DialogResult.OK Then
             btn_settings_defcolor.BackColor = frmMain.ColorPicker.Color
+        End If
+    End Sub
+
+    Private Sub btn_settings_quickcolor2_Click(sender As Object, e As EventArgs) Handles btn_settings_quickcolor2.Click
+        If frmMain.ColorPicker.ShowDialog() = DialogResult.OK Then
+            btn_settings_quickcolor2.BackColor = frmMain.ColorPicker.Color
+        End If
+    End Sub
+
+    Private Sub btn_settings_quickcolor3_Click(sender As Object, e As EventArgs) Handles btn_settings_quickcolor3.Click
+        If frmMain.ColorPicker.ShowDialog() = DialogResult.OK Then
+            btn_settings_quickcolor3.BackColor = frmMain.ColorPicker.Color
         End If
     End Sub
 End Class

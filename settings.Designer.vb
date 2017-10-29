@@ -32,6 +32,8 @@ Partial Class settings
         Me.grp_settings_general = New System.Windows.Forms.GroupBox()
         Me.lbl_settings_warn_track = New System.Windows.Forms.Label()
         Me.btn_settings_defcolor = New System.Windows.Forms.Button()
+        Me.btn_settings_quickcolor2 = New System.Windows.Forms.Button()
+        Me.btn_settings_quickcolor3 = New System.Windows.Forms.Button()
         CType(Me.splitwarn_trackbar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grp_settings_general.SuspendLayout()
         Me.SuspendLayout()
@@ -51,19 +53,18 @@ Partial Class settings
         Me.splitwarn_trackbar.Maximum = 120
         Me.splitwarn_trackbar.Minimum = 1
         Me.splitwarn_trackbar.Name = "splitwarn_trackbar"
-        Me.splitwarn_trackbar.Size = New System.Drawing.Size(260, 45)
+        Me.splitwarn_trackbar.Size = New System.Drawing.Size(209, 45)
         Me.splitwarn_trackbar.TabIndex = 2
+        Me.splitwarn_trackbar.TickFrequency = 5
         Me.splitwarn_trackbar.Value = 1
         '
         'btn_settings_save
         '
-        Me.btn_settings_save.Image = Global.Timer__.My.Resources.Resources.save_bw
-        Me.btn_settings_save.Location = New System.Drawing.Point(180, 21)
+        Me.btn_settings_save.Location = New System.Drawing.Point(227, 123)
         Me.btn_settings_save.Name = "btn_settings_save"
-        Me.btn_settings_save.Size = New System.Drawing.Size(92, 50)
+        Me.btn_settings_save.Size = New System.Drawing.Size(44, 28)
         Me.btn_settings_save.TabIndex = 3
         Me.btn_settings_save.Text = "Save"
-        Me.btn_settings_save.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btn_settings_save.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         Me.btn_settings_save.UseVisualStyleBackColor = True
         '
@@ -120,18 +121,38 @@ Partial Class settings
         '
         'btn_settings_defcolor
         '
-        Me.btn_settings_defcolor.Location = New System.Drawing.Point(180, 79)
+        Me.btn_settings_defcolor.Location = New System.Drawing.Point(181, 20)
         Me.btn_settings_defcolor.Name = "btn_settings_defcolor"
         Me.btn_settings_defcolor.Size = New System.Drawing.Size(91, 24)
         Me.btn_settings_defcolor.TabIndex = 9
-        Me.btn_settings_defcolor.Text = "Default Color"
+        Me.btn_settings_defcolor.Text = "Quick Color 1"
         Me.btn_settings_defcolor.UseVisualStyleBackColor = True
+        '
+        'btn_settings_quickcolor2
+        '
+        Me.btn_settings_quickcolor2.Location = New System.Drawing.Point(181, 50)
+        Me.btn_settings_quickcolor2.Name = "btn_settings_quickcolor2"
+        Me.btn_settings_quickcolor2.Size = New System.Drawing.Size(90, 23)
+        Me.btn_settings_quickcolor2.TabIndex = 10
+        Me.btn_settings_quickcolor2.Text = "Quick Color 2"
+        Me.btn_settings_quickcolor2.UseVisualStyleBackColor = True
+        '
+        'btn_settings_quickcolor3
+        '
+        Me.btn_settings_quickcolor3.Location = New System.Drawing.Point(181, 81)
+        Me.btn_settings_quickcolor3.Name = "btn_settings_quickcolor3"
+        Me.btn_settings_quickcolor3.Size = New System.Drawing.Size(90, 23)
+        Me.btn_settings_quickcolor3.TabIndex = 11
+        Me.btn_settings_quickcolor3.Text = "Quick Color 3"
+        Me.btn_settings_quickcolor3.UseVisualStyleBackColor = True
         '
         'settings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(280, 158)
+        Me.Controls.Add(Me.btn_settings_quickcolor3)
+        Me.Controls.Add(Me.btn_settings_quickcolor2)
         Me.Controls.Add(Me.btn_settings_defcolor)
         Me.Controls.Add(Me.lbl_settings_warn_track)
         Me.Controls.Add(Me.grp_settings_general)
@@ -161,4 +182,6 @@ Partial Class settings
     Friend WithEvents grp_settings_general As GroupBox
     Friend WithEvents lbl_settings_warn_track As Label
     Friend WithEvents btn_settings_defcolor As Button
+    Friend WithEvents btn_settings_quickcolor2 As Button
+    Friend WithEvents btn_settings_quickcolor3 As Button
 End Class

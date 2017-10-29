@@ -104,13 +104,37 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("255, 128, 128")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("White")>  _
         Public Property defaultcolor() As Global.System.Drawing.Color
             Get
                 Return CType(Me("defaultcolor"),Global.System.Drawing.Color)
             End Get
             Set
                 Me("defaultcolor") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Yellow")>  _
+        Public Property quickcolor2() As Global.System.Drawing.Color
+            Get
+                Return CType(Me("quickcolor2"),Global.System.Drawing.Color)
+            End Get
+            Set
+                Me("quickcolor2") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("255, 128, 128")>  _
+        Public Property quickcolor3() As Global.System.Drawing.Color
+            Get
+                Return CType(Me("quickcolor3"),Global.System.Drawing.Color)
+            End Get
+            Set
+                Me("quickcolor3") = value
             End Set
         End Property
     End Class
