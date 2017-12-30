@@ -34,6 +34,7 @@ Partial Class settings
         Me.btn_settings_defcolor = New System.Windows.Forms.Button()
         Me.btn_settings_quickcolor2 = New System.Windows.Forms.Button()
         Me.btn_settings_quickcolor3 = New System.Windows.Forms.Button()
+        Me.btn_settings_quickcolor1 = New System.Windows.Forms.Button()
         CType(Me.splitwarn_trackbar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grp_settings_general.SuspendLayout()
         Me.SuspendLayout()
@@ -123,34 +124,44 @@ Partial Class settings
         '
         Me.btn_settings_defcolor.Location = New System.Drawing.Point(181, 20)
         Me.btn_settings_defcolor.Name = "btn_settings_defcolor"
-        Me.btn_settings_defcolor.Size = New System.Drawing.Size(91, 24)
+        Me.btn_settings_defcolor.Size = New System.Drawing.Size(90, 24)
         Me.btn_settings_defcolor.TabIndex = 9
-        Me.btn_settings_defcolor.Text = "Quick Color 1"
+        Me.btn_settings_defcolor.Text = "Default"
         Me.btn_settings_defcolor.UseVisualStyleBackColor = True
         '
         'btn_settings_quickcolor2
         '
-        Me.btn_settings_quickcolor2.Location = New System.Drawing.Point(181, 50)
+        Me.btn_settings_quickcolor2.Location = New System.Drawing.Point(227, 52)
         Me.btn_settings_quickcolor2.Name = "btn_settings_quickcolor2"
-        Me.btn_settings_quickcolor2.Size = New System.Drawing.Size(90, 23)
+        Me.btn_settings_quickcolor2.Size = New System.Drawing.Size(44, 23)
         Me.btn_settings_quickcolor2.TabIndex = 10
-        Me.btn_settings_quickcolor2.Text = "Quick Color 2"
+        Me.btn_settings_quickcolor2.Text = "2"
         Me.btn_settings_quickcolor2.UseVisualStyleBackColor = True
         '
         'btn_settings_quickcolor3
         '
         Me.btn_settings_quickcolor3.Location = New System.Drawing.Point(181, 81)
         Me.btn_settings_quickcolor3.Name = "btn_settings_quickcolor3"
-        Me.btn_settings_quickcolor3.Size = New System.Drawing.Size(90, 23)
+        Me.btn_settings_quickcolor3.Size = New System.Drawing.Size(40, 23)
         Me.btn_settings_quickcolor3.TabIndex = 11
-        Me.btn_settings_quickcolor3.Text = "Quick Color 3"
+        Me.btn_settings_quickcolor3.Text = "3"
         Me.btn_settings_quickcolor3.UseVisualStyleBackColor = True
+        '
+        'btn_settings_quickcolor1
+        '
+        Me.btn_settings_quickcolor1.Location = New System.Drawing.Point(180, 52)
+        Me.btn_settings_quickcolor1.Name = "btn_settings_quickcolor1"
+        Me.btn_settings_quickcolor1.Size = New System.Drawing.Size(40, 23)
+        Me.btn_settings_quickcolor1.TabIndex = 12
+        Me.btn_settings_quickcolor1.Text = "1"
+        Me.btn_settings_quickcolor1.UseVisualStyleBackColor = True
         '
         'settings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(280, 158)
+        Me.Controls.Add(Me.btn_settings_quickcolor1)
         Me.Controls.Add(Me.btn_settings_quickcolor3)
         Me.Controls.Add(Me.btn_settings_quickcolor2)
         Me.Controls.Add(Me.btn_settings_defcolor)
@@ -184,4 +195,5 @@ Partial Class settings
     Friend WithEvents btn_settings_defcolor As Button
     Friend WithEvents btn_settings_quickcolor2 As Button
     Friend WithEvents btn_settings_quickcolor3 As Button
+    Friend WithEvents btn_settings_quickcolor1 As Button
 End Class

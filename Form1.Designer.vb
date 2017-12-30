@@ -44,10 +44,10 @@ Partial Class frmMain
         Me.DataGridViewRecordedColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.DataGridViewColorColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cmsSplitsGridView = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.highlight_voidout = New System.Windows.Forms.ToolStripMenuItem()
         Me.QuickHighlightToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.QuickHighlightToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.QuickHighlightToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.highlight_voidout = New System.Windows.Forms.ToolStripMenuItem()
         Me.RemoveHighlightToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.TotalGroupTimeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -81,6 +81,7 @@ Partial Class frmMain
         Me.btn_zerotime = New System.Windows.Forms.Button()
         Me.ColorPicker = New System.Windows.Forms.ColorDialog()
         Me.btnendsplit = New System.Windows.Forms.Button()
+        Me.LastHighlightToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.SplitsDataTableDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.cmsSplitsGridView.SuspendLayout()
         CType(Me.SplitsDataTableBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -287,16 +288,9 @@ Partial Class frmMain
         '
         'cmsSplitsGridView
         '
-        Me.cmsSplitsGridView.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.QuickHighlightToolStripMenuItem, Me.QuickHighlightToolStripMenuItem2, Me.QuickHighlightToolStripMenuItem3, Me.highlight_voidout, Me.RemoveHighlightToolStripMenuItem, Me.ToolStripSeparator2, Me.TotalGroupTimeToolStripMenuItem})
+        Me.cmsSplitsGridView.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LastHighlightToolStripMenuItem, Me.QuickHighlightToolStripMenuItem, Me.QuickHighlightToolStripMenuItem2, Me.QuickHighlightToolStripMenuItem3, Me.highlight_voidout, Me.RemoveHighlightToolStripMenuItem, Me.ToolStripSeparator2, Me.TotalGroupTimeToolStripMenuItem})
         Me.cmsSplitsGridView.Name = "cmsSplitsGridView"
-        Me.cmsSplitsGridView.Size = New System.Drawing.Size(171, 142)
-        '
-        'highlight_voidout
-        '
-        Me.highlight_voidout.BackColor = System.Drawing.Color.DimGray
-        Me.highlight_voidout.Name = "highlight_voidout"
-        Me.highlight_voidout.Size = New System.Drawing.Size(170, 22)
-        Me.highlight_voidout.Text = "Void Out"
+        Me.cmsSplitsGridView.Size = New System.Drawing.Size(171, 164)
         '
         'QuickHighlightToolStripMenuItem
         '
@@ -315,6 +309,13 @@ Partial Class frmMain
         Me.QuickHighlightToolStripMenuItem3.Name = "QuickHighlightToolStripMenuItem3"
         Me.QuickHighlightToolStripMenuItem3.Size = New System.Drawing.Size(170, 22)
         Me.QuickHighlightToolStripMenuItem3.Text = "Quick Highlight 3"
+        '
+        'highlight_voidout
+        '
+        Me.highlight_voidout.BackColor = System.Drawing.Color.DimGray
+        Me.highlight_voidout.Name = "highlight_voidout"
+        Me.highlight_voidout.Size = New System.Drawing.Size(170, 22)
+        Me.highlight_voidout.Text = "Void Out"
         '
         'RemoveHighlightToolStripMenuItem
         '
@@ -547,6 +548,12 @@ Partial Class frmMain
         Me.btnendsplit.Text = "End"
         Me.btnendsplit.UseVisualStyleBackColor = True
         '
+        'LastHighlightToolStripMenuItem
+        '
+        Me.LastHighlightToolStripMenuItem.Name = "LastHighlightToolStripMenuItem"
+        Me.LastHighlightToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
+        Me.LastHighlightToolStripMenuItem.Text = "Last Highlight"
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -641,4 +648,5 @@ Partial Class frmMain
     Friend WithEvents TotalGroupTimeToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents QuickHighlightToolStripMenuItem2 As ToolStripMenuItem
     Friend WithEvents QuickHighlightToolStripMenuItem3 As ToolStripMenuItem
+    Friend WithEvents LastHighlightToolStripMenuItem As ToolStripMenuItem
 End Class

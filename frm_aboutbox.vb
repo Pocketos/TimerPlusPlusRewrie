@@ -19,10 +19,6 @@
         lnk_gnu.Links.Add(0, 18, "https://www.gnu.org/licenses/gpl-3.0.txt")
     End Sub
 
-    Private Sub OKButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        Me.Close()
-    End Sub
-
     Private Sub RichTextBox_GNU_Link_Clicked(sender As Object, e As System.Windows.Forms.LinkClickedEventArgs)
         System.Diagnostics.Process.Start(e.LinkText)
     End Sub

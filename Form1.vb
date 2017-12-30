@@ -486,8 +486,12 @@ Public Class frmMain
     End Sub
 
     '////Quick Highlight controls
-    Private Sub QuickHighlightToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QuickHighlightToolStripMenuItem.Click
+    Private Sub LastHighlightToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LastHighlightToolStripMenuItem.Click
         Highlight(ColorPicker.Color)
+    End Sub
+
+    Private Sub QuickHighlightToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QuickHighlightToolStripMenuItem.Click
+        Highlight(My.Settings.quickcolor1)
     End Sub
 
     Private Sub QuickHighlightToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles QuickHighlightToolStripMenuItem2.Click
@@ -499,7 +503,8 @@ Public Class frmMain
     End Sub
 
     Private Sub cmsSplitsGridView_Opening(sender As Object, e As CancelEventArgs) Handles cmsSplitsGridView.Opening
-        QuickHighlightToolStripMenuItem.BackColor = ColorPicker.Color
+        LastHighlightToolStripMenuItem.BackColor = ColorPicker.Color
+        QuickHighlightToolStripMenuItem.BackColor = My.Settings.quickcolor1
         QuickHighlightToolStripMenuItem2.BackColor = My.Settings.quickcolor2
         QuickHighlightToolStripMenuItem3.BackColor = My.Settings.quickcolor3
     End Sub

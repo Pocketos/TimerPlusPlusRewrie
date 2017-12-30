@@ -137,6 +137,18 @@ Namespace My
                 Me("quickcolor3") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("128, 255, 255")>  _
+        Public Property quickcolor1() As Global.System.Drawing.Color
+            Get
+                Return CType(Me("quickcolor1"),Global.System.Drawing.Color)
+            End Get
+            Set
+                Me("quickcolor1") = value
+            End Set
+        End Property
     End Class
 End Namespace
 
