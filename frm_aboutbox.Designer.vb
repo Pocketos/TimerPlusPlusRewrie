@@ -75,6 +75,7 @@ Partial Class frm_aboutbox
         '
         'panel_about_info
         '
+        Me.panel_about_info.Controls.Add(Me.lnk_gnu)
         Me.panel_about_info.Controls.Add(Me.lblDesc)
         Me.panel_about_info.Controls.Add(Me.lblProductName)
         Me.panel_about_info.Controls.Add(Me.lblCompanyName)
@@ -82,13 +83,13 @@ Partial Class frm_aboutbox
         Me.panel_about_info.Controls.Add(Me.lblVersion)
         Me.panel_about_info.Location = New System.Drawing.Point(70, 6)
         Me.panel_about_info.Name = "panel_about_info"
-        Me.panel_about_info.Size = New System.Drawing.Size(133, 66)
+        Me.panel_about_info.Size = New System.Drawing.Size(133, 91)
         Me.panel_about_info.TabIndex = 4
         '
         'lblDesc
         '
         Me.lblDesc.AutoSize = True
-        Me.lblDesc.Location = New System.Drawing.Point(3, 53)
+        Me.lblDesc.Location = New System.Drawing.Point(3, 57)
         Me.lblDesc.Name = "lblDesc"
         Me.lblDesc.Size = New System.Drawing.Size(60, 13)
         Me.lblDesc.TabIndex = 4
@@ -109,7 +110,7 @@ Partial Class frm_aboutbox
         Me.lnk_gnu.AutoSize = True
         Me.lnk_gnu.LinkBehavior = System.Windows.Forms.LinkBehavior.AlwaysUnderline
         Me.lnk_gnu.LinkColor = System.Drawing.SystemColors.HotTrack
-        Me.lnk_gnu.Location = New System.Drawing.Point(73, 75)
+        Me.lnk_gnu.Location = New System.Drawing.Point(3, 73)
         Me.lnk_gnu.Name = "lnk_gnu"
         Me.lnk_gnu.Size = New System.Drawing.Size(103, 13)
         Me.lnk_gnu.TabIndex = 7
@@ -121,7 +122,6 @@ Partial Class frm_aboutbox
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(214, 106)
-        Me.Controls.Add(Me.lnk_gnu)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.panel_about_info)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
@@ -136,7 +136,6 @@ Partial Class frm_aboutbox
         Me.panel_about_info.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 

@@ -15,12 +15,7 @@
         Me.lblCopyright.Text = My.Application.Info.Copyright
         Me.lblCompanyName.Text = My.Application.Info.CompanyName
         Me.lblDesc.Text = My.Application.Info.Description
-        'Add the license link
-        lnk_gnu.Links.Add(0, 18, "https://www.gnu.org/licenses/gpl-3.0.txt")
-    End Sub
 
-    Private Sub RichTextBox_GNU_Link_Clicked(sender As Object, e As System.Windows.Forms.LinkClickedEventArgs)
-        System.Diagnostics.Process.Start(e.LinkText)
     End Sub
 
     Private Sub lblCompanyName_Click(sender As Object, e As EventArgs) Handles lblCompanyName.Click
@@ -28,6 +23,6 @@
     End Sub
 
     Private Sub lnk_gnu_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnk_gnu.LinkClicked
-        System.Diagnostics.Process.Start(e.Link.LinkData.ToString())
+        System.Diagnostics.Process.Start("https://www.gnu.org/licenses/gpl-3.0.txt")
     End Sub
 End Class
